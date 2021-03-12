@@ -1,6 +1,7 @@
 upravljanje oglasnom tablom <-ext-< upravljanje javnim obastenjima
 
 pregledi nisu crud jer zahtevaju vise operacija uz to, npr obavestenja, ali upravljanje pacijentima jeste crud jer nista nema osim toga
+cak i moze samo jedan use case, samo se za gosta ne puni toliko informacija
 
 hitni mogu da se zakazu i za regist i za nereg pacijenta, ne moze pacijent sam da zakaze hitan pregled, nego da to radi sekretar, verovatno se cuje sa pacijentom, hitan se zakazuje u sto brzem roku, i gleda se u kojoj oblasti treba da bude, sistem sam nalazi termin koji zadovoljava te uslove
 ako se ne nadje termin (to je alternativni tok), druge operacije koje su u tom terminu a nisu hitne se premestaju, i to se odlaze ona koja ima najblize rezakazivanje (to radi sekretar, radi sa tim prioritetom)
@@ -9,3 +10,10 @@ ako se ne nadje termin (to je alternativni tok), druge operacije koje su u tom t
 prioritet za lekara opste prakse ili za termin, verovatno da se pita pacijent pri kreiranju pregleda na sistemu
 
 za admina samo use case, ne implementacija
+
+kada se kreira npr pacijent, da sistem automatski uploaduje informacije na cloud, da li to treba da bude zadatak admina ili sistema
+
+treba da ima pregled svih dogadjaja u bolnici, pregleda, pomeranja
+dakle da ima uvid u dogadjaje u sistemu, da otvori i da ih vidi, da npr generise izvestaj na osnovu toga, da prikaze neke sumnjive korisnike koji otkazuju stalno, slobodni smo da izmisljamo za ovo, uvid u bazu, mozda periodican upload na cloud
+
+ako se nesto extenduje ili includuje, to ce biti jedan od koraka u specifikaciji (extension points)
