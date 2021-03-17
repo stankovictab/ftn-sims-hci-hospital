@@ -7,6 +7,7 @@
 		<Model Expanded="Yes" ID="{AE93459F-43C6-4928-8CED-3903A9316E06}" Loaded="No" Name="TestModel" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="SekretarAdmin.oom"/>
 		<Model Expanded="Yes" ID="{AE93459F-43C6-4928-8CED-3903A9316E06}" Loaded="No" Name="TestModel" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="SekretarAdmin.oom"/>
 		<Model Expanded="Yes" ID="{AE93459F-43C6-4928-8CED-3903A9316E06}" Loaded="No" Name="TestModel" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="SekretarAdmin.oom"/>
+		<Model Expanded="Yes" ID="{AE93459F-43C6-4928-8CED-3903A9316E06}" Loaded="No" Name="TestModel" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="SekretarAdmin.oom"/>
 		<Model Expanded="Yes" ID="{AE93459F-43C6-4928-8CED-3903A9316E06}" Name="TestModel" Selected="Yes" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="SekretarAdmin.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
