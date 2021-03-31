@@ -20,7 +20,7 @@ namespace Classes
       
       public Room GetById(String id)
       {
-         // TODO: implement
+         //gde si sta ima
          return null;
       }
       

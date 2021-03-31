@@ -137,6 +137,12 @@ namespace ftn_sims_hci_hospital {
             #line default
             #line hidden
             return;
+            case 2:
+            this.btde = ((System.Windows.Controls.Button)(target));
+            return;
+            case 3:
+            this.bts = ((System.Windows.Controls.Button)(target));
+            return;
             case 4:
             this.btm = ((System.Windows.Controls.Button)(target));
             return;
