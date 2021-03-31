@@ -15,7 +15,7 @@ namespace Classes
       public Boolean Create(Doctor d)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Doctor GetByID(String id)
@@ -27,19 +27,19 @@ namespace Classes
       public Boolean Update(Doctor d)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean UpdateAll(List<Doctor> dif)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean Delete(String id)
       {
          // TODO: implement
-         return null;
+         return false;
       }
    
       private String FileLocation;

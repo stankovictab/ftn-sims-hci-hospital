@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PatientManagement.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PatientManagement : Window
     {
-        public MainWindow()
+        public PatientManagement()
         {
             InitializeComponent();
-        }
-
-        private void bts_Click(object sender, RoutedEventArgs e)
-        {
-            Window secretaryWindow = new Secretary();
-            this.Hide();
-            secretaryWindow.ShowDialog();
-            this.Show();
         }
     }
 }

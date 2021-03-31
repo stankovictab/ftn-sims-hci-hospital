@@ -29,13 +29,13 @@ namespace Classes
         public Boolean UpdateAppointment()
         {
             // TODO: implement
-            return null;
+            return false;
         }
 
         public Boolean CancelAppointment()
         {
             // TODO: implement
-            return null;
+            return false;
         }
     }
 }

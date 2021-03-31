@@ -15,7 +15,7 @@ namespace Classes
       public Boolean Create(Secretary s)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Secretary GetByID(String id)
@@ -26,20 +26,20 @@ namespace Classes
       
       public Boolean Update(Secretary s)
       {
-         // TODO: implement
-         return null;
+            // TODO: implement
+            return false;
       }
       
       public Boolean UpdateAll(List<Secretary> sif)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean Delete(String id)
       {
          // TODO: implement
-         return null;
+         return false;
       }
    
       private String FileLocation;

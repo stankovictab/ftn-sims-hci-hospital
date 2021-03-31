@@ -15,7 +15,7 @@ namespace Classes
       public Boolean Create(Room room)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Room GetById(String id)
@@ -33,19 +33,19 @@ namespace Classes
       public Boolean Update(Room room)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean UpdateAll(List<Room> rif)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean Delete(String id)
       {
          // TODO: implement
-         return null;
+         return false;
       }
    
       private String FileLocation;
