@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AllAppointments.xaml.cs">
+      <DependentUpon>AllAppointments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\HolidayRequest.cs" />
     <Compile Include="Classes\HolidayRequestFileStorage.cs" />
@@ -98,6 +101,14 @@
     <Compile Include="Secretary.xaml.cs">
       <DependentUpon>Secretary.xaml</DependentUpon>
     </Compile>
+    <Page Include="AllAppointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,6 +125,8 @@
     </Compile>
     <Compile Include="HolidayRequestUpdate.xaml.cs">
       <DependentUpon>HolidayRequestUpdate.xaml</DependentUpon>
+    <Compile Include="CreateAppointment.xaml.cs">
+      <DependentUpon>CreateAppointment.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -132,6 +145,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary.xaml">
+    <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,6 +158,9 @@
     <Compile Include="Classes\AppointmentFileStorage.cs" />
     <Compile Include="Classes\AppointmentType.cs" />
     <Compile Include="Classes\MedicalRecord.cs" />
+    <Compile Include="PatientWindow.xaml.cs">
+      <DependentUpon>PatientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

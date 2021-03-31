@@ -49,7 +49,7 @@ namespace Classes {
                 DateTime endDate = Convert.ToDateTime(components[3]);
                 // Loadovanje lekara u memoriju da bi im pristupili
                 DoctorFileStorage dfs = new DoctorFileStorage();
-                dfs.DoctorsInFile1 = dfs.GetAll(); 
+                dfs.DoctorsInFile1 = dfs.GetAll();
                 // Mora prvo GetAll pa onda GetByID jer ByID trazi u vec ucitanoj listi u memoriji, ne po fajlu, isto kao u ovoj klasi
                 Doctor doctor = dfs.GetByID(components[4]);
                 HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, doctor);
@@ -97,7 +97,7 @@ namespace Classes {
             } else {
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (HolidayRequest item in hrif) {
-                    tw.WriteLine(item.RequestID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.doctor.user.Jmbg1); 
+                    tw.WriteLine(item.RequestID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.doctor.user.Jmbg1);
                     // Mozda i item.RequestDate1 i item.Status1?
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok
                 }

@@ -15,6 +15,8 @@ namespace Classes {
             this.holidayRequests = holidayRequests;
         }
 
+
+
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetHolidayRequests() {
             if (holidayRequests == null)
