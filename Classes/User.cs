@@ -15,19 +15,19 @@ namespace Classes
         public Boolean Login()
         {
             // TODO: implement
-            return null;
+            return false;
         }
 
         public Boolean Logout()
         {
             // TODO: implement
-            return null;
+            return false;
         }
 
         public Boolean DeleteAccount()
         {
             // TODO: implement
-            return null;
+            return false;
         }
 
         private String Name;

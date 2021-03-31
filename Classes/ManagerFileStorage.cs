@@ -14,7 +14,7 @@ namespace Classes
       public Boolean Create(Manager m)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Manager GetByID(String id)
@@ -26,19 +26,19 @@ namespace Classes
       public Boolean Update(Manager m)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean UpdateAll(List<Manager> mif)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean Delete(String id)
       {
          // TODO: implement
-         return null;
+         return false;
       }
    
       private String FileLocation;

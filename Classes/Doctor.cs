@@ -6,10 +6,10 @@ namespace Classes
 {
     public class Doctor
     {
-        public System.Collections.ArrayList holidayRequests;
         public User user;
         public Room room;
         public System.Collections.ArrayList appointments;
+        public System.Collections.ArrayList holidayRequests;
 
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetHolidayRequests()
