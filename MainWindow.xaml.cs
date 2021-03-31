@@ -24,10 +24,5 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
         }
-
-        private void bts_Click(object sender, RoutedEventArgs e)
-        {
-            this.Content = "sisaj ga";
-        }
     }
 }
