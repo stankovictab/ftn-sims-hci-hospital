@@ -19,3 +19,5 @@ C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientCreation.baml
 C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\Secretary.baml
 C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientManagement.g.cs
 C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientManagement.baml
+C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientView.g.cs
+C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientView.baml

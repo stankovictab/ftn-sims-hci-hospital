@@ -80,6 +80,9 @@
     <Compile Include="PatientManagement.xaml.cs">
       <DependentUpon>PatientManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PatientView.xaml.cs">
+      <DependentUpon>PatientView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary.xaml.cs">
       <DependentUpon>Secretary.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
