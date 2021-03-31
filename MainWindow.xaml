@@ -1,0 +1,17 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btdb" Content="Doctor B" HorizontalAlignment="Left" Margin="160,223,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btde" Content="Doctor E" HorizontalAlignment="Left" Margin="262,223,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="bts" Content="Secretary" HorizontalAlignment="Left" Margin="462,223,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btm" Content="Manager" HorizontalAlignment="Left" Margin="360,223,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btp" Content="Patient" HorizontalAlignment="Left" Margin="570,223,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
