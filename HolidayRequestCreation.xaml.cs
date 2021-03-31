@@ -26,7 +26,8 @@ namespace ftn_sims_hci_hospital
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            // Biznis logika za dodavanje u listu ide ovde
+            this.Hide();
         }
     }
 }

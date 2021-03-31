@@ -15,3 +15,7 @@ C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospit
 C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
 C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.exe
 C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\DoctorEPanel.g.cs
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.g.cs
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\DoctorEPanel.baml
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.baml

@@ -14,7 +14,7 @@
         <Label Content="End Date" HorizontalAlignment="Left" Margin="54,266,0,0" VerticalAlignment="Top" Height="38" Width="126" FontSize="18"/>
         <DatePicker x:Name="holidayStartDate" HorizontalAlignment="Left" Margin="187,222,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="holidayEndDate" HorizontalAlignment="Left" Margin="187,273,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnHolidaySubmit" Content="Update" HorizontalAlignment="Left" Margin="360,339,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="btnHolidayUpdate" Content="Update" HorizontalAlignment="Left" Margin="360,339,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

@@ -24,5 +24,11 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
         }
+
+        private void btde_Click(object sender, RoutedEventArgs e)
+        {
+            Window doctorEpanel = new DoctorEPanel();
+            doctorEpanel.ShowDialog();
+        }
     }
 }

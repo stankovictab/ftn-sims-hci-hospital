@@ -7,11 +7,22 @@
         mc:Ignorable="d"
         Title="DoctorEPanel" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnCreateRequest" Content="Create New Request" HorizontalAlignment="Left" Margin="324,337,0,0" VerticalAlignment="Top" Width="142" RenderTransformOrigin="1.063,0.447"/>
-        <Button x:Name="btnUpdateRequest" Content="Update Request" HorizontalAlignment="Left" Margin="644,142,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False"/>
-        <Button x:Name="btnDeleteRequest" Content="Delete Request" HorizontalAlignment="Left" Margin="644,233,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False"/>
+        <Button x:Name="btnCreateRequest" Content="Create New Request" HorizontalAlignment="Left" Margin="324,337,0,0" VerticalAlignment="Top" Width="142" RenderTransformOrigin="1.063,0.447" Click="btnCreateRequest_Click"/>
+        <Button x:Name="btnUpdateRequest" Content="Update Request" HorizontalAlignment="Left" Margin="664,142,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False" Click="btnUpdateRequest_Click"/>
+        <Button x:Name="btnDeleteRequest" Content="Delete Request" HorizontalAlignment="Left" Margin="664,233,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False"/>
         <Label Content="Doctor's Holiday Request Panel" HorizontalAlignment="Left" Margin="225,33,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <ListBox x:Name="holidayRequestList" HorizontalAlignment="Left" Height="216" Margin="188,90,0,0" VerticalAlignment="Top" Width="414"/>
+        <Button x:Name="btnShowRequests" Content="Show Requests" HorizontalAlignment="Left" Margin="15,188,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnShowRequests_Click"/>
+        <ListView x:Name="holidayRequestListView" HorizontalAlignment="Left" Height="218" Margin="169,86,0,0" VerticalAlignment="Top" Width="472">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description1}"/>
+                    <GridViewColumn Header="Start Date" DisplayMemberBinding="{Binding StartDate1}"/>
+                    <GridViewColumn Header="End Date" DisplayMemberBinding="{Binding EndDate1}"/>
+                    <GridViewColumn Header="Doctor ID" DisplayMemberBinding="{Binding doctor}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>
