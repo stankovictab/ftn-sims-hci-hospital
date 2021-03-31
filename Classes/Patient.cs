@@ -75,5 +75,6 @@ namespace Classes
             this.medicalRecord = medicalRecord;
             this.appointments = appointments;
         }
+        public Patient() { }
     }
 }

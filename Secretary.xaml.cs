@@ -29,6 +29,7 @@ namespace ftn_sims_hci_hospital
         {
             Window patientCreation = new PatientCreation();
             patientCreation.ShowDialog();
+            btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void btnlistallpatients_Click(object sender, RoutedEventArgs e)
@@ -47,9 +48,27 @@ namespace ftn_sims_hci_hospital
            {
                 if(patientData.SelectedItem!=null)
                 {
-                
+                    Classes.User user = (Classes.User)patientData.SelectedItem;
+                    String id = user.Jmbg1;
+                    Window patientView = new PatientView(id);
+                    patientView.ShowDialog();
+                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
            }
+        }
+
+        private void btndeletepatient_Click(object sender, RoutedEventArgs e)
+        {
+            if (!patientData.Items.IsEmpty)
+            {
+                if (patientData.SelectedItem != null)
+                {
+                    Classes.User user = (Classes.User)patientData.SelectedItem;
+                    pfs.Delete(user.Jmbg1);
+                    pfs.UpdateAll(pfs.PatientsInFile1);
+                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+            }
         }
     }
 }

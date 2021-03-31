@@ -38,6 +38,8 @@ namespace ftn_sims_hci_hospital
             Classes.Patient patient = new Classes.Patient(user, null, null);
             pfs.Create(patient);
             pfs.UpdateAll(pfs.PatientsInFile1);
+            MessageBox.Show("You have successfully created a new account!");
+            this.Close();
         }
     }
 }
