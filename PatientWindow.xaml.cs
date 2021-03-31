@@ -10,25 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PatientWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PatientWindow : Window
     {
-        public MainWindow()
+        public PatientWindow()
         {
             InitializeComponent();
         }
 
-        private void patientClick(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PatientWindow win1 = new PatientWindow();
-            win1.Show();
+            AllAppointments allApp = new AllAppointments();
+            allApp.Show();
         }
     }
 }

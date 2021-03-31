@@ -15,7 +15,7 @@ namespace Classes
       public Boolean Create(HolidayRequest req)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public HolidayRequest GetByID(String id)
@@ -39,19 +39,19 @@ namespace Classes
       public Boolean Update(HolidayRequest req)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean UpdateAll(List<HolidayRequest> hrif)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean Delete(String id)
       {
          // TODO: implement
-         return null;
+         return false;
       }
    
       private String FileLocation;

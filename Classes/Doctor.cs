@@ -11,6 +11,8 @@ namespace Classes
         public Room room;
         public System.Collections.ArrayList appointments;
 
+
+
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetHolidayRequests()
         {

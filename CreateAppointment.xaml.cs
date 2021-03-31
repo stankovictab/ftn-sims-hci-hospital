@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,25 +11,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CreateAppointment.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreateAppointment : Window
     {
-        public MainWindow()
+        private AppointmentFileStorage afs;
+        public CreateAppointment()
         {
+            afs = new AppointmentFileStorage();
             InitializeComponent();
         }
 
-        private void patientClick(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PatientWindow win1 = new PatientWindow();
-            win1.Show();
+            /*Doc.Text;
+            Dat.Text;*/
         }
     }
 }
