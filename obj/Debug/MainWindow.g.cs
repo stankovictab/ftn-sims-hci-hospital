@@ -124,6 +124,12 @@ namespace ftn_sims_hci_hospital {
             return;
             case 3:
             this.bts = ((System.Windows.Controls.Button)(target));
+            
+            #line 12 "..\..\MainWindow.xaml"
+            this.bts.Click += new System.Windows.RoutedEventHandler(this.bts_Click);
+            
+            #line default
+            #line hidden
             return;
             case 4:
             this.btm = ((System.Windows.Controls.Button)(target));

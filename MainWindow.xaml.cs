@@ -29,6 +29,12 @@ namespace ftn_sims_hci_hospital
         {
             Window doctorEpanel = new DoctorEPanel();
             doctorEpanel.ShowDialog();
+        private void bts_Click(object sender, RoutedEventArgs e)
+        {
+            Window secretaryWindow = new Secretary();
+            this.Hide();
+            secretaryWindow.ShowDialog();
+            this.Show();
         }
     }
 }
