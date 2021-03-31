@@ -35,6 +35,8 @@ using ftn_sims_hci_hospital;
 namespace ftn_sims_hci_hospital {
 
 
+    
+    
     /// <summary>
     /// MainWindow
     /// </summary>
@@ -81,7 +83,7 @@ namespace ftn_sims_hci_hospital {
         #line hidden
 
         private bool _contentLoaded;
-
+        
         /// <summary>
         /// InitializeComponent
         /// </summary>
@@ -100,7 +102,7 @@ namespace ftn_sims_hci_hospital {
             #line default
             #line hidden
         }
-
+        
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
@@ -130,6 +132,9 @@ namespace ftn_sims_hci_hospital {
 
             #line default
             #line hidden
+            return;
+            case 3:
+            this.bts = ((System.Windows.Controls.Button)(target));
             return;
             case 4:
             this.btm = ((System.Windows.Controls.Button)(target));
