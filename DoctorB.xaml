@@ -1,0 +1,14 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.DoctorB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="DoctorB" Height="450" Width="800">
+    <Grid>
+        <Button Name="btnA" Content="Appointments list"  Click="openAppointmentsList" HorizontalAlignment="Left" Margin="313,156,0,0" VerticalAlignment="Top" Width="164"/>
+        <Button Name="btnC" Content="create appointment" Click="openCreateAppointment" HorizontalAlignment="Left" Margin="313,228,0,0" VerticalAlignment="Top" Width="164"/>
+
+    </Grid>
+</Window>

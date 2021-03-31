@@ -114,6 +114,12 @@ namespace ftn_sims_hci_hospital {
             {
             case 1:
             this.btdb = ((System.Windows.Controls.Button)(target));
+            
+            #line 10 "..\..\MainWindow.xaml"
+            this.btdb.Click += new System.Windows.RoutedEventHandler(this.openDoctorB);
+            
+            #line default
+            #line hidden
             return;
             case 2:
             this.btde = ((System.Windows.Controls.Button)(target));

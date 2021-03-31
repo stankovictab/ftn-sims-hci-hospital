@@ -8,11 +8,31 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Classes {
-    public class User {
-        private String Name;
+namespace Classes
+{
+    public class User
+    {
+        public Boolean Login()
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public Boolean Logout()
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public Boolean DeleteAccount()
+        {
+            // TODO: implement
+            return false;
+        }
+
+        public String Name { get; set; }
         private String LastName;
-        private String Username;
+        public String Username { get; set; }
         private String Password;
         private String Email;
         public String Jmbg { get; set; }

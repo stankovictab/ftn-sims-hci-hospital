@@ -5,6 +5,7 @@ namespace Classes
 {
     public class Doctor
     {
+        public System.Collections.ArrayList holidayRequests;
         public User user { get; set; }
         public Room room;
         public System.Collections.ArrayList appointments;
@@ -19,6 +20,14 @@ namespace Classes
         }
 
         public Doctor(String userName)
+        public Doctor(String id)
+        {
+            User user1 = new User(id);
+            user = user1;
+        }
+
+        /// <pdGenerated>default getter</pdGenerated>
+        public System.Collections.ArrayList GetHolidayRequests()
         {
             user = new User(userName);
         }

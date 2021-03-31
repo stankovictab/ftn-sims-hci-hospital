@@ -41,8 +41,26 @@ namespace Classes
 
         public List<Appointment> GetAllByDoctorID(String doctorID)
         {
-            // TODO: implement
-            return null;
+            List<Appointment> ret = new List<Appointment>();
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts[1].Equals(doctorID)) 
+                {
+                    String appointmentId = parts[0];
+                    string[] startParts = parts[3].Split(',');
+                    DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
+                    
+                    string[] endParts = parts[4].Split(',');
+                    DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
+
+                    Appointment a = new Appointment(parts[0], start, end);
+                    ret.Add(a);
+                }
+            }
+
+            return ret;
         }
 
         public List<Appointment> GetAllByPatientID(String patientID)
