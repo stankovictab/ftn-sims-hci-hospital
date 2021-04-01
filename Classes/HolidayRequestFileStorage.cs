@@ -7,10 +7,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows;
 
 namespace Classes {
     public class HolidayRequestFileStorage {
-        private String FileLocation = "holidayrequests.txt"; // U jednom fajlu ce biti Request-ovi za sve lekare
+        private String FileLocation = "holidayrequests.txt"; // U jednom fajlu ce biti Request-ovi za sve lekare, pa ce se filtrirati po ID-u lekara, ovo je u \bin\Debug folderu
         private List<HolidayRequest> HolidayRequestsInFile = new List<HolidayRequest>(); // Lista u memoriji, ona ce preko updateAll() overwrite-ovati fajl
 
         // Property (geter i seter) za HolidayRequestsInFile
@@ -35,7 +36,7 @@ namespace Classes {
             return null;
         }
 
-        // Prebacivanje iz fajla u listu u memoriji
+        // Univerzalna metoda za skeniranje fajla i vracanje liste sa svim elementima, ta lista koja se odavde vraca ce uvek biti dodeljena atributu NestoInFile kada se elementi budu loadovali kada to bude bilo potrebno (kao na primer ovde dole sa lekarima)
         public List<HolidayRequest> GetAll() {
             List<HolidayRequest> requests = new List<HolidayRequest>();
             TextReader tr = new StreamReader(FileLocation);
@@ -46,14 +47,12 @@ namespace Classes {
                 string description = components[1];
                 DateTime startDate = Convert.ToDateTime(components[2]);
                 DateTime endDate = Convert.ToDateTime(components[3]);
-                // TODO:
-                // components[4] je id doktora, pa moramo da nadjemo tog iz liste (GetAll) da bi ga prosledili konstruktoru HR-a
-                // ovo je pseudodoktor
-                User u = new User("A","","","","",components[4]);
-                Doctor doc = new Doctor(u, null, null, null);
-
-
-                HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, doc);
+                // Loadovanje lekara u memoriju da bi im pristupili
+                DoctorFileStorage dfs = new DoctorFileStorage();
+                dfs.DoctorsInFile1 = dfs.GetAll(); 
+                // Mora prvo GetAll pa onda GetByID jer ByID trazi u vec ucitanoj listi u memoriji, ne po fajlu, isto kao u ovoj klasi
+                Doctor doctor = dfs.GetByID(components[4]);
+                HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, doctor);
                 requests.Add(request);
                 text = tr.ReadLine();
             }
@@ -61,7 +60,7 @@ namespace Classes {
             return requests;
         }
 
-        // Ovo ne mora da se prepravlja da bude kao gore 
+        // Ovo ne mora da se prepravlja da bude kao gore, jer metoda radi tako sto uzima iz vec napunjenu listu u memoriji, nema potrebe ponovo da skenira fajl, nego se samo jednom radi GetAll() na pocetku, da se loaduje lista, i onda odatle ovo i ostale metode
         public List<HolidayRequest> GetAllByDoctorID(String id) {
             List<HolidayRequest> requests = new List<HolidayRequest>();
             foreach (HolidayRequest req in HolidayRequestsInFile) {
@@ -96,9 +95,11 @@ namespace Classes {
                 tw.Close();
                 return false;
             } else {
-                // Za svaki Request pise liniju
+                // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (HolidayRequest item in hrif) {
-                    tw.WriteLine(String.Format("RequestID: {0}, Description: {1}, Start Date: {2}, End Date: {3}, Request Date: {4}, Status: {5}, Doctor: {6}"), item.RequestID1, item.Description1, item.StartDate1, item.EndDate1, item.RequestDate1, item.Status1, item.doctor);
+                    tw.WriteLine(item.RequestID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.doctor.user.Jmbg1); 
+                    // Mozda i item.RequestDate1 i item.Status1?
+                    // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok
                 }
                 tw.Close();
                 return true;
