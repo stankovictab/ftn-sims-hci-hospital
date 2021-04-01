@@ -18,11 +18,13 @@ namespace ftn_sims_hci_hospital
     public partial class AllAppointments : Window
     {
         private AppointmentFileStorage afs;
+        private String patientName;
         public AllAppointments()
         {
             InitializeComponent();
+            patientName = "Pavle";
             afs = new AppointmentFileStorage();
-            List<Appointment> appoinments = afs.GetAllByPatientID("Pavle");
+            List<Appointment> appoinments = afs.GetAllByPatientID(patientName);
             lvUsers.ItemsSource = appoinments;
         }
 
@@ -38,5 +40,28 @@ namespace ftn_sims_hci_hospital
                 MessageBox.Show("Successfully deleted");
             }
         }
+
+        private void submitUpdate(object sender, RoutedEventArgs e)
+        {
+            string id = UpdateID.Text;
+            string doc = UpdateDoc.Text;
+            string[] startTime = UpdateTime.Text.Split(':');
+            string[] date = UpdateDate.Text.Split('.');
+            string endTxt = UpdateTime.Text;
+            string[] endTime = endTxt.Split(':');
+
+            DateTime start = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(startTime[0]), int.Parse(startTime[1]), int.Parse(startTime[2]));
+            DateTime end = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(endTime[0]), int.Parse(endTime[1]), int.Parse(endTime[2]));
+            Appointment ap = new Appointment(id, doc, patientName, start, end);
+            if (!afs.Update(ap))
+            {
+                MessageBox.Show("Id doesn't exist");
+            }
+            else
+            {
+                MessageBox.Show("Successfully updated");
+            }
+        }
+
     }
 }
