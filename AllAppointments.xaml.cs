@@ -29,7 +29,14 @@ namespace ftn_sims_hci_hospital
         private void submitDeletion(object sender, RoutedEventArgs e)
         {
             String id = Deletion.Text;
-            afs.Delete(id);
+            if (!afs.Delete(id))
+            {
+                MessageBox.Show("Id doesn't exist");
+            }
+            else
+            {
+                MessageBox.Show("Successfully deleted");
+            }
         }
     }
 }

@@ -12,6 +12,11 @@ namespace Classes
 {
     public class User
     {
+
+        public User(String jmbg)
+        {
+            this.Jmbg = jmbg;
+        }
         public Boolean Login()
         {
             // TODO: implement
@@ -35,7 +40,7 @@ namespace Classes
         private String Username;
         private String Password;
         private String Email;
-        private String Jmbg;
+        public String Jmbg { get; set; }
         private String Address;
         private Char Gender;
         private Boolean Active = false;

@@ -11,6 +11,8 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding AppointmentID}" />
+                    <GridViewColumn Header="doctorID" Width="100" DisplayMemberBinding="{Binding doctor.user.Jmbg}" />
+                    <GridViewColumn Header="patientID" Width="100" DisplayMemberBinding="{Binding patient.user.Jmbg}" />
                     <GridViewColumn Header="Start time" Width="100" DisplayMemberBinding="{Binding StartTime}" />
                     <GridViewColumn Header="End time" Width="100" DisplayMemberBinding="{Binding EndTime}" />
                     

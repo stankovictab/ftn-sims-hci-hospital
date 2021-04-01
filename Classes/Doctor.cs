@@ -7,11 +7,14 @@ namespace Classes
     public class Doctor
     {
         public System.Collections.ArrayList holidayRequests;
-        public User user;
+        public User user { get; set; }
         public Room room;
         public System.Collections.ArrayList appointments;
 
-
+        public Doctor(String userName)
+        {
+            user = new User(userName);
+        }
 
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetHolidayRequests()

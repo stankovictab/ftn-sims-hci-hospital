@@ -12,9 +12,14 @@ namespace Classes
 {
     public class Patient
     {
-        public User user;
+        public User user { get; set; }
         public MedicalRecord medicalRecord;
         public System.Collections.ArrayList appointments;
+
+        public Patient(String userName)
+        {
+            user = new User(userName);
+        }
 
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetAppointments()

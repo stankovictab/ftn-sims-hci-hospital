@@ -16,7 +16,7 @@ namespace Classes
 
         public AppointmentFileStorage()
         {
-            FileLocation = @"C:\Users\Goran\Desktop\ftn-sims-hci-hospital\Classes\appointments.txt";
+            FileLocation = "AppointmentFileStorage.txt";
         }
 
 
@@ -53,12 +53,14 @@ namespace Classes
                 String[] data = row.Split(';');
                 if (data[2].Equals(patientID))
                 {
+                    String doctorId = data[1];
+                    String patientId = data[2];
                     String id = data[0];
                     String[] startParts = data[3].Split(',');
                     String[] endParts = data[4].Split(',');
                     DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
                     DateTime end = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
-                    Appointment a = new Appointment(id, start, end);
+                    Appointment a = new Appointment(id, doctorId, patientId, start, end);
                     appointments.Add(a);
                 }
             }
@@ -95,20 +97,28 @@ namespace Classes
             List<Appointment> appointments = new List<Appointment>();
             String[] rowsNew = new String[rows.Length - 1];
             int j = 0;
-            //String[] kurac = new String[rows.Length];
+            Boolean found = false;
             for(int i = 0; i < rows.Length; i++)
             {
+                if(i != j)
+                {
+                    found = true;
+                }
                 int first = rows[i].IndexOf(";");
-                //kurac[i] = rows[i].Substring(0, first) + " " + id;
                 if (!id.Equals(rows[i].Substring(0, first))){
-                    rowsNew[j] = rows[i];
-                    j++;
+                    if(!found && i == rows.Length - 1)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        rowsNew[j] = rows[i];
+                        j++;
+                    }
                 }
             }
             System.IO.File.WriteAllLines(FileLocation, rowsNew);
             return true;
         }
-
-
     }
 }

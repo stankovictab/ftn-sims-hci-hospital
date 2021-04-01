@@ -10,15 +10,17 @@ namespace Classes
 {
     public class Appointment
     {
-        public Doctor doctor;
-        public Patient patient;
+        public Doctor doctor { get; set; }
+        public Patient patient { get; set; }
         public String AppointmentID { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         private AppointmentType Type;
 
-        public Appointment(String id, DateTime start, DateTime end)
+        public Appointment(String id, String doctorName, String patientName, DateTime start, DateTime end)
         {
+            doctor = new Doctor(doctorName);
+            patient = new Patient(patientName);
             AppointmentID = id;
             StartTime = start;
             EndTime = end;
