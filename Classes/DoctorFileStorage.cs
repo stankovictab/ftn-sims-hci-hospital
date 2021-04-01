@@ -86,7 +86,7 @@ namespace Classes {
                 foreach (Doctor item in dif) {
                     tw.WriteLine(item.user.Jmbg1 + "," + item.user.Name1 + "," + item.user.LastName1 + "," + item.room.RoomNumber1 + "," + null + "," + null); // Ostalo je item.appointments i item.holidayRequests da se formatira u istom obliku, kako? ne znam. verovatno da se prekine ovaj upis, pa neki for da prolazi kroz te dve liste i da ispisuje elemente u isti red, sa uglastim zagradama, i zarezom izmedju
 
-                    // tw.WriteLine(String.Format("{0},{1},{2},{3},{4},{5}"), item.user.Jmbg1, item.user.Name1, item.user.LastName1, item.room.RoomNumber1, null, null); 
+                    // tw.WriteLine(String.Format("{0},{1},{2},{3},{4},{5}"), item.user.Jmbg1, item.user.Name1, item.user.LastName1, item.room.RoomNumber1, null, null);
                 }
                 tw.Close();
                 return true;

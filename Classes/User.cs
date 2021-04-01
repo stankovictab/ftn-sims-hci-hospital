@@ -5,6 +5,8 @@
  ***********************************************************************/
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Classes {
     public class User {
@@ -13,7 +15,7 @@ namespace Classes {
         private String Username;
         private String Password;
         private String Email;
-        private String Jmbg;
+        public String Jmbg { get; set; }
         private String Address;
         private Char Gender;
         private Boolean Active = false;
