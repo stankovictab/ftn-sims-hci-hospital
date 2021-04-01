@@ -23,17 +23,5 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AllAppointments allApp = new AllAppointments();
-            allApp.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            CreateAppointment c = new CreateAppointment();
-            c.Show();
-        }
     }
 }
