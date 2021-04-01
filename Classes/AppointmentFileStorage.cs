@@ -22,7 +22,8 @@ namespace Classes
 
         public Boolean Create(Appointment app)
         {
-            // TODO: implement
+            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg + ";" + app.patient.user.Jmbg + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + "0" + "\n";
+            System.IO.File.AppendAllText(FileLocation, newLine);
             return false;
         }
 
@@ -81,7 +82,12 @@ namespace Classes
 
         public Boolean Update(Appointment app)
         {
-            // TODO: implement
+            if (Delete(app.AppointmentID))
+            {
+                Create(app);
+                return true;
+            }
+            
             return false;
         }
 
