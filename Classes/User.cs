@@ -76,19 +76,5 @@ namespace Classes
         public bool Active1 { get => Active; set => Active = value; }
         public Roles Role1 { get => Role; set => Role = value; }
 
-        public Boolean Login() {
-            // TODO: implement
-            return false;
-        }
-
-        public Boolean Logout() {
-            // TODO: implement
-            return false;
-        }
-
-        public Boolean DeleteAccount() {
-            // TODO: implement
-            return false;
-        }
     }
 }

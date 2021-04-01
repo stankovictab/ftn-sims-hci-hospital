@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="AllAppointments.xaml.cs">
       <DependentUpon>AllAppointments.xaml</DependentUpon>
+      </Compile>
     <Compile Include="AppointmentsListDoctorB.xaml.cs">
       <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
     </Compile>
@@ -108,6 +109,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateAppointment.xaml">
+    </Page>
     <Page Include="AppointmentsListDoctorB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +145,7 @@
 	</Compile>
     <Compile Include="CreateAppointment.xaml.cs">
       <DependentUpon>CreateAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreateAppointmentDoctorB.xaml.cs">
       <DependentUpon>CreateAppointmentDoctorB.xaml</DependentUpon>
     </Compile>

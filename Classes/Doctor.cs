@@ -9,7 +9,6 @@ namespace Classes
         public User user { get; set; }
         public Room room;
         public System.Collections.ArrayList appointments;
-        public System.Collections.ArrayList holidayRequests;
 
         // probably bollocks
         public Doctor(User user, Room room, ArrayList appointments, ArrayList holidayRequests) {
@@ -18,19 +17,12 @@ namespace Classes
             this.appointments = appointments;
             this.holidayRequests = holidayRequests;
         }
-
-        public Doctor(String userName)
         public Doctor(String id)
         {
             User user1 = new User(id);
             user = user1;
         }
-
-        /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetHolidayRequests()
-        {
-            user = new User(userName);
-        }
+        
 
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetHolidayRequests() {

@@ -63,34 +63,7 @@ namespace Classes
       {
          return patient;
       }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newPatient</param>
-      public void SetPatient(Patient newPatient)
-      {
-         if (this.patient != newPatient)
-         {
-            if (this.patient != null)
-            {
-                if (this.doctor != null)
-                {
-                    Doctor oldDoctor = this.doctor;
-                    this.doctor = null;
-                    oldDoctor.RemoveAppointments(this);
-                }
-                if (newDoctor != null)
-                {
-                    this.doctor = newDoctor;
-                    this.doctor.AddAppointments(this);
-                }
-            }
-        }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
-        public Patient GetPatient()
-        {
-            return patient;
-        }
 
         /// <pdGenerated>default parent setter</pdGenerated>
         /// <param>newPatient</param>
