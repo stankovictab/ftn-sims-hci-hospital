@@ -8,33 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Classes
-{
-    public class User
-    {
-
-        public User(String jmbg)
-        {
-            this.Jmbg = jmbg;
-        }
-        public Boolean Login()
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public Boolean Logout()
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public Boolean DeleteAccount()
-        {
-            // TODO: implement
-            return false;
-        }
-
 namespace Classes {
     public class User {
         private String Name;

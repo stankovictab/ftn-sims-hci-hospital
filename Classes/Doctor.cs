@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 
 namespace Classes
 {
     public class Doctor
     {
-        public System.Collections.ArrayList holidayRequests;
         public User user { get; set; }
         public Room room;
         public System.Collections.ArrayList appointments;

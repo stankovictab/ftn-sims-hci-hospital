@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="HolidayRequestUpdate.xaml.cs">
       <DependentUpon>HolidayRequestUpdate.xaml</DependentUpon>
+	</Compile>
     <Compile Include="CreateAppointment.xaml.cs">
       <DependentUpon>CreateAppointment.xaml</DependentUpon>
     </Compile>
