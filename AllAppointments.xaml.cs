@@ -22,7 +22,7 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             afs = new AppointmentFileStorage();
-            List<Appointment> appoinments = afs.GetAllByPatientID("1");
+            List<Appointment> appoinments = afs.GetAllByPatientID("Pavle");
             lvUsers.ItemsSource = appoinments;
         }
 

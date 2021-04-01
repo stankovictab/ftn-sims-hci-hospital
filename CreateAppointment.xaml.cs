@@ -29,8 +29,21 @@ namespace ftn_sims_hci_hospital
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            /*Doc.Text;
-            Dat.Text;*/
+            Random rnd = new Random();
+            int r = rnd.Next(1, 1000);
+
+            string[] startTxt = txtStart.Text.Split(':');
+            string[] date = Dat.Text.Split('.');
+            string endTxt = txtStart.Text;
+            string [] endTime = endTxt.Split(':');
+
+
+
+            DateTime start = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(startTxt[0]), int.Parse(startTxt[1]), int.Parse(startTxt[2]));
+            DateTime end = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(endTime[0]), int.Parse(endTime[1]), int.Parse(endTime[2]));
+            //Appointment a = new Appointment(num.ToString(), "Darko", txtP.Text, start, end);
+            Appointment ap = new Appointment(r.ToString(), Doc.Text, "Pavle", start, end);
+            afs.Create(ap);
         }
     }
 }

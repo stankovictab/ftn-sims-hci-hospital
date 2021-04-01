@@ -98,27 +98,39 @@ namespace Classes
             String[] rowsNew = new String[rows.Length - 1];
             int j = 0;
             Boolean found = false;
-            for(int i = 0; i < rows.Length; i++)
+            List<String> novi = new List<string>();
+
+            foreach(String row in rows)
             {
-                if(i != j)
+                String[] data = row.Split(';');
+                if (!data[0].Equals(id))
                 {
-                    found = true;
+                    String r = String.Join(";", data);
+                    novi.Add(r);
                 }
-                int first = rows[i].IndexOf(";");
-                if (!id.Equals(rows[i].Substring(0, first))){
-                    if(!found && i == rows.Length - 1)
+                else
+                {
+                    if (!data[2].Equals("Pavle"))
                     {
-                        return false;
+                        String r = String.Join(";", data);
+                        novi.Add(r);
                     }
                     else
                     {
-                        rowsNew[j] = rows[i];
-                        j++;
+                        found = true;
                     }
                 }
             }
-            System.IO.File.WriteAllLines(FileLocation, rowsNew);
-            return true;
+
+            System.IO.File.WriteAllLines(FileLocation, novi);
+            if (found)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

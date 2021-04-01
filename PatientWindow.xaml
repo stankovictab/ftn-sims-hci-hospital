@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="PatientWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Create new appointment" HorizontalAlignment="Left" Margin="143,209,0,0" VerticalAlignment="Top" Width="200" Height="50" BorderThickness="3"/>
+        <Button Content="Create new appointment" HorizontalAlignment="Left" Margin="143,209,0,0" VerticalAlignment="Top" Width="200" Height="50" BorderThickness="3" Click="Button_Click_1"/>
         <Button Content="Show all appointments" HorizontalAlignment="Left" Margin="486,209,0,0" VerticalAlignment="Top" Width="200" Height="50" BorderThickness="3" Click="Button_Click"/>
 
     </Grid>
