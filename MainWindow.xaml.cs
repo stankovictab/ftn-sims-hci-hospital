@@ -37,6 +37,10 @@ namespace ftn_sims_hci_hospital
             secretaryWindow.ShowDialog();
             this.Show();
 
+        private void patientClick(object sender, RoutedEventArgs e)
+        {
+            PatientWindow win1 = new PatientWindow();
+            win1.Show();
         }
     }
 }

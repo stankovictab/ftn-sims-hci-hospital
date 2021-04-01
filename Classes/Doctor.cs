@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 
-namespace Classes {
-    public class Doctor {
-        public User user;
+namespace Classes
+{
+    public class Doctor
+    {
+        public User user { get; set; }
         public Room room;
         public System.Collections.ArrayList appointments;
         public System.Collections.ArrayList holidayRequests;
@@ -13,6 +16,11 @@ namespace Classes {
             this.room = room;
             this.appointments = appointments;
             this.holidayRequests = holidayRequests;
+        }
+
+        public Doctor(String userName)
+        {
+            user = new User(userName);
         }
 
         /// <pdGenerated>default getter</pdGenerated>

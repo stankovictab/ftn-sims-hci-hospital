@@ -29,9 +29,9 @@ namespace Classes
                 PatientsInFile.Add(p);
                 return true;
             }
-         
+
       }
-      
+
       public Patient GetByID(String id)
       {
          foreach(Patient patient in PatientsInFile)
@@ -43,7 +43,7 @@ namespace Classes
          }
          return null;
       }
-      
+
       public List<Patient> GetAll()
       {
             List<Patient> patients = new List<Patient>();
@@ -68,7 +68,7 @@ namespace Classes
             tr.Close();
             return patients;
       }
-      
+
       public Boolean Update(Patient p)
       {
          foreach(Patient patient in PatientsInFile)
@@ -87,7 +87,7 @@ namespace Classes
          }
          return false;
       }
-      
+
       public Boolean UpdateAll(List<Patient> pif)
       {
             TextWriter tw = new StreamWriter(FileLocation);
@@ -95,7 +95,7 @@ namespace Classes
             {
                 tw.Close();
                 return false;
-               
+
             }
             else
             {
@@ -107,7 +107,7 @@ namespace Classes
                 return true;
             }
       }
-      
+
       public Boolean Delete(String id)
       {
             foreach (Patient patient in PatientsInFile)
@@ -120,8 +120,8 @@ namespace Classes
             }
             return false;
       }
-   
 
-   
+
+
    }
 }
