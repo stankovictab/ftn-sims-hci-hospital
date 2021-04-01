@@ -1,10 +1,5 @@
-/***********************************************************************
- * Module:  Korisnik.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Korisnik
- ***********************************************************************/
-
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -74,5 +69,12 @@ namespace Classes
             }
         }
 
+        public Patient(User user, MedicalRecord medicalRecord, ArrayList appointments)
+        {
+            this.user = user;
+            this.medicalRecord = medicalRecord;
+            this.appointments = appointments;
+        }
+        public Patient() { }
     }
 }
