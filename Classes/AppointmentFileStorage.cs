@@ -18,7 +18,7 @@ namespace Classes
       public Boolean Create(Appointment app)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Appointment GetByID(String id)
@@ -54,19 +54,19 @@ namespace Classes
       public Boolean Update(Appointment app)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean UpdateAll(List<Appointment> aif)
       {
          // TODO: implement
-         return null;
+         return false;
       }
       
       public Boolean Delete(String id)
       {
          // TODO: implement
-         return null;
+         return false;
       }
    
    

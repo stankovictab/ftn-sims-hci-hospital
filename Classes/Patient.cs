@@ -12,7 +12,7 @@ namespace Classes
 {
     public class Patient
     {
-        public User user;
+        public User user { get; set; }
         public MedicalRecord medicalRecord;
         public System.Collections.ArrayList appointments;
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\stankovictab\Desktop\ftn-sims-hci-hospital\ftn-sims-hci-hospital\obj\Debug\
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Users\stankovictab\Desktop\ftn-sims-hci-hospital\ftn-sims-hci-hospital\App.xaml
-11151548125
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\App.xaml
+41924933003
 
-29-46052392
+32-1547804834
 13-1505183044
-MainWindow.xaml;
+DoctorEPanel.xaml;HolidayRequestCreation.xaml;HolidayRequestUpdate.xaml;MainWindow.xaml;
 
-False
+True
 

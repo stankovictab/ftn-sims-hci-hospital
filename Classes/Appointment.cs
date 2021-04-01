@@ -12,8 +12,8 @@ namespace Classes
 {
    public class Appointment
    {
-      public Doctor doctor;
       public Patient patient;
+      public Doctor doctor;
       private String AppointmentID;
       private DateTime StartTime;
       private DateTime EndTime;
