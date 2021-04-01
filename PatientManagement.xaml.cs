@@ -14,8 +14,8 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for PatientManagement.xaml
+    /// <summary> //klklkl
+    /// Interaction logic for PatientWindow.xaml
     /// </summary>
     public partial class PatientManagement : Window
     {
