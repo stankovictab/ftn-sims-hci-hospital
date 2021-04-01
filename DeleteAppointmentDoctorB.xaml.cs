@@ -29,7 +29,8 @@ namespace ftn_sims_hci_hospital
             txtS.Visibility = Visibility.Hidden;
             txtE.Visibility = Visibility.Hidden;
             btnU.Visibility = Visibility.Hidden;
-
+            bs.Visibility = Visibility.Hidden;
+            be.Visibility = Visibility.Hidden;
         }
 
         private void deleteAppointment(Object sender, RoutedEventArgs e)
@@ -51,6 +52,8 @@ namespace ftn_sims_hci_hospital
             txtE.Visibility = Visibility.Visible;
 
             btnU.Visibility = Visibility.Visible;
+            bs.Visibility = Visibility.Visible;
+            be.Visibility = Visibility.Visible;
         }
 
         private void updateAp(Object sender, RoutedEventArgs e)

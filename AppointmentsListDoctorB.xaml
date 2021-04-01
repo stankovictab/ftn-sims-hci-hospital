@@ -13,7 +13,7 @@
                     <GridViewColumn Header="Appointment id" Width="150" DisplayMemberBinding="{Binding AppointmentID}" />
                     <GridViewColumn Header="start time" Width="150" DisplayMemberBinding="{Binding StartTime}" />
                     <GridViewColumn Header="end time" Width="150" DisplayMemberBinding="{Binding EndTime}" />
-                    <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Username}">
+                    <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Jmbg}">
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
