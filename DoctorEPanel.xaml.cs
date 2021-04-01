@@ -21,11 +21,6 @@ namespace ftn_sims_hci_hospital {
             // Ne pravi se ovde logika nego u novom prozoru koji se otvara
         }
 
-        private void btnUpdateRequest_Click(object sender, RoutedEventArgs e) {
-            Window holidayRequestUpdate = new HolidayRequestUpdate();
-            holidayRequestUpdate.ShowDialog();
-        }
-
         private void btnShowRequests_Click(object sender, RoutedEventArgs e) {
             // Zbog ovog GetAll sam izgubio sat vremena zivota, mora da se ucita ceo fajl ponovo pri refresh-u a ne samo ByDoctorID, jer on cita iz liste, a ta lista nije update-ovana!
             // Takodje proveri da li je fajl popunjen
@@ -49,11 +44,18 @@ namespace ftn_sims_hci_hospital {
             // Posto izbrise SelectedItem, on je null, a ova metoda se automatski poziva, pa ovako izbegavamo exception
             if (holidayRequestListView.SelectedItem != null) {
                 // MessageBox.Show(holidayRequestListView.SelectedItem.ToString());
+                // Ovo izgleda kao "{ RequestID1 = 2, Desc..."
                 string[] parts = holidayRequestListView.SelectedItem.ToString().Split(','); // Ne ""
                 string[] parts2 = parts[0].Split(' ');
                 // MessageBox.Show(parts2[3]);
                 selectedRHID = parts2[3];
             }
+        }
+
+        private void btnUpdateRequest_Click(object sender, RoutedEventArgs e) {
+            // MessageBox.Show(selectedRHID);
+            Window holidayRequestUpdate = new HolidayRequestUpdate(selectedRHID);
+            holidayRequestUpdate.ShowDialog();
         }
 
         private void btnDeleteRequest_Click(object sender, RoutedEventArgs e) {
