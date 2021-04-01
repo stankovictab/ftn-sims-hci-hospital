@@ -36,6 +36,7 @@ namespace ftn_sims_hci_hospital
             this.Hide();
             secretaryWindow.ShowDialog();
             this.Show();
+
         }
     }
 }
