@@ -74,18 +74,6 @@
     <Compile Include="Classes\NotificationBoard.cs" />
     <Compile Include="Classes\PatientFileStorage.cs" />
     <Compile Include="Classes\User.cs" />
-    <Page Include="DoctorEPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HolidayRequestCreation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HolidayRequestUpdate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="PatientCreation.xaml.cs">
       <DependentUpon>PatientCreation.xaml</DependentUpon>
     </Compile>

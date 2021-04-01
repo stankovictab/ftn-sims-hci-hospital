@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31112.23
+VisualStudioVersion = 16.0.31105.61
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ftn-sims-hci-hospital", "ftn-sims-hci-hospital.csproj", "{819EDA84-A7A5-4A2E-BCCF-9F4D298F5FCE}"
 EndProject
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E4BE0752-DA2D-43CF-B23C-1A124C14EE4B}
+		SolutionGuid = {4B6CDF8B-D66E-4788-9864-18AA9F9A97CD}
 	EndGlobalSection
 EndGlobal
