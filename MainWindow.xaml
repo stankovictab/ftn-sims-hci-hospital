@@ -10,7 +10,7 @@
         <Button x:Name="btdb" Click="openDoctorB" Content="Doctor B" HorizontalAlignment="Left" Margin="160,223,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="btde" Click="btde_Click" Content="Doctor E" HorizontalAlignment="Left" Margin="262,223,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="bts" Click="bts_Click" Content="Secretary" HorizontalAlignment="Left" Margin="462,223,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btm" Content="Manager" HorizontalAlignment="Left" Margin="360,223,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btm" Content="Manager" HorizontalAlignment="Left" Margin="360,223,0,0" VerticalAlignment="Top" Width="75" Click="btm_Click"/>
         <Button x:Name="btp" Content="Patient" HorizontalAlignment="Left" Margin="570,223,0,0" VerticalAlignment="Top" Width="75" Click="patientClick"/>
 
     </Grid>

@@ -1,79 +1,21 @@
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.g.cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\MainWindow.g.cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\App.g.cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.exe.config
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.exe
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.pdb
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.baml
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\MainWindow.baml
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.g.resources
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.exe
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.pdb
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\DoctorEPanel.g.cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.g.cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\DoctorEPanel.baml
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\DoctorEPanel.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\MainWindow.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientCreation.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientManagement.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientView.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\Secretary.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\App.g.cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.exe
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.pdb
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.exe.config
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.exe
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.pdb
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\DoctorEPanel.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\MainWindow.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientCreation.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientManagement.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\PatientView.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\Secretary.baml
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.g.resources
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
-C:\Users\Mihajlo\Desktop\New folder\bin\Debug\ftn-sims-hci-hospital.exe.config
-C:\Users\Mihajlo\Desktop\New folder\bin\Debug\ftn-sims-hci-hospital.exe
-C:\Users\Mihajlo\Desktop\New folder\bin\Debug\ftn-sims-hci-hospital.pdb
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\DoctorEPanel.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\HolidayRequestCreation.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\HolidayRequestUpdate.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\MainWindow.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\PatientCreation.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\PatientManagement.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\PatientView.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\Secretary.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\App.g.cs
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\DoctorEPanel.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\HolidayRequestCreation.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\HolidayRequestUpdate.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\MainWindow.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\PatientCreation.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\PatientManagement.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\PatientView.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\Secretary.baml
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital.g.resources
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital.exe
-C:\Users\Mihajlo\Desktop\New folder\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\MainWindow.g.cs
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\RoomCreation.g.cs
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\App.g.cs
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
+C:\Users\Igor\Desktop\SIMSProjekat\bin\Debug\ftn-sims-hci-hospital.exe.config
+C:\Users\Igor\Desktop\SIMSProjekat\bin\Debug\ftn-sims-hci-hospital.exe
+C:\Users\Igor\Desktop\SIMSProjekat\bin\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\MainWindow.baml
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\RoomCreation.baml
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital.g.resources
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital.exe
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ManagerWindow.g.cs
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\ManagerWindow.baml
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\RoomUpdate.g.cs
+C:\Users\Igor\Desktop\SIMSProjekat\obj\Debug\RoomUpdate.baml
