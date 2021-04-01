@@ -36,7 +36,14 @@ namespace ftn_sims_hci_hospital
         private void deleteAppointment(Object sender, RoutedEventArgs e)
         {
             AppointmentFileStorage f = new AppointmentFileStorage();
-            f.Delete(txtDel.Text);
+            if (!f.Delete(txtDel.Text))
+            {
+                MessageBox.Show("Id doesn't exist");
+            }
+            else
+            {
+                MessageBox.Show("Appointment deleted");
+            }
 
         }
 

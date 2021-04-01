@@ -20,7 +20,6 @@ namespace ftn_sims_hci_hospital
     /// </summary>
     public partial class CreateAppointmentDoctorB : Window
     {
-        int num = 7;
         public CreateAppointmentDoctorB()
         {
             InitializeComponent();
@@ -32,11 +31,12 @@ namespace ftn_sims_hci_hospital
             string[] startTxt = txtS.Text.Split(':');
             string[] date = txtD.Text.Split('.');
             string[] endTxt = txtE.Text.Split(':');
+            Random random = new Random();
 
             DateTime start = new DateTime(int.Parse(date[2]),int.Parse(date[1]),int.Parse(date[0]),int.Parse(startTxt[0]),int.Parse(startTxt[1]), int.Parse(startTxt[2]));
             DateTime end = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(endTxt[0]), int.Parse(endTxt[1]), int.Parse(endTxt[2]));
-            Appointment a = new Appointment(num.ToString(),"Darko",txtP.Text,start,end);
-            num++;
+            Appointment a = new Appointment(random.Next(1,100).ToString(),"Darko",txtP.Text,start,end);
+            
             if(f.Create(a) == true) 
             {
 
