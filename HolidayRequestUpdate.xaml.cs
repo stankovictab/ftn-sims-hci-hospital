@@ -25,7 +25,6 @@ namespace ftn_sims_hci_hospital {
             hrfs.Update(hr); // Da update-uje listu u memoriji
             hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Da update-uje i sam fajl, preko update-ovane liste u memoriji
             MessageBox.Show("You have successfully updated a holiday request!");
-
             this.Close();
         }
     }
