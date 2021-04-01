@@ -34,6 +34,11 @@ namespace Classes {
             Gender1 = gender;
             Active1 = active;
             Role1 = role;
+
+        }
+
+        public User(String jmbg) {
+            this.Jmbg = jmbg;
         }
 
         public User() {
