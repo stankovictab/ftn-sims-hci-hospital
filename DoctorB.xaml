@@ -9,6 +9,7 @@
     <Grid>
         <Button Name="btnA" Content="Appointments list"  Click="openAppointmentsList" HorizontalAlignment="Left" Margin="313,156,0,0" VerticalAlignment="Top" Width="164"/>
         <Button Name="btnC" Content="create appointment" Click="openCreateAppointment" HorizontalAlignment="Left" Margin="313,228,0,0" VerticalAlignment="Top" Width="164"/>
+        <Button Content="delete appointment" Click="openDeleteAppointment" HorizontalAlignment="Left" Margin="313,307,0,0" VerticalAlignment="Top" Width="164"  />
 
     </Grid>
 </Window>

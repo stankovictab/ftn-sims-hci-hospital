@@ -16,21 +16,19 @@ using System.Windows.Shapes;
 namespace ftn_sims_hci_hospital
 {
     /// <summary>
-    /// Interaction logic for AppointmentsListDoctorB.xaml
+    /// Interaction logic for DeleteAppointmentDoctorB.xaml
     /// </summary>
-    
-    public partial class AppointmentsListDoctorB : Window
+    public partial class DeleteAppointmentDoctorB : Window
     {
-        public AppointmentsListDoctorB()
+        public DeleteAppointmentDoctorB()
         {
-
             InitializeComponent();
+        }
+
+        private void deleteAppointment(Object sender, RoutedEventArgs e)
+        {
             AppointmentFileStorage f = new AppointmentFileStorage();
-            List<Appointment> appointments = f.GetAllByDoctorID("Darko");
-            
-
-
-            lvUsers.ItemsSource = appointments;
+            f.Delete(txtDel.Text);
 
         }
     }

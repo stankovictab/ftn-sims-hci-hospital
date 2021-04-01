@@ -55,7 +55,7 @@ namespace Classes
                     string[] endParts = parts[4].Split(',');
                     DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
 
-                    Appointment a = new Appointment(parts[0], start, end);
+                    Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end);
                     ret.Add(a);
                 }
             }

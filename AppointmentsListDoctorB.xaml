@@ -10,9 +10,10 @@
         <ListView Margin="10" Name="lvUsers">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="pocetak termina" Width="150" DisplayMemberBinding="{Binding StartTime}" />
-                    <GridViewColumn Header="kraj termina" Width="150" DisplayMemberBinding="{Binding EndTime}" />
-                    <GridViewColumn Header="naziv pacijenta" Width="150" DisplayMemberBinding="{Binding AppointmentID}">
+                    <GridViewColumn Header="Appointment id" Width="150" DisplayMemberBinding="{Binding AppointmentID}" />
+                    <GridViewColumn Header="start time" Width="150" DisplayMemberBinding="{Binding StartTime}" />
+                    <GridViewColumn Header="end time" Width="150" DisplayMemberBinding="{Binding EndTime}" />
+                    <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Username}">
                     </GridViewColumn>
                 </GridView>
             </ListView.View>

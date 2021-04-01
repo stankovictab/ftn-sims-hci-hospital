@@ -13,8 +13,7 @@ namespace Classes
 
         public Patient(String id)
         {
-            User user1 = new User(id);
-            user = user1;
+            user = new User(id);
         }
 
         /// <pdGenerated>default getter</pdGenerated>

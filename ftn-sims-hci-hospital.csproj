@@ -116,6 +116,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DeleteAppointmentDoctorB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +145,9 @@
       <DependentUpon>CreateAppointment.xaml</DependentUpon>
     <Compile Include="CreateAppointmentDoctorB.xaml.cs">
       <DependentUpon>CreateAppointmentDoctorB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteAppointmentDoctorB.xaml.cs">
+      <DependentUpon>DeleteAppointmentDoctorB.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoctorB.xaml.cs">
       <DependentUpon>DoctorB.xaml</DependentUpon>
