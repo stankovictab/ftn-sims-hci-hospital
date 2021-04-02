@@ -42,7 +42,7 @@ namespace ftn_sims_hci_hospital
             roomDataList.Items.Clear();
             foreach (Room r in storage.AccessRoomsInFile)
             {
-                roomDataList.Items.Add(new { RoomNumber = r.RoomNumber, FloorNumber = r.FloorNumber, Description = r.Description, Type = r.Type , Status = r.Status});
+                roomDataList.Items.Add(new { RoomNumber = r.RoomNumber1, FloorNumber = r.FloorNumber1, Description = r.Description1, Type = r.Type1, Status = r.Status1});
             }
            
         }

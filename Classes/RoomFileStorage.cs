@@ -29,7 +29,7 @@ namespace Classes
 
             foreach (var item in RoomsInFile)
             {
-                tw.WriteLine(string.Format("{0},{1},{2},{3},{4}", item.RoomNumber, item.FloorNumber.ToString(), item.Description, item.Type.ToString(), item.Status.ToString()));
+                tw.WriteLine(string.Format("{0},{1},{2},{3},{4}", item.RoomNumber1, item.FloorNumber1.ToString(), item.Description1, item.Type1.ToString(), item.Status1.ToString()));
             }
             tw.Close();
 
@@ -40,7 +40,7 @@ namespace Classes
         {
             foreach (Room room in RoomsInFile)
             {
-                if (room.RoomNumber.Equals(id))
+                if (room.RoomNumber1.Equals(id))
                 {
                     return room;
                 }
@@ -72,13 +72,13 @@ namespace Classes
         {
             foreach (Room newRoom in RoomsInFile)
             {
-                if (newRoom.RoomNumber.Equals(oldRoom.RoomNumber))
+                if (newRoom.RoomNumber1.Equals(oldRoom.RoomNumber1))
                 {
-                    newRoom.RoomNumber = oldRoom.RoomNumber;
-                    newRoom.FloorNumber = oldRoom.FloorNumber;
-                    newRoom.Description = oldRoom.Description;
-                    newRoom.Type = oldRoom.Type;
-                    newRoom.Status = oldRoom.Status;
+                    newRoom.RoomNumber1 = oldRoom.RoomNumber1;
+                    newRoom.FloorNumber1 = oldRoom.FloorNumber1;
+                    newRoom.Description1 = oldRoom.Description1;
+                    newRoom.Type1 = oldRoom.Type1;
+                    newRoom.Status1 = oldRoom.Status1;
                     return true;
                 }
             }
@@ -98,7 +98,7 @@ namespace Classes
             {
                 foreach (var item in rif)
                 {
-                    tw.WriteLine(string.Format("{0},{1},{2},{3},{4}", item.RoomNumber, item.FloorNumber.ToString(), item.Description, item.Type.ToString(), item.Status.ToString()));
+                    tw.WriteLine(string.Format("{0},{1},{2},{3},{4}", item.RoomNumber1, item.FloorNumber1.ToString(), item.Description1, item.Type1.ToString(), item.Status1.ToString()));
                 }
                 tw.Close();
                 return true;
@@ -109,7 +109,7 @@ namespace Classes
         {
             foreach (Room room in RoomsInFile)
             {
-                if (room.RoomNumber.Equals(id))
+                if (room.RoomNumber1.Equals(id))
                 {
                     RoomsInFile.Remove(room);
                     return true;
@@ -118,7 +118,7 @@ namespace Classes
             return false;
         }
 
-        private String FileLocation = @"C:\Users\Igor\Desktop\SIMSProjekat\rooms.txt";
+        private String FileLocation = "rooms.txt";
         private List<Room> RoomsInFile = new List<Room>();
 
         public List<Room> AccessRoomsInFile { get => RoomsInFile; set => RoomsInFile = value; }

@@ -27,15 +27,15 @@ namespace ftn_sims_hci_hospital
             InitializeComponent();
             storage.AccessRoomsInFile = storage.GetAll();
             toUpdate = storage.GetById(id);
-            numberTextbox.Text = toUpdate.RoomNumber;
-            floorTextbox.Text = toUpdate.FloorNumber.ToString();
-            descriptionTextbox.Text = toUpdate.Description;
+            numberTextbox.Text = toUpdate.RoomNumber1;
+            floorTextbox.Text = toUpdate.FloorNumber1.ToString();
+            descriptionTextbox.Text = toUpdate.Description1;
 
-            if (toUpdate.Type == RoomType.Operating)
+            if (toUpdate.Type1 == RoomType.Operating)
                 operatingRadio.IsChecked = true;
-            else if (toUpdate.Type == RoomType.Therapy)
+            else if (toUpdate.Type1 == RoomType.Therapy)
                 therapyRadio.IsChecked = true;
-            else if (toUpdate.Type == RoomType.Checkup)
+            else if (toUpdate.Type1 == RoomType.Checkup)
                 checkupRadio.IsChecked = true;
 
             //if (toUpdate.Status == RoomStatus.Free)
