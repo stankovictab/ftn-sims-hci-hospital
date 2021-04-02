@@ -12,15 +12,21 @@ namespace Classes
     {
         public Doctor doctor { get; set; }
         public Patient patient { get; set; }
-        public String AppointmentID { get; set; }
-        public DateTime StartTime { get; set; }
+      public String AppointmentID { get; set; }
+      public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         private AppointmentType Type;
 
-        public Appointment(String id, String doctorName, String patientName, DateTime start, DateTime end)
+        public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
         {
-            doctor = new Doctor(doctorName);
-            patient = new Patient(patientName);
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = end;
+        }
+        public Appointment(String id,DateTime start,DateTime end)
+        {
             AppointmentID = id;
             StartTime = start;
             EndTime = end;
@@ -28,35 +34,36 @@ namespace Classes
 
         /// <pdGenerated>default parent getter</pdGenerated>
         public Doctor GetDoctor()
-        {
-            return doctor;
-        }
-
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newDoctor</param>
-        public void SetDoctor(Doctor newDoctor)
-        {
-            if (this.doctor != newDoctor)
+      {
+         return doctor;
+      }
+      
+      /// <pdGenerated>default parent setter</pdGenerated>
+      /// <param>newDoctor</param>
+      public void SetDoctor(Doctor newDoctor)
+      {
+         if (this.doctor != newDoctor)
+         {
+            if (this.doctor != null)
             {
-                if (this.doctor != null)
-                {
-                    Doctor oldDoctor = this.doctor;
-                    this.doctor = null;
-                    oldDoctor.RemoveAppointments(this);
-                }
-                if (newDoctor != null)
-                {
-                    this.doctor = newDoctor;
-                    this.doctor.AddAppointments(this);
-                }
+               Doctor oldDoctor = this.doctor;
+               this.doctor = null;
+               oldDoctor.RemoveAppointments(this);
             }
-        }
+            if (newDoctor != null)
+            {
+               this.doctor = newDoctor;
+               this.doctor.AddAppointments(this);
+            }
+         }
+      }
+      
+      /// <pdGenerated>default parent getter</pdGenerated>
+      public Patient GetPatient()
+      {
+         return patient;
+      }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
-        public Patient GetPatient()
-        {
-            return patient;
-        }
 
         /// <pdGenerated>default parent setter</pdGenerated>
         /// <param>newPatient</param>

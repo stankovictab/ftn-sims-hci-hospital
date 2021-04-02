@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="AllAppointments.xaml.cs">
       <DependentUpon>AllAppointments.xaml</DependentUpon>
+      </Compile>
+    <Compile Include="AppointmentsListDoctorB.xaml.cs">
+      <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\HolidayRequest.cs" />
@@ -106,6 +109,20 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateAppointment.xaml">
+    </Page>
+    <Page Include="AppointmentsListDoctorB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateAppointmentDoctorB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteAppointmentDoctorB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +145,15 @@
 	</Compile>
     <Compile Include="CreateAppointment.xaml.cs">
       <DependentUpon>CreateAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAppointmentDoctorB.xaml.cs">
+      <DependentUpon>CreateAppointmentDoctorB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteAppointmentDoctorB.xaml.cs">
+      <DependentUpon>DeleteAppointmentDoctorB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorB.xaml.cs">
+      <DependentUpon>DoctorB.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

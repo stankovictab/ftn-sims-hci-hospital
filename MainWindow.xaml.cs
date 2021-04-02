@@ -41,5 +41,12 @@ namespace ftn_sims_hci_hospital
             PatientWindow win1 = new PatientWindow();
             win1.Show();
         }
+        private void openDoctorB(Object sender, RoutedEventArgs e)
+        {
+            DoctorB doctorB = new DoctorB();
+            this.Hide();
+            doctorB.Show();
+        }
+
     }
 }

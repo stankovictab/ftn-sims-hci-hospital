@@ -11,9 +11,9 @@ namespace Classes
         public MedicalRecord medicalRecord;
         public System.Collections.ArrayList appointments;
 
-        public Patient(String userName)
+        public Patient(String id)
         {
-            user = new User(userName);
+            user = new User(id);
         }
 
         /// <pdGenerated>default getter</pdGenerated>
