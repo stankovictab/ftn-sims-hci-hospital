@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -30,7 +27,8 @@ namespace ftn_sims_hci_hospital
             Window doctorEpanel = new DoctorEPanel();
             doctorEpanel.ShowDialog();
         }
-        private void bts_Click(object sender, RoutedEventArgs e) {
+        private void bts_Click(object sender, RoutedEventArgs e)
+        {
             Window secretaryWindow = new Secretary();
             this.Hide();
             secretaryWindow.ShowDialog();
@@ -44,7 +42,6 @@ namespace ftn_sims_hci_hospital
         private void openDoctorB(Object sender, RoutedEventArgs e)
         {
             DoctorB doctorB = new DoctorB();
-            this.Hide();
             doctorB.Show();
         }
 

@@ -1,16 +1,11 @@
-/***********************************************************************
- * Module:  RoomFileStorage.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Manager.RoomFileStorage
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Windows;
 
-namespace Classes {
-    public class HolidayRequestFileStorage {
+namespace Classes
+{
+    public class HolidayRequestFileStorage
+    {
         private String FileLocation = "holidayrequests.txt"; // U jednom fajlu ce biti Request-ovi za sve lekare, pa ce se filtrirati po ID-u lekara, ovo je u \bin\Debug folderu
         private List<HolidayRequest> HolidayRequestsInFile = new List<HolidayRequest>(); // Lista u memoriji, ona ce preko updateAll() overwrite-ovati fajl
 
@@ -18,18 +13,25 @@ namespace Classes {
         public List<HolidayRequest> HolidayRequestsInFile1 { get => HolidayRequestsInFile; set => HolidayRequestsInFile = value; }
 
         // Dodavanje Request-a i u memoriju i u fajl
-        public Boolean Create(HolidayRequest req) {
-            if (HolidayRequestsInFile.Contains(req)) {
+        public Boolean Create(HolidayRequest req)
+        {
+            if (HolidayRequestsInFile.Contains(req))
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 HolidayRequestsInFile.Add(req);
                 return true;
             }
         }
 
-        public HolidayRequest GetByID(String id) {
-            foreach (HolidayRequest req in HolidayRequestsInFile) {
-                if (req.RequestID1.Equals(id)) {
+        public HolidayRequest GetByID(String id)
+        {
+            foreach (HolidayRequest req in HolidayRequestsInFile)
+            {
+                if (req.RequestID1.Equals(id))
+                {
                     return req;
                 }
             }
@@ -37,11 +39,13 @@ namespace Classes {
         }
 
         // Univerzalna metoda za skeniranje fajla i vracanje liste sa svim elementima, ta lista koja se odavde vraca ce uvek biti dodeljena atributu NestoInFile kada se elementi budu loadovali kada to bude bilo potrebno (kao na primer ovde dole sa lekarima)
-        public List<HolidayRequest> GetAll() {
+        public List<HolidayRequest> GetAll()
+        {
             List<HolidayRequest> requests = new List<HolidayRequest>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
-            while (text != null && text != "\n") {
+            while (text != null && text != "\n")
+            {
                 string[] components = text.Split(','); // Po defaultu su svi componenti stringovi, pa za neke mora convert
                 string id = components[0];
                 string description = components[1];
@@ -61,11 +65,14 @@ namespace Classes {
         }
 
         // Ovo ne mora da se prepravlja da bude kao gore, jer metoda radi tako sto uzima iz vec napunjenu listu u memoriji, nema potrebe ponovo da skenira fajl, nego se samo jednom radi GetAll() na pocetku, da se loaduje lista, i onda odatle ovo i ostale metode
-        public List<HolidayRequest> GetAllByDoctorID(String id) {
+        public List<HolidayRequest> GetAllByDoctorID(String id)
+        {
             List<HolidayRequest> requests = new List<HolidayRequest>();
-            foreach (HolidayRequest req in HolidayRequestsInFile) {
+            foreach (HolidayRequest req in HolidayRequestsInFile)
+            {
                 // Ako nadje Request za prosledjenog lekara, stavi ga u listu, i vrati listu
-                if (req.doctor.user.Jmbg1.Equals(id)) {
+                if (req.doctor.user.Jmbg1.Equals(id))
+                {
                     requests.Add(req);
                 }
             }
@@ -73,9 +80,12 @@ namespace Classes {
         }
 
         // Update jednog elementa u listi u memoriji
-        public Boolean Update(HolidayRequest prosledjeni) {
-            foreach (HolidayRequest nadjeni in HolidayRequestsInFile) {
-                if (prosledjeni.RequestID1.Equals(nadjeni.RequestID1)) {
+        public Boolean Update(HolidayRequest prosledjeni)
+        {
+            foreach (HolidayRequest nadjeni in HolidayRequestsInFile)
+            {
+                if (prosledjeni.RequestID1.Equals(nadjeni.RequestID1))
+                {
                     nadjeni.Description1 = prosledjeni.Description1;
                     nadjeni.StartDate1 = prosledjeni.StartDate1;
                     nadjeni.EndDate1 = prosledjeni.EndDate1;
@@ -89,14 +99,19 @@ namespace Classes {
         }
 
         // Univerzalna metoda za overwrite-ovanje liste koja je u memoriji u fajl
-        public Boolean UpdateAll(List<HolidayRequest> hrif) {
+        public Boolean UpdateAll(List<HolidayRequest> hrif)
+        {
             TextWriter tw = new StreamWriter(FileLocation);
-            if (hrif == null) {
+            if (hrif == null)
+            {
                 tw.Close();
                 return false;
-            } else {
+            }
+            else
+            {
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
-                foreach (HolidayRequest item in hrif) {
+                foreach (HolidayRequest item in hrif)
+                {
                     tw.WriteLine(item.RequestID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.doctor.user.Jmbg1);
                     // Mozda i item.RequestDate1 i item.Status1?
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok
@@ -107,9 +122,12 @@ namespace Classes {
         }
 
         // Brisanje samo iz liste u memoriji, vraca false ako ne nadje da obrise
-        public Boolean Delete(String id) {
-            foreach (HolidayRequest hr in HolidayRequestsInFile) {
-                if (hr.RequestID1.Equals(id)) {
+        public Boolean Delete(String id)
+        {
+            foreach (HolidayRequest hr in HolidayRequestsInFile)
+            {
+                if (hr.RequestID1.Equals(id))
+                {
                     HolidayRequestsInFile.Remove(hr);
                     return true;
                 }

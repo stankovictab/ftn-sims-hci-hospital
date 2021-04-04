@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for RoomEdit.xaml
-    /// </summary>
     public partial class RoomEdit : Window
     {
         public Room toUpdate = new Room();

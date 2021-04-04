@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  Appointment.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Appointment
- ***********************************************************************/
-
 using System;
 
 namespace Classes
@@ -12,8 +6,8 @@ namespace Classes
     {
         public Doctor doctor { get; set; }
         public Patient patient { get; set; }
-      public String AppointmentID { get; set; }
-      public DateTime StartTime { get; set; }
+        public String AppointmentID { get; set; }
+        public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         private AppointmentType Type;
 
@@ -25,48 +19,42 @@ namespace Classes
             StartTime = start;
             EndTime = end;
         }
-        public Appointment(String id,DateTime start,DateTime end)
+
+        public Appointment(String id, DateTime start, DateTime end)
         {
             AppointmentID = id;
             StartTime = start;
             EndTime = end;
         }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Doctor GetDoctor()
-      {
-         return doctor;
-      }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newDoctor</param>
-      public void SetDoctor(Doctor newDoctor)
-      {
-         if (this.doctor != newDoctor)
-         {
-            if (this.doctor != null)
-            {
-               Doctor oldDoctor = this.doctor;
-               this.doctor = null;
-               oldDoctor.RemoveAppointments(this);
-            }
-            if (newDoctor != null)
-            {
-               this.doctor = newDoctor;
-               this.doctor.AddAppointments(this);
-            }
-         }
-      }
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Patient GetPatient()
-      {
-         return patient;
-      }
+        {
+            return doctor;
+        }
 
+        public void SetDoctor(Doctor newDoctor)
+        {
+            if (this.doctor != newDoctor)
+            {
+                if (this.doctor != null)
+                {
+                    Doctor oldDoctor = this.doctor;
+                    this.doctor = null;
+                    oldDoctor.RemoveAppointments(this);
+                }
+                if (newDoctor != null)
+                {
+                    this.doctor = newDoctor;
+                    this.doctor.AddAppointments(this);
+                }
+            }
+        }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newPatient</param>
+        public Patient GetPatient()
+        {
+            return patient;
+        }
+
         public void SetPatient(Patient newPatient)
         {
             if (this.patient != newPatient)
@@ -84,7 +72,5 @@ namespace Classes
                 }
             }
         }
-
-
     }
 }

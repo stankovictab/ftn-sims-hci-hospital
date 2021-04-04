@@ -1,43 +1,48 @@
-/***********************************************************************
- * Module:  ManagerFileStorage.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Manager.ManagerFileStorage
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Classes {
-    public class DoctorFileStorage {
+namespace Classes
+{
+    public class DoctorFileStorage
+    {
         private String FileLocation = "doctors.txt";
         private List<Doctor> DoctorsInFile;
 
         public List<Doctor> DoctorsInFile1 { get => DoctorsInFile; set => DoctorsInFile = value; }
 
-        public Boolean Create(Doctor d) {
-            if (DoctorsInFile.Contains(d)) {
+        public Boolean Create(Doctor d)
+        {
+            if (DoctorsInFile.Contains(d))
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 DoctorsInFile.Add(d);
                 return true;
             }
         }
 
-        public Doctor GetByID(String id) {
-            foreach (Doctor doc in DoctorsInFile) {
-                if (doc.user.Jmbg1.Equals(id)) {
+        public Doctor GetByID(String id)
+        {
+            foreach (Doctor doc in DoctorsInFile)
+            {
+                if (doc.user.Jmbg1.Equals(id))
+                {
                     return doc;
                 }
             }
             return null;
         }
 
-        public List<Doctor> GetAll() {
+        public List<Doctor> GetAll()
+        {
             List<Doctor> doctors = new List<Doctor>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
-            while (text != null && text != "\n") {
+            while (text != null && text != "\n")
+            {
                 string[] components = text.Split(',');
                 string id = components[0];
                 string name = components[1];
@@ -54,9 +59,12 @@ namespace Classes {
             return doctors;
         }
 
-        public Boolean Update(Doctor prosledjeni) {
-            foreach (Doctor nadjeni in DoctorsInFile) {
-                if (prosledjeni.user.Jmbg1.Equals(nadjeni.user.Jmbg1)) {
+        public Boolean Update(Doctor prosledjeni)
+        {
+            foreach (Doctor nadjeni in DoctorsInFile)
+            {
+                if (prosledjeni.user.Jmbg1.Equals(nadjeni.user.Jmbg1))
+                {
                     // Mozda moze samo nadjeni.user = prosledjeni.user?
                     // Neke od ovih stvari mozda nemaju smisla da se update-uju, kao npr Gender
                     nadjeni.user.Name1 = prosledjeni.user.Name1;
@@ -77,25 +85,33 @@ namespace Classes {
             return false;
         }
 
-        public Boolean UpdateAll(List<Doctor> dif) {
+        public Boolean UpdateAll(List<Doctor> dif)
+        {
             TextWriter tw = new StreamWriter(FileLocation);
-            if (dif == null) {
+            if (dif == null)
+            {
                 tw.Close();
                 return false;
-            } else {
-                foreach (Doctor item in dif) {
-                    tw.WriteLine(item.user.Jmbg1 + "," + item.user.Name1 + "," + item.user.LastName1 + "," + item.room.RoomNumber1 + "," + null + "," + null); // Ostalo je item.appointments i item.holidayRequests da se formatira u istom obliku, kako? ne znam. verovatno da se prekine ovaj upis, pa neki for da prolazi kroz te dve liste i da ispisuje elemente u isti red, sa uglastim zagradama, i zarezom izmedju
-
-                    // tw.WriteLine(String.Format("{0},{1},{2},{3},{4},{5}"), item.user.Jmbg1, item.user.Name1, item.user.LastName1, item.room.RoomNumber1, null, null);
+            }
+            else
+            {
+                foreach (Doctor item in dif)
+                {
+                    tw.WriteLine(item.user.Jmbg1 + "," + item.user.Name1 + "," + item.user.LastName1 + "," + item.room.RoomNumber1 + "," + null + "," + null);
+                    // Ostalo je item.appointments i item.holidayRequests da se formatira u istom obliku, kako? ne znam. verovatno da se prekine ovaj upis, pa neki for da prolazi kroz te dve liste i da ispisuje elemente u isti red, sa uglastim zagradama, i zarezom izmedju
+                    // Nece da radi dobro preko WriteLine(String.Format("{0}..."), ...);
                 }
                 tw.Close();
                 return true;
             }
         }
 
-        public Boolean Delete(String id) {
-            foreach (Doctor doc in DoctorsInFile) {
-                if (doc.user.Jmbg1.Equals(id)) {
+        public Boolean Delete(String id)
+        {
+            foreach (Doctor doc in DoctorsInFile)
+            {
+                if (doc.user.Jmbg1.Equals(id))
+                {
                     DoctorsInFile.Remove(doc);
                     return true;
                 }

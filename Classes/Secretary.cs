@@ -1,12 +1,4 @@
-/***********************************************************************
- * Module:  Secretary.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Secretary
- ***********************************************************************/
-
 using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Classes
 {
@@ -14,6 +6,7 @@ namespace Classes
     {
         public User user;
         public NotificationBoard notificationBoard;
+
         public String SharePatientInfo()
         {
             // TODO: implement

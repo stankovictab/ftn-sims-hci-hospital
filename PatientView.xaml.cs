@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for PatientView.xaml
-    /// </summary>
     public partial class PatientView : Window
     {
         public Classes.Patient currentPatient = new Classes.Patient();

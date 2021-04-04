@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Classes
 {
@@ -16,7 +14,6 @@ namespace Classes
             user = new User(id);
         }
 
-        /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetAppointments()
         {
             if (appointments == null)
@@ -24,7 +21,6 @@ namespace Classes
             return appointments;
         }
 
-        /// <pdGenerated>default setter</pdGenerated>
         public void SetAppointments(System.Collections.ArrayList newAppointments)
         {
             RemoveAllAppointments();
@@ -32,7 +28,6 @@ namespace Classes
                 AddAppointments(oAppointment);
         }
 
-        /// <pdGenerated>default Add</pdGenerated>
         public void AddAppointments(Appointment newAppointment)
         {
             if (newAppointment == null)
@@ -46,7 +41,6 @@ namespace Classes
             }
         }
 
-        /// <pdGenerated>default Remove</pdGenerated>
         public void RemoveAppointments(Appointment oldAppointment)
         {
             if (oldAppointment == null)
@@ -59,7 +53,6 @@ namespace Classes
                 }
         }
 
-        /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllAppointments()
         {
             if (appointments != null)
@@ -73,6 +66,7 @@ namespace Classes
                 tmpAppointments.Clear();
             }
         }
+        public Patient() { }
 
         public Patient(User user, MedicalRecord medicalRecord, ArrayList appointments)
         {
@@ -80,6 +74,5 @@ namespace Classes
             this.medicalRecord = medicalRecord;
             this.appointments = appointments;
         }
-        public Patient() { }
     }
 }

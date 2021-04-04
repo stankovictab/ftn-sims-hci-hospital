@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  AppointmentFileStorage.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Patient.AppointmentFileStorage
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 
@@ -19,19 +13,16 @@ namespace Classes
             FileLocation = "AppointmentFileStorage.txt";
         }
 
-
         public Boolean Create(Appointment app)
         {
             string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg + ";" + app.patient.user.Jmbg + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + "0" + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return false;
-      }
-      
-      public Appointment GetByID(String id)
-      {
-            
-            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+        }
 
+        public Appointment GetByID(String id)
+        {
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (string line in lines)
             {
                 string[] parts = line.Split(';');
@@ -49,27 +40,27 @@ namespace Classes
                 }
             }
             return null;
-      }
-      
-      public Appointment GetByStartTime(DateTime startTime)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<Appointment> GetAllByDoctorID(String doctorID)
-      {
+        }
+
+        public Appointment GetByStartTime(DateTime startTime)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public List<Appointment> GetAllByDoctorID(String doctorID)
+        {
             List<Appointment> ret = new List<Appointment>();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (string line in lines)
             {
                 string[] parts = line.Split(';');
-                if (parts[1].Equals(doctorID)) 
+                if (parts[1].Equals(doctorID))
                 {
                     String appointmentId = parts[0];
                     string[] startParts = parts[3].Split(',');
                     DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
-                    
+
                     string[] endParts = parts[4].Split(',');
                     DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
 
@@ -77,7 +68,6 @@ namespace Classes
                     ret.Add(a);
                 }
             }
-
             return ret;
         }
 
@@ -123,7 +113,7 @@ namespace Classes
                 Create(app);
                 return true;
             }
-            
+
             return false;
         }
 
@@ -142,7 +132,7 @@ namespace Classes
             Boolean found = false;
             List<String> novi = new List<string>();
 
-            foreach(String row in rows)
+            foreach (String row in rows)
             {
                 String[] data = row.Split(';');
                 if (!data[0].Equals(id))

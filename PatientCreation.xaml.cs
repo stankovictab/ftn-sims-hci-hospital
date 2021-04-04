@@ -14,12 +14,9 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for PatientCreation.xaml
-    /// </summary>
     public partial class PatientCreation : Window
     {
-        public static Classes.PatientFileStorage pfs=new Classes.PatientFileStorage();
+        public static Classes.PatientFileStorage pfs = new Classes.PatientFileStorage();
         public PatientCreation()
         {
             InitializeComponent();
@@ -28,7 +25,6 @@ namespace ftn_sims_hci_hospital
 
         private void btnregister_Click(object sender, RoutedEventArgs e)
         {
-            
             string name = tbfirstname.Text;
             string lastname = tblastname.Text;
             string email = tbemail.Text;

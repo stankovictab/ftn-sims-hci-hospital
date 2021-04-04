@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for RoomCreation.xaml
-    /// </summary>
     public partial class RoomCreation : Window
     {
         public RoomCreation()

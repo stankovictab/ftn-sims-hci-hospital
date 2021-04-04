@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for ManagerWindow.xaml
-    /// </summary>
     public partial class ManagerWindow : Window
     {
         RoomFileStorage storage = RoomFileStorage.getRoomStorage();
@@ -26,7 +23,6 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
         }
-
 
         private void addroom_Click(object sender, RoutedEventArgs e)
         {
@@ -36,22 +32,19 @@ namespace ftn_sims_hci_hospital
 
         private void viewrooms_Click(object sender, RoutedEventArgs e)
         {
-            
-
             storage.AccessRoomsInFile = storage.GetAll();
             roomDataList.Items.Clear();
             foreach (Room r in storage.AccessRoomsInFile)
             {
-                roomDataList.Items.Add(new { RoomNumber = r.RoomNumber1, FloorNumber = r.FloorNumber1, Description = r.Description1, Type = r.Type1, Status = r.Status1});
+                roomDataList.Items.Add(new { RoomNumber = r.RoomNumber1, FloorNumber = r.FloorNumber1, Description = r.Description1, Type = r.Type1, Status = r.Status1 });
             }
-           
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)
         {
             if (!roomDataList.Items.IsEmpty)
             {
-                if(roomDataList.SelectedItem != null)
+                if (roomDataList.SelectedItem != null)
                 {
                     string[] parts = roomDataList.SelectedItem.ToString().Split(',');
                     string[] parts2 = parts[0].Split(' ');

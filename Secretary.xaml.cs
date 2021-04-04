@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for Secretary.xaml
-    /// </summary>
     public partial class Secretary : Window
     {
         public static Classes.PatientFileStorage pfs = new Classes.PatientFileStorage();
@@ -36,7 +33,7 @@ namespace ftn_sims_hci_hospital
         {
             pfs.PatientsInFile1 = pfs.GetAll();
             patientData.Items.Clear();
-            foreach(Classes.Patient p in pfs.PatientsInFile1)
+            foreach (Classes.Patient p in pfs.PatientsInFile1)
             {
                 patientData.Items.Add(new Classes.User { Name1 = p.user.Name1, LastName1 = p.user.LastName1, Jmbg1 = p.user.Jmbg1 });
             }
@@ -44,9 +41,9 @@ namespace ftn_sims_hci_hospital
 
         private void btnviewpatient_Click(object sender, RoutedEventArgs e)
         {
-           if(!patientData.Items.IsEmpty)
-           {
-                if(patientData.SelectedItem!=null)
+            if (!patientData.Items.IsEmpty)
+            {
+                if (patientData.SelectedItem != null)
                 {
                     Classes.User user = (Classes.User)patientData.SelectedItem;
                     String id = user.Jmbg1;
@@ -54,7 +51,7 @@ namespace ftn_sims_hci_hospital
                     patientView.ShowDialog();
                     btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
-           }
+            }
         }
 
         private void btndeletepatient_Click(object sender, RoutedEventArgs e)

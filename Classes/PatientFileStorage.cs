@@ -1,25 +1,18 @@
-/***********************************************************************
- * Module:  SecretaryPatientManagement.cs
- * Author:  Mihajlo
- * Purpose: Definition of the Class SecretaryPatientManagement
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace Classes
 {
-   public class PatientFileStorage
-   {
+    public class PatientFileStorage
+    {
         private String FileLocation = "patients.txt";
-        private List<Patient> PatientsInFile=new List<Patient>();
+        private List<Patient> PatientsInFile = new List<Patient>();
 
         public List<Patient> PatientsInFile1 { get => PatientsInFile; set => PatientsInFile = value; }
 
         public Boolean Create(Patient p)
-      {
+        {
             if (PatientsInFile.Contains(p))
             {
                 return false;
@@ -30,26 +23,26 @@ namespace Classes
                 return true;
             }
 
-      }
+        }
 
-      public Patient GetByID(String id)
-      {
-         foreach(Patient patient in PatientsInFile)
-         {
-                if(patient.user.Jmbg1.Equals(id))
+        public Patient GetByID(String id)
+        {
+            foreach (Patient patient in PatientsInFile)
+            {
+                if (patient.user.Jmbg1.Equals(id))
                 {
                     return patient;
                 }
-         }
-         return null;
-      }
+            }
+            return null;
+        }
 
-      public List<Patient> GetAll()
-      {
+        public List<Patient> GetAll()
+        {
             List<Patient> patients = new List<Patient>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
-            while(text!=null&&text!="\n")
+            while (text != null && text != "\n")
             {
                 string[] components = text.Split(',');
                 string name = components[0];
@@ -67,13 +60,13 @@ namespace Classes
             }
             tr.Close();
             return patients;
-      }
+        }
 
-      public Boolean Update(Patient p)
-      {
-         foreach(Patient patient in PatientsInFile)
-         {
-                if(p.user.Jmbg1.Equals(patient.user.Jmbg1))
+        public Boolean Update(Patient p)
+        {
+            foreach (Patient patient in PatientsInFile)
+            {
+                if (p.user.Jmbg1.Equals(patient.user.Jmbg1))
                 {
                     patient.user.Password1 = p.user.Password1;
                     patient.user.Username1 = p.user.Username1;
@@ -81,15 +74,15 @@ namespace Classes
                     patient.user.Name1 = p.user.Name1;
                     patient.user.LastName1 = p.user.LastName1;
                     patient.user.Address1 = p.user.Address1;
-                    patient.user.Gender1= p.user.Gender1;
+                    patient.user.Gender1 = p.user.Gender1;
                     return true;
                 }
-         }
-         return false;
-      }
+            }
+            return false;
+        }
 
-      public Boolean UpdateAll(List<Patient> pif)
-      {
+        public Boolean UpdateAll(List<Patient> pif)
+        {
             TextWriter tw = new StreamWriter(FileLocation);
             if (pif == null)
             {
@@ -106,10 +99,10 @@ namespace Classes
                 tw.Close();
                 return true;
             }
-      }
+        }
 
-      public Boolean Delete(String id)
-      {
+        public Boolean Delete(String id)
+        {
             foreach (Patient patient in PatientsInFile)
             {
                 if (patient.user.Jmbg1.Equals(id))
@@ -119,9 +112,9 @@ namespace Classes
                 }
             }
             return false;
-      }
+        }
 
 
 
-   }
+    }
 }

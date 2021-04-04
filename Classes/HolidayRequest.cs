@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  HolidayRequest.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Doctor.HolidayRequest
- ***********************************************************************/
-
 using System;
 
 namespace Classes
@@ -37,14 +31,11 @@ namespace Classes
         public DateTime RequestDate1 { get => RequestDate; set => RequestDate = value; }
         public HolidayRequestStatus Status1 { get => Status; set => Status = value; }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Doctor GetDoctor()
         {
             return doctor;
         }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newDoctor</param>
         public void SetDoctor(Doctor newDoctor)
         {
             if (this.doctor != newDoctor)

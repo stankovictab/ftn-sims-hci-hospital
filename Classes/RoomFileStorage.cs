@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  RoomFileStorage.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Manager.RoomFileStorage
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -132,6 +126,5 @@ namespace Classes
             }
             return RoomStorage;
         }
-
     }
 }

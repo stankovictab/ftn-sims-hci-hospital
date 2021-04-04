@@ -1,5 +1,3 @@
-using System;
-
 namespace Classes
 {
     public class Manager
@@ -7,7 +5,6 @@ namespace Classes
         public User user;
         public System.Collections.ArrayList rooms;
 
-        /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetRooms()
         {
             if (rooms == null)
@@ -15,7 +12,6 @@ namespace Classes
             return rooms;
         }
 
-        /// <pdGenerated>default setter</pdGenerated>
         public void SetRooms(System.Collections.ArrayList newRooms)
         {
             RemoveAllRooms();
@@ -23,7 +19,6 @@ namespace Classes
                 AddRooms(oRoom);
         }
 
-        /// <pdGenerated>default Add</pdGenerated>
         public void AddRooms(Room newRoom)
         {
             if (newRoom == null)
@@ -34,7 +29,6 @@ namespace Classes
                 this.rooms.Add(newRoom);
         }
 
-        /// <pdGenerated>default Remove</pdGenerated>
         public void RemoveRooms(Room oldRoom)
         {
             if (oldRoom == null)
@@ -44,7 +38,6 @@ namespace Classes
                     this.rooms.Remove(oldRoom);
         }
 
-        /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllRooms()
         {
             if (rooms != null)
