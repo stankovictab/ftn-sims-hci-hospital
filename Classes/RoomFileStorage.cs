@@ -6,6 +6,21 @@ namespace Classes
 {
     public class RoomFileStorage
     {
+        private String FileLocation = "../../Text Files/rooms.txt";
+        private List<Room> RoomsInFile = new List<Room>();
+
+        public List<Room> AccessRoomsInFile { get => RoomsInFile; set => RoomsInFile = value; }
+
+        private static RoomFileStorage RoomStorage = null;
+        public static RoomFileStorage getRoomStorage()
+        {
+            if (RoomStorage == null)
+            {
+                RoomStorage = new RoomFileStorage();
+            }
+            return RoomStorage;
+        }
+
         public static RoomType ParseType(string input)
         {
             if (input == "Operating")
@@ -110,21 +125,6 @@ namespace Classes
                 }
             }
             return false;
-        }
-
-        private String FileLocation = "rooms.txt";
-        private List<Room> RoomsInFile = new List<Room>();
-
-        public List<Room> AccessRoomsInFile { get => RoomsInFile; set => RoomsInFile = value; }
-
-        private static RoomFileStorage RoomStorage = null;
-        public static RoomFileStorage getRoomStorage()
-        {
-            if (RoomStorage == null)
-            {
-                RoomStorage = new RoomFileStorage();
-            }
-            return RoomStorage;
         }
     }
 }

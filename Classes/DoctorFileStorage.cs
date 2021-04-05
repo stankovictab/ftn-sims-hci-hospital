@@ -6,7 +6,7 @@ namespace Classes
 {
     public class DoctorFileStorage
     {
-        private String FileLocation = "doctors.txt";
+        private String FileLocation = "../../Text Files/doctors.txt";
         private List<Doctor> DoctorsInFile;
 
         public List<Doctor> DoctorsInFile1 { get => DoctorsInFile; set => DoctorsInFile = value; }

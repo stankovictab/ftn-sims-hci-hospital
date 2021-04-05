@@ -6,7 +6,7 @@ namespace Classes
 {
     public class HolidayRequestFileStorage
     {
-        private String FileLocation = "holidayrequests.txt"; // U jednom fajlu ce biti Request-ovi za sve lekare, pa ce se filtrirati po ID-u lekara, ovo je u \bin\Debug folderu
+        private String FileLocation = "../../Text Files/holidayrequests.txt"; // U jednom fajlu ce biti Request-ovi za sve lekare, pa ce se filtrirati po ID-u lekara, ovo je u \bin\Debug folderu
         private List<HolidayRequest> HolidayRequestsInFile = new List<HolidayRequest>(); // Lista u memoriji, ona ce preko updateAll() overwrite-ovati fajl
 
         // Property (geter i seter) za HolidayRequestsInFile
@@ -71,6 +71,7 @@ namespace Classes
             foreach (HolidayRequest req in HolidayRequestsInFile)
             {
                 // Ako nadje Request za prosledjenog lekara, stavi ga u listu, i vrati listu
+                // Ako lekar sa datim JMBG-om ne postoji u doctors.txt, bacice exception
                 if (req.doctor.user.Jmbg1.Equals(id))
                 {
                     requests.Add(req);

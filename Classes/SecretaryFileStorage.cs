@@ -5,7 +5,7 @@ namespace Classes
 {
     public class SecretaryFileStorage
     {
-        private String FileLocation;
+        private String FileLocation = "../../Text Files/secretaries.txt";
         private List<Secretary> SecretariesInFile;
 
         public Boolean Create(Secretary s)

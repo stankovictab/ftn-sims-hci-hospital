@@ -5,6 +5,9 @@ namespace Classes
 {
     public class ManagerFileStorage
     {
+        private String FileLocation = "../../Text Files/managers.txt";
+        private List<Manager> ManagersInFile;
+
         public Boolean Create(Manager m)
         {
             // TODO: implement
@@ -34,9 +37,5 @@ namespace Classes
             // TODO: implement
             return false;
         }
-
-        private String FileLocation;
-        private List<Manager> ManagersInFile;
-
     }
 }

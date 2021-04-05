@@ -10,7 +10,7 @@ namespace Classes
 
         public AppointmentFileStorage()
         {
-            FileLocation = "AppointmentFileStorage.txt";
+            FileLocation = "../../Text Files/appointments.txt";
         }
 
         public Boolean Create(Appointment app)
