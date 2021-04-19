@@ -4,28 +4,51 @@ namespace Classes
 {
     public class Room
     {
-        public Doctor doctor = null;
+        public Doctor doctor;
         private String RoomNumber;
         private int FloorNumber;
         private String Description;
         private RoomType Type;
         private RoomStatus Status;
+        public System.Collections.ArrayList roomEquipment;
 
-        public string RoomNumber1 { get => RoomNumber; set => RoomNumber = value; }
-        public int FloorNumber1 { get => FloorNumber; set => FloorNumber = value; }
-        public string Description1 { get => Description; set => Description = value; }
-        public RoomType Type1 { get => Type; set => Type = value; }
-        public RoomStatus Status1 { get => Status; set => Status = value; }
-
-        public Room() { }
-
-        public Room(string roomNumber, int floorNumber, string description, RoomType type, RoomStatus status = RoomStatus.Free)
+        public System.Collections.ArrayList GetRoomEquipment()
         {
-            RoomNumber = roomNumber;
-            FloorNumber = floorNumber;
-            Description = description;
-            Type = type;
-            Status = status;
+            if (roomEquipment == null)
+                roomEquipment = new System.Collections.ArrayList();
+            return roomEquipment;
+        }
+
+        public void SetRoomEquipment(System.Collections.ArrayList newRoomEquipment)
+        {
+            RemoveAllRoomEquipment();
+            foreach (StaticEquipment oStaticEquipment in newRoomEquipment)
+                AddRoomEquipment(oStaticEquipment);
+        }
+
+        public void AddRoomEquipment(StaticEquipment newStaticEquipment)
+        {
+            if (newStaticEquipment == null)
+                return;
+            if (this.roomEquipment == null)
+                this.roomEquipment = new System.Collections.ArrayList();
+            if (!this.roomEquipment.Contains(newStaticEquipment))
+                this.roomEquipment.Add(newStaticEquipment);
+        }
+
+        public void RemoveRoomEquipment(StaticEquipment oldStaticEquipment)
+        {
+            if (oldStaticEquipment == null)
+                return;
+            if (this.roomEquipment != null)
+                if (this.roomEquipment.Contains(oldStaticEquipment))
+                    this.roomEquipment.Remove(oldStaticEquipment);
+        }
+
+        public void RemoveAllRoomEquipment()
+        {
+            if (roomEquipment != null)
+                roomEquipment.Clear();
         }
     }
 }

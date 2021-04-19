@@ -1,27 +1,66 @@
-using System;
-using System.Collections;
-
+using System.Collections.Generic;
 namespace Classes
 {
     public class Doctor
     {
+        public System.Collections.ArrayList dynamicEquipmentRequests;
         public System.Collections.ArrayList holidayRequests;
-        public User user { get; set; }
         public Room room;
+        public User user;
+        private List<Notification> Notifcations;
         public System.Collections.ArrayList appointments;
 
-        public Doctor(User user, Room room, ArrayList appointments, ArrayList holidayRequests)
+        public System.Collections.ArrayList GetDynamicEquipmentRequests()
         {
-            this.user = user;
-            this.room = room;
-            this.appointments = appointments;
-            this.holidayRequests = holidayRequests;
+            if (dynamicEquipmentRequests == null)
+                dynamicEquipmentRequests = new System.Collections.ArrayList();
+            return dynamicEquipmentRequests;
         }
 
-        public Doctor(String id)
+        public void SetDynamicEquipmentRequests(System.Collections.ArrayList newDynamicEquipmentRequests)
         {
-            User user1 = new User(id);
-            user = user1;
+            RemoveAllDynamicEquipmentRequests();
+            foreach (DynamicEquipmentRequest oDynamicEquipmentRequest in newDynamicEquipmentRequests)
+                AddDynamicEquipmentRequests(oDynamicEquipmentRequest);
+        }
+
+        public void AddDynamicEquipmentRequests(DynamicEquipmentRequest newDynamicEquipmentRequest)
+        {
+            if (newDynamicEquipmentRequest == null)
+                return;
+            if (this.dynamicEquipmentRequests == null)
+                this.dynamicEquipmentRequests = new System.Collections.ArrayList();
+            if (!this.dynamicEquipmentRequests.Contains(newDynamicEquipmentRequest))
+            {
+                this.dynamicEquipmentRequests.Add(newDynamicEquipmentRequest);
+                newDynamicEquipmentRequest.SetDoctor(this);
+            }
+        }
+
+        public void RemoveDynamicEquipmentRequests(DynamicEquipmentRequest oldDynamicEquipmentRequest)
+        {
+            if (oldDynamicEquipmentRequest == null)
+                return;
+            if (this.dynamicEquipmentRequests != null)
+                if (this.dynamicEquipmentRequests.Contains(oldDynamicEquipmentRequest))
+                {
+                    this.dynamicEquipmentRequests.Remove(oldDynamicEquipmentRequest);
+                    oldDynamicEquipmentRequest.SetDoctor((Doctor)null);
+                }
+        }
+
+        public void RemoveAllDynamicEquipmentRequests()
+        {
+            if (dynamicEquipmentRequests != null)
+            {
+                System.Collections.ArrayList tmpDynamicEquipmentRequests = new System.Collections.ArrayList();
+                foreach (DynamicEquipmentRequest oldDynamicEquipmentRequest in dynamicEquipmentRequests)
+                    tmpDynamicEquipmentRequests.Add(oldDynamicEquipmentRequest);
+                dynamicEquipmentRequests.Clear();
+                foreach (DynamicEquipmentRequest oldDynamicEquipmentRequest in tmpDynamicEquipmentRequests)
+                    oldDynamicEquipmentRequest.SetDoctor((Doctor)null);
+                tmpDynamicEquipmentRequests.Clear();
+            }
         }
 
         public System.Collections.ArrayList GetHolidayRequests()
@@ -129,6 +168,5 @@ namespace Classes
                 tmpAppointments.Clear();
             }
         }
-
     }
 }

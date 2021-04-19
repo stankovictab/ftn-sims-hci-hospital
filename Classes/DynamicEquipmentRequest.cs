@@ -1,16 +1,14 @@
 using System;
-
 namespace Classes
 {
-    public class HolidayRequest
+    public class DynamicEquipmentRequest
     {
-        public Doctor doctor;
         private String RequestID;
-        private String Description;
-        private DateTime StartDate;
-        private DateTime EndDate;
+        private String EquipmentName;
         private DateTime RequestDate;
-        private HolidayRequestStatus Status = 0;
+        private String Status = 0; // hwat
+
+        public Doctor doctor;
 
         public Doctor GetDoctor()
         {
@@ -25,12 +23,12 @@ namespace Classes
                 {
                     Doctor oldDoctor = this.doctor;
                     this.doctor = null;
-                    oldDoctor.RemoveHolidayRequests(this);
+                    oldDoctor.RemoveDynamicEquipmentRequests(this);
                 }
                 if (newDoctor != null)
                 {
                     this.doctor = newDoctor;
-                    this.doctor.AddHolidayRequests(this);
+                    this.doctor.AddDynamicEquipmentRequests(this);
                 }
             }
         }

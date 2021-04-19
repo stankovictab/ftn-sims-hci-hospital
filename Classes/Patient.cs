@@ -1,17 +1,63 @@
-using System;
-using System.Collections;
-
 namespace Classes
 {
     public class Patient
     {
-        public User user { get; set; }
+        public System.Collections.ArrayList notifications;
+        public User user;
         public MedicalRecord medicalRecord;
         public System.Collections.ArrayList appointments;
 
-        public Patient(String id)
+        public System.Collections.ArrayList GetNotifications()
         {
-            user = new User(id);
+            if (notifications == null)
+                notifications = new System.Collections.ArrayList();
+            return notifications;
+        }
+
+        public void SetNotifications(System.Collections.ArrayList newNotifications)
+        {
+            RemoveAllNotifications();
+            foreach (Notification oNotification in newNotifications)
+                AddNotifications(oNotification);
+        }
+
+        public void AddNotifications(Notification newNotification)
+        {
+            if (newNotification == null)
+                return;
+            if (this.notifications == null)
+                this.notifications = new System.Collections.ArrayList();
+            if (!this.notifications.Contains(newNotification))
+            {
+                this.notifications.Add(newNotification);
+                newNotification.SetPatient(this);
+            }
+        }
+
+        public void RemoveNotifications(Notification oldNotification)
+        {
+            if (oldNotification == null)
+                return;
+            if (this.notifications != null)
+                if (this.notifications.Contains(oldNotification))
+                {
+                    this.notifications.Remove(oldNotification);
+                    oldNotification.SetPatient((Patient)null);
+                }
+        }
+
+        public void RemoveAllNotifications()
+        {
+            if (notifications != null)
+            {
+                System.Collections.ArrayList tmpNotifications = new System.Collections.ArrayList();
+                foreach (Notification oldNotification in notifications)
+                    tmpNotifications.Add(oldNotification);
+                notifications.Clear();
+                foreach (Notification oldNotification in tmpNotifications)
+                    oldNotification.SetPatient((Patient)null);
+                tmpNotifications.Clear();
+            }
         }
 
         public System.Collections.ArrayList GetAppointments()
@@ -65,14 +111,6 @@ namespace Classes
                     oldAppointment.SetPatient((Patient)null);
                 tmpAppointments.Clear();
             }
-        }
-        public Patient() { }
-
-        public Patient(User user, MedicalRecord medicalRecord, ArrayList appointments)
-        {
-            this.user = user;
-            this.medicalRecord = medicalRecord;
-            this.appointments = appointments;
         }
     }
 }

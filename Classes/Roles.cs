@@ -1,10 +1,7 @@
-namespace Classes
+public enum Roles
 {
-    public enum Roles
-    {
-        Doctor,
-        Patient,
-        Secretary,
-        Manager
-    }
+    Doctor,
+    Patient,
+    Secretary,
+    Manager
 }

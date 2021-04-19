@@ -1,31 +1,15 @@
 using System;
-
 namespace Classes
 {
     public class Appointment
     {
-        public Doctor doctor { get; set; }
-        public Patient patient { get; set; }
-        public String AppointmentID { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        private String AppointmentID;
+        private DateTime StartTime;
+        private DateTime EndTime;
         private AppointmentType Type;
-
-        public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
-        {
-            AppointmentID = id;
-            doctor = new Doctor(doctorId);
-            patient = new Patient(patientId);
-            StartTime = start;
-            EndTime = end;
-        }
-
-        public Appointment(String id, DateTime start, DateTime end)
-        {
-            AppointmentID = id;
-            StartTime = start;
-            EndTime = end;
-        }
+        private Room Room;
+        private Boolean StatusFinished;
+        public Doctor doctor;
 
         public Doctor GetDoctor()
         {
@@ -49,6 +33,7 @@ namespace Classes
                 }
             }
         }
+        public Patient patient;
 
         public Patient GetPatient()
         {
