@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 namespace Classes
 {
@@ -6,9 +8,23 @@ namespace Classes
         public System.Collections.ArrayList dynamicEquipmentRequests;
         public System.Collections.ArrayList holidayRequests;
         public Room room;
-        public User user;
+        public User user { get; set; }
         private List<Notification> Notifcations;
         public System.Collections.ArrayList appointments;
+
+		public Doctor(User user, Room room, ArrayList appointments, ArrayList holidayRequests)
+        {
+            this.user = user;
+            this.room = room;
+            this.appointments = appointments;
+            this.holidayRequests = holidayRequests;
+        }
+
+        public Doctor(String id)
+        {
+            User user1 = new User(id);
+            user = user1;
+        }
 
         public System.Collections.ArrayList GetDynamicEquipmentRequests()
         {

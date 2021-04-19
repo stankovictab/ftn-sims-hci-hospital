@@ -12,6 +12,25 @@ namespace Classes
         private DateTime RequestDate;
         private HolidayRequestStatus Status = 0;
 
+		// Format u txt fajlu treba da bude isti kao ovi parametri, vidi GetAll() u FileStorage klasi
+        public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate, Doctor doctor)
+        {
+            this.RequestID = RequestID;
+            this.Description = Description;
+            this.StartDate = StartDate;
+            this.EndDate = EndDate;
+            this.RequestDate = DateTime.Now; // TODO: Proveri da li radi
+            this.Status = HolidayRequestStatus.OnHold; // default, mozda ne treba?
+            this.doctor = doctor;
+        }
+
+        public string RequestID1 { get => RequestID; set => RequestID = value; }
+        public string Description1 { get => Description; set => Description = value; }
+        public DateTime StartDate1 { get => StartDate; set => StartDate = value; }
+        public DateTime EndDate1 { get => EndDate; set => EndDate = value; }
+        public DateTime RequestDate1 { get => RequestDate; set => RequestDate = value; }
+        public HolidayRequestStatus Status1 { get => Status; set => Status = value; }
+
         public Doctor GetDoctor()
         {
             return doctor;

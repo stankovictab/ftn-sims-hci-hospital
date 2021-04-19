@@ -4,16 +4,17 @@ namespace Classes
 {
     public class User
     {
-        public String Name;
+        private String Name;
         private String LastName;
-        public String Username;
+        private String Username;
         private String Password;
         private String Email;
-        public String Jmbg;
+        private String Jmbg;
         private String Address;
         private Char Gender;
         private Boolean Active = false;
         private Roles Role;
+		
         public User() { }
 
         public User(String jmbg)

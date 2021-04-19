@@ -1,11 +1,27 @@
+using System;
+using System.Collections;
 namespace Classes
 {
     public class Patient
     {
         public System.Collections.ArrayList notifications;
-        public User user;
+        public User user { get; set; }
         public MedicalRecord medicalRecord;
         public System.Collections.ArrayList appointments;
+
+		public Patient() { }
+
+		public Patient(String id)
+        {
+            user = new User(id);
+        }
+
+        public Patient(User user, MedicalRecord medicalRecord, ArrayList appointments)
+        {
+            this.user = user;
+            this.medicalRecord = medicalRecord;
+            this.appointments = appointments;
+        }
 
         public System.Collections.ArrayList GetNotifications()
         {
