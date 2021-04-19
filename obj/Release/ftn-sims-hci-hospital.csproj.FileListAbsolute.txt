@@ -1,0 +1,6 @@
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Release\ftn-sims-hci-hospital.csprojAssemblyReference.cache
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Release\HolidayRequestCreation.g.cs
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Release\MainWindow.g.cs
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Release\App.g.cs
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Release\ftn-sims-hci-hospital_MarkupCompile.cache
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Release\ftn-sims-hci-hospital_MarkupCompile.lref

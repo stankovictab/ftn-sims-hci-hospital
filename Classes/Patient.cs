@@ -1,27 +1,81 @@
-/***********************************************************************
- * Module:  Korisnik.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Korisnik
- ***********************************************************************/
-
 using System;
-using System.Collections.Generic;
-using System.IO;
-
+using System.Collections;
 namespace Classes
 {
     public class Patient
     {
+        public System.Collections.ArrayList notifications;
         public User user { get; set; }
         public MedicalRecord medicalRecord;
         public System.Collections.ArrayList appointments;
 
-        public Patient(String userName)
+		public Patient() { }
+
+		public Patient(String id)
         {
-            user = new User(userName);
+            user = new User(id);
         }
 
-        /// <pdGenerated>default getter</pdGenerated>
+        public Patient(User user, MedicalRecord medicalRecord, ArrayList appointments)
+        {
+            this.user = user;
+            this.medicalRecord = medicalRecord;
+            this.appointments = appointments;
+        }
+
+        public System.Collections.ArrayList GetNotifications()
+        {
+            if (notifications == null)
+                notifications = new System.Collections.ArrayList();
+            return notifications;
+        }
+
+        public void SetNotifications(System.Collections.ArrayList newNotifications)
+        {
+            RemoveAllNotifications();
+            foreach (Notification oNotification in newNotifications)
+                AddNotifications(oNotification);
+        }
+
+        public void AddNotifications(Notification newNotification)
+        {
+            if (newNotification == null)
+                return;
+            if (this.notifications == null)
+                this.notifications = new System.Collections.ArrayList();
+            if (!this.notifications.Contains(newNotification))
+            {
+                this.notifications.Add(newNotification);
+                newNotification.SetPatient(this);
+            }
+        }
+
+        public void RemoveNotifications(Notification oldNotification)
+        {
+            if (oldNotification == null)
+                return;
+            if (this.notifications != null)
+                if (this.notifications.Contains(oldNotification))
+                {
+                    this.notifications.Remove(oldNotification);
+                    oldNotification.SetPatient((Patient)null);
+                }
+        }
+
+        public void RemoveAllNotifications()
+        {
+            if (notifications != null)
+            {
+                System.Collections.ArrayList tmpNotifications = new System.Collections.ArrayList();
+                foreach (Notification oldNotification in notifications)
+                    tmpNotifications.Add(oldNotification);
+                notifications.Clear();
+                foreach (Notification oldNotification in tmpNotifications)
+                    oldNotification.SetPatient((Patient)null);
+                tmpNotifications.Clear();
+            }
+        }
+
         public System.Collections.ArrayList GetAppointments()
         {
             if (appointments == null)
@@ -29,7 +83,6 @@ namespace Classes
             return appointments;
         }
 
-        /// <pdGenerated>default setter</pdGenerated>
         public void SetAppointments(System.Collections.ArrayList newAppointments)
         {
             RemoveAllAppointments();
@@ -37,7 +90,6 @@ namespace Classes
                 AddAppointments(oAppointment);
         }
 
-        /// <pdGenerated>default Add</pdGenerated>
         public void AddAppointments(Appointment newAppointment)
         {
             if (newAppointment == null)
@@ -51,7 +103,6 @@ namespace Classes
             }
         }
 
-        /// <pdGenerated>default Remove</pdGenerated>
         public void RemoveAppointments(Appointment oldAppointment)
         {
             if (oldAppointment == null)
@@ -64,7 +115,6 @@ namespace Classes
                 }
         }
 
-        /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllAppointments()
         {
             if (appointments != null)
@@ -78,6 +128,5 @@ namespace Classes
                 tmpAppointments.Clear();
             }
         }
-
     }
 }

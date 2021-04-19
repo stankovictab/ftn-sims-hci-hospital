@@ -1,22 +1,84 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-
 namespace Classes
 {
     public class Doctor
     {
+        public System.Collections.ArrayList dynamicEquipmentRequests;
         public System.Collections.ArrayList holidayRequests;
-        public User user { get; set; }
         public Room room;
+        public User user { get; set; }
+        private List<Notification> Notifcations;
         public System.Collections.ArrayList appointments;
 
-        public Doctor(String userName)
+		public Doctor(User user, Room room, ArrayList appointments, ArrayList holidayRequests)
         {
-            user = new User(userName);
+            this.user = user;
+            this.room = room;
+            this.appointments = appointments;
+            this.holidayRequests = holidayRequests;
         }
 
-        /// <pdGenerated>default getter</pdGenerated>
+        public Doctor(String id)
+        {
+            User user1 = new User(id);
+            user = user1;
+        }
+
+        public System.Collections.ArrayList GetDynamicEquipmentRequests()
+        {
+            if (dynamicEquipmentRequests == null)
+                dynamicEquipmentRequests = new System.Collections.ArrayList();
+            return dynamicEquipmentRequests;
+        }
+
+        public void SetDynamicEquipmentRequests(System.Collections.ArrayList newDynamicEquipmentRequests)
+        {
+            RemoveAllDynamicEquipmentRequests();
+            foreach (DynamicEquipmentRequest oDynamicEquipmentRequest in newDynamicEquipmentRequests)
+                AddDynamicEquipmentRequests(oDynamicEquipmentRequest);
+        }
+
+        public void AddDynamicEquipmentRequests(DynamicEquipmentRequest newDynamicEquipmentRequest)
+        {
+            if (newDynamicEquipmentRequest == null)
+                return;
+            if (this.dynamicEquipmentRequests == null)
+                this.dynamicEquipmentRequests = new System.Collections.ArrayList();
+            if (!this.dynamicEquipmentRequests.Contains(newDynamicEquipmentRequest))
+            {
+                this.dynamicEquipmentRequests.Add(newDynamicEquipmentRequest);
+                newDynamicEquipmentRequest.SetDoctor(this);
+            }
+        }
+
+        public void RemoveDynamicEquipmentRequests(DynamicEquipmentRequest oldDynamicEquipmentRequest)
+        {
+            if (oldDynamicEquipmentRequest == null)
+                return;
+            if (this.dynamicEquipmentRequests != null)
+                if (this.dynamicEquipmentRequests.Contains(oldDynamicEquipmentRequest))
+                {
+                    this.dynamicEquipmentRequests.Remove(oldDynamicEquipmentRequest);
+                    oldDynamicEquipmentRequest.SetDoctor((Doctor)null);
+                }
+        }
+
+        public void RemoveAllDynamicEquipmentRequests()
+        {
+            if (dynamicEquipmentRequests != null)
+            {
+                System.Collections.ArrayList tmpDynamicEquipmentRequests = new System.Collections.ArrayList();
+                foreach (DynamicEquipmentRequest oldDynamicEquipmentRequest in dynamicEquipmentRequests)
+                    tmpDynamicEquipmentRequests.Add(oldDynamicEquipmentRequest);
+                dynamicEquipmentRequests.Clear();
+                foreach (DynamicEquipmentRequest oldDynamicEquipmentRequest in tmpDynamicEquipmentRequests)
+                    oldDynamicEquipmentRequest.SetDoctor((Doctor)null);
+                tmpDynamicEquipmentRequests.Clear();
+            }
+        }
+
         public System.Collections.ArrayList GetHolidayRequests()
         {
             if (holidayRequests == null)
@@ -24,7 +86,6 @@ namespace Classes
             return holidayRequests;
         }
 
-        /// <pdGenerated>default setter</pdGenerated>
         public void SetHolidayRequests(System.Collections.ArrayList newHolidayRequests)
         {
             RemoveAllHolidayRequests();
@@ -32,7 +93,6 @@ namespace Classes
                 AddHolidayRequests(oHolidayRequest);
         }
 
-        /// <pdGenerated>default Add</pdGenerated>
         public void AddHolidayRequests(HolidayRequest newHolidayRequest)
         {
             if (newHolidayRequest == null)
@@ -46,7 +106,6 @@ namespace Classes
             }
         }
 
-        /// <pdGenerated>default Remove</pdGenerated>
         public void RemoveHolidayRequests(HolidayRequest oldHolidayRequest)
         {
             if (oldHolidayRequest == null)
@@ -59,7 +118,6 @@ namespace Classes
                 }
         }
 
-        /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllHolidayRequests()
         {
             if (holidayRequests != null)
@@ -74,7 +132,6 @@ namespace Classes
             }
         }
 
-        /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetAppointments()
         {
             if (appointments == null)
@@ -82,7 +139,6 @@ namespace Classes
             return appointments;
         }
 
-        /// <pdGenerated>default setter</pdGenerated>
         public void SetAppointments(System.Collections.ArrayList newAppointments)
         {
             RemoveAllAppointments();
@@ -90,7 +146,6 @@ namespace Classes
                 AddAppointments(oAppointment);
         }
 
-        /// <pdGenerated>default Add</pdGenerated>
         public void AddAppointments(Appointment newAppointment)
         {
             if (newAppointment == null)
@@ -104,7 +159,6 @@ namespace Classes
             }
         }
 
-        /// <pdGenerated>default Remove</pdGenerated>
         public void RemoveAppointments(Appointment oldAppointment)
         {
             if (oldAppointment == null)
@@ -117,7 +171,6 @@ namespace Classes
                 }
         }
 
-        /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllAppointments()
         {
             if (appointments != null)
@@ -131,6 +184,5 @@ namespace Classes
                 tmpAppointments.Clear();
             }
         }
-
     }
 }

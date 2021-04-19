@@ -58,33 +58,120 @@
     <Compile Include="AllAppointments.xaml.cs">
       <DependentUpon>AllAppointments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentsListDoctorB.xaml.cs">
+      <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AllergiesRepository.cs" />
+    <Compile Include="Classes\Allergy.cs" />
+    <Compile Include="Classes\Anamnesis.cs" />
+    <Compile Include="Classes\AnamnesisRepository.cs" />
+    <Compile Include="Classes\AppointmentController.cs" />
+    <Compile Include="Classes\AppointmentRepository.cs" />
+    <Compile Include="Classes\AppointmentService.cs" />
+    <Compile Include="Classes\AssignmentController.cs" />
+    <Compile Include="Classes\AssignmentRepository.cs" />
+    <Compile Include="Classes\AssignmentService.cs" />
     <Compile Include="Classes\Doctor.cs" />
+    <Compile Include="Classes\DoctorController.cs" />
+    <Compile Include="Classes\DoctorRepository.cs" />
+    <Compile Include="Classes\DoctorService.cs" />
+    <Compile Include="Classes\DynamicAssignment.cs" />
+    <Compile Include="Classes\DynamicEquipment.cs" />
+    <Compile Include="Classes\DynamicEquipmentRepository.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequest.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequestController.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequestRepository.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequestService.cs" />
+    <Compile Include="Classes\DynamicEquipmentStatus.cs" />
+    <Compile Include="Classes\EnschedulementController.cs" />
+    <Compile Include="Classes\EnschedulementRepository.cs" />
+    <Compile Include="Classes\EnschedulementService.cs" />
+    <Compile Include="Classes\EquipmentController.cs" />
+    <Compile Include="Classes\EquipmentService.cs" />
     <Compile Include="Classes\HolidayRequest.cs" />
-    <Compile Include="Classes\HolidayRequestFileStorage.cs" />
+    <Compile Include="Classes\HolidayRequestController.cs" />
+    <Compile Include="Classes\HolidayRequestRepository.cs" />
+    <Compile Include="Classes\HolidayRequestService.cs" />
     <Compile Include="Classes\HolidayRequestStatus.cs" />
     <Compile Include="Classes\Manager.cs" />
-    <Compile Include="Classes\DoctorFileStorage.cs" />
-    <Compile Include="Classes\ManagerFileStorage.cs" />
+    <Compile Include="Classes\NotificationController.cs" />
+    <Compile Include="Classes\NotificationRepository.cs" />
+    <Compile Include="Classes\NotificationService.cs" />
+    <Compile Include="Classes\PatientController.cs" />
+    <Compile Include="Classes\PatientRepository.cs" />
+    <Compile Include="Classes\PatientService.cs" />
+    <Compile Include="Classes\Perscription.cs" />
+    <Compile Include="Classes\PerscriptionRepository.cs" />
     <Compile Include="Classes\Room.cs" />
-    <Compile Include="Classes\RoomFileStorage.cs" />
+    <Compile Include="Classes\RoomController.cs" />
+    <Compile Include="Classes\RoomRepository.cs" />
+    <Compile Include="Classes\RoomService.cs" />
     <Compile Include="Classes\RoomStatus.cs" />
     <Compile Include="Classes\RoomType.cs" />
-    <Compile Include="Classes\SecretaryFileStorage.cs" />
     <Compile Include="Classes\Patient.cs" />
     <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\Secretary.cs" />
     <Compile Include="Classes\Notification.cs" />
     <Compile Include="Classes\NotificationBoard.cs" />
-    <Compile Include="Classes\PatientFileStorage.cs" />
+    <Compile Include="Classes\StaticEnschedulement.cs" />
+    <Compile Include="Classes\StaticEquipment.cs" />
+    <Compile Include="Classes\StaticEquipmentRepository.cs" />
     <Compile Include="Classes\User.cs" />
+    <Page Include="DoctorEPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HolidayRequestCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HolidayRequestUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="PatientCreation.xaml.cs">
+      <DependentUpon>PatientCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientManagement.xaml.cs">
+      <DependentUpon>PatientManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientView.xaml.cs">
+      <DependentUpon>PatientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary.xaml.cs">
+      <DependentUpon>Secretary.xaml</DependentUpon>
+    </Compile>
     <Page Include="AllAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateAppointment.xaml">
+    </Page>
+    <Page Include="AppointmentsListDoctorB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CreateAppointmentDoctorB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteAppointmentDoctorB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RoomCreation.xaml.cs">
+      <DependentUpon>RoomCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RoomUpdate.xaml.cs">
+      <DependentUpon>RoomUpdate.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,21 +180,64 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DoctorEPanel.xaml.cs">
+      <DependentUpon>DoctorEPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayRequestCreation.xaml.cs">
+      <DependentUpon>HolidayRequestCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayRequestUpdate.xaml.cs">
+      <DependentUpon>HolidayRequestUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CreateAppointment.xaml.cs">
       <DependentUpon>CreateAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAppointmentDoctorB.xaml.cs">
+      <DependentUpon>CreateAppointmentDoctorB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteAppointmentDoctorB.xaml.cs">
+      <DependentUpon>DeleteAppointmentDoctorB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorB.xaml.cs">
+      <DependentUpon>DoctorB.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PatientCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PatientWindow.xaml">
+    </Page>
+    <Page Include="ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RoomCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RoomUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Appointment.cs" />
-    <Compile Include="Classes\AppointmentFileStorage.cs" />
     <Compile Include="Classes\AppointmentType.cs" />
     <Compile Include="Classes\MedicalRecord.cs" />
     <Compile Include="PatientWindow.xaml.cs">

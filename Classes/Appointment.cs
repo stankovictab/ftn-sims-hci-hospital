@@ -1,39 +1,38 @@
-/***********************************************************************
- * Module:  Appointment.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Appointment
- ***********************************************************************/
-
 using System;
-
 namespace Classes
 {
     public class Appointment
     {
-        public Doctor doctor { get; set; }
-        public Patient patient { get; set; }
-        public String AppointmentID { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        private AppointmentType Type;
+        private String AppointmentID { get; set; }
+        private DateTime StartTime { get; set; }
+        private DateTime EndTime { get; set; }
+        private AppointmentType Type { get; set; }
+        private Room Room { get; set; }
+        private Boolean StatusFinished { get; set; }
+        private Doctor doctor { get; set; }
+        private Patient patient { get; set; }
 
-        public Appointment(String id, String doctorName, String patientName, DateTime start, DateTime end)
+		public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
         {
-            doctor = new Doctor(doctorName);
-            patient = new Patient(patientName);
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = end;
+        }
+
+        public Appointment(String id, DateTime start, DateTime end)
+        {
             AppointmentID = id;
             StartTime = start;
             EndTime = end;
         }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Doctor GetDoctor()
         {
             return doctor;
         }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newDoctor</param>
         public void SetDoctor(Doctor newDoctor)
         {
             if (this.doctor != newDoctor)
@@ -52,14 +51,11 @@ namespace Classes
             }
         }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Patient GetPatient()
         {
             return patient;
         }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newPatient</param>
         public void SetPatient(Patient newPatient)
         {
             if (this.patient != newPatient)
@@ -77,7 +73,5 @@ namespace Classes
                 }
             }
         }
-
-
     }
 }
