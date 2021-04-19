@@ -1,24 +1,18 @@
-/***********************************************************************
- * Module:  HolidayRequest.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Doctor.HolidayRequest
- ***********************************************************************/
-
 using System;
 
 namespace Classes
 {
     public class HolidayRequest
     {
+        public Doctor doctor;
         private String RequestID;
         private String Description;
         private DateTime StartDate;
         private DateTime EndDate;
         private DateTime RequestDate;
         private HolidayRequestStatus Status = 0;
-        public Doctor doctor;
 
-        // Format u txt fajlu treba da bude isti kao ovi parametri, vidi GetAll() u FileStorage klasi
+		// Format u txt fajlu treba da bude isti kao ovi parametri, vidi GetAll() u FileStorage klasi
         public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate, Doctor doctor)
         {
             this.RequestID = RequestID;
@@ -37,14 +31,11 @@ namespace Classes
         public DateTime RequestDate1 { get => RequestDate; set => RequestDate = value; }
         public HolidayRequestStatus Status1 { get => Status; set => Status = value; }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Doctor GetDoctor()
         {
             return doctor;
         }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newDoctor</param>
         public void SetDoctor(Doctor newDoctor)
         {
             if (this.doctor != newDoctor)

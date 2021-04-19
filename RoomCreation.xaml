@@ -1,0 +1,23 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.RoomCreation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="RoomCreation" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="roomNumber" HorizontalAlignment="Left" Height="23" Margin="319,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Room Number:" HorizontalAlignment="Left" Margin="341,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
+        <TextBox x:Name="roomFloor" HorizontalAlignment="Left" Height="23" Margin="319,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Room Floor:" HorizontalAlignment="Left" Margin="341,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
+        <TextBox x:Name="roomDescription" HorizontalAlignment="Left" Height="92" Margin="274,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
+        <Label Content="Room Description:" HorizontalAlignment="Left" Margin="325,229,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
+        <Button x:Name="btnCreateRoom" Content="Create" HorizontalAlignment="Left" Margin="341,374,0,0" VerticalAlignment="Top" Width="75" Click="btnCreateRoom_Click"/>
+        <Label x:Name="___No_Name_" Content="Room Type:" HorizontalAlignment="Left" Margin="531,108,0,0" VerticalAlignment="Top" Height="28" Width="70"/>
+        <RadioButton x:Name="operating" Content="Operating" HorizontalAlignment="Left" Margin="527,136,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="checkup" Content="Checkup" HorizontalAlignment="Left" Margin="527,155,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="therapy" Content="Therapy" HorizontalAlignment="Left" Margin="527,175,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

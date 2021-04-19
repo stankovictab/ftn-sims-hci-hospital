@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for DeleteAppointmentDoctorB.xaml
-    /// </summary>
     public partial class DeleteAppointmentDoctorB : Window
     {
         Appointment a;
@@ -67,7 +64,7 @@ namespace ftn_sims_hci_hospital
         {
             AppointmentFileStorage f = new AppointmentFileStorage();
             CultureInfo provider = CultureInfo.InvariantCulture;
-            DateTime start = DateTime.ParseExact(txtS.Text, "hh:mm:ss dd.MM.yyyy",provider);
+            DateTime start = DateTime.ParseExact(txtS.Text, "hh:mm:ss dd.MM.yyyy", provider);
             DateTime end = DateTime.ParseExact(txtE.Text, "hh:mm:ss dd.MM.yyyy", provider);
             a.StartTime = start;
             a.EndTime = end;

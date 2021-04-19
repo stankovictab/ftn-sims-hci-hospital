@@ -4,23 +4,17 @@
 winexe
 C#
 .cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital-test\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\App.xaml
-41924933003
+C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital-test\App.xaml
+181408710019
 
-32-1547804834
+82-1264780489
 13-1505183044
-DoctorEPanel.xaml;HolidayRequestCreation.xaml;HolidayRequestUpdate.xaml;MainWindow.xaml;
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\App.xaml
-51549102259
+DoctorEPanel.xaml;HolidayRequestCreation.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;Secretary.xaml;PatientWindow.xaml;ManagerWindow.xaml;RoomCreation.xaml;RoomUpdate.xaml;
 
-33-1267389157
-13-1505183044
-MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;Secretary.xaml;
-
-True
+False
 
