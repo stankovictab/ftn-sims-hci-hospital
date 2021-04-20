@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Classes
 {
@@ -9,8 +10,9 @@ namespace Classes
         private List<Doctor> DoctorsInFile;
 
 		public List<Doctor> DoctorsInFile1 { get => DoctorsInFile; set => DoctorsInFile = value; }
+        public string FileLocation { get; }
 
-		public DoctorRepository()
+        public DoctorRepository()
         {
             FileLocation = "../../Text Files/doctors.txt";
         }

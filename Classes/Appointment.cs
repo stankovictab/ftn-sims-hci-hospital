@@ -3,14 +3,14 @@ namespace Classes
 {
     public class Appointment
     {
-        private String AppointmentID { get; set; }
-        private DateTime StartTime { get; set; }
-        private DateTime EndTime { get; set; }
-        private AppointmentType Type { get; set; }
-        private Room Room { get; set; }
-        private Boolean StatusFinished { get; set; }
-        private Doctor doctor { get; set; }
-        private Patient patient { get; set; }
+        public String AppointmentID { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public AppointmentType Type { get; set; }
+        public Room Room { get; set; }
+        public Boolean StatusFinished { get; set; }
+        public Doctor doctor { get; set; }
+        public Patient patient { get; set; }
 
 		public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
         {

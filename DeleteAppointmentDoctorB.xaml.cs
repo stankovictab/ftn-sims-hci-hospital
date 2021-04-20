@@ -32,8 +32,8 @@ namespace ftn_sims_hci_hospital
 
         private void deleteAppointment(Object sender, RoutedEventArgs e)
         {
-            AppointmentFileStorage f = new AppointmentFileStorage();
-            if (!f.Delete(txtDel.Text))
+            AppointmentController f = new AppointmentController();
+            if (!f.DeleteAppointment(txtDel.Text))
             {
                 MessageBox.Show("Id doesn't exist");
             }
@@ -46,8 +46,8 @@ namespace ftn_sims_hci_hospital
 
         private void findAp(Object sender, RoutedEventArgs e)
         {
-            AppointmentFileStorage f = new AppointmentFileStorage();
-            a = f.GetByID(txtDel.Text);
+            AppointmentController f = new AppointmentController();
+            //a = f.GetAppointmentByID(txtDel.Text);
 
             txtS.Text = a.StartTime.ToString("hh:mm:ss dd.MM.yyyy");
             txtS.Visibility = Visibility.Visible;
@@ -62,13 +62,13 @@ namespace ftn_sims_hci_hospital
 
         private void updateAp(Object sender, RoutedEventArgs e)
         {
-            AppointmentFileStorage f = new AppointmentFileStorage();
+            AppointmentController f = new AppointmentController();
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime start = DateTime.ParseExact(txtS.Text, "hh:mm:ss dd.MM.yyyy", provider);
             DateTime end = DateTime.ParseExact(txtE.Text, "hh:mm:ss dd.MM.yyyy", provider);
             a.StartTime = start;
             a.EndTime = end;
-            f.Update(a);
+            f.UpdateAppointment("123", new DateTime(), new DateTime(), new DateTime(), "");
         }
     }
 }

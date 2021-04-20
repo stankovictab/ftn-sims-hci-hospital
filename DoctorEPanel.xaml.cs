@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Classes;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -6,7 +7,7 @@ namespace ftn_sims_hci_hospital
 {
     public partial class DoctorEPanel : Window
     {
-        public static Classes.HolidayRequestFileStorage hrfs = new Classes.HolidayRequestFileStorage();
+        public static HolidayRequestRepository hrfs = new HolidayRequestRepository();
         private string selectedRHID;
 
         public DoctorEPanel()
@@ -31,9 +32,9 @@ namespace ftn_sims_hci_hospital
             // Doctor ID ce se dobiti pri logovanju, pa ce se proslediti u ovaj GetAllByDoctorID()
             // Za sad zamisli da je ulogovan lekar sa ID 0501
             // Takodje moze i da se napravi labela na prozoru da pokazuje koji je doktor ulogovan, ali to je HCI prica
-            List<Classes.HolidayRequest> filteredhrfs = hrfs.GetAllByDoctorID("0501"); // Ovo dobavlja iz vec napunjene liste u memoriji, ne uzima iz fajla
+            List<HolidayRequest> filteredhrfs = hrfs.GetAllByDoctorID("0501"); // Ovo dobavlja iz vec napunjene liste u memoriji, ne uzima iz fajla
             holidayRequestListView.Items.Clear(); // Reset (ne .Refresh())
-            foreach (Classes.HolidayRequest req in filteredhrfs)
+            foreach (HolidayRequest req in filteredhrfs)
             {
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}?
                 holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1 });
@@ -67,7 +68,7 @@ namespace ftn_sims_hci_hospital
         private void btnDeleteRequest_Click(object sender, RoutedEventArgs e)
         {
             hrfs.Delete(selectedRHID); // Update liste
-            hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Update fajla
+            //hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Update fajla
             // To je to, ovo radi ok
         }
     }

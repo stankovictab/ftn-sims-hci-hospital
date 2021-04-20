@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital.Classes;
 using System;
 using System.Collections.Generic;
 
@@ -10,10 +11,81 @@ namespace Classes
         public PatientRepository patientRepository;
         public RoomRepository roomRepository;
 
-        public List<Appointment> ShowAvailableAppointments(int priority, String doctorId, DateTime startTime, DateTime endTime, int type)
+        public AppointmentService()
         {
-            // TODO: implement
-            return null;
+            appointmentRepository = new AppointmentRepository();
+            doctorRepository = new DoctorRepository();
+            patientRepository = new PatientRepository();
+            roomRepository = new RoomRepository();
+        }
+
+        public List<Appointment> ShowAvailableAppointments(Priority priority, String doctorId, DateTime startTime, DateTime endTime, AppointmentType type)
+        {
+            List<Appointment> slots = GeneratePossibleSlots(startTime, endTime);
+            List<Appointment> filteredAppointments = new List<Appointment>();
+
+            List<Appointment> appointments = appointmentRepository.GetAllByDoctorID(doctorId);
+            available(filteredAppointments, slots, appointments, doctorId);
+
+            if (filteredAppointments.Count > 0 || priority == Priority.None)
+                return filteredAppointments;
+
+            /*if(priority == Priority.Date)
+            {
+                appointments = appointmentRepository.GetAll();
+                available(filteredAppointments, slots, appointments);
+
+            }
+
+            if (filteredAppointments.Count > 0)
+                return filteredAppointments;*/
+
+            if (priority == Priority.Doctor)
+            {
+                slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year, endTime.Month, endTime.Day + 7));
+                appointments = appointmentRepository.GetAll();
+                available(filteredAppointments, slots, appointments, doctorId);
+            }
+
+            return filteredAppointments;
+        }
+
+        void available(List<Appointment> filtered, List<Appointment> slots, List<Appointment> appointments, String doctorId)
+        {
+            int i = 0;
+            foreach (Appointment slot in slots)
+            {
+                while (!slot.StartTime.Equals(appointments[i].StartTime))
+                {
+                    i++;
+                    if (i == appointments.Count)
+                        break;
+                }
+                if (i == appointments.Count)
+                {
+                    slot.doctor.user.Name1 = doctorId;
+                    filtered.Add(slot);
+                }
+                i = 0;
+            }
+            return;
+        }
+
+        List<Appointment> GeneratePossibleSlots(DateTime startTime, DateTime endTime)
+        {
+            List<Appointment> possibleSlots = new List<Appointment>();
+            var interval = endTime - startTime;
+            for (int i = 0; i < interval.Days; i++)
+            {
+                for (int j = 0; j < 12; j++)
+                {
+                    DateTime begin = new DateTime(startTime.Year, startTime.Month, startTime.Day + i, startTime.Hour + 8 + j, startTime.Minute, startTime.Second);
+                    DateTime end = new DateTime(startTime.Year, startTime.Month, startTime.Day + i, startTime.Hour + 8 + j + 1, startTime.Minute, startTime.Second);
+                    Appointment a = new Appointment("1", "", "", begin, end);
+                    possibleSlots.Add(a);
+                }
+            }
+            return possibleSlots;
         }
 
         public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
@@ -28,15 +100,18 @@ namespace Classes
             return null;
         }
 
-        public Boolean UpdateAppointment(String appointmentId, DateTime newDate, String roomId)
+        public Boolean UpdateAppointment(String appointmentId, DateTime startTime, DateTime endTime, String roomId)
         {
-            // TODO: implement
-            return false;
+            Appointment appointment = appointmentRepository.GetByID(appointmentId);
+            appointment.StartTime = startTime;
+            appointment.EndTime = endTime;
+            appointmentRepository.Update(appointment);
+            return true;
         }
 
         public Boolean DeleteAppointment(String appointmentId)
         {
-            // TODO: implement
+            appointmentRepository.Delete(appointmentId);
             return false;
         }
 
@@ -48,8 +123,8 @@ namespace Classes
 
         public List<Appointment> GetAllByPatientId(String patientId)
         {
-            // TODO: implement
-            return null;
+            List<Appointment> app = appointmentRepository.GetAllByPatientID(patientId);
+            return app;
         }
 
         public List<Appointment> GetAllByDoctorId(String doctorId)

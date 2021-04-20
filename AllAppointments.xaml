@@ -11,11 +11,23 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding AppointmentID}" />
-                    <GridViewColumn Header="doctorID" Width="100" DisplayMemberBinding="{Binding doctor.user.Jmbg}" />
-                    <GridViewColumn Header="patientID" Width="100" DisplayMemberBinding="{Binding patient.user.Jmbg}" />
+                    <GridViewColumn Header="Doctor" Width="100" DisplayMemberBinding="{Binding doctor.user.Jmbg1}" />
                     <GridViewColumn Header="Start time" Width="100" DisplayMemberBinding="{Binding StartTime}" />
-                    <GridViewColumn Header="End time" Width="100" DisplayMemberBinding="{Binding EndTime}" />
-                    
+                    <GridViewColumn Header="Type" Width="100" DisplayMemberBinding="{Binding StartTime}" />
+                    <GridViewColumn Header="Cancel" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Cancel" Click="submitDeletion" Cursor="Hand"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Change date" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Update" Click="submitUpdate" Cursor="Hand"></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

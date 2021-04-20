@@ -18,7 +18,7 @@ namespace ftn_sims_hci_hospital
     public partial class RoomEdit : Window
     {
         public Room toUpdate = new Room();
-        public static RoomFileStorage storage = new RoomFileStorage();
+        public static RoomRepository storage = new RoomRepository();
         public RoomEdit(String id)
         {
             InitializeComponent();

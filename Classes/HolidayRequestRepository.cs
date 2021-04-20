@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Classes
 {
@@ -55,7 +56,7 @@ namespace Classes
                 DateTime startDate = Convert.ToDateTime(components[2]);
                 DateTime endDate = Convert.ToDateTime(components[3]);
                 // Loadovanje lekara u memoriju da bi im pristupili
-                DoctorFileStorage dfs = new DoctorFileStorage();
+                DoctorRepository dfs = new DoctorRepository();
                 dfs.DoctorsInFile1 = dfs.GetAll();
                 // Mora prvo GetAll pa onda GetByID jer ByID trazi u vec ucitanoj listi u memoriji, ne po fajlu, isto kao u ovoj klasi
                 Doctor doctor = dfs.GetByID(components[4]);

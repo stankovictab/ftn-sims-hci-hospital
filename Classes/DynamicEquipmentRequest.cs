@@ -6,7 +6,7 @@ namespace Classes
         private String RequestID;
         private String EquipmentName;
         private DateTime RequestDate;
-        private String Status = 0; // hwat
+        //private String Status = 0; // hwat
 
         public Doctor doctor;
 

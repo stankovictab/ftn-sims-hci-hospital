@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Windows;
 
 namespace ftn_sims_hci_hospital
@@ -6,7 +7,7 @@ namespace ftn_sims_hci_hospital
     public partial class HolidayRequestCreation : Window
     {
 
-        public static Classes.HolidayRequestFileStorage hrfs = new Classes.HolidayRequestFileStorage();
+        public static HolidayRequestRepository hrfs = new HolidayRequestRepository();
         public HolidayRequestCreation()
         {
             InitializeComponent();
@@ -31,13 +32,13 @@ namespace ftn_sims_hci_hospital
                 currentID = (i + 1).ToString(); // Ok je ako je prazan string, odnosno ako nema nista u holidayrequests.txt
             }
 
-            Classes.DoctorFileStorage dfs = new Classes.DoctorFileStorage();
+            DoctorRepository dfs = new DoctorRepository();
             dfs.DoctorsInFile1 = dfs.GetAll();
-            Classes.Doctor doctor = dfs.GetByID("0501"); // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
+            Doctor doctor = dfs.GetByID("0501"); // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
 
-            Classes.HolidayRequest hr = new Classes.HolidayRequest(currentID, desc, startDate, endDate, doctor);
+            HolidayRequest hr = new HolidayRequest(currentID, desc, startDate, endDate, doctor);
             hrfs.Create(hr); // Da update-uje listu u memoriji
-            hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Da update-uje i sam fajl, preko update-ovane liste u memoriji
+            //hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Da update-uje i sam fajl, preko update-ovane liste u memoriji
             MessageBox.Show("You have successfully created a new holiday request!");
 
             this.Close();

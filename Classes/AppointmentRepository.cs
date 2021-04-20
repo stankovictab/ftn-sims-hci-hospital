@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +16,7 @@ namespace Classes
 
         public Boolean Create(Appointment app)
         {
-            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg + ";" + app.patient.user.Jmbg + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + "0" + "\n";
+            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + "0" + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }
@@ -73,6 +74,7 @@ namespace Classes
                     appointments.Add(a);
                 }
             }
+            Console.WriteLine(PatientWindow.user.Name1);
             return appointments;
         }
 
@@ -114,9 +116,6 @@ namespace Classes
         {
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
             List<Appointment> appointments = new List<Appointment>();
-            String[] rowsNew = new String[rows.Length - 1];
-            int j = 0;
-            Boolean found = false;
             List<String> novi = new List<string>();
             foreach (String row in rows)
             {
@@ -126,28 +125,9 @@ namespace Classes
                     String r = String.Join(";", data);
                     novi.Add(r);
                 }
-                else
-                {
-                    if (!data[2].Equals("Pavle"))
-                    {
-                        String r = String.Join(";", data);
-                        novi.Add(r);
-                    }
-                    else
-                    {
-                        found = true;
-                    }
-                }
             }
             System.IO.File.WriteAllLines(FileLocation, novi);
-            if (found)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
     }
 }

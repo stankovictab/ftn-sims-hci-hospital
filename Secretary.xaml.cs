@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace ftn_sims_hci_hospital
 {
     public partial class Secretary : Window
     {
-        public static Classes.PatientFileStorage pfs = new Classes.PatientFileStorage();
+        public static PatientRepository pfs = new PatientRepository();
         public Secretary()
         {
             InitializeComponent();
@@ -33,9 +34,9 @@ namespace ftn_sims_hci_hospital
         {
             pfs.PatientsInFile1 = pfs.GetAll();
             patientData.Items.Clear();
-            foreach (Classes.Patient p in pfs.PatientsInFile1)
+            foreach (Patient p in pfs.PatientsInFile1)
             {
-                patientData.Items.Add(new Classes.User { Name1 = p.user.Name1, LastName1 = p.user.LastName1, Jmbg1 = p.user.Jmbg1 });
+                patientData.Items.Add(new User { Name1 = p.user.Name1, LastName1 = p.user.LastName1, Jmbg1 = p.user.Jmbg1 });
             }
         }
 
@@ -45,7 +46,7 @@ namespace ftn_sims_hci_hospital
             {
                 if (patientData.SelectedItem != null)
                 {
-                    Classes.User user = (Classes.User)patientData.SelectedItem;
+                    User user = (User)patientData.SelectedItem;
                     String id = user.Jmbg1;
                     Window patientView = new PatientView(id);
                     patientView.ShowDialog();
@@ -60,7 +61,7 @@ namespace ftn_sims_hci_hospital
             {
                 if (patientData.SelectedItem != null)
                 {
-                    Classes.User user = (Classes.User)patientData.SelectedItem;
+                    User user = (User)patientData.SelectedItem;
                     pfs.Delete(user.Jmbg1);
                     pfs.UpdateAll(pfs.PatientsInFile1);
                     btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));

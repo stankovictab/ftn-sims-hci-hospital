@@ -18,7 +18,7 @@ namespace ftn_sims_hci_hospital
 {
     public partial class ManagerWindow : Window
     {
-        RoomFileStorage storage = RoomFileStorage.getRoomStorage();
+        RoomRepository storage = RoomRepository.getRoomStorage();
         public ManagerWindow()
         {
             InitializeComponent();

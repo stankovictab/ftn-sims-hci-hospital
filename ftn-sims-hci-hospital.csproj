@@ -58,6 +58,9 @@
     <Compile Include="AllAppointments.xaml.cs">
       <DependentUpon>AllAppointments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllAppointmentsPage.xaml.cs">
+      <DependentUpon>AllAppointmentsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppointmentsListDoctorB.xaml.cs">
       <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,7 @@
     <Compile Include="Classes\PatientService.cs" />
     <Compile Include="Classes\Perscription.cs" />
     <Compile Include="Classes\PerscriptionRepository.cs" />
+    <Compile Include="Classes\Priority.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\RoomController.cs" />
     <Compile Include="Classes\RoomRepository.cs" />
@@ -117,6 +121,13 @@
     <Compile Include="Classes\StaticEquipment.cs" />
     <Compile Include="Classes\StaticEquipmentRepository.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="UpdateAppointmentPatient.xaml.cs">
+      <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AllAppointmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorEPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateAppointmentPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

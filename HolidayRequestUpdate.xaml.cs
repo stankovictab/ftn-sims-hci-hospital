@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Windows;
 
 namespace ftn_sims_hci_hospital
 {
     public partial class HolidayRequestUpdate : Window
     {
-        public static Classes.HolidayRequestFileStorage hrfs = new Classes.HolidayRequestFileStorage();
+        public static HolidayRequestRepository hrfs = new HolidayRequestRepository();
         private string selectedRHID;
         public HolidayRequestUpdate(string selectedRHID)
         {
@@ -21,13 +22,13 @@ namespace ftn_sims_hci_hospital
             DateTime startDate = (DateTime)holidayStartDate.SelectedDate;
             DateTime endDate = (DateTime)holidayEndDate.SelectedDate;
 
-            Classes.DoctorFileStorage dfs = new Classes.DoctorFileStorage();
+            DoctorRepository dfs = new DoctorRepository();
             dfs.DoctorsInFile1 = dfs.GetAll();
-            Classes.Doctor doctor = dfs.GetByID("0501"); // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
+            Doctor doctor = dfs.GetByID("0501"); // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
 
-            Classes.HolidayRequest hr = new Classes.HolidayRequest(selectedRHID, desc, startDate, endDate, doctor);
+            HolidayRequest hr = new HolidayRequest(selectedRHID, desc, startDate, endDate, doctor);
             hrfs.Update(hr); // Da update-uje listu u memoriji
-            hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Da update-uje i sam fajl, preko update-ovane liste u memoriji
+            //hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Da update-uje i sam fajl, preko update-ovane liste u memoriji
             MessageBox.Show("You have successfully updated a holiday request!");
             this.Close();
         }
