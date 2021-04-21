@@ -1,0 +1,57 @@
+﻿<Window x:Class="ManagerKT3.StaticSchedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerKT3"
+        mc:Ignorable="d"
+        Title="StaticSchedule" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="staticMove" Content="Create New" HorizontalAlignment="Left" Margin="178,313,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.024,0.133" Click="staticMove_Click"/>
+        <Label Content="Schedule:&#xD;&#xA;" HorizontalAlignment="Left" Margin="42,36,0,0" VerticalAlignment="Top" Height="25"/>
+        <ListView x:Name="scheduleDataList" Margin="42,66,421,151">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding time}"/>
+                    <GridViewColumn Header="From Room" DisplayMemberBinding="{Binding fromRoom}"/>
+                    <GridViewColumn Header="To Room" DisplayMemberBinding="{Binding toRoom}"/>
+                    <GridViewColumn Header="Equipment to Move" DisplayMemberBinding="{Binding equipment}"/>
+                </GridView>
+            </ListView.View>
+            <ListView x:Name="scheduleDataList_Copy" Height="217" Width="337">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding time}"/>
+                        <GridViewColumn Header="From Room" DisplayMemberBinding="{Binding fromRoom}"/>
+                        <GridViewColumn Header="To Room" DisplayMemberBinding="{Binding toRoom}"/>
+                        <GridViewColumn Header="Equipment to Move" DisplayMemberBinding="{Binding equipment}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
+        <ListView x:Name="scheduleDataList_Copy1" Margin="420,66,43,151">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding time}"/>
+                    <GridViewColumn Header="From Room" DisplayMemberBinding="{Binding fromRoom}"/>
+                    <GridViewColumn Header="To Room" DisplayMemberBinding="{Binding toRoom}"/>
+                    <GridViewColumn Header="Equipment to Move" DisplayMemberBinding="{Binding equipment}"/>
+                </GridView>
+            </ListView.View>
+            <ListView x:Name="scheduleDataList_Copy2" Height="217" Width="337">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding time}"/>
+                        <GridViewColumn Header="From Room" DisplayMemberBinding="{Binding fromRoom}"/>
+                        <GridViewColumn Header="To Room" DisplayMemberBinding="{Binding toRoom}"/>
+                        <GridViewColumn Header="Equipment to Move" DisplayMemberBinding="{Binding equipment}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </ListView>
+        <Label Content="Past Schedule:" HorizontalAlignment="Left" Margin="420,35,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="538,311,0,0" VerticalAlignment="Top"/>
+        <Button Content="Select Date" HorizontalAlignment="Left" Margin="557,353,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.515,0.521"/>
+
+    </Grid>
+</Window>

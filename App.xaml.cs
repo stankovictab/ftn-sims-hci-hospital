@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace ftn_sims_hci_hospital
+namespace ManagerKT3
 {
     /// <summary>
     /// Interaction logic for App.xaml

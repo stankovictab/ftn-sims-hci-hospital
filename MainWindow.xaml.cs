@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ftn_sims_hci_hospital
+namespace ManagerKT3
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,33 +25,29 @@ namespace ftn_sims_hci_hospital
             InitializeComponent();
         }
 
-        private void btde_Click(object sender, RoutedEventArgs e)
+        private void _static_Click(object sender, RoutedEventArgs e)
         {
-            Window doctorEpanel = new DoctorEPanel();
-            doctorEpanel.ShowDialog();
-        }
-        private void bts_Click(object sender, RoutedEventArgs e) {
-            Window secretaryWindow = new Secretary();
-            this.Hide();
-            secretaryWindow.ShowDialog();
-            this.Show();
-        }
-        private void patientClick(object sender, RoutedEventArgs e)
-        {
-            PatientWindow win1 = new PatientWindow();
-            win1.Show();
-        }
-        private void openDoctorB(Object sender, RoutedEventArgs e)
-        {
-            DoctorB doctorB = new DoctorB();
-            this.Hide();
-            doctorB.Show();
+            Window Static = new Static();
+            Static.ShowDialog();
         }
 
-        private void btm_Click(object sender, RoutedEventArgs e)
+        private void dynamic_Click(object sender, RoutedEventArgs e)
         {
-            Window ManagerWindow = new ManagerWindow();
-            ManagerWindow.ShowDialog();
+            Window Dynamic = new Dynamic();
+            Dynamic.ShowDialog();
         }
+
+        private void rooms_Click(object sender, RoutedEventArgs e)
+        {
+            Window Rooms = new Rooms();
+            Rooms.ShowDialog();
+        }
+
+        private void staticMove_Click(object sender, RoutedEventArgs e)
+        {
+            Window StaticSchedule = new StaticSchedule();
+            StaticSchedule.ShowDialog();
+        }
+
     }
 }

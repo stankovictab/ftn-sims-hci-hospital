@@ -1,19 +1,9 @@
-﻿using Classes;
+﻿using Manager;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
-namespace ftn_sims_hci_hospital
+namespace ManagerKT3
 {
     /// <summary>
     /// Interaction logic for RoomCreation.xaml
@@ -35,9 +25,9 @@ namespace ftn_sims_hci_hospital
             else if ((bool)therapy.IsChecked)
                 newType = RoomType.Therapy;
 
-            Room newRoom = new Room(roomNumber.Text, Convert.ToInt32(roomFloor.Text), roomDescription.Text, newType);
+            Room newRoom = new Room(roomNumber.Text, Convert.ToInt32(roomFloor.Text), roomDescription.Text, newType, RoomStatus.Free);
 
-            _ = RoomFileStorage.getRoomStorage().Create(newRoom);
+            _ = RoomRepository.getRoomStorage().Create(newRoom);
 
             this.Hide();
         }

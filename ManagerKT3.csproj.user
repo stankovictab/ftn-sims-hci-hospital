@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Dynamic.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DynamicCreation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DynamicUpdate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DynamicUse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RoomCreation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Rooms.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RoomUpdate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Static.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StaticCreation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StaticMove.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StaticSchedule.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StaticUpdate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Dynamic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DynamicCreation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DynamicUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DynamicUse.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RoomCreation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Rooms.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RoomUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Static.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StaticCreation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StaticMove.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StaticSchedule.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StaticUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+﻿using Manager;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace ManagerKT3
+{
+    /// <summary>
+    /// Interaction logic for DynamicUpdate.xaml
+    /// </summary>
+    public partial class DynamicUpdate : Window
+    {
+        DynamicEquipment toUpdate = new DynamicEquipment();
+        EquipmentController equipmentController = new EquipmentController();
+
+        public DynamicUpdate(String id)
+        {
+            InitializeComponent();
+            equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile = equipmentController.GetAllDynamic();
+            toUpdate = equipmentController.GetDynamicById(id);
+            dynamicId.Text = toUpdate.dynamicId.ToString();
+            dynamicName.Text = toUpdate.dynamicName;
+            dynamicAmount.Text = toUpdate.dynamicAmount;
+        }
+
+        private void dynamicUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            int id = Convert.ToInt32(dynamicId.Text);
+            String name = dynamicName.Text;
+            String amount = dynamicAmount.Text;
+
+            DynamicEquipment dynamic = new DynamicEquipment(id, name, amount);
+            _ = equipmentController.UpdateDynamic(dynamic);
+            equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile);
+            this.Close();
+        }
+    }
+}

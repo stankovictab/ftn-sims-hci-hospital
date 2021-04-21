@@ -1,0 +1,26 @@
+﻿<Window x:Class="ManagerKT3.Static"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManagerKT3"
+        mc:Ignorable="d"
+        Title="Static" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="staticDataList" Margin="231,34,35,34">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Equipment ID" DisplayMemberBinding="{Binding statId}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding statName}"/>
+                    <GridViewColumn Header="Current Location" DisplayMemberBinding="{Binding statLocation}"/>
+                </GridView>
+            </ListView.View>
+            <Button Content="Button"/>
+        </ListView>
+        <Button x:Name="addStat" Content="Add" HorizontalAlignment="Left" Margin="42,53,0,0" VerticalAlignment="Top" Width="108" Click="addStat_Click"/>
+        <Button x:Name="updateStat" Content="Update" HorizontalAlignment="Left" Margin="42,139,0,0" VerticalAlignment="Top" Width="108" Click="updateStat_Click"/>
+        <Button x:Name="viewStat" Content="View" Click="viewStat_Click" HorizontalAlignment="Left" Margin="42,96,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button x:Name="deleteStat" Content="Delete" HorizontalAlignment="Left" Margin="42,183,0,0" VerticalAlignment="Top" Width="108" Click="deleteStat_Click"/>
+
+    </Grid>
+</Window>
