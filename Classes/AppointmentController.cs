@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital;
 using System;
 using System.Collections.Generic;
 
@@ -7,16 +8,22 @@ namespace Classes
     {
         public AppointmentService appointmentService = new AppointmentService();
 
-        public List<Appointment> ShowAvailableAppointments(int priority, String doctorId, DateTime startTime, DateTime endTime, int type)
+        public AppointmentController()
         {
-            // TODO: implement
-            return null;
+            appointmentService = new AppointmentService();
+        }
+
+        public List<Appointment> ShowAvailableAppointments(Priority priority, String doctorId, DateTime startTime, DateTime endTime, AppointmentType type)
+        {
+            List<Appointment> appointments;
+            appointments = appointmentService.ShowAvailableAppointments(priority, doctorId, startTime, endTime, type);
+            return appointments;
         }
 
         public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
         {
-            // TODO: implement
-            return false;
+            appointmentService.CreateAppointment(doctorId, patientId, startTime, type, roomId);
+            return true;
         }
 
         public List<String> ShowAvailableAppointmentsUpdate(String appointmentId, DateTime newDate)
@@ -25,16 +32,24 @@ namespace Classes
             return null;
         }
 
-        public Boolean UpdateAppointment(String appointmentId, DateTime newDate, String roomId)
+        public Boolean UpdateAppointment(String appointmentId, DateTime oldTime, DateTime startTime, DateTime endTime, String roomId)
         {
-            // TODO: implement
-            return false;
+            if (PatientWindow.user.Role1 == Roles.Patient)
+            {
+                var dani = (startTime - oldTime).Days;
+                if (dani >= 2 || dani < 0)
+                {
+                    return false;
+                }
+            }
+            appointmentService.UpdateAppointment(appointmentId, startTime, endTime, roomId);
+            return true;
         }
 
         public Boolean DeleteAppointment(String appointmentId)
         {
-            // TODO: implement
-            return false;
+            appointmentService.DeleteAppointment(appointmentId);
+            return true;
         }
 
         public List<Appointment> GetAllOperaionsByDoctorId(String doctorId)
@@ -45,8 +60,8 @@ namespace Classes
 
         public List<Appointment> GetAllByPatientId(String patientId)
         {
-            // TODO: implement
-            return null;
+            List<Appointment> app = appointmentService.GetAllByPatientId(patientId);
+            return app;
         }
 
         public List<Appointment> GetAllByDoctorId(String doctorId)
