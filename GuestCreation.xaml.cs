@@ -30,8 +30,8 @@ namespace ftn_sims_hci_hospital
             string name = tbfirstname.Text;
             string lastname = tblastname.Text;
             string jmbg = tbjmbg.Text;
-            Classes.User user = new Classes.User(name, lastname, "guest" + (++MainWindow.guestCounter).ToString(), "hcihospital","", jmbg, "", 'N', false, Roles.Patient);
-            Classes.Patient patient = new Patient(user, null, null, null);
+            User user = new User(name, lastname, "guest" + (++MainWindow.guestCounter).ToString(), "hcihospital","", jmbg, "", 'N', false, Roles.Patient);
+            Patient patient = new Patient(user, null, null, null);
             if (!MainWindow.patientController.Create(patient))
             {
                 MessageBox.Show("There already is a patient with that JMBG!");

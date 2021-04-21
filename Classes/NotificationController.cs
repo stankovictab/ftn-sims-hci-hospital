@@ -5,7 +5,7 @@ namespace Classes
 {
     public class NotificationController
     {
-        public NotificationService notificationService;
+        public NotificationService notificationService=new NotificationService();
 
         public Boolean Create(String patientID, String doctorID, String title, String body)
         {

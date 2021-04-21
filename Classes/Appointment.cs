@@ -20,6 +20,8 @@ namespace Classes
             StartTime = start;
             EndTime = end;
         }
+        public Appointment()
+        { }
 
         public Appointment(String id, DateTime start, DateTime end)
         {

@@ -11,10 +11,10 @@ namespace Classes
         public List<Appointment> appointments;
         public List<HolidayRequest> holidayRequests;
         public List<DynamicEquipmentRequest> dynamicEquipmentRequests;
-        private List<Notification> notifications;
+        public List<Notification> notifications;
 
         // Ovaj treba da se brise, vidi gde je referenca
-		public Doctor(User user, Room room, List<Appointment> appointments, List<HolidayRequest> holidayRequests)
+        public Doctor(User user, Room room, List<Appointment> appointments, List<HolidayRequest> holidayRequests)
         {
             this.user = user;
             this.room = room;
@@ -22,6 +22,7 @@ namespace Classes
             this.holidayRequests = holidayRequests;
         }
 
+        public Doctor() { }
         public Doctor(String id)
         {
             User user1 = new User(id);
@@ -168,7 +169,7 @@ namespace Classes
             if (!this.appointments.Contains(newAppointment))
             {
                 this.appointments.Add(newAppointment);
-               // newAppointment.SetDoctor(this);
+                // newAppointment.SetDoctor(this);
             }
         }
 
@@ -180,7 +181,7 @@ namespace Classes
                 if (this.appointments.Contains(oldAppointment))
                 {
                     this.appointments.Remove(oldAppointment);
-                   // oldAppointment.SetDoctor((Doctor)null);
+                    // oldAppointment.SetDoctor((Doctor)null);
                 }
         }
 
@@ -193,8 +194,8 @@ namespace Classes
                     tmpAppointments.Add(oldAppointment);
                 appointments.Clear();
                 foreach (Appointment oldAppointment in tmpAppointments)
-                   // oldAppointment.SetDoctor((Doctor)null);
-                tmpAppointments.Clear();
+                    // oldAppointment.SetDoctor((Doctor)null);
+                    tmpAppointments.Clear();
             }
         }
     }

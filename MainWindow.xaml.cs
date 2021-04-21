@@ -24,6 +24,7 @@ namespace ftn_sims_hci_hospital
         public static AppointmentController appointmentController = new AppointmentController();
         public static HolidayRequestController holidayRequestController = new HolidayRequestController();
         public static DynamicEquipmentRequestController dynamicEquipmentRequestController = new DynamicEquipmentRequestController();
+        public static NotificationController notificationController = new NotificationController();
 
         public static int guestCounter = 0;
         public MainWindow()
@@ -33,8 +34,8 @@ namespace ftn_sims_hci_hospital
 
         private void btde_Click(object sender, RoutedEventArgs e)
         {
-            Window doctorEpanel = new DoctorPanel();
-            doctorEpanel.ShowDialog();
+            Window doctorpanel = new DoctorPanel();
+            doctorpanel.ShowDialog();
         }
         private void bts_Click(object sender, RoutedEventArgs e)
         {

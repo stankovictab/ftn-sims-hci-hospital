@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Classes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -43,9 +44,9 @@ namespace ftn_sims_hci_hospital
         {
             MainWindow.patientController.patientService.patientRepository.PatientsInFile1 = MainWindow.patientController.GetAll();
             patientData.Items.Clear();
-            foreach (Classes.Patient p in MainWindow.patientController.patientService.patientRepository.PatientsInFile1)
+            foreach (Patient p in MainWindow.patientController.patientService.patientRepository.PatientsInFile1)
             {
-                patientData.Items.Add(new Classes.User { Name1 = p.user.Name1, LastName1 = p.user.LastName1, Jmbg1 = p.user.Jmbg1, Username1 = p.user.Username1, Password1 = p.user.Password1 });
+                patientData.Items.Add(new User { Name1 = p.user.Name1, LastName1 = p.user.LastName1, Jmbg1 = p.user.Jmbg1, Username1 = p.user.Username1, Password1 = p.user.Password1 });
             }
         }
 
@@ -55,7 +56,7 @@ namespace ftn_sims_hci_hospital
             {
                 if (patientData.SelectedItem != null)
                 {
-                    Classes.User user = (Classes.User)patientData.SelectedItem;
+                    User user = (User)patientData.SelectedItem;
                     String id = user.Jmbg1;
                     Window patientView = new PatientView(id);
                     patientView.ShowDialog();
@@ -70,7 +71,7 @@ namespace ftn_sims_hci_hospital
             {
                 if (patientData.SelectedItem != null)
                 {
-                    Classes.User user = (Classes.User)patientData.SelectedItem;
+                    User user = (User)patientData.SelectedItem;
                     MainWindow.patientController.Delete(user.Jmbg1);
                     MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
                     btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));

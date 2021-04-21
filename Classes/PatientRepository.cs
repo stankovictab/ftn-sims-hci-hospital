@@ -60,7 +60,7 @@ namespace Classes
                 string address = components[6];
                 char gender = Convert.ToChar(components[7]);
                 User user = new User(name, lastname, username, password, email, jmbg, address, gender, false, Roles.Patient);
-                Patient patient = new Patient(user, new MedicalRecord(), new List<Appointment>(),new List<Notification>() );
+                Patient patient = new Patient(user, new MedicalRecord(), new List<Appointment>(),new List<Notification>());
                 patients.Add(patient);
                 text = tr.ReadLine();
             }

@@ -7,8 +7,6 @@ namespace ftn_sims_hci_hospital
 {
     public partial class DoctorPanel : Window
     {
-        private string selectedRHID;
-
         public DoctorPanel()
         {
             InitializeComponent();

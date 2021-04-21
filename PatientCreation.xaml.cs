@@ -31,8 +31,8 @@ namespace ftn_sims_hci_hospital
             string email = tbemail.Text;
             string password = tbpassword.Text;
             string jmbg = tbjmbg.Text;
-            Classes.User user = new Classes.User(name, lastname, email, password, email, jmbg, "", 'N', false, Roles.Patient);
-            Classes.Patient patient = new Classes.Patient(user, null, null,null);
+            User user = new User(name, lastname, email, password, email, jmbg, "", 'N', false, Roles.Patient);
+            Patient patient = new Patient(user, null, null,null);
             MainWindow.patientController.Create(patient);
             MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
             MessageBox.Show("You have successfully created a new account!");

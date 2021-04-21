@@ -58,7 +58,7 @@ namespace Classes
                 string notificationArray = components[8];
 
                 // TODO: Ovo sa ovim konstruktorima nije bas dobro, tu treba da budu neki geteri, ali za sada je ok, valjda
-                User user = new User(doctorName, doctorLastName, "", "", "", id,"",'N',false,Roles.Doctor);
+                User user = new User(doctorName, doctorLastName, "", "", "", id, "", 'N', false, Roles.Doctor);
                 Room room = new Room(doctorRoom, 0, "", RoomType.Checkup);
 
 

@@ -75,6 +75,7 @@
     <Compile Include="Classes\DoctorController.cs" />
     <Compile Include="Classes\DoctorRepository.cs" />
     <Compile Include="Classes\DoctorService.cs" />
+    <Compile Include="Classes\DoctorSpecialization.cs" />
     <Compile Include="Classes\DynamicAssignment.cs" />
     <Compile Include="Classes\DynamicEquipment.cs" />
     <Compile Include="Classes\DynamicEquipmentRepository.cs" />
@@ -104,12 +105,12 @@
     <Compile Include="Classes\PatientService.cs" />
     <Compile Include="Classes\Perscription.cs" />
     <Compile Include="Classes\PerscriptionRepository.cs" />
+    <Compile Include="Classes\Priority.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\RoomController.cs" />
     <Compile Include="Classes\RoomRepository.cs" />
     <Compile Include="Classes\RoomService.cs" />
     <Compile Include="Classes\RoomStatus.cs" />
-    <Compile Include="Classes\DoctorSpecialization.cs" />
     <Compile Include="Classes\RoomType.cs" />
     <Compile Include="Classes\Patient.cs" />
     <Compile Include="Classes\Roles.cs" />
@@ -135,14 +136,23 @@
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PossibleAppointments.xaml.cs">
+      <DependentUpon>PossibleAppointments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryAppointmentCreation.xaml.cs">
+      <DependentUpon>SecretaryAppointmentCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="SecretaryAppointments.xaml.cs">
       <DependentUpon>SecretaryAppointments.xaml</DependentUpon>
     </Compile>
     <Compile Include="SecretaryPatients.xaml.cs">
       <DependentUpon>SecretaryPatients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryUpdateAppointment.xaml.cs">
+      <DependentUpon>SecretaryUpdateAppointment.xaml</DependentUpon>
     </Compile>
     <Page Include="DoctorPanel.xaml">
       <SubType>Designer</SubType>
@@ -268,6 +278,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PossibleAppointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -286,11 +300,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SecretaryAppointmentCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SecretaryAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SecretaryPatients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretaryUpdateAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

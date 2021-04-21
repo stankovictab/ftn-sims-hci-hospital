@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\stankovictab\Desktop\merge ziksa i ja\obj\Debug\
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Users\stankovictab\Desktop\merge ziksa i ja\App.xaml
-26880286697
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\App.xaml
+291421328598
 
-92601324882
+96-140547988
 13-1505183044
-DoctorPanel.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;ProfileWindow.xaml;PatientWindow.xaml;ManagerWindow.xaml;RoomCreation.xaml;RoomUpdate.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;
+DoctorPanel.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;ManagerWindow.xaml;RoomCreation.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;
 
 False
 

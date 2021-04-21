@@ -320,3 +320,216 @@ C:\Users\stankovictab\Desktop\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.g
 C:\Users\stankovictab\Desktop\merge ziksa i ja\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
 C:\Users\stankovictab\Desktop\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
 C:\Users\stankovictab\Desktop\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\bin\Debug\ftn-sims-hci-hospital.exe.config
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\bin\Debug\ftn-sims-hci-hospital.exe
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\bin\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DoctorPanel.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DynamicEquipmentRequestApproval.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DynamicEquipmentRequestPanel.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\GuestCreation.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestApproval.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestCreation.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestPanel.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestUpdate.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\AllAppointments.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\CreateAppointment.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\AppointmentsListDoctorB.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\CreateAppointmentDoctorB.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DeleteAppointmentDoctorB.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DoctorB.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HomeWindow.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\MainWindow.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientCreation.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientManagement.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientView.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ProfileWindow.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientWindow.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ManagerWindow.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\RoomCreation.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\RoomUpdate.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryAppointments.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryPatients.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\App.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DoctorPanel.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DynamicEquipmentRequestApproval.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DynamicEquipmentRequestPanel.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\GuestCreation.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestApproval.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestCreation.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestPanel.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HolidayRequestUpdate.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\AllAppointments.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\CreateAppointment.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\AppointmentsListDoctorB.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\CreateAppointmentDoctorB.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DeleteAppointmentDoctorB.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\DoctorB.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\HomeWindow.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\MainWindow.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientCreation.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientManagement.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientView.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ProfileWindow.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PatientWindow.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ManagerWindow.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\RoomCreation.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\RoomUpdate.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryAppointments.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryPatients.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.g.resources
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.exe
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryAppointmentCreation.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryAppointmentCreation.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PossibleAppointments.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\PossibleAppointments.baml
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryUpdateAppointment.g.cs
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\SecretaryUpdateAppointment.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\bin\Debug\ftn-sims-hci-hospital.exe.config
+C:\Users\stankovictab\Desktop\ziksa gotovo\bin\Debug\ftn-sims-hci-hospital.exe
+C:\Users\stankovictab\Desktop\ziksa gotovo\bin\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DoctorPanel.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DynamicEquipmentRequestApproval.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DynamicEquipmentRequestPanel.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\GuestCreation.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestApproval.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestCreation.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestPanel.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestUpdate.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\AllAppointments.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\CreateAppointment.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\AppointmentsListDoctorB.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\CreateAppointmentDoctorB.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DeleteAppointmentDoctorB.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DoctorB.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HomeWindow.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\MainWindow.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientCreation.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientManagement.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientView.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PossibleAppointments.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ProfileWindow.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientWindow.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ManagerWindow.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\RoomCreation.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\RoomUpdate.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryAppointmentCreation.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryAppointments.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryPatients.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryUpdateAppointment.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\App.g.cs
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DoctorPanel.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DynamicEquipmentRequestApproval.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DynamicEquipmentRequestPanel.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\GuestCreation.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestApproval.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestCreation.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestPanel.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HolidayRequestUpdate.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\AllAppointments.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\CreateAppointment.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\AppointmentsListDoctorB.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\CreateAppointmentDoctorB.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DeleteAppointmentDoctorB.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\DoctorB.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\HomeWindow.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\MainWindow.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientCreation.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientManagement.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientView.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PossibleAppointments.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ProfileWindow.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\PatientWindow.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ManagerWindow.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\RoomCreation.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\RoomUpdate.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryAppointmentCreation.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryAppointments.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryPatients.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\SecretaryUpdateAppointment.baml
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital.g.resources
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital.exe
+C:\Users\stankovictab\Desktop\ziksa gotovo\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DoctorPanel.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DynamicEquipmentRequestApproval.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DynamicEquipmentRequestPanel.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\GuestCreation.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestApproval.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestCreation.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestPanel.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestUpdate.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\AllAppointments.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\CreateAppointment.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\AppointmentsListDoctorB.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\CreateAppointmentDoctorB.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DeleteAppointmentDoctorB.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DoctorB.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HomeWindow.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\MainWindow.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientCreation.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientManagement.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientView.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PossibleAppointments.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ProfileWindow.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientWindow.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ManagerWindow.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\RoomCreation.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\RoomUpdate.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryAppointmentCreation.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryAppointments.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryPatients.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryUpdateAppointment.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\App.g.cs
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital.exe
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\bin\Debug\ftn-sims-hci-hospital.exe.config
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\bin\Debug\ftn-sims-hci-hospital.exe
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\bin\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DoctorPanel.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DynamicEquipmentRequestApproval.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DynamicEquipmentRequestPanel.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\GuestCreation.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestApproval.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestCreation.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestPanel.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HolidayRequestUpdate.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\AllAppointments.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\CreateAppointment.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\AppointmentsListDoctorB.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\CreateAppointmentDoctorB.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DeleteAppointmentDoctorB.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\DoctorB.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\HomeWindow.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\MainWindow.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientCreation.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientManagement.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientView.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PossibleAppointments.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ProfileWindow.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\PatientWindow.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ManagerWindow.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\RoomCreation.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\RoomUpdate.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryAppointmentCreation.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryAppointments.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryPatients.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\SecretaryUpdateAppointment.baml
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital.g.resources
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
+C:\Users\stankovictab\Desktop\merge ziksa i dorde\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache

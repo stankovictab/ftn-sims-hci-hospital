@@ -49,7 +49,7 @@ namespace ftn_sims_hci_hospital
         private void btnApproveRequest_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.dynamicEquipmentRequestController.Approve(selectedDERID); // GetAll() se radi u Approve(), tu se update-uju i lista i fajl
-            
+
             // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
             btnShowRequests.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
         }

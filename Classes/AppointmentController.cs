@@ -5,7 +5,7 @@ namespace Classes
 {
     public class AppointmentController
     {
-        public AppointmentService appointmentService;
+        public AppointmentService appointmentService = new AppointmentService();
 
         public List<Appointment> ShowAvailableAppointments(int priority, String doctorId, DateTime startTime, DateTime endTime, int type)
         {
