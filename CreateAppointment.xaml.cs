@@ -27,6 +27,11 @@ namespace ftn_sims_hci_hospital
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Appointment app = (Appointment)availableAppointments.SelectedItem;
+            app.patient.user.Jmbg1 = PatientWindow.user.Jmbg1;
+            appointmentController.CreateAppointment(app.doctor.user.Jmbg1, PatientWindow.user.Jmbg1, app.StartTime, 1, "");
+
+            //Appointment newApp = new Appointment("", app.doctor.user.Jmbg1, PatientWindow.user.Jmbg1, app.StartTime, new DateTime(app.StartTime.Year, app.StartTime.Month, app.StartTime.Day, app.StartTime.Hour + 1));
             /*Random rnd = new Random();
             int r = rnd.Next(1, 1000);
 

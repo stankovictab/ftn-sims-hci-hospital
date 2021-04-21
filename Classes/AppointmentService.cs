@@ -30,20 +30,37 @@ namespace Classes
             if (filteredAppointments.Count > 0 || priority == Priority.None)
                 return filteredAppointments;
 
-            /*if(priority == Priority.Date)
+            if(priority == Priority.Date)
             {
+                List<String> zauzeti = new List<string>();
+                List<String> slobodni = new List<string>();
                 appointments = appointmentRepository.GetAll();
-                available(filteredAppointments, slots, appointments);
-
+                foreach(Appointment slot in slots)
+                {
+                    foreach(Appointment appointment in appointments)
+                    {
+                        if (slot.StartTime.Equals(appointment.StartTime))
+                        {
+                            zauzeti.Add(appointment.doctor.user.Jmbg1);
+                        }
+                    }
+                    List<Doctor> doctors = doctorRepository.GetAll();
+                    foreach(Doctor doctor in doctors)
+                    {
+                        if (!zauzeti.Contains(doctor.user.Jmbg1))
+                        {
+                            Appointment app = new Appointment("", doctor.user.Jmbg1, "", slot.StartTime, slot.EndTime);
+                            filteredAppointments.Add(app);
+                        }
+                    }
+                    zauzeti.Clear();
+                }
             }
-
-            if (filteredAppointments.Count > 0)
-                return filteredAppointments;*/
 
             if (priority == Priority.Doctor)
             {
                 slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year, endTime.Month, endTime.Day + 7));
-                appointments = appointmentRepository.GetAll();
+                //appointments = appointmentRepository.GetAll();
                 available(filteredAppointments, slots, appointments, doctorId);
             }
 
@@ -63,7 +80,7 @@ namespace Classes
                 }
                 if (i == appointments.Count)
                 {
-                    slot.doctor.user.Name1 = doctorId;
+                    slot.doctor.user.Jmbg1 = doctorId;
                     filtered.Add(slot);
                 }
                 i = 0;
