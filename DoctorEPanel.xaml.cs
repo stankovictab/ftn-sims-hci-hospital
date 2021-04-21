@@ -4,15 +4,17 @@ using System.Windows.Controls;
 
 namespace ftn_sims_hci_hospital
 {
+
+    // nemoj da prihvatis ovaj
     public partial class DoctorEPanel : Window
     {
-        public static Classes.HolidayRequestFileStorage hrfs = new Classes.HolidayRequestFileStorage();
+       // public static Classes.HolidayRequestFileStorage hrfs = new Classes.HolidayRequestFileStorage();
         private string selectedRHID;
 
         public DoctorEPanel()
         {
             InitializeComponent();
-            hrfs.HolidayRequestsInFile1 = hrfs.GetAll(); // Kada se otvori prozor ucita se cela lista u ovo lokalno polje hrfs, ovo mora
+             // Kada se otvori prozor ucita se cela lista u ovo lokalno polje hrfs, ovo mora
         }
 
         private void btnCreateRequest_Click(object sender, RoutedEventArgs e)
@@ -24,20 +26,7 @@ namespace ftn_sims_hci_hospital
 
         private void btnShowRequests_Click(object sender, RoutedEventArgs e)
         {
-            // Zbog ovog GetAll sam izgubio sat vremena zivota, mora da se ucita ceo fajl ponovo pri refresh-u a ne samo ByDoctorID, jer on cita iz liste, a ta lista nije update-ovana!
-            // Takodje proveri da li je fajl popunjen
-            hrfs.HolidayRequestsInFile1 = hrfs.GetAll();
-            // TODO:
-            // Doctor ID ce se dobiti pri logovanju, pa ce se proslediti u ovaj GetAllByDoctorID()
-            // Za sad zamisli da je ulogovan lekar sa ID 0501
-            // Takodje moze i da se napravi labela na prozoru da pokazuje koji je doktor ulogovan, ali to je HCI prica
-            List<Classes.HolidayRequest> filteredhrfs = hrfs.GetAllByDoctorID("0501"); // Ovo dobavlja iz vec napunjene liste u memoriji, ne uzima iz fajla
-            holidayRequestListView.Items.Clear(); // Reset (ne .Refresh())
-            foreach (Classes.HolidayRequest req in filteredhrfs)
-            {
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}?
-                holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1 });
-            }
+           
         }
 
         // SelectionChanged="holidayRequestListView_SelectionChanged" dodat u XAML ListView kao atribut
@@ -66,9 +55,6 @@ namespace ftn_sims_hci_hospital
 
         private void btnDeleteRequest_Click(object sender, RoutedEventArgs e)
         {
-            hrfs.Delete(selectedRHID); // Update liste
-            hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Update fajla
-            // To je to, ovo radi ok
         }
     }
 }

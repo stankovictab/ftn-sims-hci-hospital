@@ -3,38 +3,43 @@ namespace Classes
 {
     public class Appointment
     {
-        private String AppointmentID { get; set; }
-        private DateTime StartTime { get; set; }
-        private DateTime EndTime { get; set; }
-        private AppointmentType Type { get; set; }
-        private Room Room { get; set; }
+        public String AppointmentID { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public AppointmentType Type { get; set; }
+        public Room Room { get; set; }
         private Boolean StatusFinished { get; set; }
-        private Doctor doctor { get; set; }
-        private Patient patient { get; set; }
+        public Doctor doctor { get; set; }
+        public Patient patient { get; set; }
 
-		public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
+		public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end,String roomId)
         {
             AppointmentID = id;
             doctor = new Doctor(doctorId);
             patient = new Patient(patientId);
             StartTime = start;
             EndTime = end;
-        }
 
-        public Appointment(String id, DateTime start, DateTime end)
+            Room r = new Room();
+            r.RoomNumber1 = roomId;
+            Room = r;
+        }
+        public Appointment(String id, String doctorId, String patientId, DateTime start, String roomId)
         {
             AppointmentID = id;
             doctor = new Doctor(doctorId);
             patient = new Patient(patientId);
             StartTime = start;
-            EndTime = end;
+            Room.RoomNumber1 = roomId;
         }
-
         public Doctor GetDoctor()
         {
-            AppointmentID = id;
-            StartTime = start;
-            EndTime = end;
+            return null;
+        }
+
+        public String getType()
+        {
+            return "operacija";
         }
 
         public void SetDoctor(Doctor newDoctor)

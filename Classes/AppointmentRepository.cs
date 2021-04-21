@@ -15,7 +15,8 @@ namespace Classes
 
         public Boolean Create(Appointment app)
         {
-            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg + ";" + app.patient.user.Jmbg + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + "0" + "\n";
+            // ova verzija pamti i sobu!
+            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg + ";" + app.patient.user.Jmbg + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.Room.RoomNumber1 + ";" + (int)app.Type  + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }
@@ -35,7 +36,7 @@ namespace Classes
                     string[] endParts = parts[4].Split(',');
                     DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
 
-                    Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end);
+                    Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end, "213");
                     return a;
                 }
             }
@@ -75,7 +76,8 @@ namespace Classes
                     string[] endParts = parts[4].Split(',');
                     DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
 
-                    Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end);
+                    Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end, parts[5]);
+                    a.Type = (AppointmentType) int.Parse(parts[6]);
                     ret.Add(a);
                 }
             }
@@ -99,13 +101,13 @@ namespace Classes
                     String[] endParts = data[4].Split(',');
                     DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
                     DateTime end = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
-                    Appointment a = new Appointment(id, doctorId, patientId, start, end);
+                    Appointment a = new Appointment(id, doctorId, patientId, start, end , "213" );
                     appointments.Add(a);
                 }
             }
             return appointments;
         }
-
+        /*
          public List<Appointment> GetAllByDoctorID(String doctorID)
         {
             List<Appointment> ret = new List<Appointment>();
@@ -127,7 +129,7 @@ namespace Classes
                 }
             }
             return ret;
-        }
+        } */
 
         public Boolean Update(Appointment app)
         {
@@ -142,11 +144,9 @@ namespace Classes
 
         public Boolean Delete(String id)
         {
+
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
             List<Appointment> appointments = new List<Appointment>();
-            String[] rowsNew = new String[rows.Length - 1];
-            int j = 0;
-            Boolean found = false;
             List<String> novi = new List<string>();
             foreach (String row in rows)
             {
@@ -156,28 +156,47 @@ namespace Classes
                     String r = String.Join(";", data);
                     novi.Add(r);
                 }
-                else
-                {
-                    if (!data[2].Equals("Pavle"))
-                    {
-                        String r = String.Join(";", data);
-                        novi.Add(r);
-                    }
-                    else
-                    {
-                        found = true;
-                    }
-                }
             }
             System.IO.File.WriteAllLines(FileLocation, novi);
-            if (found)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
+
+
+            /*  String[] rows = System.IO.File.ReadAllLines(FileLocation);
+              List<Appointment> appointments = new List<Appointment>();
+              String[] rowsNew = new String[rows.Length - 1];
+              int j = 0;
+              Boolean found = false;
+              List<String> novi = new List<string>();
+              foreach (String row in rows)
+              {
+                  String[] data = row.Split(';');
+                  if (!data[0].Equals(id))
+                  {
+                      String r = String.Join(";", data);
+                      novi.Add(r);
+                  }
+                  else
+                  {
+                      if (!data[1].Equals("Darko"))
+                      {
+                          String r = String.Join(";", data);
+                          novi.Add(r);
+                      }
+                      else
+                      {
+                          found = true;
+                      }
+                  }
+              }
+              System.IO.File.WriteAllLines(FileLocation, novi);
+              if (found)
+              {
+                  return true;
+              }
+              else
+              {
+                  return false;
+              }*/
         }
     }
 }

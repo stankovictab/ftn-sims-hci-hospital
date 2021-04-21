@@ -17,6 +17,8 @@ namespace ftn_sims_hci_hospital
 {
     public partial class RoomCreation : Window
     {
+
+        // nemoj da prihvatis ovaj!!!
         public RoomCreation()
         {
             InitializeComponent();
@@ -24,19 +26,7 @@ namespace ftn_sims_hci_hospital
 
         private void btnCreateRoom_Click(object sender, RoutedEventArgs e)
         {
-            RoomType newType = new RoomType();
-            if ((bool)operating.IsChecked)
-                newType = RoomType.Operating;
-            else if ((bool)checkup.IsChecked)
-                newType = RoomType.Checkup;
-            else if ((bool)therapy.IsChecked)
-                newType = RoomType.Therapy;
-
-            Room newRoom = new Room(roomNumber.Text, Convert.ToInt32(roomFloor.Text), roomDescription.Text, newType);
-
-            _ = RoomFileStorage.getRoomStorage().Create(newRoom);
-
-            this.Hide();
+            
         }
     }
 }

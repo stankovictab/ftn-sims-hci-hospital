@@ -16,11 +16,21 @@ namespace ftn_sims_hci_hospital
 {
     public partial class DoctorB : Window
     {
+        public static Classes.User user;
+
         public DoctorB()
         {
             InitializeComponent();
+            user = new Classes.User();
+            user.Name1 = "Darko";
+            user.Role1 = Roles.Doctor;
         }
 
+        private void openMedicalRecords(Object sender, RoutedEventArgs e)
+        {
+            MedicalRecords medicalRecords = new MedicalRecords();
+            medicalRecords.Show();
+        }
         private void openAppointmentsList(Object sender, RoutedEventArgs e)
         {
             AppointmentsListDoctorB a = new AppointmentsListDoctorB();

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Classes
 {
@@ -17,6 +18,8 @@ namespace Classes
 
         public Boolean Create(Patient p)
         {
+           
+
             if (PatientsInFile.Contains(p))
             {
                 return false;
@@ -30,6 +33,9 @@ namespace Classes
 
         public Patient GetByID(String id)
         {
+            
+            PatientsInFile = GetAll();
+
             foreach (Patient patient in PatientsInFile)
             {
                 if (patient.user.Jmbg1.Equals(id))

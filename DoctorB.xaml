@@ -7,11 +7,41 @@
         mc:Ignorable="d"
         Title="DoctorB" Height="450" Width="800">
     <Grid>
-        <Button Name="btnA" Content="Appointments list"  Click="openAppointmentsList" HorizontalAlignment="Left" Margin="313,156,0,0" VerticalAlignment="Top" Width="164"/>
-        <Button Name="btnC" Content="create appointment" Click="openCreateAppointment" HorizontalAlignment="Left" Margin="313,228,0,0" VerticalAlignment="Top" Width="164"/>
-        <Button Content="delete or update appointment" Click="openDeleteAppointment" HorizontalAlignment="Left" Margin="313,307,0,0" VerticalAlignment="Top" Width="164"  />
-        <TextBlock HorizontalAlignment="Left" Margin="607,23,0,0" TextWrapping="Wrap" Text="doctor Darko" VerticalAlignment="Top" Width="160"/>
-        <TextBlock HorizontalAlignment="Left" Margin="607,66,0,0" TextWrapping="Wrap" Text="room 215" VerticalAlignment="Top" Width="160"/>
+        <Grid>
+            <TabControl>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="main"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Label>
+                        <StackPanel>
+                            <Button Name="btnM" Content="Medical records"  Click="openMedicalRecords" HorizontalAlignment="Left" Margin="313,156,0,0" VerticalAlignment="Top" Width="164"/>
+                            <Button Name="btnA" Content="Appointments list"  Click="openAppointmentsList" HorizontalAlignment="Left" Margin="313,20,0,0" VerticalAlignment="Top" Width="164"/>
+                            <Button x:Name="btnC" Content="create appointment" Click="openCreateAppointment" HorizontalAlignment="Left" Margin="313,20,0,0" VerticalAlignment="Top" Width="164"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="607,-250,0,0" TextWrapping="Wrap" Text="doctor Darko" VerticalAlignment="Top" Width="160"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="607,-230,0,0" TextWrapping="Wrap" Text="room 215" VerticalAlignment="Top" Width="160"/>
+                        </StackPanel>
+                    </Label>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
 
+                            <TextBlock Text="notificaions" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+
+                            <TextBlock Text="my profile" Foreground="Green" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Grid>
 </Window>

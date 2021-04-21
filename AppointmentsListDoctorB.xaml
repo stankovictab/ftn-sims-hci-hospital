@@ -7,16 +7,43 @@
         mc:Ignorable="d"
         Title="AppointmentsList" Height="450" Width="800">
     <Grid>
-        <ListView Margin="10" Name="lvUsers">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Appointment id" Width="150" DisplayMemberBinding="{Binding AppointmentID}" />
-                    <GridViewColumn Header="start time" Width="150" DisplayMemberBinding="{Binding StartTime}" />
-                    <GridViewColumn Header="end time" Width="150" DisplayMemberBinding="{Binding EndTime}" />
-                    <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Jmbg}">
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Canvas Name="canMain">
+            <ListView Name="lvUsers" Canvas.Left="10" Canvas.Top="32" Width="772">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn  Width="50" DisplayMemberBinding="{Binding AppointmentID}" />
+                        <GridViewColumn Header="start time" Width="150" DisplayMemberBinding="{Binding StartTime}" />
+                        <GridViewColumn Header="end time" Width="150" DisplayMemberBinding="{Binding EndTime}" />
+                        <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Jmbg}">
+                        </GridViewColumn>
+                        <GridViewColumn Header="type" Width="100" DisplayMemberBinding="{Binding Type}">
+                        </GridViewColumn>
+                        <GridViewColumn Header="room" Width="150" DisplayMemberBinding="{Binding Room.RoomNumber1}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <RadioButton Content="operation" Checked="showOperations" HorizontalAlignment="Left" Margin="695,10,0,0" VerticalAlignment="Top"/>
+            <RadioButton Content="regular" Checked="showRegular" HorizontalAlignment="Left" Margin="634,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.297,0.8"/>
+            <Button Content="more" Click="showPatient" HorizontalAlignment="Left" Margin="695,379,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="delete" Click="deleteAppointent" HorizontalAlignment="Left" Margin="597,379,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="update" Click="updateApp" HorizontalAlignment="Left" Margin="496,379,0,0" VerticalAlignment="Top" Width="75"/>
+        </Canvas>
+        <Canvas Name="canUpdate" HorizontalAlignment="Left" Height="387" Margin="22,10,0,0" VerticalAlignment="Top" Width="747" Visibility="Hidden">
+            <ListView x:Name="rooms" Height="253" Width="747">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="room" Width="150" DisplayMemberBinding="{Binding RoomNumber1}" />
+                        <GridViewColumn Header="type" Width="150" DisplayMemberBinding="{Binding Type1}" />
+                        <GridViewColumn Header="description" Width="150" DisplayMemberBinding="{Binding Description1}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBox Name="txtS" HorizontalAlignment="Left" Height="23" Margin="99,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox Name="txtE"  HorizontalAlignment="Left" Height="23" Margin="99,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button Name="btnU" Click="save" Content="save" HorizontalAlignment="Left" Margin="665,359,0,0" VerticalAlignment="Top" Width="75"/>
+            <TextBlock Name="bs" HorizontalAlignment="Left" Margin="60,311,0,0" TextWrapping="Wrap" Text="start:" VerticalAlignment="Top" RenderTransformOrigin="-1.291,7.333"/>
+            <TextBlock Name="be" HorizontalAlignment="Left" Margin="60,361,0,0" TextWrapping="Wrap" Text="end:" VerticalAlignment="Top"/>
+        </Canvas>
+
     </Grid>
 </Window>

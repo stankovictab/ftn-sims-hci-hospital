@@ -44,27 +44,7 @@ namespace Classes
         // Univerzalna metoda za skeniranje fajla i vracanje liste sa svim elementima, ta lista koja se odavde vraca ce uvek biti dodeljena atributu NestoInFile kada se elementi budu loadovali kada to bude bilo potrebno (kao na primer ovde dole sa lekarima)
         public List<HolidayRequest> GetAll()
         {
-            List<HolidayRequest> requests = new List<HolidayRequest>();
-            TextReader tr = new StreamReader(FileLocation);
-            string text = tr.ReadLine();
-            while (text != null && text != "\n")
-            {
-                string[] components = text.Split(','); // Po defaultu su svi componenti stringovi, pa za neke mora convert
-                string id = components[0];
-                string description = components[1];
-                DateTime startDate = Convert.ToDateTime(components[2]);
-                DateTime endDate = Convert.ToDateTime(components[3]);
-                // Loadovanje lekara u memoriju da bi im pristupili
-                DoctorFileStorage dfs = new DoctorFileStorage();
-                dfs.DoctorsInFile1 = dfs.GetAll();
-                // Mora prvo GetAll pa onda GetByID jer ByID trazi u vec ucitanoj listi u memoriji, ne po fajlu, isto kao u ovoj klasi
-                Doctor doctor = dfs.GetByID(components[4]);
-                HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, doctor);
-                requests.Add(request);
-                text = tr.ReadLine();
-            }
-            tr.Close();
-            return requests;
+            return null;
         }
 
         // Ovo ne mora da se prepravlja da bude kao gore, jer metoda radi tako sto uzima iz vec napunjenu listu u memoriji, nema potrebe ponovo da skenira fajl, nego se samo jednom radi GetAll() na pocetku, da se loaduje lista, i onda odatle ovo i ostale metode

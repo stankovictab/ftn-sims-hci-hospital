@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Classes
 {
     public class DoctorRepository
     {
-        private String FileLoctaion;
+        private String FileLocation;
         private List<Doctor> DoctorsInFile;
 
 		public List<Doctor> DoctorsInFile1 { get => DoctorsInFile; set => DoctorsInFile = value; }

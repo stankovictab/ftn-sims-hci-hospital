@@ -18,7 +18,7 @@ namespace ftn_sims_hci_hospital
 {
     public partial class ManagerWindow : Window
     {
-        RoomFileStorage storage = RoomFileStorage.getRoomStorage();
+       // nemoj da prihvatis ovaj !!!
         public ManagerWindow()
         {
             InitializeComponent();
@@ -32,28 +32,12 @@ namespace ftn_sims_hci_hospital
 
         private void viewrooms_Click(object sender, RoutedEventArgs e)
         {
-            storage.AccessRoomsInFile = storage.GetAll();
-            roomDataList.Items.Clear();
-            foreach (Room r in storage.AccessRoomsInFile)
-            {
-                roomDataList.Items.Add(new { RoomNumber = r.RoomNumber1, FloorNumber = r.FloorNumber1, Description = r.Description1, Type = r.Type1, Status = r.Status1 });
-            }
+            
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)
         {
-            if (!roomDataList.Items.IsEmpty)
-            {
-                if (roomDataList.SelectedItem != null)
-                {
-                    string[] parts = roomDataList.SelectedItem.ToString().Split(',');
-                    string[] parts2 = parts[0].Split(' ');
-                    String toDelete = parts2[3];
-                    storage.Delete(toDelete);
-                    storage.UpdateAll(storage.AccessRoomsInFile);
-                    viewrooms.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                }
-            }
+            
         }
 
         private void update_Click(object sender, RoutedEventArgs e)

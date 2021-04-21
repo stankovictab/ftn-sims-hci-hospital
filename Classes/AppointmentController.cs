@@ -7,16 +7,26 @@ namespace Classes
     {
         public AppointmentService appointmentService;
 
+        public AppointmentController()
+        {
+            appointmentService = new AppointmentService();
+        }
+
         public List<Appointment> ShowAvailableAppointments(int priority, String doctorId, DateTime startTime, DateTime endTime, int type)
         {
             // TODO: implement
             return null;
         }
 
-        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
+        public Appointment GetByID(String id)
         {
-            // TODO: implement
-            return false;
+            return appointmentService.getById(id);
+        }
+
+        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, DateTime endTime ,int type, String roomId)
+        {
+            appointmentService.CreateAppointment(doctorId, patientId, startTime, endTime ,type,roomId);
+            return true;
         }
 
         public List<String> ShowAvailableAppointmentsUpdate(String appointmentId, DateTime newDate)
@@ -25,16 +35,14 @@ namespace Classes
             return null;
         }
 
-        public Boolean UpdateAppointment(String appointmentId, DateTime newDate, String roomId)
+        public Boolean UpdateAppointment(String appointmentId, DateTime startTime,DateTime endTime, String roomId,int type)
         {
-            // TODO: implement
-            return false;
+            return appointmentService.UpdateAppointment(appointmentId, startTime, endTime, roomId, type);
         }
 
         public Boolean DeleteAppointment(String appointmentId)
         {
-            // TODO: implement
-            return false;
+            return appointmentService.DeleteAppointment(appointmentId);
         }
 
         public List<Appointment> GetAllOperaionsByDoctorId(String doctorId)
@@ -51,8 +59,7 @@ namespace Classes
 
         public List<Appointment> GetAllByDoctorId(String doctorId)
         {
-            // TODO: implement
-            return null;
+            return appointmentService.GetAllByDoctorId(doctorId);
         }
     }
 }

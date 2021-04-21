@@ -16,7 +16,7 @@ namespace ftn_sims_hci_hospital
 {
     public partial class Secretary : Window
     {
-        public static Classes.PatientFileStorage pfs = new Classes.PatientFileStorage();
+        //nemoj da prihvatis ovaj
         public Secretary()
         {
             InitializeComponent();
@@ -31,41 +31,16 @@ namespace ftn_sims_hci_hospital
 
         private void btnlistallpatients_Click(object sender, RoutedEventArgs e)
         {
-            pfs.PatientsInFile1 = pfs.GetAll();
-            patientData.Items.Clear();
-            foreach (Classes.Patient p in pfs.PatientsInFile1)
-            {
-                patientData.Items.Add(new Classes.User { Name1 = p.user.Name1, LastName1 = p.user.LastName1, Jmbg1 = p.user.Jmbg1 });
-            }
         }
 
         private void btnviewpatient_Click(object sender, RoutedEventArgs e)
         {
-            if (!patientData.Items.IsEmpty)
-            {
-                if (patientData.SelectedItem != null)
-                {
-                    Classes.User user = (Classes.User)patientData.SelectedItem;
-                    String id = user.Jmbg1;
-                    Window patientView = new PatientView(id);
-                    patientView.ShowDialog();
-                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                }
-            }
+            
         }
 
         private void btndeletepatient_Click(object sender, RoutedEventArgs e)
         {
-            if (!patientData.Items.IsEmpty)
-            {
-                if (patientData.SelectedItem != null)
-                {
-                    Classes.User user = (Classes.User)patientData.SelectedItem;
-                    pfs.Delete(user.Jmbg1);
-                    pfs.UpdateAll(pfs.PatientsInFile1);
-                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                }
-            }
+            
         }
     }
 }

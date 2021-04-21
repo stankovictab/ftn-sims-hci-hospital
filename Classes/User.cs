@@ -9,7 +9,7 @@ namespace Classes
         public String Username { get; set; }
         private String Password;
         private String Email;
-        private String Jmbg;
+        public String Jmbg { get; set; }
         private String Address;
         private Char Gender;
         private Boolean Active = false;
