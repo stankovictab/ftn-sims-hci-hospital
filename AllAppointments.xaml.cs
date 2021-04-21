@@ -22,9 +22,8 @@ namespace ftn_sims_hci_hospital
         public AllAppointments()
         {
             InitializeComponent();
-            //patientName = "Pavle";
             appointmentController = new AppointmentController();
-            List<Appointment> appoinments = appointmentController.GetAllByPatientId(PatientWindow.user.Name1);
+            List<Appointment> appoinments = appointmentController.GetAllByPatientId(PatientWindow.user.Jmbg1);
             lvUsers.ItemsSource = appoinments;
         }
 
@@ -38,14 +37,22 @@ namespace ftn_sims_hci_hospital
         private void submitUpdate(object sender, RoutedEventArgs e)
         {
             String id;
-            DateTime currentDate;
+            DateTime oldDate;
             Appointment appointment = (Appointment)lvUsers.SelectedItem;
             id = appointment.AppointmentID;
-            currentDate = appointment.StartTime;
+            oldDate = appointment.StartTime;
 
-            UpdateAppointmentPatient uap = new UpdateAppointmentPatient(id, currentDate);
+            DateTime currentDate = DateTime.Now;
+            if((oldDate - currentDate).Hours <= 24)
+            {
+                MessageBox.Show("Ne mozete da pomerate datum ako je ostalo manje od 24h do pregleda");
+            }
+            else
+            { 
+                UpdateAppointmentPatient uap = new UpdateAppointmentPatient(id, oldDate);
+                uap.Show();
+            }
 
-            uap.Show();
             /*string id = UpdateID.Text;
             string doc = UpdateDoc.Text;
             string[] startTime = UpdateTime.Text.Split(':');

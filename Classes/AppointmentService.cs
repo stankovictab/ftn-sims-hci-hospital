@@ -107,7 +107,10 @@ namespace Classes
 
         public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
         {
-            // TODO: implement
+            List<Appointment> appointments = appointmentRepository.GetAll();
+            int newId = int.Parse(appointments[appointments.Count - 1].AppointmentID);
+            newId++;
+            appointmentRepository.Create(new Appointment((newId).ToString(), doctorId, patientId, startTime, new DateTime()));
             return false;
         }
 

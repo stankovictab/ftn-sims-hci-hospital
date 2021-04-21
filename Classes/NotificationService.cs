@@ -6,6 +6,11 @@ namespace Classes
     public class NotificationService
     {
         public NotificationRepository notificationRepository;
+          
+        public NotificationService()
+        {
+            notificationRepository = new NotificationRepository();
+        }
 
         public Boolean Create(String patientID, String doctorID, String title, String body)
         {
@@ -13,13 +18,13 @@ namespace Classes
             return false;
         }
 
-        public Notification GetByPatientID(String id)
+        public List<Notification> GetByPatientID(String id)
         {
-            // TODO: implement
-            return null;
+            List<Notification> notifications = notificationRepository.GetByPatientID(id);
+            return notifications;
         }
 
-        public Notification GetByDoctorID(String id)
+        public List<Notification> GetByDoctorID(String id)
         {
             // TODO: implement
             return null;

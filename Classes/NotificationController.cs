@@ -7,16 +7,21 @@ namespace Classes
     {
         public NotificationService notificationService;
 
+        public NotificationController()
+        {
+            notificationService = new NotificationService();
+        }
+
         public Boolean Create(String patientID, String doctorID, String title, String body)
         {
             // TODO: implement
             return false;
         }
 
-        public Notification GetByPatientID(String id)
+        public List<Notification> GetByPatientID(String id)
         {
-            // TODO: implement
-            return null;
+            List<Notification> notifications = notificationService.GetByPatientID(id);
+            return notifications;
         }
 
         public Notification GetByDoctorID(String id)

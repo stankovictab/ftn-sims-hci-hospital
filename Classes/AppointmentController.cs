@@ -23,7 +23,7 @@ namespace Classes
 
         public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
         {
-            // TODO: implement
+            appointmentService.CreateAppointment(doctorId, patientId, startTime, type, roomId);
             return false;
         }
 

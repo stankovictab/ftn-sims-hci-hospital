@@ -9,7 +9,7 @@ namespace Classes
         private String FileLocation;
         private List<Appointment> AppointmentsInFile;
 
-		public AppointmentRepository()
+        public AppointmentRepository()
         {
             FileLocation = "../../Text Files/appointments.txt";
         }
@@ -45,18 +45,32 @@ namespace Classes
 
         public List<Appointment> GetAll()
         {
-            /* Appointment a1 = new Appointment();
-             Appointment a2 = new Appointment();
-             List<Appointment> appointments = new List<Appointment>();
-             appointments.Add(a1);
-             appointments.Add(a2);
-             return appointments;*/
-            return null;
+            {
+                String[] rows = System.IO.File.ReadAllLines(FileLocation);
+                List<Appointment> appointments = new List<Appointment>();
+                foreach (String row in rows)
+                {
+                    String[] data = row.Split(';');
+
+                    String doctorId = data[1];
+                    String patientId = data[2];
+                    String id = data[0];
+                    String[] startParts = data[3].Split(',');
+                    String[] endParts = data[4].Split(',');
+                    DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
+                    DateTime end = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
+                    Appointment a = new Appointment(id, doctorId, patientId, start, end);
+                    appointments.Add(a);
+                }
+                Console.WriteLine(PatientWindow.user.Name1);
+                return appointments;
+            }
         }
 
         public List<Appointment> GetAllByPatientID(String patientID)
         {
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
+            Console.WriteLine(rows[0]);
             List<Appointment> appointments = new List<Appointment>();
             foreach (String row in rows)
             {
@@ -78,7 +92,7 @@ namespace Classes
             return appointments;
         }
 
-         public List<Appointment> GetAllByDoctorID(String doctorID)
+        public List<Appointment> GetAllByDoctorID(String doctorID)
         {
             List<Appointment> ret = new List<Appointment>();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);

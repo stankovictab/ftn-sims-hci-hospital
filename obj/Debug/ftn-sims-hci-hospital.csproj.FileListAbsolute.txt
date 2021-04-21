@@ -194,3 +194,5 @@ C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\UpdateAppoin
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\UpdateAppointmentPatient.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAppointmentsPage.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAppointmentsPage.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\NotificationsPage.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\NotificationsPage.baml

@@ -1,0 +1,2 @@
+id;title;body;date;read;patientId;doctorId
+1;Lek;Uzmi lek;2021,12,25,10,30,00;False;Goran;Dusan

@@ -31,17 +31,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Margin="505,242,160.6,155" Content="Submit delete" Click="submitDeletion"/>
-        <Label Content="Type ID of the appointment you want to delete:&#xD;&#xA;" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
-        <TextBox x:Name="Deletion" HorizontalAlignment="Left" Height="23" Margin="340,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-        <Label Content="Type ID of the appointment you want to update:&#xA;" HorizontalAlignment="Left" Margin="57,287,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
-        <TextBox x:Name="UpdateID" HorizontalAlignment="Left" Height="23" Margin="340,287,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-        <Button Margin="505,367,160.6,30" Content="Submit update" Click="submitUpdate"/>
-        <Label Content="Choose new date:&#xA;" HorizontalAlignment="Left" Margin="57,343,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
-        <Label Content="Type new doctor:&#xA;" HorizontalAlignment="Left" Margin="57,315,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
-        <TextBox x:Name="UpdateDoc" HorizontalAlignment="Left" Height="23" Margin="340,315,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
-        <DatePicker x:Name="UpdateDate" HorizontalAlignment="Left" Height="23" Margin="340,343,0,0" Text="" VerticalAlignment="Top" Width="125" />
-        <Label Content="New time:&#xA;" HorizontalAlignment="Left" Margin="57,371,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
-        <TextBox x:Name="UpdateTime" HorizontalAlignment="Left" Height="23" Margin="340,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
     </Grid>
 </Window>

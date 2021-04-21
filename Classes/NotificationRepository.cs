@@ -8,21 +8,53 @@ namespace Classes
         private String FileLocation;
         private List<Notification> NotificationsInFile;
 
+        public NotificationRepository()
+        {
+            FileLocation = "../../Text Files/notifications.txt";
+        }
+
         public Boolean Create(Notification notification)
         {
             // TODO: implement
             return false;
         }
 
-        public Notification GetByPatientID(String id)
+        public List<Notification> GetByPatientID(String id)
         {
-            // TODO: implement
-            return null;
+            String[] rows = System.IO.File.ReadAllLines(FileLocation);
+            List<Notification> notifications = new List<Notification>();
+            foreach (String row in rows)
+            {
+                String[] data = row.Split(';');
+                if (data[5].Equals(id))
+                {
+                    String idNotification = data[0];
+                    String title = data[1];
+                    String body = data[2];
+                    String read = data[4];
+                    Boolean readBool;
+                    if (read.Equals("False"))
+                    {
+                        readBool = false;
+                    }
+                    else
+                    {
+                        readBool = true;
+                    }
+                    String patientId = data[5];
+                    String doctorId = data[6];
+                    String[] startParts = data[3].Split(',');
+                    DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
+                    Notification a = new Notification(id, title, body, start, readBool, patientId, doctorId);
+                    notifications.Add(a);
+                }
+            }
+            return notifications;
         }
 
-        public Notification GetByDoctorID(String id)
+        public List<Notification> GetByDoctorID(String id)
         {
-            // TODO: implement
+            
             return null;
         }
 

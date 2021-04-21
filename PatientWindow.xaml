@@ -22,6 +22,9 @@
             </MenuItem>
         </Menu>
         <Frame x:Name="Main" Margin="50,125,43.6,10" NavigationUIVisibility="Hidden"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="485,41,0,0" VerticalAlignment="Top" Width="79" Click="NotificationsList"/>
+        <Button Content="Odjavi se" HorizontalAlignment="Left" Margin="639,41,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Profil" HorizontalAlignment="Left" Margin="564,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.485,0.563"/>
 
     </Grid>
 </Window>

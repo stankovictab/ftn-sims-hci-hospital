@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\App.xaml
-20-272584294
+211430530552
 
-85-1498830203
+86-1179283766
 13-1505183044
-AllAppointmentsPage.xaml;DoctorEPanel.xaml;HolidayRequestCreation.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;Secretary.xaml;PatientWindow.xaml;ManagerWindow.xaml;RoomCreation.xaml;RoomUpdate.xaml;UpdateAppointmentPatient.xaml;
+AllAppointmentsPage.xaml;DoctorEPanel.xaml;HolidayRequestCreation.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;MainWindow.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;Secretary.xaml;PatientWindow.xaml;ManagerWindow.xaml;RoomCreation.xaml;RoomUpdate.xaml;UpdateAppointmentPatient.xaml;
 
-False
+True
 

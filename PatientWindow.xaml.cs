@@ -24,7 +24,7 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             user = new User();
-            user.Name1 = "Goran";
+            user.Jmbg1 = "Goran";
             user.Role1 = Roles.Patient;
         }
 
@@ -46,5 +46,10 @@ namespace ftn_sims_hci_hospital
 
         }
 
+        private void NotificationsList(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new NotificationsPage();
+
+        }
     }
 }
