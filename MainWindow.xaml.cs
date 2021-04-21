@@ -12,11 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Classes;
 
 namespace ftn_sims_hci_hospital
 {
     public partial class MainWindow : Window
     {
+        public static PatientController patientController = new PatientController();
+        public static RoomController roomController = new RoomController();
+        public static DoctorController doctorController = new DoctorController();
+        public static AppointmentController appointmentController = new AppointmentController();
+        public static HolidayRequestController holidayRequestController = new HolidayRequestController();
+        public static DynamicEquipmentRequestController dynamicEquipmentRequestController = new DynamicEquipmentRequestController();
+
+        public static int guestCounter = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -24,12 +33,12 @@ namespace ftn_sims_hci_hospital
 
         private void btde_Click(object sender, RoutedEventArgs e)
         {
-            Window doctorEpanel = new DoctorEPanel();
+            Window doctorEpanel = new DoctorPanel();
             doctorEpanel.ShowDialog();
         }
         private void bts_Click(object sender, RoutedEventArgs e)
         {
-            Window secretaryWindow = new Secretary();
+            Window secretaryWindow = new HomeWindow();
             this.Hide();
             secretaryWindow.ShowDialog();
             this.Show();

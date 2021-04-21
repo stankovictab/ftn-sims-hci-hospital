@@ -8,14 +8,16 @@ namespace Classes
         private String FileLocation;
         private List<Appointment> AppointmentsInFile;
 
-		public AppointmentRepository()
+        public List<Appointment> AppointmentsInFile1 { get => AppointmentsInFile; set => AppointmentsInFile = value; }
+
+        public AppointmentRepository()
         {
             FileLocation = "../../Text Files/appointments.txt";
         }
 
         public Boolean Create(Appointment app)
         {
-            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg + ";" + app.patient.user.Jmbg + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + "0" + "\n";
+            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + "0" + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }
@@ -44,13 +46,23 @@ namespace Classes
 
         public List<Appointment> GetAll()
         {
-            /* Appointment a1 = new Appointment();
-             Appointment a2 = new Appointment();
-             List<Appointment> appointments = new List<Appointment>();
-             appointments.Add(a1);
-             appointments.Add(a2);
-             return appointments;*/
-            return null;
+            String[] rows = System.IO.File.ReadAllLines(FileLocation);
+            List<Appointment> appointments = new List<Appointment>();
+            foreach (String row in rows)
+            {
+                String[] data = row.Split(';');
+                String doctorId = data[1];
+                String patientId = data[2];
+                String id = data[0];
+                String[] startParts = data[3].Split(',');
+                String[] endParts = data[4].Split(',');
+                DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
+                DateTime end = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
+                Appointment a = new Appointment(id, doctorId, patientId, start, end);
+                appointments.Add(a);
+                
+            }
+            return appointments;
         }
 
         public List<Appointment> GetAllByPatientID(String patientID)
@@ -111,12 +123,9 @@ namespace Classes
         }
 
         public Boolean Delete(String id)
-        {
+        { 
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
             List<Appointment> appointments = new List<Appointment>();
-            String[] rowsNew = new String[rows.Length - 1];
-            int j = 0;
-            Boolean found = false;
             List<String> novi = new List<string>();
             foreach (String row in rows)
             {
@@ -126,28 +135,9 @@ namespace Classes
                     String r = String.Join(";", data);
                     novi.Add(r);
                 }
-                else
-                {
-                    if (!data[2].Equals("Pavle"))
-                    {
-                        String r = String.Join(";", data);
-                        novi.Add(r);
-                    }
-                    else
-                    {
-                        found = true;
-                    }
-                }
             }
             System.IO.File.WriteAllLines(FileLocation, novi);
-            if (found)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
     }
 }

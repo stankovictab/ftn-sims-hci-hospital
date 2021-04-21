@@ -18,12 +18,12 @@ namespace ftn_sims_hci_hospital
     public partial class RoomEdit : Window
     {
         public Room toUpdate = new Room();
-        public static RoomFileStorage storage = new RoomFileStorage();
+        //public static RoomFileStorage storage = new RoomFileStorage();
         public RoomEdit(String id)
         {
             InitializeComponent();
-            storage.AccessRoomsInFile = storage.GetAll();
-            toUpdate = storage.GetById(id);
+           // storage.AccessRoomsInFile = storage.GetAll();
+           // toUpdate = storage.GetById(id);
             numberTextbox.Text = toUpdate.RoomNumber1;
             floorTextbox.Text = toUpdate.FloorNumber1.ToString();
             descriptionTextbox.Text = toUpdate.Description1;
@@ -70,8 +70,8 @@ namespace ftn_sims_hci_hospital
             //    newStatus = RoomStatus.Reordering;
 
             Room room = new Room(number, floor, description, newType, newStatus);
-            storage.Update(room);
-            storage.UpdateAll(storage.AccessRoomsInFile);
+            //storage.Update(room);
+           // storage.UpdateAll(storage.AccessRoomsInFile);
             this.Close();
         }
 

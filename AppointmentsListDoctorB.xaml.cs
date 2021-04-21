@@ -20,9 +20,9 @@ namespace ftn_sims_hci_hospital
         public AppointmentsListDoctorB()
         {
             InitializeComponent();
-            AppointmentFileStorage f = new AppointmentFileStorage();
-            List<Appointment> appointments = f.GetAllByDoctorID("Darko");
-            lvUsers.ItemsSource = appointments;
+          //  AppointmentFileStorage f = new AppointmentFileStorage();
+           // List<Appointment> appointments = f.GetAllByDoctorID("Darko");
+           // lvUsers.ItemsSource = appointments;
         }
     }
 }

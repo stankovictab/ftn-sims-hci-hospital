@@ -16,15 +16,6 @@ namespace Classes
             FileLocation = "../../Text Files/rooms.txt";
         }
 
-		private static RoomFileStorage RoomStorage = null;
-        public static RoomFileStorage getRoomStorage()
-        {
-            if (RoomStorage == null)
-            {
-                RoomStorage = new RoomFileStorage();
-            }
-            return RoomStorage;
-        }
 
         public static RoomType ParseType(string input)
         {

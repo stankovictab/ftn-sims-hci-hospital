@@ -17,10 +17,10 @@ namespace ftn_sims_hci_hospital
 {
     public partial class CreateAppointment : Window
     {
-        private AppointmentFileStorage afs;
+
         public CreateAppointment()
         {
-            afs = new AppointmentFileStorage();
+            MainWindow.appointmentController.appointmentService.appointmentRepository.AppointmentsInFile1 = new List<Appointment>();
             InitializeComponent();
         }
 
@@ -38,7 +38,7 @@ namespace ftn_sims_hci_hospital
             DateTime end = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(endTime[0]), int.Parse(endTime[1]), int.Parse(endTime[2]));
             // Appointment a = new Appointment(num.ToString(), "Darko", txtP.Text, start, end);
             Appointment ap = new Appointment(r.ToString(), Doc.Text, "Pavle", start, end);
-            afs.Create(ap);
+            MainWindow.appointmentController.CreateAppointment("1","2",start,0,"1");
         }
     }
 }

@@ -5,42 +5,36 @@ namespace Classes
 {
     public class PatientController
     {
-        public PatientService patientService;
+        public PatientService patientService = new PatientService();
 
         public Boolean Create(Patient p)
         {
-            // TODO: implement
-            return false;
+            return patientService.Create(p);
         }
 
         public Patient GetByID(String id)
         {
-            // TODO: implement
-            return null;
+            return patientService.GetByID(id);
         }
 
         public List<Patient> GetAll()
         {
-            // TODO: implement
-            return null;
+            return patientService.GetAll();
         }
 
         public Boolean Update(Patient p)
         {
-            // TODO: implement
-            return false;
+            return patientService.Update(p);
         }
 
         public Boolean UpdateAll(List<Patient> pif)
         {
-            // TODO: implement
-            return false;
+            return patientService.UpdateAll(pif);
         }
 
         public Boolean Delete(String id)
         {
-            // TODO: implement
-            return false;
+            return patientService.Delete(id);
         }
     }
 }

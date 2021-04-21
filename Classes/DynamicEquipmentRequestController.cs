@@ -5,48 +5,51 @@ namespace Classes
 {
     public class DynamicEquipmentRequestController
     {
-        public DynamicEquipmentRequestService dynamicEquipmentRequestService;
+        public DynamicEquipmentRequestService ders = new DynamicEquipmentRequestService();
 
-        public Boolean Create(String equipmentName)
+        public Boolean Create(String equipmentName, Doctor doctor)
         {
-            // TODO: implement
-            return false;
+            return ders.Create(equipmentName, doctor);
         }
 
-        public DynamicEquipment GetByID(String id)
+        public DynamicEquipmentRequest GetByID(String id)
         {
-            // TODO: implement
-            return null;
+            return ders.GetByID(id);
         }
 
-        public List<DynamicEquipment> GetAll()
+        public List<DynamicEquipmentRequest> GetAll()
         {
-            // TODO: implement
-            return null;
+            return ders.GetAll();
         }
 
-        public Boolean Update(String id, String equipmentName)
+        public List<DynamicEquipmentRequest> GetAllByDoctorID(String id)
         {
-            // TODO: implement
-            return false;
+            return ders.GetAllByDoctorID(id);
+        }
+
+        public List<DynamicEquipmentRequest> GetAllOnHold()
+        {
+            return ders.GetAllOnHold();
+        }
+
+        public Boolean Update(String id, String equipmentName, Doctor doctor)
+        {
+            return ders.Update(id, equipmentName, doctor);
         }
 
         public Boolean Delete(String id)
         {
-            // TODO: implement
-            return false;
+            return ders.Delete(id);
         }
 
         public Boolean Approve(String id)
         {
-            // TODO: implement
-            return false;
+            return ders.Approve(id);
         }
 
         public Boolean Deny(String id)
         {
-            // TODO: implement
-            return false;
+            return ders.Deny(id);
         }
     }
 }

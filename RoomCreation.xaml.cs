@@ -34,7 +34,7 @@ namespace ftn_sims_hci_hospital
 
             Room newRoom = new Room(roomNumber.Text, Convert.ToInt32(roomFloor.Text), roomDescription.Text, newType);
 
-            _ = RoomFileStorage.getRoomStorage().Create(newRoom);
+           // _ = RoomFileStorage.getRoomStorage().Create(newRoom);
 
             this.Hide();
         }
