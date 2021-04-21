@@ -1,0 +1,22 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.AppointmentsListDoctorB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="AppointmentsList" Height="450" Width="800">
+    <Grid>
+        <ListView Margin="10" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Appointment id" Width="150" DisplayMemberBinding="{Binding AppointmentID}" />
+                    <GridViewColumn Header="start time" Width="150" DisplayMemberBinding="{Binding StartTime}" />
+                    <GridViewColumn Header="end time" Width="150" DisplayMemberBinding="{Binding EndTime}" />
+                    <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Jmbg}">
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

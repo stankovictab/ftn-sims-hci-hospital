@@ -4,23 +4,17 @@
 winexe
 C#
 .cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\obj\Debug\
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital\App.xaml
-41924933003
+C:\Users\Mihajlo\Desktop\merge_ziksa_i_ja\merge ziksa i ja\App.xaml
+291421328598
 
-32-1547804834
+96236826316
 13-1505183044
-DoctorEPanel.xaml;HolidayRequestCreation.xaml;HolidayRequestUpdate.xaml;MainWindow.xaml;
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital\App.xaml
-51549102259
-
-33-1267389157
-13-1505183044
-MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;Secretary.xaml;
+DoctorPanel.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;ManagerWindow.xaml;RoomCreation.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;
 
 True
 

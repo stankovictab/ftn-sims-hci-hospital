@@ -1,3 +1,4 @@
 *.g.cs
 *.g.i.cs
 *.cache
+*.suo

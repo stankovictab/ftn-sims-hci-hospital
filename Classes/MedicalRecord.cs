@@ -1,22 +1,24 @@
-/***********************************************************************
- * Module:  MedicalRecord.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class MedicalRecord
- ***********************************************************************/
-
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 
 namespace Classes
 {
-   public class MedicalRecord
-   {
-      public Patient patient;
-   
-      private String Allergies;
-      private String Diagnoses;
-      private String Perscriptions;
-   
-   }
+    public class MedicalRecord
+    {
+        public Patient patient;
+        public List<Perscription> perscriptions;
+        public List<Allergy> allergies;
+        public List<Anamnesis> anamneses;
+
+
+        public MedicalRecord()
+        {
+            perscriptions = new List<Perscription>();
+            allergies = new List<Allergy>();
+            anamneses = new List<Anamnesis>();
+        }
+
+        
+    }
 }

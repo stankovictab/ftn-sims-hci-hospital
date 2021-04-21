@@ -1,0 +1,35 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.AllAppointments"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="AllAppointments" Height="450" Width="800">
+    <Grid>
+        <ListView Margin="10,10,9.6,201" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding AppointmentID}" />
+                    <GridViewColumn Header="doctorID" Width="100" DisplayMemberBinding="{Binding doctor.user.Jmbg}" />
+                    <GridViewColumn Header="patientID" Width="100" DisplayMemberBinding="{Binding patient.user.Jmbg}" />
+                    <GridViewColumn Header="Start time" Width="100" DisplayMemberBinding="{Binding StartTime}" />
+                    <GridViewColumn Header="End time" Width="100" DisplayMemberBinding="{Binding EndTime}" />
+                    
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Margin="505,242,160.6,155" Content="Submit delete" Click="submitDeletion"/>
+        <Label Content="Type ID of the appointment you want to delete:&#xD;&#xA;" HorizontalAlignment="Left" Margin="57,241,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
+        <TextBox x:Name="Deletion" HorizontalAlignment="Left" Height="23" Margin="340,241,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Type ID of the appointment you want to update:&#xA;" HorizontalAlignment="Left" Margin="57,287,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
+        <TextBox x:Name="UpdateID" HorizontalAlignment="Left" Height="23" Margin="340,287,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+        <Button Margin="505,367,160.6,30" Content="Submit update" Click="submitUpdate"/>
+        <Label Content="Choose new date:&#xA;" HorizontalAlignment="Left" Margin="57,343,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
+        <Label Content="Type new doctor:&#xA;" HorizontalAlignment="Left" Margin="57,315,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
+        <TextBox x:Name="UpdateDoc" HorizontalAlignment="Left" Height="23" Margin="340,315,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+        <DatePicker x:Name="UpdateDate" HorizontalAlignment="Left" Height="23" Margin="340,343,0,0" Text="" VerticalAlignment="Top" Width="125" />
+        <Label Content="New time:&#xA;" HorizontalAlignment="Left" Margin="57,371,0,0" VerticalAlignment="Top" Height="23" Width="262"/>
+        <TextBox x:Name="UpdateTime" HorizontalAlignment="Left" Height="23" Margin="340,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125"/>
+    </Grid>
+</Window>

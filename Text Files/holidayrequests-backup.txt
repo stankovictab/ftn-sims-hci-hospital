@@ -1,0 +1,7 @@
+// This is a backup file in case the contents of the source file get deleted
+// id,description,startDate,endDate,doctor
+
+1,Godisnji odmor,01/10/21 06:00:00 AM,01/20/21 08:00:00 AM,01/02/21 08:00:00 AM,0,0501
+2,Koriscenje preostalih slobodnih dana,02/05/21 08:00:00 AM,02/15/21 06:00:00 PM,02/02/21 08:00:00 AM,0,7601
+3,Porodiljsko,03/28/21 09:00:00 AM,04/11/21 10:00:00 AM,01/02/21 08:00:00 AM,0,0501
+4,Zakazano kod zubara,04/02/21 11:00:00 AM,04/04/21 06:00:00 AM,03/21/21 08:00:00 AM,0,6331

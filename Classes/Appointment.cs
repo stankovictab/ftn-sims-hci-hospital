@@ -1,76 +1,33 @@
-/***********************************************************************
- * Module:  Appointment.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Appointment
- ***********************************************************************/
-
 using System;
-using System.Collections.Generic;
-using System.IO;
-
 namespace Classes
 {
-   public class Appointment
-   {
-      public Patient patient;
-      public Doctor doctor;
-      private String AppointmentID;
-      private DateTime StartTime;
-      private DateTime EndTime;
-      private AppointmentType Type;
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Doctor GetDoctor()
-      {
-         return doctor;
-      }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newDoctor</param>
-      public void SetDoctor(Doctor newDoctor)
-      {
-         if (this.doctor != newDoctor)
-         {
-            if (this.doctor != null)
-            {
-               Doctor oldDoctor = this.doctor;
-               this.doctor = null;
-               oldDoctor.RemoveAppointments(this);
-            }
-            if (newDoctor != null)
-            {
-               this.doctor = newDoctor;
-               this.doctor.AddAppointments(this);
-            }
-         }
-      }
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Patient GetPatient()
-      {
-         return patient;
-      }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newPatient</param>
-      public void SetPatient(Patient newPatient)
-      {
-         if (this.patient != newPatient)
-         {
-            if (this.patient != null)
-            {
-               Patient oldPatient = this.patient;
-               this.patient = null;
-               oldPatient.RemoveAppointments(this);
-            }
-            if (newPatient != null)
-            {
-               this.patient = newPatient;
-               this.patient.AddAppointments(this);
-            }
-         }
-      }
-   
-   
-   }
+    public class Appointment
+    {
+        public String AppointmentID { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public AppointmentType Type { get; set; }
+        public Room Room { get; set; }
+        public Boolean StatusFinished { get; set; }
+        public Doctor doctor { get; set; }
+        public Patient patient { get; set; }
+
+		public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
+        {
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = end;
+        }
+        public Appointment()
+        { }
+
+        public Appointment(String id, DateTime start, DateTime end)
+        {
+            AppointmentID = id;
+            StartTime = start;
+            EndTime = end;
+        }
+    }
 }

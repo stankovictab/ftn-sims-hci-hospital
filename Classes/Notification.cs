@@ -1,20 +1,26 @@
-/***********************************************************************
- * Module:  Notification.cs
- * Author:  Mihajlo
- * Purpose: Definition of the Class Notification
- ***********************************************************************/
-
 using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Classes
 {
-   public class Notification
-   {
-      private int NotificationID;
-      private String NotificationBody;
-      private DateTime Date;
-   
-   }
+    public class Notification
+    {
+        public String Id;
+        public String Title;
+        public String Body;
+        public DateTime Date;
+        public Boolean Read;
+        public String PatientId;
+        public String DoctorId;
+
+        public Notification(string id, string title, string body, DateTime date, bool read, string patientId, string doctorId)
+        {
+            Id = id;
+            Title = title;
+            Body = body;
+            Date = date;
+            Read = read;
+            PatientId = patientId;
+            DoctorId = doctorId;
+        }
+    }
 }
