@@ -51,7 +51,6 @@ namespace Classes
                 foreach (String row in rows)
                 {
                     String[] data = row.Split(';');
-
                     String doctorId = data[1];
                     String patientId = data[2];
                     String id = data[0];
@@ -70,7 +69,6 @@ namespace Classes
         public List<Appointment> GetAllByPatientID(String patientID)
         {
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
-            Console.WriteLine(rows[0]);
             List<Appointment> appointments = new List<Appointment>();
             foreach (String row in rows)
             {
@@ -88,7 +86,6 @@ namespace Classes
                     appointments.Add(a);
                 }
             }
-            Console.WriteLine(PatientWindow.user.Name1);
             return appointments;
         }
 

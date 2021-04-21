@@ -24,7 +24,7 @@ namespace Classes
         public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
         {
             appointmentService.CreateAppointment(doctorId, patientId, startTime, type, roomId);
-            return false;
+            return true;
         }
 
         public List<String> ShowAvailableAppointmentsUpdate(String appointmentId, DateTime newDate)
