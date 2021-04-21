@@ -19,7 +19,6 @@ namespace Classes
             this.appointments = appointments;
             this.holidayRequests = holidayRequests;
         }
-
         public Doctor(String id)
         {
             User user1 = new User(id);
