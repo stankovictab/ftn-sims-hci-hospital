@@ -1,3 +1,9 @@
+/***********************************************************************
+ * Module:  EquipmentService.cs
+ * Author:  Igor
+ * Purpose: Definition of the Class Manager.EquipmentService
+ ***********************************************************************/
+
 using System;
 using System.Collections.Generic;
 
@@ -5,42 +11,35 @@ namespace Classes
 {
     public class RoomController
     {
-        public RoomService roomService;
-
-        public Boolean Create(Room r)
+        public RoomService roomService = new RoomService();
+        public bool Create(Room newRoom)
         {
-            // TODO: implement
-            return false;
+            return roomService.Create(newRoom);
         }
 
-        public Doctor GetByID(String id)
+        public bool Update(Room toUpdate)
         {
-            // TODO: implement
-            return null;
+            return roomService.Update(toUpdate);
         }
 
-        public List<Doctor> GetAll()
+        public List<Room> GetAll()
         {
-            // TODO: implement
-            return null;
+            return roomService.getAll();
         }
 
-        public Boolean Update(Room r)
+        public bool Delete(String id)
         {
-            // TODO: implement
-            return false;
+            return roomService.Delete(id);
         }
 
-        public Boolean UpdateAll(List<Room> roomsInFile)
+        public bool UpdateAll(List<Room> rif)
         {
-            // TODO: implement
-            return false;
+            return roomService.UpdateAll(rif);
         }
 
-        public Boolean Delete(String id)
+        public Room GetById(String id)
         {
-            // TODO: implement
-            return false;
+            return roomService.GetById(id);
         }
     }
 }

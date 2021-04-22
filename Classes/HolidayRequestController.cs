@@ -5,54 +5,56 @@ namespace Classes
 {
     public class HolidayRequestController
     {
-        public HolidayRequestService holidayRequestService;
+        public HolidayRequestService hrs = new HolidayRequestService();
 
-        public Boolean Create(String desc, DateTime start, DateTime end)
+        public Boolean Create(String desc, DateTime start, DateTime end, Doctor doctor)
         {
-            // TODO: implement
-            return false;
+            return hrs.Create(desc, start, end, doctor);
         }
 
         public HolidayRequest GetByID(String id)
         {
-            // TODO: implement
-            return null;
+            return hrs.GetByID(id);
         }
 
         public List<HolidayRequest> GetAll()
         {
-            // TODO: implement
-            return null;
+            return hrs.GetAll();
         }
 
         public List<HolidayRequest> GetAllByDoctorID(String doctorID)
         {
-            // TODO: implement
-            return null;
+            return hrs.GetAllByDoctorID(doctorID);
         }
 
-        public Boolean Update(String id, String desc, DateTime start, DateTime end)
+        public List<HolidayRequest> GetAllOnHold()
         {
-            // TODO: implement
-            return false;
+            return hrs.GetAllOnHold();
+        }
+
+        public Boolean Update(String id, String desc, DateTime start, DateTime end, Doctor doctor)
+        {
+            return hrs.Update(id, desc, start, end, doctor);
+        }
+
+        public Boolean UpdateFile()
+        {
+            return hrs.UpdateFile();
         }
 
         public Boolean Delete(String id)
         {
-            // TODO: implement
-            return false;
+            return hrs.Delete(id);
         }
 
         public Boolean Approve(String id)
         {
-            // TODO: implement
-            return false;
+            return hrs.Approve(id);
         }
 
         public Boolean Deny(String id)
         {
-            // TODO: implement
-            return false;
+            return hrs.Deny(id);
         }
     }
 }

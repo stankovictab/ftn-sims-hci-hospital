@@ -5,8 +5,7 @@ namespace Classes
 {
     public class NotificationService
     {
-        public NotificationRepository notificationRepository;
-          
+        public NotificationRepository notificationRepository=new NotificationRepository();
         public NotificationService()
         {
             notificationRepository = new NotificationRepository();

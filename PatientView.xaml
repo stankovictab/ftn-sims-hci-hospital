@@ -5,17 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
         mc:Ignorable="d"
-        Title="PatientView" Height="450" Width="479.719">
+        Title="PatientView" Height="644.344" Width="831.39">
     <Grid>
-        <Button Content="Save changes" HorizontalAlignment="Left" Height="42" Margin="252,319,0,0" VerticalAlignment="Top" Width="103" Click="Button_Click"/>
-        <Label x:Name="lbfirstname" Content="Firstname" HorizontalAlignment="Left" Height="24" Margin="40,34,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="lblastname" Content="Lastname" HorizontalAlignment="Left" Height="24" Margin="40,97,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label x:Name="lbpassword" Content="Password" HorizontalAlignment="Left" Height="24" Margin="40,223,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.501,-1.385"/>
-        <TextBox x:Name="tbfirstname" HorizontalAlignment="Left" Height="29" Margin="40,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
-        <TextBox x:Name="tblastname" HorizontalAlignment="Left" Height="29" Margin="40,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
-        <TextBox x:Name="tbusername" HorizontalAlignment="Left" Height="29" Margin="40,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
-        <Label x:Name="lbusername" Content="Username" HorizontalAlignment="Left" Height="24" Margin="40,160,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.501,-1.385"/>
-        <TextBox x:Name="tbpassword" HorizontalAlignment="Left" Height="29" Margin="40,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <Rectangle Fill="#FF838080" HorizontalAlignment="Left" Height="363" Margin="143,167,0,0" Stroke="Black" VerticalAlignment="Top" Width="540"/>
+        <Button x:Name="btnupdate" Content="Save changes" HorizontalAlignment="Left" Height="42" Margin="374,546,0,0" VerticalAlignment="Top" Width="103" Click="btnupdate_Click" />
+        <Label x:Name="lbfirstname" Content="Firstname" HorizontalAlignment="Left" Height="24" Margin="170,202,0,0" VerticalAlignment="Top" Width="62"/>
+        <Label x:Name="lblastname" Content="Lastname" HorizontalAlignment="Left" Height="24" Margin="429,202,0,0" VerticalAlignment="Top" Width="63"/>
+        <TextBox x:Name="tblastname" HorizontalAlignment="Left" Height="29" Margin="497,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <TextBox x:Name="tbphonenumber" HorizontalAlignment="Left" Height="29" Margin="497,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <TextBox x:Name="tbbloodtype" HorizontalAlignment="Left" Height="29" Margin="497,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" IsEnabled="False"/>
+        <TextBox x:Name="tbgender" HorizontalAlignment="Left" Height="29" Margin="237,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" IsEnabled="False"/>
+        <TextBox x:Name="tbjmbg" HorizontalAlignment="Left" Height="29" Margin="237,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" IsEnabled="False"/>
+        <TextBox x:Name="tbfirstname" HorizontalAlignment="Left" Height="29" Margin="237,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" RenderTransformOrigin="-1.375,-0.691"/>
+        <TextBox x:Name="tbvaccinations" HorizontalAlignment="Left" Height="69" Margin="497,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <Label x:Name="lbjmbg" Content="JMBG" HorizontalAlignment="Left" Height="24" Margin="180,256,0,0" VerticalAlignment="Top" Width="41"/>
+        <Label x:Name="lbgender" Content="Gender" HorizontalAlignment="Left" Height="24" Margin="170,306,0,0" VerticalAlignment="Top" Width="62"/>
+        <Label x:Name="lballergy" Content="Allergy" HorizontalAlignment="Left" Height="29" Margin="170,361,0,0" VerticalAlignment="Top" Width="62"/>
+        <Label x:Name="lbphonenumber" Content="Phone number" HorizontalAlignment="Left" Height="24" Margin="401,256,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label x:Name="lbbloodtype" Content="Blood type" HorizontalAlignment="Left" Height="24" Margin="423,306,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label x:Name="lbvaccinations" Content="Vaccinations" HorizontalAlignment="Left" Height="24" Margin="421,386,0,0" VerticalAlignment="Top" Width="76"/>
+        <Image HorizontalAlignment="Left" Height="124" Margin="143,20,0,0" VerticalAlignment="Top" Width="124" Source="user.png"/>
+        <TextBox x:Name="tbdiagnoses" HorizontalAlignment="Left" Height="69" Margin="497,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <TextBox x:Name="tballergies" HorizontalAlignment="Left" Height="69" Margin="237,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <Label x:Name="lbdiagnoses" Content="Diagnoses" HorizontalAlignment="Left" Height="24" Margin="421,470,0,0" VerticalAlignment="Top" Width="76"/>
+        <Label x:Name="lballergies" Content="Allergies" HorizontalAlignment="Left" Height="24" Margin="156,470,0,0" VerticalAlignment="Top" Width="76"/>
+        <ComboBox x:Name="cballergy" HorizontalAlignment="Left" Margin="237,361,0,0" VerticalAlignment="Top" Width="128" Height="29"/>
+        <Button x:Name="btnaddallergy" Content="Add Allergy" HorizontalAlignment="Left" Margin="290,395,0,0" VerticalAlignment="Top" Width="75"  Height="25" Click="btnaddallergy_Click"/>
 
     </Grid>
 </Window>

@@ -2,17 +2,7 @@
 using ftn_sims_hci_hospital.Classes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -28,8 +18,12 @@ namespace ftn_sims_hci_hospital
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Appointment app = (Appointment)availableAppointments.SelectedItem;
-            app.patient.user.Jmbg1 = PatientWindow.user.Jmbg1;
-            appointmentController.CreateAppointment(app.doctor.user.Jmbg1, PatientWindow.user.Jmbg1, app.StartTime, 1, "");
+            app.patient.user.Jmbg1 = MainWindow.user.Jmbg1;
+            DateTime end = new DateTime(app.StartTime.Year, app.StartTime.Month, app.StartTime.Day, app.StartTime.Hour + 1, app.StartTime.Minute, app.StartTime.Second);
+
+            appointmentController.CreateAppointment(app.doctor.user.Jmbg1,  MainWindow.user.Jmbg1, app.StartTime, end,1, "");
+
+
 
             //Appointment newApp = new Appointment("", app.doctor.user.Jmbg1, PatientWindow.user.Jmbg1, app.StartTime, new DateTime(app.StartTime.Year, app.StartTime.Month, app.StartTime.Day, app.StartTime.Hour + 1));
             /*Random rnd = new Random();
@@ -52,20 +46,26 @@ namespace ftn_sims_hci_hospital
             DateTime sd = (DateTime)startDate.SelectedDate;
             DateTime ed = (DateTime)endDate.SelectedDate;
             String doctor = doctorCombo.Text;
-            Priority p;
+            Priority p = Priority.None;
             if ((Boolean)doctorRadio.IsChecked)
             {
                 p = Priority.Doctor;
-            } else if ((Boolean)dateRadio.IsChecked)
+            }
+            if ((Boolean)dateRadio.IsChecked)
             {
                 p = Priority.Date;
             }
+
+            if ((ed - sd).Days > 7)
+            {
+                MessageBox.Show("Maksimalan opseg koji mozete zadati je 7 dana");
+            }
             else
             {
-                p = Priority.None;
+                List<Appointment> app = appointmentController.ShowAvailableAppointments(p, doctor, sd, ed, AppointmentType.Regular);
+                availableAppointments.ItemsSource = app;
             }
-            List<Appointment> app = appointmentController.ShowAvailableAppointments(p, doctor, sd, ed, AppointmentType.Regular);
-            availableAppointments.ItemsSource = app;
         }
+
     }
 }

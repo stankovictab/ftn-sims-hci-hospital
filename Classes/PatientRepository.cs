@@ -8,6 +8,7 @@ namespace Classes
     {
         private String FileLocation;
         private List<Patient> PatientsInFile = new List<Patient>();
+        
 
 		public List<Patient> PatientsInFile1 { get => PatientsInFile; set => PatientsInFile = value; }
 
@@ -25,12 +26,15 @@ namespace Classes
             else
             {
                 PatientsInFile.Add(p);
+                UpdateAll(PatientsInFile);
                 return true;
             }
         }
 
         public Patient GetByID(String id)
         {
+            PatientsInFile = GetAll();
+
             foreach (Patient patient in PatientsInFile)
             {
                 if (patient.user.Jmbg1.Equals(id))
@@ -58,7 +62,7 @@ namespace Classes
                 string address = components[6];
                 char gender = Convert.ToChar(components[7]);
                 User user = new User(name, lastname, username, password, email, jmbg, address, gender, false, Roles.Patient);
-                Patient patient = new Patient(user, null, null);
+                Patient patient = new Patient(user, new MedicalRecord(), new List<Appointment>(),new List<Notification>());
                 patients.Add(patient);
                 text = tr.ReadLine();
             }
@@ -68,6 +72,7 @@ namespace Classes
 
         public Boolean Update(Patient p)
         {
+            PatientsInFile = GetAll();
             foreach (Patient patient in PatientsInFile)
             {
                 if (p.user.Jmbg1.Equals(patient.user.Jmbg1))
@@ -79,6 +84,8 @@ namespace Classes
                     patient.user.LastName1 = p.user.LastName1;
                     patient.user.Address1 = p.user.Address1;
                     patient.user.Gender1 = p.user.Gender1;
+                    patient.medicalRecord = p.medicalRecord;
+                    UpdateAll(PatientsInFile);
                     return true;
                 }
             }
@@ -107,11 +114,13 @@ namespace Classes
 
         public Boolean Delete(String id)
         {
+            PatientsInFile = GetAll();
             foreach (Patient patient in PatientsInFile)
             {
                 if (patient.user.Jmbg1.Equals(id))
                 {
                     PatientsInFile.Remove(patient);
+                    UpdateAll(PatientsInFile);
                     return true;
                 }
             }

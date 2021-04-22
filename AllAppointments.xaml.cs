@@ -23,7 +23,7 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             appointmentController = new AppointmentController();
-            List<Appointment> appoinments = appointmentController.GetAllByPatientId(PatientWindow.user.Jmbg1);
+            List<Appointment> appoinments = appointmentController.GetAllByPatientId(MainWindow.user.Jmbg1);
             lvUsers.ItemsSource = appoinments;
         }
 
@@ -41,14 +41,15 @@ namespace ftn_sims_hci_hospital
             Appointment appointment = (Appointment)lvUsers.SelectedItem;
             id = appointment.AppointmentID;
             oldDate = appointment.StartTime;
+            var dani = (oldDate - DateTime.Now).Days;
 
-            DateTime currentDate = DateTime.Now;
-            if((oldDate - currentDate).Hours <= 24)
+            //DateTime currentDate = DateTime.Now;
+            if ((oldDate - DateTime.Now).Days <= 1)
             {
                 MessageBox.Show("Ne mozete da pomerate datum ako je ostalo manje od 24h do pregleda");
             }
             else
-            { 
+            {
                 UpdateAppointmentPatient uap = new UpdateAppointmentPatient(id, oldDate);
                 uap.Show();
             }

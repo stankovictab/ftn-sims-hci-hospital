@@ -1,0 +1,28 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.StaticMove"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="StaticMove" Height="450" Width="800">
+    <Grid>
+        <Label Content="From Room:" HorizontalAlignment="Left" Margin="107,151,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="fromRoomCombo" HorizontalAlignment="Left" Margin="107,177,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="fromRoomCombo_SelectionChanged"/>
+        <ListView x:Name="chooseItemDataList" Margin="247,116,290,159">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Equipment ID" DisplayMemberBinding="{Binding staticId}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding staticName}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Choose Item:" HorizontalAlignment="Left" Margin="247,90,0,0" VerticalAlignment="Top"/>
+        <Label Content="To Room:" HorizontalAlignment="Left" Margin="542,116,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="toRoomCombo" HorizontalAlignment="Left" Margin="542,141,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="On Day:" HorizontalAlignment="Left" Margin="542,187,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="moveItemDate" HorizontalAlignment="Left" Margin="542,212,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday" Width="120"/>
+        <Button x:Name="createEnschedulement" Content="Order Item Move" HorizontalAlignment="Left" Margin="331,316,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.533,0.528" Click="createEnschedulement_Click"/>
+
+    </Grid>
+</Window>

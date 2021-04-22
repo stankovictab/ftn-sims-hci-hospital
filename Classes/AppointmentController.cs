@@ -1,5 +1,4 @@
 using ftn_sims_hci_hospital;
-using ftn_sims_hci_hospital.Classes;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +6,7 @@ namespace Classes
 {
     public class AppointmentController
     {
-        public AppointmentService appointmentService;
+        public AppointmentService appointmentService = new AppointmentService();
 
         public AppointmentController()
         {
@@ -21,9 +20,9 @@ namespace Classes
             return appointments;
         }
 
-        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
+        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime,DateTime endTime ,int type, String roomId)
         {
-            appointmentService.CreateAppointment(doctorId, patientId, startTime, type, roomId);
+            appointmentService.CreateAppointment(doctorId, patientId, startTime, endTime,type, roomId);
             return true;
         }
 
@@ -33,10 +32,9 @@ namespace Classes
             return null;
         }
 
-        //
-        public Boolean UpdateAppointment(String appointmentId, DateTime oldTime, DateTime startTime, DateTime endTime, String roomId)
+        public Boolean UpdateAppointment(String appointmentId, DateTime oldTime, DateTime startTime, DateTime endTime, String roomId, int type)
         {
-            if(PatientWindow.user.Role1 == Roles.Patient)
+            if (MainWindow.user.Role1 == Roles.Patient)
             {
                 var dani = (startTime - oldTime).Days;
                 if (dani >= 2 || dani < 0)
@@ -44,7 +42,10 @@ namespace Classes
                     return false;
                 }
             }
-            appointmentService.UpdateAppointment(appointmentId, startTime, endTime, roomId);
+               
+            appointmentService.UpdateAppointment(appointmentId, startTime, endTime, roomId, type);
+            
+            
             return true;
         }
 
@@ -68,8 +69,7 @@ namespace Classes
 
         public List<Appointment> GetAllByDoctorId(String doctorId)
         {
-            // TODO: implement
-            return null;
+            return appointmentService.GetAllByDoctorId(doctorId);
         }
     }
 }

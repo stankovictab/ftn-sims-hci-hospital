@@ -31,7 +31,7 @@ namespace ftn_sims_hci_hospital
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DateTime novi = (DateTime)newDate.SelectedDate;
-            Boolean provera = appointmentController.UpdateAppointment(this.appointmentId, this.currentDate, novi, new DateTime(), null);
+            Boolean provera = appointmentController.UpdateAppointment(this.appointmentId, this.currentDate, novi, new DateTime(), null , 0);
             if (provera)
             {
                 MessageBox.Show("Uspesno ste pomerili datum");

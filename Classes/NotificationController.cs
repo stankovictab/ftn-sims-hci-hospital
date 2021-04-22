@@ -5,7 +5,11 @@ namespace Classes
 {
     public class NotificationController
     {
-        public NotificationService notificationService;
+        public NotificationService notificationService=new NotificationService();
+        public NotificationController()
+        {
+            notificationService = new NotificationService();
+        }
 
         public NotificationController()
         {

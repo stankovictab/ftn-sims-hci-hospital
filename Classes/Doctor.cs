@@ -5,14 +5,16 @@ namespace Classes
 {
     public class Doctor
     {
-        public System.Collections.ArrayList dynamicEquipmentRequests;
-        public System.Collections.ArrayList holidayRequests;
-        public Room room;
         public User user { get; set; }
-        private List<Notification> Notifcations;
-        public System.Collections.ArrayList appointments;
+        public Room room;
+        public DoctorSpecialization specialization;
+        public List<Appointment> appointments;
+        public List<HolidayRequest> holidayRequests;
+        public List<DynamicEquipmentRequest> dynamicEquipmentRequests;
+        public List<Notification> notifications;
 
-		public Doctor(User user, Room room, ArrayList appointments, ArrayList holidayRequests)
+        // Ovaj treba da se brise, vidi gde je referenca
+        public Doctor(User user, Room room, List<Appointment> appointments, List<HolidayRequest> holidayRequests)
         {
             this.user = user;
             this.room = room;
@@ -20,20 +22,32 @@ namespace Classes
             this.holidayRequests = holidayRequests;
         }
 
+        public Doctor() { }
         public Doctor(String id)
         {
             User user1 = new User(id);
             user = user1;
         }
 
-        public System.Collections.ArrayList GetDynamicEquipmentRequests()
+        public Doctor(User user, Room room, DoctorSpecialization specialization, List<Appointment> appointments, List<HolidayRequest> holidayRequests, List<DynamicEquipmentRequest> dynamicEquipmentRequests, List<Notification> notifications)
+        {
+            this.user = user;
+            this.room = room;
+            this.specialization = specialization;
+            this.appointments = appointments;
+            this.holidayRequests = holidayRequests;
+            this.dynamicEquipmentRequests = dynamicEquipmentRequests;
+            this.notifications = notifications;
+        }
+
+        public List<DynamicEquipmentRequest> GetDynamicEquipmentRequests()
         {
             if (dynamicEquipmentRequests == null)
-                dynamicEquipmentRequests = new System.Collections.ArrayList();
+                dynamicEquipmentRequests = new List<DynamicEquipmentRequest>();
             return dynamicEquipmentRequests;
         }
 
-        public void SetDynamicEquipmentRequests(System.Collections.ArrayList newDynamicEquipmentRequests)
+        public void SetDynamicEquipmentRequests(List<DynamicEquipmentRequest> newDynamicEquipmentRequests)
         {
             RemoveAllDynamicEquipmentRequests();
             foreach (DynamicEquipmentRequest oDynamicEquipmentRequest in newDynamicEquipmentRequests)
@@ -45,7 +59,7 @@ namespace Classes
             if (newDynamicEquipmentRequest == null)
                 return;
             if (this.dynamicEquipmentRequests == null)
-                this.dynamicEquipmentRequests = new System.Collections.ArrayList();
+                this.dynamicEquipmentRequests = new List<DynamicEquipmentRequest>();
             if (!this.dynamicEquipmentRequests.Contains(newDynamicEquipmentRequest))
             {
                 this.dynamicEquipmentRequests.Add(newDynamicEquipmentRequest);
@@ -79,14 +93,14 @@ namespace Classes
             }
         }
 
-        public System.Collections.ArrayList GetHolidayRequests()
+        public List<HolidayRequest> GetHolidayRequests()
         {
             if (holidayRequests == null)
-                holidayRequests = new System.Collections.ArrayList();
+                holidayRequests = new List<HolidayRequest>();
             return holidayRequests;
         }
 
-        public void SetHolidayRequests(System.Collections.ArrayList newHolidayRequests)
+        public void SetHolidayRequests(List<HolidayRequest> newHolidayRequests)
         {
             RemoveAllHolidayRequests();
             foreach (HolidayRequest oHolidayRequest in newHolidayRequests)
@@ -98,7 +112,7 @@ namespace Classes
             if (newHolidayRequest == null)
                 return;
             if (this.holidayRequests == null)
-                this.holidayRequests = new System.Collections.ArrayList();
+                this.holidayRequests = new List<HolidayRequest>();
             if (!this.holidayRequests.Contains(newHolidayRequest))
             {
                 this.holidayRequests.Add(newHolidayRequest);
@@ -132,14 +146,14 @@ namespace Classes
             }
         }
 
-        public System.Collections.ArrayList GetAppointments()
+        public List<Appointment> GetAppointments()
         {
             if (appointments == null)
-                appointments = new System.Collections.ArrayList();
+                appointments = new List<Appointment>();
             return appointments;
         }
 
-        public void SetAppointments(System.Collections.ArrayList newAppointments)
+        public void SetAppointments(List<Appointment> newAppointments)
         {
             RemoveAllAppointments();
             foreach (Appointment oAppointment in newAppointments)
@@ -151,11 +165,11 @@ namespace Classes
             if (newAppointment == null)
                 return;
             if (this.appointments == null)
-                this.appointments = new System.Collections.ArrayList();
+                this.appointments = new List<Appointment>();
             if (!this.appointments.Contains(newAppointment))
             {
                 this.appointments.Add(newAppointment);
-                newAppointment.SetDoctor(this);
+                // newAppointment.SetDoctor(this);
             }
         }
 
@@ -167,7 +181,7 @@ namespace Classes
                 if (this.appointments.Contains(oldAppointment))
                 {
                     this.appointments.Remove(oldAppointment);
-                    oldAppointment.SetDoctor((Doctor)null);
+                    // oldAppointment.SetDoctor((Doctor)null);
                 }
         }
 
@@ -180,8 +194,8 @@ namespace Classes
                     tmpAppointments.Add(oldAppointment);
                 appointments.Clear();
                 foreach (Appointment oldAppointment in tmpAppointments)
-                    oldAppointment.SetDoctor((Doctor)null);
-                tmpAppointments.Clear();
+                    // oldAppointment.SetDoctor((Doctor)null);
+                    tmpAppointments.Clear();
             }
         }
     }

@@ -13,7 +13,6 @@
                     <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding AppointmentID}" />
                     <GridViewColumn Header="Doctor" Width="100" DisplayMemberBinding="{Binding doctor.user.Jmbg1}" />
                     <GridViewColumn Header="Start time" Width="100" DisplayMemberBinding="{Binding StartTime}" />
-                    <GridViewColumn Header="Type" Width="100" DisplayMemberBinding="{Binding StartTime}" />
                     <GridViewColumn Header="Cancel" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

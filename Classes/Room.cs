@@ -5,11 +5,11 @@ namespace Classes
     public class Room
     {
         public Doctor doctor = null;
-        private String RoomNumber;
-        private int FloorNumber;
-        private String Description;
-        private RoomType Type;
-        private RoomStatus Status;
+        public String RoomNumber;
+        public int FloorNumber;
+        public String Description;
+        public RoomType Type;
+        public RoomStatus Status;
         public System.Collections.ArrayList roomEquipment = null; // List<StaticEquipment>?
 
 		public string RoomNumber1 { get => RoomNumber; set => RoomNumber = value; }

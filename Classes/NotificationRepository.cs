@@ -12,41 +12,27 @@ namespace Classes
         {
             FileLocation = "../../Text Files/notifications.txt";
         }
-
         public Boolean Create(Notification notification)
         {
-            // TODO: implement
-            return false;
+            string newLine = notification.Id + ";" + notification.PatientId + ";" + notification.DoctorId + ";" + notification.Body + ";" + notification.Title + ";" + notification.Read + ";" + notification.Date.ToString("yyyy,MM,dd,hh,mm,ss") + "\n";
+            System.IO.File.AppendAllText(FileLocation, newLine);
+            return true;
         }
 
         public List<Notification> GetByPatientID(String id)
         {
-            String[] rows = System.IO.File.ReadAllLines(FileLocation);
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
             List<Notification> notifications = new List<Notification>();
-            foreach (String row in rows)
+            foreach (string line in lines)
             {
-                String[] data = row.Split(';');
-                if (data[5].Equals(id))
+                string[] parts = line.Split(';');
+                if (parts[1].Equals(id))
                 {
-                    String idNotification = data[0];
-                    String title = data[1];
-                    String body = data[2];
-                    String read = data[4];
-                    Boolean readBool;
-                    if (read.Equals("False"))
-                    {
-                        readBool = false;
-                    }
-                    else
-                    {
-                        readBool = true;
-                    }
-                    String patientId = data[5];
-                    String doctorId = data[6];
-                    String[] startParts = data[3].Split(',');
-                    DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
-                    Notification a = new Notification(id, title, body, start, readBool, patientId, doctorId);
-                    notifications.Add(a);
+                    String notificationId = parts[0];
+                    string[] dateParts = parts[6].Split(',');
+                    DateTime date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), int.Parse(dateParts[2]), int.Parse(dateParts[3]), int.Parse(dateParts[4]), int.Parse(dateParts[5]));
+                    Notification notification = new Notification(parts[0], parts[4], parts[3], date, Convert.ToBoolean(parts[5]), parts[1], parts[2]);
+                    notifications.Add(notification);
                 }
             }
             return notifications;
@@ -54,32 +40,83 @@ namespace Classes
 
         public List<Notification> GetByDoctorID(String id)
         {
-            
-            return null;
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            List<Notification> notifications = new List<Notification>();
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts[2].Equals(id))
+                {
+                    String notificationId = parts[0];
+                    string[] dateParts = parts[6].Split(',');
+                    DateTime date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), int.Parse(dateParts[2]), int.Parse(dateParts[3]), int.Parse(dateParts[4]), int.Parse(dateParts[5]));
+                    Notification notification = new Notification(parts[0], parts[4], parts[3], date, Convert.ToBoolean(parts[5]), parts[1], parts[2]);
+                    notifications.Add(notification);
+                }
+            }
+            return notifications;
         }
 
         public Notification GetByID(String id)
         {
-            // TODO: implement
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts[0].Equals(id))
+                {
+                    String notificationId = parts[0];
+                    string[] dateParts = parts[6].Split(',');
+                    DateTime date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), int.Parse(dateParts[2]), int.Parse(dateParts[3]), int.Parse(dateParts[4]), int.Parse(dateParts[5]));
+                    Notification notification = new Notification(parts[0], parts[4], parts[3], date, Convert.ToBoolean(parts[5]), parts[1], parts[2]);
+                    return notification;
+                }
+            }
             return null;
         }
 
         public List<Notification> GetAll()
         {
-            // TODO: implement
-            return null;
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            List<Notification> notifications = new List<Notification>();
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                String notificationId = parts[0];
+                string[] dateParts = parts[6].Split(',');
+                DateTime date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), int.Parse(dateParts[2]), int.Parse(dateParts[3]), int.Parse(dateParts[4]), int.Parse(dateParts[5]));
+                Notification notification = new Notification(parts[0], parts[4], parts[3], date, Convert.ToBoolean(parts[5]), parts[1], parts[2]);
+                notifications.Add(notification);
+            }
+            return notifications;
         }
 
         public Boolean Update(String id, Notification notification)
         {
-            // TODO: implement
+            if (Delete(id))
+            {
+                Create(notification);
+                return true;
+            }
+
             return false;
         }
 
         public Boolean Delete(String id)
         {
-            // TODO: implement
-            return false;
+            String[] rows = System.IO.File.ReadAllLines(FileLocation);
+            List<String> novi = new List<string>();
+            foreach (String row in rows)
+            {
+                String[] data = row.Split(';');
+                if (!data[0].Equals(id))
+                {
+                    String r = String.Join(";", data);
+                    novi.Add(r);
+                }
+            }
+            System.IO.File.WriteAllLines(FileLocation, novi);
+            return true;
         }
 
         public Boolean Read(String id)

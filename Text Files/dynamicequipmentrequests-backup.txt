@@ -1,0 +1,10 @@
+// This is a backup file in case the contents of the source file get deleted
+// id,equipmentName,requestDate,status,doctorID
+
+1,flasteri,02/10/21 09:00:00 AM,0,0501
+2,zavoji,02/19/21 09:00:00 AM,0,7601
+
+// Za gogija:
+
+1,flasteri,10/02/21 09:00:00 AM,0,0501
+2,zavoji,19/02/21 09:00:00 AM,0,7601

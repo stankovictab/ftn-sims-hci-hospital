@@ -11,40 +11,16 @@ namespace Classes
         public Boolean Read { get; set; }
         public String PatientId { get; set; }
         public String DoctorId { get; set; }
-        public Patient patient;
 
-        public Notification(String id, String title, String body, DateTime date, Boolean read, String patientId, String doctorId)
+        public Notification(string id, string title, string body, DateTime date, bool read, string patientId, string doctorId)
         {
-            this.Id = id;
-            this.Title = title;
-            this.Body = body;
-            this.Date = date;
-            this.Read = read;
-            this.PatientId = patientId;
-            this.DoctorId = doctorId;
-        }
-
-        public Patient GetPatient()
-        {
-            return patient;
-        }
-
-        public void SetPatient(Patient newPatient)
-        {
-            if (this.patient != newPatient)
-            {
-                if (this.patient != null)
-                {
-                    Patient oldPatient = this.patient;
-                    this.patient = null;
-                    oldPatient.RemoveNotifications(this);
-                }
-                if (newPatient != null)
-                {
-                    this.patient = newPatient;
-                    this.patient.AddNotifications(this);
-                }
-            }
+            Id = id;
+            Title = title;
+            Body = body;
+            Date = date;
+            Read = read;
+            PatientId = patientId;
+            DoctorId = doctorId;
         }
     }
 }

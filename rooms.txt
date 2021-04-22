@@ -1,3 +1,0 @@
-123,123,123,Checkup,Free
-234,234,234,Checkup,Free
-456,456,456,Checkup,Free

@@ -32,7 +32,7 @@ namespace ftn_sims_hci_hospital
 
         private void deleteAppointment(Object sender, RoutedEventArgs e)
         {
-            AppointmentController f = new AppointmentController();
+            /*AppointmentController f = new AppointmentController();
             if (!f.DeleteAppointment(txtDel.Text))
             {
                 MessageBox.Show("Id doesn't exist");
@@ -40,14 +40,14 @@ namespace ftn_sims_hci_hospital
             else
             {
                 MessageBox.Show("Appointment deleted");
-            }
+            }*/
 
         }
 
         private void findAp(Object sender, RoutedEventArgs e)
         {
-            AppointmentController f = new AppointmentController();
-            //a = f.GetAppointmentByID(txtDel.Text);
+           /* AppointmentController f = new AppointmentController();
+            a = f.GetByID(txtDel.Text);
 
             txtS.Text = a.StartTime.ToString("hh:mm:ss dd.MM.yyyy");
             txtS.Visibility = Visibility.Visible;
@@ -57,18 +57,18 @@ namespace ftn_sims_hci_hospital
 
             btnU.Visibility = Visibility.Visible;
             bs.Visibility = Visibility.Visible;
-            be.Visibility = Visibility.Visible;
+            be.Visibility = Visibility.Visible; */
         }
 
         private void updateAp(Object sender, RoutedEventArgs e)
         {
-            AppointmentController f = new AppointmentController();
+          /*  AppointmentController f = new AppointmentController();
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime start = DateTime.ParseExact(txtS.Text, "hh:mm:ss dd.MM.yyyy", provider);
             DateTime end = DateTime.ParseExact(txtE.Text, "hh:mm:ss dd.MM.yyyy", provider);
             a.StartTime = start;
             a.EndTime = end;
-            f.UpdateAppointment("123", new DateTime(), new DateTime(), new DateTime(), "");
+            f.UpdateAppointment(a.AppointmentID,start,end ,"217"); */
         }
     }
 }

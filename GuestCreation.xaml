@@ -1,0 +1,19 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.GuestCreation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="GuestCreation" Height="365.553" Width="501.543">
+    <Grid>
+        <Label x:Name="lbfirstname" Content="Firstname:" HorizontalAlignment="Left" Height="31" Margin="27,28,0,0" VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="tbfirstname" HorizontalAlignment="Left" Height="38" Margin="27,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+        <Label x:Name="lblastname" Content="Lastname:" HorizontalAlignment="Left" Height="31" Margin="27,102,0,0" VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="tblastname" HorizontalAlignment="Left" Height="38" Margin="27,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+        <Button x:Name="btnregister" Content="Register" HorizontalAlignment="Left" Height="43" Margin="337,263,0,0" VerticalAlignment="Top" Width="121" Click="btnregister_Click"/>
+        <Label x:Name="lbphone" Content="JMBG:" HorizontalAlignment="Left" Height="31" Margin="27,176,0,0" VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="tbjmbg" HorizontalAlignment="Left" Height="38" Margin="27,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+
+    </Grid>
+</Window>

@@ -12,16 +12,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Classes;
 
 namespace ftn_sims_hci_hospital
 {
     public partial class PatientCreation : Window
     {
-        public static PatientRepository pfs = new PatientRepository();
+        
         public PatientCreation()
         {
             InitializeComponent();
-            pfs.PatientsInFile1 = pfs.GetAll();
+            MainWindow.patientController.patientService.patientRepository.PatientsInFile1 = MainWindow.patientController.GetAll();
         }
 
         private void btnregister_Click(object sender, RoutedEventArgs e)
@@ -32,9 +33,9 @@ namespace ftn_sims_hci_hospital
             string password = tbpassword.Text;
             string jmbg = tbjmbg.Text;
             User user = new User(name, lastname, email, password, email, jmbg, "", 'N', false, Roles.Patient);
-            Patient patient = new Patient(user, null, null);
-            pfs.Create(patient);
-            pfs.UpdateAll(pfs.PatientsInFile1);
+            Patient patient = new Patient(user, null, null,null);
+            MainWindow.patientController.Create(patient);
+            MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
             MessageBox.Show("You have successfully created a new account!");
             this.Close();
         }
