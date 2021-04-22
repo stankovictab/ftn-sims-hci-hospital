@@ -39,6 +39,11 @@ namespace Classes
             return enschedulementService.GetAll();
         }
 
+        public List<StaticEnschedulement> dateCheck(DateTime date)
+        {
+            return enschedulementService.dateCheck(date);
+        }
+
         public EnschedulementService enschedulementService = new EnschedulementService();
 
     }

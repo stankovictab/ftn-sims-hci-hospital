@@ -12,7 +12,7 @@ namespace Classes
 {
     public class EnschedulementRepository
     {
-        private String FileLocation = @"enschedulements.txt";
+        private String FileLocation = "../../Text Files/enschedulements.txt";
         public List<StaticEnschedulement> EnschedulementsInFile = new List<StaticEnschedulement>();
         public RoomRepository roomRepository = new RoomRepository();
         public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();

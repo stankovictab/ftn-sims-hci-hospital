@@ -17,6 +17,19 @@ namespace Classes
             return null;
         }
 
+        public List<StaticEnschedulement> dateCheck(DateTime date)
+        {
+            List<StaticEnschedulement> enschedulements = enschedulementRepository.GetAll();
+            List<StaticEnschedulement> ret = new List<StaticEnschedulement>();
+            foreach(StaticEnschedulement e in enschedulements)
+            {
+                if (DateTime.Compare(e.Time, date) < 0)
+                    ret.Add(e);
+            }
+
+            return ret;
+        }
+
         public bool CreateEnschedulement(StaticEnschedulement newEnschedulement)
         {
             if (!CheckAvailable(newEnschedulement))

@@ -36,5 +36,18 @@ namespace ftn_sims_hci_hospital
             Window staticMove = new StaticMove();
             staticMove.ShowDialog();
         }
+
+        private void triggerMoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            List <StaticEnschedulement> moved = new List<StaticEnschedulement>();
+            moved = enschedulementController.dateCheck(DateTime.Parse(triggerMoveDate.Text));
+
+            movedDataList.Items.Clear();
+            foreach (StaticEnschedulement s in moved)
+            {
+                movedDataList.Items.Add(new { time = s.Time.ToString(), fromRoom = s.FromRoom.RoomNumber, toRoom = s.ToRoom.RoomNumber, equipment = s.MovedEquipment.statName });
+                scheduleDataList.Items.Remove(new { time = s.Time.ToString(), fromRoom = s.FromRoom.RoomNumber, toRoom = s.ToRoom.RoomNumber, equipment = s.MovedEquipment.statName });
+            }
+        }
     }
 }

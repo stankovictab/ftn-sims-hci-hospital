@@ -29,7 +29,7 @@
                 </ListView.View>
             </ListView>
         </ListView>
-        <ListView x:Name="scheduleDataList_Copy1" Margin="420,66,43,151">
+        <ListView x:Name="movedDataList" Margin="420,66,43,151">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Time" DisplayMemberBinding="{Binding time}"/>
@@ -50,8 +50,8 @@
             </ListView>
         </ListView>
         <Label Content="Past Schedule:" HorizontalAlignment="Left" Margin="420,35,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="538,311,0,0" VerticalAlignment="Top"/>
-        <Button Content="Select Date" HorizontalAlignment="Left" Margin="557,353,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.515,0.521"/>
+        <DatePicker x:Name="triggerMoveDate" HorizontalAlignment="Left" Margin="538,311,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="triggerMoveButton" Content="Select Date" HorizontalAlignment="Left" Margin="557,353,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.515,0.521" Click="triggerMoveButton_Click"/>
 
     </Grid>
 </Window>
