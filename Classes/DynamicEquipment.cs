@@ -1,14 +1,32 @@
+/***********************************************************************
+ * Module:  DynamicEquipment.cs
+ * Author:  Igor
+ * Purpose: Definition of the Class Manager.DynamicEquipment
+ ***********************************************************************/
+
 using System;
+
 namespace Classes
 {
-    public class DynamicEquipment
-    {
-        private String NameDyn;
-        private int AmountDyn;
-        private int IdDyn;
+   public class DynamicEquipment
+   {
+        public int dynamicId;
+        public string dynamicName;
+        public string dynamicAmount;
 
-        public string NameDyn1 { get => NameDyn; set => NameDyn = value; }
-        public int AmountDyn1 { get => AmountDyn; set => AmountDyn = value; }
-        public int IdDyn1 { get => IdDyn; set => IdDyn = value; }
+        public DynamicEquipment()
+        {
+        }
+
+        public DynamicEquipment(int dynamicId, string dynamicName)
+        {
+            this.dynamicId = dynamicId;
+            this.dynamicName = dynamicName;
+        }
+
+        public DynamicEquipment(int dynamicId, string dynamicName, string dynamicAmount) : this(dynamicId, dynamicName)
+        {
+            this.dynamicAmount = dynamicAmount;
+        }
     }
 }

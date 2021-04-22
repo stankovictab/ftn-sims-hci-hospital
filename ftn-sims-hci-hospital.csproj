@@ -121,11 +121,23 @@
     <Compile Include="Classes\StaticEquipment.cs" />
     <Compile Include="Classes\StaticEquipmentRepository.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Dynamic.xaml.cs">
+      <DependentUpon>Dynamic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicCreation.xaml.cs">
+      <DependentUpon>DynamicCreation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DynamicEquipmentRequestApproval.xaml.cs">
       <DependentUpon>DynamicEquipmentRequestApproval.xaml</DependentUpon>
     </Compile>
     <Compile Include="DynamicEquipmentRequestPanel.xaml.cs">
       <DependentUpon>DynamicEquipmentRequestPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicUpdate.xaml.cs">
+      <DependentUpon>DynamicUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicUse.xaml.cs">
+      <DependentUpon>DynamicUse.xaml</DependentUpon>
     </Compile>
     <Compile Include="HolidayRequestApproval.xaml.cs">
       <DependentUpon>HolidayRequestApproval.xaml</DependentUpon>
@@ -136,6 +148,9 @@
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Manager.xaml.cs">
+      <DependentUpon>Manager.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
     </Compile>
@@ -144,6 +159,9 @@
     </Compile>
     <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rooms.xaml.cs">
+      <DependentUpon>Rooms.xaml</DependentUpon>
     </Compile>
     <Compile Include="SecretaryAppointmentCreation.xaml.cs">
       <DependentUpon>SecretaryAppointmentCreation.xaml</DependentUpon>
@@ -157,6 +175,21 @@
     <Compile Include="SecretaryUpdateAppointment.xaml.cs">
       <DependentUpon>SecretaryUpdateAppointment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Static.xaml.cs">
+      <DependentUpon>Static.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaticCreation.xaml.cs">
+      <DependentUpon>StaticCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaticMove.xaml.cs">
+      <DependentUpon>StaticMove.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaticSchedule.xaml.cs">
+      <DependentUpon>StaticSchedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StaticUpdate.xaml.cs">
+      <DependentUpon>StaticUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
@@ -164,11 +197,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dynamic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DynamicEquipmentRequestApproval.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DynamicEquipmentRequestPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicUse.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -209,6 +258,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateAppointment.xaml">
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="AppointmentsListDoctorB.xaml">
       <SubType>Designer</SubType>
@@ -226,9 +276,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="ManagerWindow.xaml.cs">
-      <DependentUpon>ManagerWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RoomCreation.xaml.cs">
       <DependentUpon>RoomCreation.xaml</DependentUpon>
     </Compile>
@@ -272,6 +319,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Manager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="NotificationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -297,14 +348,15 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientWindow.xaml">
-    </Page>
-    <Page Include="ManagerWindow.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rooms.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="RoomUpdate.xaml">
       <SubType>Designer</SubType>
@@ -325,6 +377,26 @@
     <Page Include="SecretaryUpdateAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Static.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StaticCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StaticMove.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StaticSchedule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StaticUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UpdateAppointmentPatient.xaml">
       <SubType>Designer</SubType>

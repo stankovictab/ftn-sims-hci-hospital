@@ -1,10 +1,7 @@
 ﻿using Classes;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,13 +13,17 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    public partial class ManagerWindow : Window
+    /// <summary>
+    /// Interaction logic for Rooms.xaml
+    /// </summary>
+    public partial class Rooms : Window
     {
-        //RoomFileStorage storage = RoomFileStorage.getRoomStorage();
-        public ManagerWindow()
+        RoomRepository storage = RoomRepository.getRoomStorage();
+        public Rooms()
         {
             InitializeComponent();
         }
+
 
         private void addroom_Click(object sender, RoutedEventArgs e)
         {
@@ -32,13 +33,15 @@ namespace ftn_sims_hci_hospital
 
         private void viewrooms_Click(object sender, RoutedEventArgs e)
         {
-            // storage.AccessRoomsInFile = storage.GetAll();
+
+
+            storage.AccessRoomsInFile = storage.GetAll();
             roomDataList.Items.Clear();
-            /* foreach (Room r in storage.AccessRoomsInFile)
-             {
-                 roomDataList.Items.Add(new { RoomNumber = r.RoomNumber1, FloorNumber = r.FloorNumber1, Description = r.Description1, Type = r.Type1, Status = r.Status1 });
-             }
-            */
+            foreach (Room r in storage.AccessRoomsInFile)
+            {
+                roomDataList.Items.Add(new { RoomNumber = r.RoomNumber, FloorNumber = r.FloorNumber, Description = r.Description, Type = r.Type, Status = r.Status });
+            }
+
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)
@@ -50,8 +53,8 @@ namespace ftn_sims_hci_hospital
                     string[] parts = roomDataList.SelectedItem.ToString().Split(',');
                     string[] parts2 = parts[0].Split(' ');
                     String toDelete = parts2[3];
-                    // storage.Delete(toDelete);
-                    // storage.UpdateAll(storage.AccessRoomsInFile);
+                    storage.Delete(toDelete);
+                    storage.UpdateAll(storage.AccessRoomsInFile);
                     viewrooms.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }
@@ -66,23 +69,11 @@ namespace ftn_sims_hci_hospital
                     string[] parts = roomDataList.SelectedItem.ToString().Split(',');
                     string[] parts2 = parts[0].Split(' ');
                     String toUpdate = parts2[3];
-                    Window roomEdit = new RoomEdit(toUpdate);
-                    roomEdit.ShowDialog();
+                    Window roomUpdate = new RoomUpdate(toUpdate);
+                    roomUpdate.ShowDialog();
                     viewrooms.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }
-        }
-
-        private void btnHolidayRequestApproval_Click(object sender, RoutedEventArgs e)
-        {
-            Window holidayRequestApproval = new HolidayRequestApproval();
-            holidayRequestApproval.ShowDialog();
-        }
-
-        private void btnDynamicEquipmentRequestApproval_Click(object sender, RoutedEventArgs e)
-        {
-            Window dynamicEquipmentRequestApproval = new DynamicEquipmentRequestApproval();
-            dynamicEquipmentRequestApproval.ShowDialog();
         }
     }
 }
