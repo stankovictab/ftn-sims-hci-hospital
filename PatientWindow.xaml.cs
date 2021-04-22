@@ -23,9 +23,6 @@ namespace ftn_sims_hci_hospital
         public PatientWindow()
         {
             InitializeComponent();
-            user = new User();
-            user.Jmbg1 = "1243999081010";
-            user.Role1 = Roles.Patient;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

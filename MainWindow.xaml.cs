@@ -26,10 +26,13 @@ namespace ftn_sims_hci_hospital
         public static DynamicEquipmentRequestController dynamicEquipmentRequestController = new DynamicEquipmentRequestController();
         public static NotificationController notificationController = new NotificationController();
 
+        public static User user;
+
         public static int guestCounter = 0;
         public MainWindow()
         {
             InitializeComponent();
+            user = new User();
         }
 
         private void btde_Click(object sender, RoutedEventArgs e)
@@ -46,11 +49,17 @@ namespace ftn_sims_hci_hospital
         }
         private void patientClick(object sender, RoutedEventArgs e)
         {
+            user.Role1 = Roles.Patient;
+            user.Jmbg1 = "1243999081010";
+            user.Name1 = "Igor";
             PatientWindow win1 = new PatientWindow();
             win1.Show();
         }
         private void openDoctorB(Object sender, RoutedEventArgs e)
         {
+            user.Jmbg1 = "0501";
+            user.Role1 = Roles.Doctor;
+            user.Name1 = "Dakaz";
             DoctorB doctorB = new DoctorB();
             doctorB.Show();
         }

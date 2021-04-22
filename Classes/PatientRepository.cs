@@ -33,6 +33,8 @@ namespace Classes
 
         public Patient GetByID(String id)
         {
+            PatientsInFile = GetAll();
+
             foreach (Patient patient in PatientsInFile)
             {
                 if (patient.user.Jmbg1.Equals(id))

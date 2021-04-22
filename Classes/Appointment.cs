@@ -24,6 +24,19 @@ namespace Classes
             this.StatusFinished = false;
         }
 
+        public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end, String roomId)
+        {
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = end;
+
+            Room r = new Room();
+            r.RoomNumber1 = roomId;
+            Room = r;
+        }
+
         public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
         {
             AppointmentID = id;
