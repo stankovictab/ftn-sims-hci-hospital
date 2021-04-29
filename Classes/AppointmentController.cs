@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital;
 using System;
 using System.Collections.Generic;
 
@@ -5,7 +6,7 @@ namespace Classes
 {
     public class AppointmentController
     {
-        public AppointmentService appointmentService;
+        public AppointmentService appointmentService = new AppointmentService();
 
         public AppointmentController()
         {
@@ -14,8 +15,7 @@ namespace Classes
 
         public List<Appointment> ShowAvailableAppointments(int priority, String doctorId, DateTime startTime, DateTime endTime, int type)
         {
-            // TODO: implement
-            return null;
+            appointmentService = new AppointmentService();
         }
 
         public Appointment GetByID(String id)
@@ -26,6 +26,16 @@ namespace Classes
         public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, DateTime endTime ,int type, String roomId)
         {
             appointmentService.CreateAppointment(doctorId, patientId, startTime, endTime ,type,roomId);
+        public List<Appointment> ShowAvailableAppointments(Priority priority, String doctorId, DateTime startTime, DateTime endTime, AppointmentType type)
+        {
+            List<Appointment> appointments;
+            appointments = appointmentService.ShowAvailableAppointments(priority, doctorId, startTime, endTime, type);
+            return appointments;
+        }
+
+        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime,DateTime endTime ,int type, String roomId)
+        {
+            appointmentService.CreateAppointment(doctorId, patientId, startTime, endTime,type, roomId);
             return true;
         }
 
@@ -53,8 +63,8 @@ namespace Classes
 
         public List<Appointment> GetAllByPatientId(String patientId)
         {
-            // TODO: implement
-            return null;
+            List<Appointment> app = appointmentService.GetAllByPatientId(patientId);
+            return app;
         }
 
         public List<Appointment> GetAllByDoctorId(String doctorId)

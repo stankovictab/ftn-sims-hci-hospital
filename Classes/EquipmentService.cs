@@ -1,44 +1,86 @@
+/***********************************************************************
+ * Module:  EquipmentService.cs
+ * Author:  Igor
+ * Purpose: Definition of the Class Manager.EquipmentService
+ ***********************************************************************/
+
+using System;
+using System.Collections.Generic;
+using System.Windows;
+
 namespace Classes
 {
     public class EquipmentService
     {
-        public StaticEquipmentRepository staticEquipmentRepository;
-        public DynamicEquipmentRepository dynamicEquipmentRepository;
+        public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
+        public DynamicEquipmentRepository dynamicEquipmentRepository = new DynamicEquipmentRepository();
 
         public bool AddStatic(StaticEquipment newStatic)
         {
-            // TODO: implement
-            return false;
+            return staticEquipmentRepository.Create(newStatic);
         }
 
         public bool AddDynamic(DynamicEquipment newDynamic)
         {
-            // TODO: implement
-            return false;
+            return dynamicEquipmentRepository.Create(newDynamic);
         }
 
-        public bool DeleteStatic()
+        public StaticEquipment GetStaticByName(string name)
         {
-            // TODO: implement
-            return false;
+            return staticEquipmentRepository.GetByName(name);
+        }
+        public bool DeleteStatic(string toDelete)
+        {
+            int idd = Convert.ToInt32(toDelete);
+            return staticEquipmentRepository.Delete(idd);
         }
 
-        public bool DeleteDynamic()
+        public bool DeleteDynamic(string toDelete)
         {
-            // TODO: implement
-            return false;
+            int idd = Convert.ToInt32(toDelete);
+            return dynamicEquipmentRepository.Delete(idd);
         }
 
-        public bool UpdateStatic()
+        public StaticEquipment GetStaticById(string id)
         {
-            // TODO: implement
-            return false;
+            int idd = Convert.ToInt32(id);
+            return staticEquipmentRepository.GetById(idd);
         }
 
-        public bool UpdateDynamic()
+        public DynamicEquipment GetDynamicById(string id)
         {
-            // TODO: implement
-            return false;
+            int idd = Convert.ToInt32(id);
+            return dynamicEquipmentRepository.GetById(idd);
+        }
+
+        public bool UpdateStatic(StaticEquipment staticc)
+        {
+            return staticEquipmentRepository.Update(staticc);
+        }
+
+        public bool UpdateDynamic(DynamicEquipment dynamic)
+        {
+            return dynamicEquipmentRepository.Update(dynamic);
+        }
+
+        public List<StaticEquipment> GetAllStatic()
+        {
+            return staticEquipmentRepository.GetAll();
+        }
+
+        public List<DynamicEquipment> GetAllDynamic()
+        {
+            return dynamicEquipmentRepository.GetAll();
+        }
+
+        public bool UpdateAllStatic(List<StaticEquipment> staticInFile)
+        {
+            return staticEquipmentRepository.UpdateAll(staticInFile);
+        }
+
+        public bool UpdateAllDynamic(List<DynamicEquipment> dynamicInFile)
+        {
+            return dynamicEquipmentRepository.UpdateAll(dynamicInFile);
         }
     }
 }

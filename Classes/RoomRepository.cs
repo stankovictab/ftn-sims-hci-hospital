@@ -10,8 +10,8 @@ using System.IO;
 
 namespace Classes
 {
-    public class RoomRepository
-    {
+   public class RoomRepository
+   {
         public static RoomType ParseType(string input)
         {
             if (input == "Operating")

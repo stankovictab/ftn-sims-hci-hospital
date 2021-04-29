@@ -1,0 +1,10 @@
+1;1243999081010;0501;You have a new appointment on  4/27/2021 4:00:00 PM;Alert;False;2021,04,21,05,01,28
+2;96;6331;You have a new appointment on  5/3/2021 10:00:00 AM;Alert;False;2021,04,21,05,03,38
+3;1243999081010;6331;You have a new appointment on  5/8/2021 8:00:00 AM;Alert;False;2021,04,21,05,05,28
+4;96;6331;You have a new appointment on  4/22/2021 6:00:00 PM;Alert;False;2021,04,21,05,11,11
+5;1243999081010;0501;Your appointment on  4/23/2021 10:00:00 AM has been moved to 4/24/2021 10:00:00 AM!;Alert;False;2021,04,21,05,23,51
+6;1243999081010;0501;You have a new appointment on  5/2/2021 3:00:00 PM;Alert;False;2021,04,21,05,25,18
+7;1243999081010;0501;Your appointment on  5/2/2021 3:00:00 AM has been canceled!;Alert;False;2021,04,21,05,25,23
+8;1243999081010;0501;Your appointment on  04/24/21 10:00:00 AM has been moved to 04/24/21 10:00:00 AM!;Alert;False;2021,04,21,06,22,56
+9;96;0501;You have a new appointment on  04/22/21 6:00:00 PM;Alert;False;2021,04,21,06,23,23
+10;96;0501;Your appointment on  04/22/21 6:00:00 AM has been canceled!;Alert;False;2021,04,21,06,24,39

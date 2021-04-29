@@ -62,13 +62,13 @@ namespace ftn_sims_hci_hospital
 
         private void updateAp(Object sender, RoutedEventArgs e)
         {
-            AppointmentController f = new AppointmentController();
+          /*  AppointmentController f = new AppointmentController();
             CultureInfo provider = CultureInfo.InvariantCulture;
             DateTime start = DateTime.ParseExact(txtS.Text, "hh:mm:ss dd.MM.yyyy", provider);
             DateTime end = DateTime.ParseExact(txtE.Text, "hh:mm:ss dd.MM.yyyy", provider);
             a.StartTime = start;
             a.EndTime = end;
-            f.UpdateAppointment(a.AppointmentID,start,end ,"217");
+            f.UpdateAppointment(a.AppointmentID,start,end ,"217"); */
         }
     }
 }

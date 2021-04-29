@@ -1,0 +1,5 @@
+1,asd,100
+1,asd,9
+1,asd,60
+1,flaster,90
+1,flaster,10

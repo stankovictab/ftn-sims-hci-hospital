@@ -14,7 +14,7 @@
                         <GridViewColumn  Width="50" DisplayMemberBinding="{Binding AppointmentID}" />
                         <GridViewColumn Header="start time" Width="150" DisplayMemberBinding="{Binding StartTime}" />
                         <GridViewColumn Header="end time" Width="150" DisplayMemberBinding="{Binding EndTime}" />
-                        <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Jmbg}">
+                        <GridViewColumn Header="patient" Width="150" DisplayMemberBinding="{Binding patient.user.Jmbg1}">
                         </GridViewColumn>
                         <GridViewColumn Header="type" Width="100" DisplayMemberBinding="{Binding Type}">
                         </GridViewColumn>

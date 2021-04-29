@@ -8,11 +8,23 @@ namespace Classes
         public DateTime EndTime { get; set; }
         public AppointmentType Type { get; set; }
         public Room Room { get; set; }
-        private Boolean StatusFinished { get; set; }
+        public Boolean StatusFinished { get; set; }
         public Doctor doctor { get; set; }
         public Patient patient { get; set; }
 
-		public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end,String roomId)
+        public Appointment(String id, String doctorId, String patientId, DateTime start, AppointmentType type, String roomId)
+        {
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = new DateTime(start.Year, start.Month, start.Day, start.Hour + 1, start.Minute, start.Second);
+            this.Type = type;
+            //this.Room = new(roomId);
+            this.StatusFinished = false;
+        }
+
+        public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end, String roomId)
         {
             AppointmentID = id;
             doctor = new Doctor(doctorId);
@@ -24,63 +36,23 @@ namespace Classes
             r.RoomNumber1 = roomId;
             Room = r;
         }
-        public Appointment(String id, String doctorId, String patientId, DateTime start, String roomId)
+
+        public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
         {
             AppointmentID = id;
             doctor = new Doctor(doctorId);
             patient = new Patient(patientId);
             StartTime = start;
-            Room.RoomNumber1 = roomId;
+            EndTime = end;
         }
-        public Doctor GetDoctor()
-        {
-            return null;
-        }
+        public Appointment()
+        { }
 
-        public String getType()
+        public Appointment(String id, DateTime start, DateTime end)
         {
-            return "operacija";
-        }
-
-        public void SetDoctor(Doctor newDoctor)
-        {
-            if (this.doctor != newDoctor)
-            {
-                if (this.doctor != null)
-                {
-                    Doctor oldDoctor = this.doctor;
-                    this.doctor = null;
-                    oldDoctor.RemoveAppointments(this);
-                }
-                if (newDoctor != null)
-                {
-                    this.doctor = newDoctor;
-                    this.doctor.AddAppointments(this);
-                }
-            }
-        }
-
-        public Patient GetPatient()
-        {
-            return patient;
-        }
-
-        public void SetPatient(Patient newPatient)
-        {
-            if (this.patient != newPatient)
-            {
-                if (this.patient != null)
-                {
-                    Patient oldPatient = this.patient;
-                    this.patient = null;
-                    oldPatient.RemoveAppointments(this);
-                }
-                if (newPatient != null)
-                {
-                    this.patient = newPatient;
-                    this.patient.AddAppointments(this);
-                }
-            }
+            AppointmentID = id;
+            StartTime = start;
+            EndTime = end;
         }
     }
 }

@@ -35,12 +35,12 @@ namespace ftn_sims_hci_hospital
                 
                 
                 if(radioRegular.IsChecked == true)
-                    f.CreateAppointment("Darko", txtP.Text, start, end, type, "217");  
+                    f.CreateAppointment(MainWindow.user.Jmbg1, txtP.Text, start, end, type, "217");  
 
                 if(radioOperation.IsChecked == true)
                 {
                     Room room = (Room)rooms.SelectedItem;
-                    f.CreateAppointment("Darko", txtP.Text, start, end, type, room.RoomNumber1);
+                    f.CreateAppointment(MainWindow.user.Jmbg1, txtP.Text, start, end, type, room.RoomNumber1);
                 }
 
             }else

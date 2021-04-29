@@ -5,7 +5,11 @@ namespace Classes
 {
     public class NotificationController
     {
-        public NotificationService notificationService;
+        public NotificationService notificationService=new NotificationService();
+        public NotificationController()
+        {
+            notificationService = new NotificationService();
+        }
 
         public Boolean Create(String patientID, String doctorID, String title, String body)
         {
@@ -13,10 +17,10 @@ namespace Classes
             return false;
         }
 
-        public Notification GetByPatientID(String id)
+        public List<Notification> GetByPatientID(String id)
         {
-            // TODO: implement
-            return null;
+            List<Notification> notifications = notificationService.GetByPatientID(id);
+            return notifications;
         }
 
         public Notification GetByDoctorID(String id)

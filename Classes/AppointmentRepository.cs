@@ -8,7 +8,9 @@ namespace Classes
         private String FileLocation;
         private List<Appointment> AppointmentsInFile;
 
-		public AppointmentRepository()
+        public List<Appointment> AppointmentsInFile1 { get => AppointmentsInFile; set => AppointmentsInFile = value; }
+
+        public AppointmentRepository()
         {
             FileLocation = "../../Text Files/appointments.txt";
         }
@@ -110,24 +112,26 @@ namespace Classes
         /*
          public List<Appointment> GetAllByDoctorID(String doctorID)
         {
-            List<Appointment> ret = new List<Appointment>();
+           List<Appointment> ret = new List<Appointment>();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (string line in lines)
             {
                 string[] parts = line.Split(';');
-                if (parts[1].Equals(doctorID))
+                if (parts[1].Equals(doctorID)) 
                 {
                     String appointmentId = parts[0];
                     string[] startParts = parts[3].Split(',');
                     DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
-
+                    
                     string[] endParts = parts[4].Split(',');
                     DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
 
-                    Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end);
+                    Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end, parts[5]);
+                    a.Type = (AppointmentType) int.Parse(parts[6]);
                     ret.Add(a);
                 }
             }
+
             return ret;
         } */
 
@@ -143,8 +147,7 @@ namespace Classes
         }
 
         public Boolean Delete(String id)
-        {
-
+        { 
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
             List<Appointment> appointments = new List<Appointment>();
             List<String> novi = new List<string>();

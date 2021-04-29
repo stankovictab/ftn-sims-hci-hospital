@@ -1,0 +1,8 @@
+1,Balsam of Peru
+2,Buckwheat
+3,Celery
+4,Egg
+5,Fish
+6,Fruit
+7,Garlic
+8,Oats

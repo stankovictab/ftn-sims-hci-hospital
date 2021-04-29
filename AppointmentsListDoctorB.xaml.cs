@@ -27,13 +27,13 @@ namespace ftn_sims_hci_hospital
             InitializeComponent();
             f = new AppointmentController();
             patientController = new PatientController();
-            List<Appointment> appointments = f.GetAllByDoctorId(DoctorB.user.Name1);
+            List<Appointment> appointments = f.GetAllByDoctorId(MainWindow.user.Jmbg1);
             lvUsers.ItemsSource = appointments;
         }
         private void showOperations(object sender, RoutedEventArgs e)
         {
             AppointmentController f = new AppointmentController();
-            List<Appointment> appointments = f.GetAllByDoctorId(DoctorB.user.Name1);
+            List<Appointment> appointments = f.GetAllByDoctorId(MainWindow.user.Jmbg1);
             
             foreach (Appointment app in appointments.ToList())
             {
@@ -49,7 +49,7 @@ namespace ftn_sims_hci_hospital
         private void showRegular(object sender, RoutedEventArgs e)
         {
             AppointmentController f = new AppointmentController();
-            List<Appointment> appointments = f.GetAllByDoctorId(DoctorB.user.Name1);
+            List<Appointment> appointments = f.GetAllByDoctorId(MainWindow.user.Jmbg1);
 
             foreach (Appointment app in appointments.ToList())
             {
@@ -70,7 +70,7 @@ namespace ftn_sims_hci_hospital
             Appointment appointment = (Appointment)lvUsers.SelectedItem;
            
             //Patient patient = patientController.GetByID(appointment.patient.user.Jmbg);
-            Patient patient = p.GetByID(appointment.patient.user.Jmbg);
+            Patient patient = p.GetByID(appointment.patient.user.Jmbg1);
 
             String message = "Name: " + patient.user.Name1 + "\nLast name:" + patient.user.LastName1 + "\nUsername: " + patient.user.Username1;
             message += "\nAddress: " + patient.user.Address1 + "\nEmail: " + patient.user.Email1 + "\nGender: " + patient.user.Gender1;
@@ -120,7 +120,7 @@ namespace ftn_sims_hci_hospital
 
             Room room = (Room)rooms.SelectedItem;
 
-            f.UpdateAppointment(aUpdate.AppointmentID, start, end, room.RoomNumber1,(int) aUpdate.Type);
+            f.UpdateAppointment(aUpdate.AppointmentID, new DateTime() ,start, end, room.RoomNumber1,(int) aUpdate.Type);
         }
 
     }
