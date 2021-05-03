@@ -72,7 +72,7 @@ namespace Classes
         public List<Patient> GetAll()
         {
             List<Patient> patients=patientRepository.GetAll();
-            foreach(Patient patient in patients)
+            /*foreach(Patient patient in patients)
             {
                 List<PatientAllergy> patientAllergies = new List<PatientAllergy>();
                 patientAllergies = PatientallergyRepository.GetAllByPatientID(patient.user.Jmbg1);
@@ -89,7 +89,7 @@ namespace Classes
                     }
                 }
                
-            }
+            }*/
             return patients;
         }
 

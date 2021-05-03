@@ -18,21 +18,17 @@ namespace ftn_sims_hci_hospital
     public partial class PatientWindow : Window
     {
 
-        public static User user;
-
         public PatientWindow()
         {
             InitializeComponent();
-            user = new User();
-            user.Jmbg1 = "Goran";
-            user.Role1 = Roles.Patient;
+            pregledProfilaButton.Content = "Pregled profila " + MainWindow.user.Username1;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ShowAllAppointments(object sender, RoutedEventArgs e)
         {
-            AllAppointments allApp = new AllAppointments();
-            //Main.Content = new AllAppointmentsPage();
-            allApp.Show();
+            //AllAppointments allApp = new AllAppointments();
+            Main.Content = new AllAppointmentsPage();
+            //allApp.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -50,6 +46,11 @@ namespace ftn_sims_hci_hospital
         {
             Main.Content = new NotificationsPage();
 
+        }
+
+        private void createAppointmentSpecialist(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new createAppointmentSpecialist();
         }
     }
 }

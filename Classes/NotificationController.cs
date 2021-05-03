@@ -11,11 +11,6 @@ namespace Classes
             notificationService = new NotificationService();
         }
 
-        public NotificationController()
-        {
-            notificationService = new NotificationService();
-        }
-
         public Boolean Create(String patientID, String doctorID, String title, String body)
         {
             // TODO: implement

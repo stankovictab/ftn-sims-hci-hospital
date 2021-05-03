@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Classes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -19,9 +20,9 @@ namespace ftn_sims_hci_hospital
 
         private void btnShowRequests_Click(object sender, RoutedEventArgs e)
         {
-            List<Classes.HolidayRequest> list = MainWindow.holidayRequestController.GetAllOnHold();
+            List<HolidayRequest> list = MainWindow.holidayRequestController.GetAllOnHold();
             holidayRequestListView.Items.Clear();
-            foreach (Classes.HolidayRequest req in list)
+            foreach (HolidayRequest req in list)
             {
                 string doc = req.doctor.user.Name1 + req.doctor.user.LastName1;
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?

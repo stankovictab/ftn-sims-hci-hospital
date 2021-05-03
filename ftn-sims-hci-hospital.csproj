@@ -55,9 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AllAppointments.xaml.cs">
-      <DependentUpon>AllAppointments.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AllAppointmentsPage.xaml.cs">
       <DependentUpon>AllAppointmentsPage.xaml</DependentUpon>
     </Compile>
@@ -109,6 +106,10 @@
     <Compile Include="Classes\Perscription.cs" />
     <Compile Include="Classes\PerscriptionRepository.cs" />
     <Compile Include="Classes\Priority.cs" />
+    <Compile Include="Classes\Referral.cs" />
+    <Compile Include="Classes\ReferralController.cs" />
+    <Compile Include="Classes\ReferralRepository.cs" />
+    <Compile Include="Classes\ReferralService.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\RoomController.cs" />
     <Compile Include="Classes\RoomRepository.cs" />
@@ -123,7 +124,13 @@
     <Compile Include="Classes\StaticEnschedulement.cs" />
     <Compile Include="Classes\StaticEquipment.cs" />
     <Compile Include="Classes\StaticEquipmentRepository.cs" />
+    <Compile Include="Classes\TrollingLog.cs" />
+    <Compile Include="Classes\TrollingLogRepository.cs" />
+    <Compile Include="Classes\TrollingLogService.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="createAppointmentSpecialist.xaml.cs">
+      <DependentUpon>createAppointmentSpecialist.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dynamic.xaml.cs">
       <DependentUpon>Dynamic.xaml</DependentUpon>
     </Compile>
@@ -199,6 +206,14 @@
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
+    <Page Include="AllAppointmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="createAppointmentSpecialist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,10 +274,6 @@
     <Compile Include="PatientView.xaml.cs">
       <DependentUpon>PatientView.xaml</DependentUpon>
     </Compile>
-    <Page Include="AllAppointments.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CreateAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>

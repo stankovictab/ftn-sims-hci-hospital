@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Classes;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,9 +20,9 @@ namespace ftn_sims_hci_hospital
 
         private void btnShowRequests_Click(object sender, RoutedEventArgs e)
         {
-            List<Classes.DynamicEquipmentRequest> list = MainWindow.dynamicEquipmentRequestController.GetAllOnHold();
+            List<DynamicEquipmentRequest> list = MainWindow.dynamicEquipmentRequestController.GetAllOnHold();
             dynamicEquipmentRequestListView.Items.Clear();
-            foreach (Classes.DynamicEquipmentRequest req in list)
+            foreach (DynamicEquipmentRequest req in list)
             {
                 string doc = req.doctor.user.Name1 + req.doctor.user.LastName1;
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?

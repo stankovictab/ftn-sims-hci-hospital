@@ -1,4 +1,5 @@
 using ftn_sims_hci_hospital;
+using ftn_sims_hci_hospital.Classes;
 using System;
 using System.Collections.Generic;
 
@@ -7,10 +8,12 @@ namespace Classes
 {
     public class AppointmentService
     {
-        public AppointmentRepository appointmentRepository = new AppointmentRepository();
+        public AppointmentRepository appointmentRepository;
         public DoctorRepository doctorRepository;
         public PatientRepository patientRepository;
         public RoomRepository roomRepository;
+        public TrollingLogService trollingLogService;
+        public TrollingLogRepository trollingLogRepository;
 
         public AppointmentService()
         {
@@ -18,6 +21,8 @@ namespace Classes
             doctorRepository = new DoctorRepository();
             patientRepository = new PatientRepository();
             roomRepository = new RoomRepository();
+            trollingLogService = new TrollingLogService();
+            trollingLogRepository = new TrollingLogRepository();
         }
 
         public List<Appointment> ShowAvailableAppointments(Priority priority, String doctorId, DateTime startTime, DateTime endTime, AppointmentType type)
@@ -74,7 +79,7 @@ namespace Classes
                 }
                 else
                 {
-                    slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year, endTime.Month, endTime.Day));
+                    slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year, endTime.Month, endTime.Day + 2));
                 }
                 available(filteredAppointments, slots, appointments, doctorId);
             }
@@ -144,9 +149,9 @@ namespace Classes
             if (MainWindow.user.Role1 == Roles.Patient)
             {
                 List<Appointment> appointments = appointmentRepository.GetAll();
-                int newId = int.Parse(appointments[appointments.Count - 1].AppointmentID);
-                newId++;
-                appointmentRepository.Create(new Appointment((newId).ToString(), doctorId, patientId, startTime, endTime, roomId));
+                String newAppointmentId = appointmentRepository.GenerateNewId();
+                appointmentRepository.Create(new Appointment(newAppointmentId, doctorId, patientId, startTime, endTime, roomId));
+                trollingLogRepository.Create(new TrollingLog(MainWindow.user.Jmbg1, newAppointmentId, DateTime.Now, false));
                 return true;
             }
             else
@@ -178,7 +183,14 @@ namespace Classes
 
         public Boolean DeleteAppointment(String appointmentId)
         {
-            appointmentRepository.Delete(appointmentId);
+            if (appointmentRepository.Delete(appointmentId))
+            {
+                trollingLogRepository.UpdateCanceling(appointmentId);
+                if (trollingLogService.TrollCounter(MainWindow.user.Jmbg1) > 3)
+                {
+                    trollingLogService.BlockUser(MainWindow.user.Jmbg1);
+                }
+            }
             return false;
         }
 
@@ -204,5 +216,6 @@ namespace Classes
             // TODO: implement
             return false;
         }
+
     }
 }

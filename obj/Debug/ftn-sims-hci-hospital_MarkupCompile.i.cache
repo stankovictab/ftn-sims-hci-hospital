@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Users\Brt\Desktop\ftn-sims-hci-hospital\App.xaml
-42438684042
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\App.xaml
+431355868334
 
-110446688219
+118-1957594683
 13-1505183044
-DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;UpdateAppointmentPatient.xaml;
+AllAppointmentsPage.xaml;createAppointmentSpecialist.xaml;DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;UpdateAppointmentPatient.xaml;
 
 True
 

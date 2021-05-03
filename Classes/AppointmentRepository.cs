@@ -8,6 +8,7 @@ namespace Classes
     {
         private String FileLocation;
         private List<Appointment> AppointmentsInFile;
+        private static String maxId;
 
         public List<Appointment> AppointmentsInFile1 { get => AppointmentsInFile; set => AppointmentsInFile = value; }
 
@@ -18,7 +19,7 @@ namespace Classes
 
         public Boolean Create(Appointment app)
         {
-            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.Room.RoomNumber1 + ";" + (int)app.Type  + "\n";
+            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.Room.RoomNumber1 + ";" + (int)app.Type + ";" + app.rescheduled  + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }
@@ -39,6 +40,7 @@ namespace Classes
                     DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
 
                     Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end, "213");
+                    a.rescheduled = int.Parse(parts[7]);
                     return a;
                 }
             }
@@ -60,6 +62,7 @@ namespace Classes
                 DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
                 DateTime end = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
                 Appointment a = new Appointment(id, doctorId, patientId, start, end);
+                a.rescheduled = int.Parse(data[7]);
                 appointments.Add(a);
                 
             }
@@ -83,6 +86,7 @@ namespace Classes
                     DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
                     DateTime end = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
                     Appointment a = new Appointment(id, doctorId, patientId, start, end);
+                    a.rescheduled = int.Parse(data[7]);
                     appointments.Add(a);
                 }
             }
@@ -107,6 +111,7 @@ namespace Classes
 
                     Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end, parts[5]);
                     a.Type = (AppointmentType) int.Parse(parts[6]);
+                    a.rescheduled = int.Parse(parts[7]);
                     ret.Add(a);
                 }
             }
@@ -141,6 +146,22 @@ namespace Classes
             }
             System.IO.File.WriteAllLines(FileLocation, novi);
             return true;
+        }
+
+        public void updateDateStatus(String id)
+        {
+            Appointment app = this.GetByID(id);
+            app.rescheduled = 1;
+            this.Update(app);
+        }
+
+        public String GenerateNewId()
+        {
+            String[] rows = System.IO.File.ReadAllLines("../../Text Files/maxAppointmentId.txt");
+            int currentlyMaxId = int.Parse(rows[0]);
+            currentlyMaxId++;
+            System.IO.File.WriteAllText("../../Text Files/maxAppointmentId.txt", currentlyMaxId.ToString());
+            return currentlyMaxId.ToString();
         }
     }
 }

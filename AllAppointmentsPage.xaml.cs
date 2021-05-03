@@ -16,71 +16,52 @@ using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    /// <summary>
-    /// Interaction logic for AllAppointmentsPage.xaml
-    /// </summary>
     public partial class AllAppointmentsPage : Page
     {
         private AppointmentController appointmentController;
-        private String patientName;
         public AllAppointmentsPage()
         {
             InitializeComponent();
-            patientName = "Pavle";
             appointmentController = new AppointmentController();
-            List<Appointment> appoinments = appointmentController.GetAllByPatientId(patientName);
-            lvUsers.ItemsSource = appoinments;
+            List<Appointment> appoinments = appointmentController.GetAllByPatientId(MainWindow.user.Jmbg1);
+            appointmentsTable.ItemsSource = appoinments;
         }
-
-        private void submitDeletion(object sender, RoutedEventArgs e)
+        public void CancelAppointment(object sender, RoutedEventArgs e)
         {
-            Appointment selected = (Appointment)(lvUsers.SelectedItem);
-            String id = selected.AppointmentID;
-            if (!appointmentController.DeleteAppointment(id))
+            Appointment selected = (Appointment)(appointmentsTable.SelectedItem);
+            appointmentController.DeleteAppointment(selected.AppointmentID);
+            if (MainWindow.user.blocked)
             {
-                MessageBox.Show("Id doesn't exist");
-            }
-            else
-            {
-                MessageBox.Show("Successfully deleted");
+                Application.Current.Shutdown();
             }
         }
-
-        private void submitUpdate(object sender, RoutedEventArgs e)
+        public void UpdateAppointmentTime(object sender, RoutedEventArgs e)
         {
             String id;
-            DateTime currentDate;
-            Appointment appointment = (Appointment)lvUsers.SelectedItem;
+            DateTime oldDate;
+            Appointment appointment = (Appointment)appointmentsTable.SelectedItem;
             id = appointment.AppointmentID;
-            currentDate = appointment.StartTime;
+            oldDate = appointment.StartTime;
+            var dani = (oldDate - DateTime.Now).Days;
 
-            UpdateAppointmentPatient uap = new UpdateAppointmentPatient(id, currentDate);
-
-            uap.Show();
-            /*string id = UpdateID.Text;
-            string doc = UpdateDoc.Text;
-            string[] startTime = UpdateTime.Text.Split(':');
-            string[] date = UpdateDate.Text.Split('.');
-            string endTxt = UpdateTime.Text;
-            string[] endTime = endTxt.Split(':');
-
-            DateTime start = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(startTime[0]), int.Parse(startTime[1]), int.Parse(startTime[2]));
-            DateTime end = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(endTime[0]), int.Parse(endTime[1]), int.Parse(endTime[2]));
-            Appointment ap = new Appointment(id, doc, patientName, start, end);
-            if (!afs.UpdateAppointment(ap))
+            if (appointment.rescheduled == 1)
             {
-                MessageBox.Show("Id doesn't exist");
+                MessageBox.Show("Ne mozete da pomerate pregled koji ste vec pomerili");
             }
             else
             {
-                MessageBox.Show("Successfully updated");
-            }*/
+
+                if ((oldDate - DateTime.Now).Days <= 1)
+                {
+                    MessageBox.Show("Ne mozete da pomerate datum ako je ostalo manje od 24h do pregleda");
+                }
+                else
+                {
+                    UpdateAppointmentPatient uap = new UpdateAppointmentPatient(appointment);
+                    uap.Show();
+                }
+            }
         }
 
-        private void update(object sender, RoutedEventArgs e)
-        {
-            Appointment appointment = (Appointment)lvUsers.SelectedItem;
-            //MessageBox.Show(lvUsers.IsMouseOver);
-        }
     }
 }
