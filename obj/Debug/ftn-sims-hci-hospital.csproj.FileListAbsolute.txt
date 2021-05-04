@@ -1071,3 +1071,5 @@ C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\createAppoin
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\createAppointmentSpecialist.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAppointmentsPage.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAppointmentsPage.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PollPage.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PollPage.baml

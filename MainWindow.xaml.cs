@@ -69,6 +69,7 @@ namespace ftn_sims_hci_hospital
                     if (p.user.blocked)
                     {
                         showError("Blokirani ste");
+                        return;
                     }
                     else
                     {

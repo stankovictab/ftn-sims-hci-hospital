@@ -8,7 +8,6 @@ namespace Classes
     {
         private String FileLocation;
         private List<Appointment> AppointmentsInFile;
-        private static String maxId;
 
         public List<Appointment> AppointmentsInFile1 { get => AppointmentsInFile; set => AppointmentsInFile = value; }
 
@@ -162,6 +161,31 @@ namespace Classes
             currentlyMaxId++;
             System.IO.File.WriteAllText("../../Text Files/maxAppointmentId.txt", currentlyMaxId.ToString());
             return currentlyMaxId.ToString();
+        }
+
+        public List<Doctor> GetAllPatientsDoctors(String patientId)
+        {
+            List<Appointment> allAppointments = this.GetAllByPatientID(patientId);
+            List<Doctor> doctorsNames = new List<Doctor>();
+            foreach(Appointment app in allAppointments)
+            {
+                if((app.StartTime - DateTime.Now).Seconds < 0 && !isDoctorInList(doctorsNames, app.doctor.user.Jmbg1))
+                {
+                    doctorsNames.Add(app.doctor);
+                }
+            }
+            return doctorsNames;
+        }
+
+        private Boolean isDoctorInList(List<Doctor> doctors, String id)
+        {
+            Boolean found = false;
+            foreach(Doctor doc in doctors)
+            {
+                if (doc.user.Jmbg1.Equals(id))
+                    found = true;
+            }
+            return found;
         }
     }
 }

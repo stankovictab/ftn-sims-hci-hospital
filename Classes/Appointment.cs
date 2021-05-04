@@ -12,6 +12,8 @@ namespace Classes
         public int rescheduled { get; set; }
         public Doctor doctor { get; set; }
         public Patient patient { get; set; }
+        private DoctorRepository doctorRepository;
+        private PatientRepository patientRepository;
 
         public Appointment(String id, String doctorId, String patientId, DateTime start, AppointmentType type, String roomId)
         {
@@ -42,9 +44,27 @@ namespace Classes
 
         public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
         {
+            doctorRepository = new DoctorRepository();
+            patientRepository = new PatientRepository();
             AppointmentID = id;
-            doctor = new Doctor(doctorId);
-            patient = new Patient(patientId);
+            if(doctorRepository.GetByID(doctorId) is null)
+            {
+                doctor = new Doctor(doctorId);
+            }
+            else
+            {
+                doctor = doctorRepository.GetByID(doctorId);
+            }
+
+            if(patientRepository.GetByID(patientId) is null)
+            {
+                patient = new Patient(patientId);
+            }
+            else
+            {
+                patient = patientRepository.GetByID(patientId);
+            }
+            
             StartTime = start;
             EndTime = end;
             rescheduled = 0;

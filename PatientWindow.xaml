@@ -22,6 +22,7 @@
                 <MenuItem Header="_Pregled recepata" />
                 <MenuItem Header="_Pregled alergena" />
             </MenuItem>
+            <MenuItem Header="Ankete" Click="FillPoll"/>
         </Menu>
         <Frame x:Name="Main" Margin="50,125,43.6,10" NavigationUIVisibility="Hidden"/>
         <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="485,41,0,0" VerticalAlignment="Top" Click="NotificationsList"/>

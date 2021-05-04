@@ -52,5 +52,10 @@ namespace ftn_sims_hci_hospital
         {
             Main.Content = new createAppointmentSpecialist();
         }
+
+        private void FillPoll(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PollPage();
+        }
     }
 }
