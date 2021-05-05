@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddReferral.xaml.cs">
+      <DependentUpon>AddReferral.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllAppointmentsPage.xaml.cs">
       <DependentUpon>AllAppointmentsPage.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,10 @@
     <Compile Include="Classes\HospitalPoll.cs" />
     <Compile Include="Classes\HospitalPollRepository.cs" />
     <Compile Include="Classes\Manager.cs" />
+    <Compile Include="Classes\Medicine.cs" />
+    <Compile Include="Classes\MedicineCotroller.cs" />
+    <Compile Include="Classes\MedicineRepository.cs" />
+    <Compile Include="Classes\MedicineService.cs" />
     <Compile Include="Classes\NotificationController.cs" />
     <Compile Include="Classes\NotificationRepository.cs" />
     <Compile Include="Classes\NotificationService.cs" />
@@ -168,6 +175,9 @@
     <Compile Include="MedicalRecords.xaml.cs">
       <DependentUpon>MedicalRecords.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedicineList.xaml.cs">
+      <DependentUpon>MedicineList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
     </Compile>
@@ -213,6 +223,10 @@
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddReferral.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AllAppointmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -348,6 +362,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MedicalRecords.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MedicineList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.AddReferral"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="AddReferral" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="55,84,0,0" TextWrapping="Wrap" Text="doctor: " VerticalAlignment="Top"/>
+        <TextBox Name="txtDoctorId" HorizontalAlignment="Left" Height="23" Margin="112,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DatePicker Name="durationDate" HorizontalAlignment="Left" Margin="112,121,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,125,0,0" TextWrapping="Wrap" Text="valid unitl:" VerticalAlignment="Top"/>
+        <TextBox Name="txtDescription" HorizontalAlignment="Left" Height="145" Margin="42,228,0,0" VerticalAlignment="Top" Width="725"></TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="42,196,0,0" TextWrapping="Wrap" Text="Descrption:" VerticalAlignment="Top"/>
+        <Button Content="add" Click="createReferral" HorizontalAlignment="Left" Margin="692,389,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

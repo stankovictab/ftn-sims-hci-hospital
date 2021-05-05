@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\App.xaml
-44-216545240
+46-2060952618
 
-123-2061320271
+129384221322
 13-1505183044
-AllAppointmentsPage.xaml;createAppointmentSpecialist.xaml;DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PollPage.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;UpdateAppointmentPatient.xaml;
+AddReferral.xaml;AllAppointmentsPage.xaml;createAppointmentSpecialist.xaml;DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;MedicineList.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PollPage.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;UpdateAppointmentPatient.xaml;
 
-False
+True
 
