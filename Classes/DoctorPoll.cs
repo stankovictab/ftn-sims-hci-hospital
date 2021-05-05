@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace ftn_sims_hci_hospital.Classes
 {
-    public class Poll
+    public class DoctorPoll
     {
         public Patient patient { get; set; }
         public Doctor doctor { get; set; }
         public int mark { get; set; }
         public String comment { get; set; }
 
-        public Poll()
+        public DoctorPoll()
         {
 
         }
-        public Poll(Patient patient, Doctor doctor, int mark, String comment)
+        public DoctorPoll(Patient patient, Doctor doctor, int mark, String comment)
         {
             this.patient = patient;
             this.doctor = doctor;

@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace ftn_sims_hci_hospital.Classes
 {
-    public class PollRepository
+    public class DoctorPollRepository
     {
         private String FileLocation;
         private PatientRepository patientRepository;
         private DoctorRepository doctorRepository;
-        public PollRepository()
+        public DoctorPollRepository()
         {
             FileLocation = "../../Text Files/poll.txt";
             patientRepository = new PatientRepository();
@@ -34,7 +34,7 @@ namespace ftn_sims_hci_hospital.Classes
         public Boolean Delete(String patientId, String doctorId)
         {
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
-            List<Poll> polls = new List<Poll>();
+            List<DoctorPoll> polls = new List<DoctorPoll>();
             List<String> novi = new List<string>();
             foreach (String row in rows)
             {
@@ -49,16 +49,16 @@ namespace ftn_sims_hci_hospital.Classes
             return true;
         }
 
-        public Poll GetPoll(String patientId, String doctorId)
+        public DoctorPoll GetPoll(String patientId, String doctorId)
         {
-            Poll p = new Poll();
+            DoctorPoll p = new DoctorPoll();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (String line in lines)
             {
                 String[] data = line.Split(';');
                 if (data[0].Equals(patientId) && data[1].Equals(doctorId))
                 {
-                    p = new Poll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
+                    p = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
                         int.Parse(data[2]), data[3]);
                     return p;
                 }
@@ -66,16 +66,16 @@ namespace ftn_sims_hci_hospital.Classes
             return null;
         }
 
-        public List<Poll> GetAllByDoctorId(String id)
+        public List<DoctorPoll> GetAllByDoctorId(String id)
         {
-            List<Poll> polls = new List<Poll>();
+            List<DoctorPoll> polls = new List<DoctorPoll>();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (String line in lines)
             {
                 String[] data = line.Split(';');
                 if (data[1].Equals(id))
                 {
-                    Poll hp = new Poll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
+                    DoctorPoll hp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
                         int.Parse(data[2]), data[3]);
                     polls.Add(hp);
                 }
@@ -87,8 +87,8 @@ namespace ftn_sims_hci_hospital.Classes
         {
             float sum = 0;
             float average = 0;
-            List<Poll> polls = GetAllByDoctorId(id);
-            foreach (Poll p in polls)
+            List<DoctorPoll> polls = GetAllByDoctorId(id);
+            foreach (DoctorPoll p in polls)
             {
                 sum += p.mark;
             }

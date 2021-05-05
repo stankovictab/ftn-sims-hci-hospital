@@ -10,13 +10,13 @@ namespace ftn_sims_hci_hospital
     public partial class PollPage : Page
     {
         private AppointmentRepository appointmentRepository;
-        private PollRepository pollRepository;
+        private DoctorPollRepository pollRepository;
         private HospitalPollRepository hospitalPollRepository;
         public PollPage()
         {
             InitializeComponent();
             appointmentRepository = new AppointmentRepository();
-            pollRepository = new PollRepository();
+            pollRepository = new DoctorPollRepository();
             hospitalPollRepository = new HospitalPollRepository();
             ShowHospitalResults();
             List<Doctor> doctors = appointmentRepository.GetAllPatientsDoctors(MainWindow.user.Jmbg1);
@@ -26,7 +26,7 @@ namespace ftn_sims_hci_hospital
         private void ShowDoctorsResults(object sender, SelectionChangedEventArgs e)
         {
             Doctor doc = (Doctor)doctorsCombo.SelectedItem;
-            Poll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
+            DoctorPoll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
             ShowDoctorControlls();
             doctorCommentTextBox.Text = "";
             if (p is null)
@@ -55,7 +55,7 @@ namespace ftn_sims_hci_hospital
             ComboBoxItem typeItem = (ComboBoxItem)markCombo.SelectedItem;
             int mark = int.Parse(typeItem.Content.ToString());
             Doctor doc = (Doctor)doctorsCombo.SelectedItem;
-            Poll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
+            DoctorPoll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
             if (p is null)
             {
                 pollRepository.Create(MainWindow.user.Jmbg1, doc.user.Jmbg1, mark, "");
@@ -70,7 +70,7 @@ namespace ftn_sims_hci_hospital
         {
             String comment = (String)doctorCommentTextBox.Text;
             Doctor doc = (Doctor)doctorsCombo.SelectedItem;
-            Poll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
+            DoctorPoll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
             if (p is null)
             {
                 pollRepository.Create(MainWindow.user.Jmbg1, doc.user.Jmbg1, 0, comment);
