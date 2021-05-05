@@ -28,16 +28,6 @@ namespace ftn_sims_hci_hospital
 
         private void btnShowRequests_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Doctor ID ce se dobiti pri logovanju, pa ce se proslediti u ovaj GetAllByDoctorID()
-            // Za sad zamisli da je ulogovan lekar sa ID 0501
-            // Takodje moze i da se napravi labela na prozoru da pokazuje koji je doktor ulogovan, ali to je HCI prica
-            List<Classes.HolidayRequest> list = MainWindow.holidayRequestController.GetAllByDoctorID("0501"); // Dobavlja prvo iz fajla pa iz liste
-            holidayRequestListView.Items.Clear(); // Reset (ne .Refresh())
-            foreach (Classes.HolidayRequest req in list)
-            {
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1, RequestDate1 = req.RequestDate1, Status1 = req.Status1 });
-            }
         }
 
         // SelectionChanged="holidayRequestListView_SelectionChanged" dodat u XAML ListView kao atribut

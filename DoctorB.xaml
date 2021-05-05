@@ -43,5 +43,6 @@
                 </TabItem>
             </TabControl>
         </Grid>
+        <Button x:Name="btnMedicine" Content="medicine" Click="showMedicineList" HorizontalAlignment="Left" Margin="323,304,0,0" VerticalAlignment="Top" Width="164"/>
     </Grid>
 </Window>

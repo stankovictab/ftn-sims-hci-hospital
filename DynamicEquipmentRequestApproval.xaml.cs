@@ -19,14 +19,6 @@ namespace ftn_sims_hci_hospital
 
         private void btnShowRequests_Click(object sender, RoutedEventArgs e)
         {
-            List<Classes.DynamicEquipmentRequest> list = MainWindow.dynamicEquipmentRequestController.GetAllOnHold();
-            dynamicEquipmentRequestListView.Items.Clear();
-            foreach (Classes.DynamicEquipmentRequest req in list)
-            {
-                string doc = req.doctor.user.Name1 + req.doctor.user.LastName1;
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, DoctorFullName1 = doc });
-            }
         }
 
         // SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged" dodat u XAML ListView kao atribut

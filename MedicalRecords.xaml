@@ -36,6 +36,7 @@
             </ListView.View>
         </ListView>
         <Button Content="create" Click="create"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="703,379,0,0"/>
+
         <Canvas Name="CanvasPers" Margin="35,273,362,25" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Canvas.Top="5" Text="medicine: " Canvas.Left="10"/>
             <TextBox Name="txtM" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.48,0.836" Canvas.Left="66"/>
@@ -43,6 +44,12 @@
             <TextBox Name="txtA" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="28"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="description: " Canvas.Top="66"/>
             <TextBox Name="txtD" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
+        </Canvas>
+        <Canvas Name="CanvasAnas" Margin="35,273,362,25" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="date:" Canvas.Left="32" Canvas.Top="33"/>
+            <TextBox Name="txtDAS" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="28"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="description: " Canvas.Top="66"/>
+            <TextBox Name="txtDES" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
         </Canvas>
         <Canvas Name="CanvasPersUpdate" Margin="35,273,260,25" Visibility="Hidden" >
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Canvas.Top="5" Text="medicine: " Canvas.Left="10"/>
@@ -53,17 +60,25 @@
             <TextBox Name="txtDU" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
             <Button  Content="save" Click="save" Canvas.Left="412" Canvas.Top="91" Width="75" />
         </Canvas>
-        <Canvas Name="CanvasAnamUpdate" Margin="35,273,260,25" >
+        <Canvas Name="CanvasAnamUpdate" Visibility="Hidden" Margin="35,273,260,25" >
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="date:" Canvas.Left="32" Canvas.Top="33"/>
             <TextBox Name="txtDA" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="28"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="description: " Canvas.Top="66"/>
             <TextBox Name="txtDE" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
             <Button  Content="save" Click="save" Canvas.Left="412" Canvas.Top="91" Width="75" />
+            <RichTextBox Height="100" Canvas.Left="331" Canvas.Top="33" Width="100">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="RichTextBox"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
         </Canvas>
         <Button Content="show" Click="show"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Margin="703,348,0,0"/>
         <RadioButton Name="radioP" Content="prescription" HorizontalAlignment="Left" Margin="696,313,0,0" VerticalAlignment="Top" Checked="radioP_Checked" />
         <RadioButton Name="radioA" Content="anamnesis" HorizontalAlignment="Left" Margin="703,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.293,0.689" Checked="radioA_Checked" />
         <Button Name="btnU" Content="update" Click="update" HorizontalAlignment="Left" Margin="610,379,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="btnD" Content="delete" Click="delete" HorizontalAlignment="Left" Margin="610,348,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnReferralList" Content="create referral" Click="showAddReferral" HorizontalAlignment="Left" Margin="503,379,0,0" VerticalAlignment="Top" Width="85"/>
     </Grid>
 </Window>

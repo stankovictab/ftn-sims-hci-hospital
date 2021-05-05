@@ -13,19 +13,12 @@ namespace Classes
             appointmentService = new AppointmentService();
         }
 
-        public List<Appointment> ShowAvailableAppointments(int priority, String doctorId, DateTime startTime, DateTime endTime, int type)
-        {
-            appointmentService = new AppointmentService();
-        }
-
         public Appointment GetByID(String id)
         {
             return appointmentService.getById(id);
         }
 
-        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, DateTime endTime ,int type, String roomId)
-        {
-            appointmentService.CreateAppointment(doctorId, patientId, startTime, endTime ,type,roomId);
+        
         public List<Appointment> ShowAvailableAppointments(Priority priority, String doctorId, DateTime startTime, DateTime endTime, AppointmentType type)
         {
             List<Appointment> appointments;
@@ -45,7 +38,7 @@ namespace Classes
             return null;
         }
 
-        public Boolean UpdateAppointment(String appointmentId, DateTime startTime,DateTime endTime, String roomId,int type)
+        public Boolean UpdateAppointment(String appointmentId, DateTime startTime,DateTime endTime, DateTime end, String roomId,int type)
         {
             return appointmentService.UpdateAppointment(appointmentId, startTime, endTime, roomId, type);
         }

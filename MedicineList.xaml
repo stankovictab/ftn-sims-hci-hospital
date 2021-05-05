@@ -1,0 +1,43 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.MedicineList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="MedicineList" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="267*"/>
+            <RowDefinition Height="152*"/>
+        </Grid.RowDefinitions>
+        <ListView Margin="10,33,10,142" Name="medicinesView" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding id}" />
+                    <GridViewColumn Header="name" Width="100" DisplayMemberBinding="{Binding name}" />
+                    <GridViewColumn Header="description" Width="100" DisplayMemberBinding="{Binding description}" />
+                    <GridViewColumn Header="verified" Width="100" DisplayMemberBinding="{Binding verified}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Canvas Visibility="Hidden" Name="updateCanvas" HorizontalAlignment="Left" Height="127" Margin="10,15,0,0" VerticalAlignment="Top" Width="560" Grid.Row="1">
+            <TextBox Name="medicineName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1" Canvas.Left="102" Canvas.Top="10"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="name:" VerticalAlignment="Top" Grid.Row="1" RenderTransformOrigin="1.495,0.617" Canvas.Left="58" Canvas.Top="17"/>
+            <TextBox Name="medicineDescription" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" Grid.Row="1" Canvas.Left="102" Canvas.Top="52"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="descriptionon:" VerticalAlignment="Top" Grid.Row="1" Canvas.Left="15" Canvas.Top="52"/>
+            <Button Content="save" Click="saveChanges" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="475" Canvas.Top="97"/>
+        </Canvas>
+        <Canvas Visibility="Hidden" Name="declineCanvas" HorizontalAlignment="Left" Height="127" Margin="10,15,0,0" VerticalAlignment="Top" Width="560" Grid.Row="1">
+            <TextBox Name="reason" HorizontalAlignment="Left" Height="107" TextWrapping="Wrap" VerticalAlignment="Top" Width="351" Grid.Row="1" Canvas.Left="102" Canvas.Top="10"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="reason:" VerticalAlignment="Top" Grid.Row="1" RenderTransformOrigin="1.495,0.617" Canvas.Left="58" Canvas.Top="17"/>
+            <Button Content="save" Click="deleteMedicine" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="475" Canvas.Top="97"/>
+        </Canvas>
+        <Button Content="update" Click="showUpdateCanvas" HorizontalAlignment="Left" Margin="695,122,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" />
+        <Button Content="refresh" Click="reloadMedicineList" HorizontalAlignment="Left" Margin="598,122,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.347,1.15" />
+        
+        <Button Content="decline" Click="declineMedicine" HorizontalAlignment="Left" Margin="695,85,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" />
+        <Button Content="approve" Click="approveMedicine" HorizontalAlignment="Left" Margin="598,85,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.347,1.15" />
+
+    </Grid>
+</Window>

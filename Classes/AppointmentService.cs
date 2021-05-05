@@ -25,13 +25,6 @@ namespace Classes
             return appointmentRepository.GetByID(id);
         }
 
-        public List<Appointment> ShowAvailableAppointments(int priority, String doctorId, DateTime startTime, DateTime endTime, int type)
-        {
-            appointmentRepository = new AppointmentRepository();
-            doctorRepository = new DoctorRepository();
-            patientRepository = new PatientRepository();
-            roomRepository = new RoomRepository();
-        }
 
         public List<Appointment> ShowAvailableAppointments(Priority priority, String doctorId, DateTime startTime, DateTime endTime, AppointmentType type)
         {

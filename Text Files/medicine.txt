@@ -1,8 +1,7 @@
 1;Lek1;Opis1;False
 2;Lek2;Opis2;False
-6;Lek6;Opis6;False
-7;Lek7;Opis7;False
 8;Lek8;Opis8;True
 5;Lek5;Opis5;True
 3;Lek3;Opis3;True
 9;Lek9;Opis9;True
+6;Lek6;Opis6;True

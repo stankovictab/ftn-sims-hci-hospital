@@ -38,8 +38,16 @@ namespace Classes
 
         public List<StaticEquipment> GetByLocation(Room location)
         {
-            // TODO: implement
-            return null;
+            StaticInFile = GetAll();
+            List<StaticEquipment> equipmentInRoom = new List<StaticEquipment>();
+            foreach (StaticEquipment s in StaticInFile)
+            {
+                if (s.statLocation.Equals(location.RoomNumber1))
+                {
+                    equipmentInRoom.Add(s);
+                }   
+            }
+            return equipmentInRoom;
         }
 
         public Boolean Create(StaticEquipment newStatic)

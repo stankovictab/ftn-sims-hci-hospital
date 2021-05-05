@@ -19,31 +19,12 @@ namespace ftn_sims_hci_hospital
 
         private void btnCreateRequest_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.dynamicEquipmentRequestController.GetAll();
-            string equipmentName = dynamicEquipmentTextBox.Text;
-            Classes.DoctorController dc = new Classes.DoctorController();
-            dc.GetAll(); // Punjenje liste doktora u memoriji
-            // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            Classes.Doctor doctor = dc.GetByID("0501");
-            MainWindow.dynamicEquipmentRequestController.Create(equipmentName, doctor); // Update-uje se i lista i fajl
-            MessageBox.Show("You have successfully created a new holiday request!");
-
-            // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
-            btnShowRequests.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
+            
         }
 
         private void btnShowRequests_Click(object sender, RoutedEventArgs e)
         {
-            // TODO: Doctor ID ce se dobiti pri logovanju, pa ce se proslediti u ovaj GetAllByDoctorID()
-            // Za sad zamisli da je ulogovan lekar sa ID 0501
-            // Takodje moze i da se napravi labela na prozoru da pokazuje koji je doktor ulogovan, ali to je HCI prica
-            List<Classes.DynamicEquipmentRequest> list = MainWindow.dynamicEquipmentRequestController.GetAllByDoctorID("0501"); // Dobavlja prvo iz fajla pa iz liste
-            dynamicEquipmentRequestListView.Items.Clear();
-            foreach (Classes.DynamicEquipmentRequest req in list)
-            {
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Status1 = req.Status1 });
-            }
+           
         }
 
         // SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged" dodat u XAML ListView kao atribut
@@ -65,17 +46,7 @@ namespace ftn_sims_hci_hospital
 
         private void btnUpdateRequest_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.dynamicEquipmentRequestController.GetAll();
-            string equipmentName = dynamicEquipmentTextBox.Text;
-            Classes.DoctorController dc = new Classes.DoctorController();
-            dc.GetAll(); // Punjenje liste doktora u memoriji
-            // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            Classes.Doctor doctor = dc.GetByID("0501");
-            MainWindow.dynamicEquipmentRequestController.Update(selectedDERID, equipmentName, doctor); // Update-uje se i lista i fajl
-            MessageBox.Show("You have successfully updated a holiday request!");
-
-            // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
-            btnShowRequests.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
+           
         }
 
         private void btnDeleteRequest_Click(object sender, RoutedEventArgs e)
