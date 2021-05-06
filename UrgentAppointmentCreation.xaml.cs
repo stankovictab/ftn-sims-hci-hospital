@@ -24,20 +24,13 @@ namespace ftn_sims_hci_hospital
         public UrgentAppointmentCreation()
         {
             InitializeComponent();
-            List<Patient> patients = new List<Patient>();
-            patients = MainWindow.patientController.GetAll();
-            foreach (Patient patient in patients)
-            {
-                cbpatient.Items.Add(patient.user.Jmbg1);
-            }
+            getPatients();
             cbspecialization.Items.Add(DoctorSpecialization.GeneralPractice);
             cbspecialization.Items.Add(DoctorSpecialization.Specialist);
         }
 
-        private void btnguest_Click(object sender, RoutedEventArgs e)
+        private void getPatients()
         {
-            Window guestCreation = new GuestCreation();
-            guestCreation.ShowDialog();
             List<Patient> patients = new List<Patient>();
             patients = MainWindow.patientController.GetAll();
             cbpatient.Items.Clear();
@@ -47,112 +40,160 @@ namespace ftn_sims_hci_hospital
             }
         }
 
+        private void btnguest_Click(object sender, RoutedEventArgs e)
+        {
+            Window guestCreation = new GuestCreation();
+            guestCreation.ShowDialog();
+            getPatients();
+        }
+
 
         private void viewappointmentsbtn_Click(object sender, RoutedEventArgs e)
         {
-            List<Doctor> allDoctors = MainWindow.doctorController.GetAll();
-            List<Doctor> neededDoctors = new List<Doctor>();
-            if(cbspecialization.SelectedItem==null)
+            if (cbspecialization.SelectedItem == null)
             {
                 MessageBox.Show("You must choose a specialization!");
             }
             else
             {
-                foreach(Doctor doctorChecker in allDoctors)
-                {
-                    if(doctorChecker.specialization==(DoctorSpecialization)cbspecialization.SelectedItem)
-                    {
-                        neededDoctors.Add(doctorChecker);
-                    }
-                }
+                List<Doctor> neededDoctors = getNeededDoctors();
                 bool isAppointmentMade = false;
-                foreach(Doctor specializedDoctor in neededDoctors)
-                {
-                    DateTime currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0 , 0, 0);
-                    DateTime endTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day+1, 0 ,0, 0);
-                    List<Appointment> availableAppointments = MainWindow.appointmentController.appointmentService.ShowAvailableAppointments(Priority.None, specializedDoctor.user.Jmbg1, currentTime, endTime, AppointmentType.Regular);
-                    if(availableAppointments.Count()!=0)
-                    {
-                        Appointment currentApp = new Appointment();
-                        foreach(Appointment available in availableAppointments)
-                        {
-                            if (available.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)))
-                            {
-                                currentApp.StartTime = available.StartTime;
-                                currentApp.EndTime = available.EndTime;
-                                currentApp.AppointmentID = (MainWindow.appointmentController.appointmentService.appointmentRepository.GetAll().Count() + 1).ToString();
-                                currentApp.patient = MainWindow.patientController.GetByID(cbpatient.SelectedItem.ToString());
-                                currentApp.doctor = specializedDoctor;
-                                currentApp.Room = new Room();
-                                currentApp.Room.RoomNumber = specializedDoctor.room.RoomNumber;
-                                MainWindow.appointmentController.appointmentService.appointmentRepository.Create(currentApp);
-                                specializedDoctor.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(specializedDoctor.user.Jmbg1);
-                                String id = (MainWindow.notificationController.notificationService.notificationRepository.GetAll().Count() + 1).ToString();
-                                Notification notification = new Notification(id, "Alert", "You have a new appointment on  " + currentApp.StartTime.ToString(), DateTime.Now, false, "", specializedDoctor.user.Jmbg1);
-                                specializedDoctor.notifications.Add(notification);
-                                MainWindow.notificationController.notificationService.notificationRepository.Create(notification);
-                                MessageBox.Show("You have successfuly created an appointment and all relevant parties have been notified!");
-                                isAppointmentMade = true;
-                                break;
-                            }
-                        }
-                        if (isAppointmentMade)
-                            break;
-                        
-                    }
-                }
-                if(isAppointmentMade)
+                isAppointmentMade = makeAppointmentForSpecializedDoctors(neededDoctors, isAppointmentMade);
+                if (isAppointmentMade)
                 {
                     this.Close();
                 }
                 else
                 {
                     List<Appointment> appointmentsForRescheduling = new List<Appointment>();
-                    DateTime currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
-                    DateTime endTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day + 5, 0, 0, 0);
-                    foreach (Doctor specializedDoctor in neededDoctors)
+                    getReservedAppointmentsInNextHour(neededDoctors, appointmentsForRescheduling);
+                    generateSortedAppointments(appointmentsForRescheduling);
+                }
+
+            }
+        }
+
+        private void generateSortedAppointments(List<Appointment> appointmentsForRescheduling)
+        {
+            ObservableCollection<Appointment> sortedReservedAppointments = getAllNextAvailibleAppointmentSlots(appointmentsForRescheduling);
+            sortedReservedAppointments = new ObservableCollection<Appointment>(from i in sortedReservedAppointments orderby i.StartTime select i);
+            foreach (Appointment sortedAppointment in sortedReservedAppointments)
+            {
+                foreach (Appointment reservedAppointment in appointmentsForRescheduling)
+                {
+                    if (reservedAppointment.doctor.user.Jmbg1.Equals(sortedAppointment.doctor.user.Jmbg1))
                     {
-                        List<Appointment> doctorsAppointments = MainWindow.appointmentController.GetAllByDoctorId(specializedDoctor.user.Jmbg1);
-                        foreach(Appointment doctorsAppointment in doctorsAppointments)
-                        {
-                            if (doctorsAppointment.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)))
-                            {
-                                appointmentsForRescheduling.Add(doctorsAppointment);
-                                break;
-                            }
-                        }
-                    }
-                    ObservableCollection<Appointment> sortedReservedAppointments = new ObservableCollection<Appointment>();
-                    DateTime newCurrentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day+1, 0, 0, 0);
-                    DateTime newEndTime = new DateTime(newCurrentTime.Year, newCurrentTime.Month, newCurrentTime.Day + 5, 0, 0, 0);
-                    foreach (Appointment possibleAppointment in appointmentsForRescheduling)
-                    {
-                        List<Appointment> possibleAppointments = MainWindow.appointmentController.appointmentService.ShowAvailableAppointments(Priority.None, possibleAppointment.doctor.user.Jmbg1, newCurrentTime, newEndTime, AppointmentType.Regular);
-                        sortedReservedAppointments.Add(possibleAppointments[0]);
-                    }
-                    sortedReservedAppointments = new ObservableCollection<Appointment>(from i in sortedReservedAppointments orderby i.StartTime select i);
-                    foreach(Appointment sortedAppointment in sortedReservedAppointments)
-                    {
-                        foreach(Appointment reservedAppointment in appointmentsForRescheduling)
-                        {
-                            if(reservedAppointment.doctor.user.Jmbg1.Equals(sortedAppointment.doctor.user.Jmbg1))
-                            {
-                                string patientID, doctorID;
-                                Patient p = new Patient();
-                                patientID = reservedAppointment.patient.user.Jmbg1;
-                                p = MainWindow.patientController.GetByID(patientID);
-                                Doctor d = new Doctor();
-                                doctorID = reservedAppointment.doctor.user.Jmbg1;
-                                d = MainWindow.doctorController.ds.dr.GetByID(doctorID);
-                                reservedAppointments.Items.Add(new Appointment { AppointmentID = reservedAppointment.AppointmentID, doctor = d, patient = p, StartTime = reservedAppointment.StartTime });
-                                break;
-                            }
-                        }
-                        
+                        addSortedAppointmentsToListView(reservedAppointment);
+                        break;
                     }
                 }
 
             }
+        }
+
+        private void addSortedAppointmentsToListView(Appointment reservedAppointment)
+        {
+            string patientID, doctorID;
+            Patient p = new Patient();
+            patientID = reservedAppointment.patient.user.Jmbg1;
+            p = MainWindow.patientController.GetByID(patientID);
+            Doctor d = new Doctor();
+            doctorID = reservedAppointment.doctor.user.Jmbg1;
+            d = MainWindow.doctorController.ds.dr.GetByID(doctorID);
+            reservedAppointments.Items.Add(new Appointment { AppointmentID = reservedAppointment.AppointmentID, doctor = d, patient = p, StartTime = reservedAppointment.StartTime });
+        }
+
+        private static ObservableCollection<Appointment> getAllNextAvailibleAppointmentSlots(List<Appointment> appointmentsForRescheduling)
+        {
+            ObservableCollection<Appointment> sortedReservedAppointments = new ObservableCollection<Appointment>();
+            DateTime newCurrentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1, 0, 0, 0);
+            DateTime newEndTime = new DateTime(newCurrentTime.Year, newCurrentTime.Month, newCurrentTime.Day + 5, 0, 0, 0);
+            foreach (Appointment possibleAppointment in appointmentsForRescheduling)
+            {
+                List<Appointment> possibleAppointments = MainWindow.appointmentController.appointmentService.ShowAvailableAppointments(Priority.None, possibleAppointment.doctor.user.Jmbg1, newCurrentTime, newEndTime, AppointmentType.Regular);
+                sortedReservedAppointments.Add(possibleAppointments[0]);
+            }
+
+            return sortedReservedAppointments;
+        }
+
+        private static void getReservedAppointmentsInNextHour(List<Doctor> neededDoctors, List<Appointment> appointmentsForRescheduling)
+        {
+            foreach (Doctor specializedDoctor in neededDoctors)
+            {
+                List<Appointment> doctorsAppointments = MainWindow.appointmentController.GetAllByDoctorId(specializedDoctor.user.Jmbg1);
+                foreach (Appointment doctorsAppointment in doctorsAppointments)
+                {
+                    if (doctorsAppointment.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)))
+                    {
+                        appointmentsForRescheduling.Add(doctorsAppointment);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private List<Doctor> getNeededDoctors()
+        {
+            List<Doctor> allDoctors = MainWindow.doctorController.GetAll();
+            List<Doctor> neededDoctors = new List<Doctor>();
+            foreach (Doctor doctorChecker in allDoctors)
+            {
+                if (doctorChecker.specialization == (DoctorSpecialization)cbspecialization.SelectedItem)
+                {
+                    neededDoctors.Add(doctorChecker);
+                }
+            }
+
+            return neededDoctors;
+        }
+
+        private bool makeAppointmentForSpecializedDoctors(List<Doctor> neededDoctors, bool isAppointmentMade)
+        {
+            foreach (Doctor specializedDoctor in neededDoctors)
+            {
+                DateTime currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+                DateTime endTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day + 1, 0, 0, 0);
+                List<Appointment> availableAppointments = MainWindow.appointmentController.appointmentService.ShowAvailableAppointments(Priority.None, specializedDoctor.user.Jmbg1, currentTime, endTime, AppointmentType.Regular);
+                if (availableAppointments.Count() != 0)
+                {
+                    isAppointmentMade = createAppointment(isAppointmentMade, specializedDoctor, availableAppointments);
+                    if (isAppointmentMade)
+                        break;
+
+                }
+            }
+
+            return isAppointmentMade;
+        }
+
+        private bool createAppointment(bool isAppointmentMade, Doctor specializedDoctor, List<Appointment> availableAppointments)
+        {
+            Appointment currentApp = new Appointment();
+            foreach (Appointment available in availableAppointments)
+            {
+                if (available.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)))
+                {
+                    currentApp.StartTime = available.StartTime;
+                    currentApp.EndTime = available.EndTime;
+                    currentApp.AppointmentID = (MainWindow.appointmentController.appointmentService.appointmentRepository.GetAll().Count() + 1).ToString();
+                    currentApp.patient = MainWindow.patientController.GetByID(cbpatient.SelectedItem.ToString());
+                    currentApp.doctor = specializedDoctor;
+                    currentApp.Room = new Room();
+                    currentApp.Room.RoomNumber = specializedDoctor.room.RoomNumber;
+                    MainWindow.appointmentController.appointmentService.appointmentRepository.Create(currentApp);
+                    specializedDoctor.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(specializedDoctor.user.Jmbg1);
+                    String id = (MainWindow.notificationController.notificationService.notificationRepository.GetAll().Count() + 1).ToString();
+                    Notification notification = new Notification(id, "Alert", "You have a new appointment on  " + currentApp.StartTime.ToString(), DateTime.Now, false, "", specializedDoctor.user.Jmbg1);
+                    specializedDoctor.notifications.Add(notification);
+                    MainWindow.notificationController.notificationService.notificationRepository.Create(notification);
+                    MessageBox.Show("You have successfuly created an appointment and all relevant parties have been notified!");
+                    isAppointmentMade = true;
+                    break;
+                }
+            }
+
+            return isAppointmentMade;
         }
 
         private void makeappointmentbtn_Click(object sender, RoutedEventArgs e)
