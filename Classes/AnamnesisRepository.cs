@@ -8,16 +8,55 @@ namespace Classes
         private String FileLocation;
         private List<Anamnesis> AnamnesesInFile;
 
-        public Boolean Create(Anamnesis a)
+        public AnamnesisRepository()
         {
-            // TODO: implement
-            return false;
+            FileLocation = "../../Text Files/anamnesis.txt";
+        }
+
+        public Boolean Create(Anamnesis a,String patientId)
+        {
+            string newLine = a.Id + ";" + patientId + ";" + a.Description + ";" + a.Date.ToString("yyyy,MM,dd,hh,mm,ss") + "\n";
+            System.IO.File.AppendAllText(FileLocation, newLine);
+            return true;
         }
 
         public Anamnesis GetByID(String id)
         {
-            // TODO: implement
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts[0].Equals(id))
+                {
+                    
+                    string[] dateParts = parts[3].Split(',');
+                    DateTime date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), int.Parse(dateParts[2]), int.Parse(dateParts[3]), int.Parse(dateParts[4]), int.Parse(dateParts[5]));
+                    Anamnesis a = new Anamnesis(parts[0],parts[2],date);
+
+                    return a;
+                }
+            }
             return null;
+        }
+
+        public List<Anamnesis> GetAllByPatientId(String id)
+        {
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            List<Anamnesis> ret = new List<Anamnesis>();
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts[1].Equals(id))
+                {
+                    string[] dateParts = parts[3].Split(',');
+                    DateTime date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), int.Parse(dateParts[2]), int.Parse(dateParts[3]), int.Parse(dateParts[4]), int.Parse(dateParts[5]));
+
+                    Anamnesis a = new Anamnesis(parts[0],parts[2],date);
+                    ret.Add(a);
+                }
+            }
+            return ret;
         }
 
         public List<Anamnesis> GetAll()
@@ -26,9 +65,14 @@ namespace Classes
             return null;
         }
 
-        public Boolean Update(Anamnesis a)
+        public Boolean Update(Anamnesis a,String patientId)
         {
-            // TODO: implement
+            if (Delete(a.Id))
+            {
+                Create(a, patientId);
+                return true;
+            }
+
             return false;
         }
 
@@ -40,8 +84,20 @@ namespace Classes
 
         public Boolean Delete(String id)
         {
-            // TODO: implement
-            return false;
+            String[] rows = System.IO.File.ReadAllLines(FileLocation);
+            List<Anamnesis> anamnesis = new List<Anamnesis>();
+            List<String> novi = new List<string>();
+            foreach (String row in rows)
+            {
+                String[] data = row.Split(';');
+                if (!data[0].Equals(id))
+                {
+                    String r = String.Join(";", data);
+                    novi.Add(r);
+                }
+            }
+            System.IO.File.WriteAllLines(FileLocation, novi);
+            return true;
         }
     }
 }

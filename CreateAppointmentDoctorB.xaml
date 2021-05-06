@@ -7,15 +7,28 @@
         mc:Ignorable="d"
         Title="CreateAppointmentDoctorB" Height="450" Width="800">
     <Grid>
-        <TextBox Name="txtP" HorizontalAlignment="Left" Height="23" Margin="146,90,0,0" TextWrapping="Wrap" Text="enter patient" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="54,91,0,0" TextWrapping="Wrap" Text="Patient:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="54,149,0,0" TextWrapping="Wrap" Text="Start:" VerticalAlignment="Top"/>
-        <TextBox Name="txtS" HorizontalAlignment="Left" Height="23" Margin="146,149,0,0" TextWrapping="Wrap" Text="enter start time" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="48,212,0,0" TextWrapping="Wrap" Text="End:" VerticalAlignment="Top"/>
-        <TextBox Name="txtE" HorizontalAlignment="Left" Height="23" Margin="146,205,0,0" TextWrapping="Wrap" Text="enter end time" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="47,269,0,0" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top" RenderTransformOrigin="0.04,-0.787"/>
-        <TextBox Name="txtD" HorizontalAlignment="Left" Height="23" Margin="146,269,0,0" TextWrapping="Wrap" Text="enter date" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtP" HorizontalAlignment="Left" Height="23" Margin="129,37,0,0" TextWrapping="Wrap" Text="enter patient" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,38,0,0" TextWrapping="Wrap" Text="Patient:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="37,96,0,0" TextWrapping="Wrap" Text="Start:" VerticalAlignment="Top"/>
+        <TextBox Name="txtS" HorizontalAlignment="Left" Height="23" Margin="129,96,0,0" TextWrapping="Wrap" Text="enter start time" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31,159,0,0" TextWrapping="Wrap" Text="End:" VerticalAlignment="Top"/>
+        <TextBox Name="txtE" HorizontalAlignment="Left" Height="23" Margin="129,152,0,0" TextWrapping="Wrap" Text="enter end time" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,216,0,0" TextWrapping="Wrap" Text="Date:" VerticalAlignment="Top" RenderTransformOrigin="0.04,-0.787"/>
+        <TextBox Name="txtD" HorizontalAlignment="Left" Height="23" Margin="129,216,0,0" TextWrapping="Wrap" Text="enter date" VerticalAlignment="Top" Width="120"/>
         <Button Name="btnC"  Content="Create" Click="createAppointment" HorizontalAlignment="Left" Margin="613,355,0,0" VerticalAlignment="Top" Width="75"/>
+        <RadioButton Name="radioRegular" Content="regular" HorizontalAlignment="Left" Margin="193,282,0,0" VerticalAlignment="Top" Checked="radioRegular_Checked" />
+        <RadioButton Name="radioOperation" Content="operation" HorizontalAlignment="Left" Margin="107,282,0,0" VerticalAlignment="Top" Checked="radioOperation_Checked" />
+
+        <ListView  Margin="265,37,25,86" Name="rooms">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="room" Width="150" DisplayMemberBinding="{Binding RoomNumber1}" />
+                    <GridViewColumn Header="type" Width="150" DisplayMemberBinding="{Binding Type1}" />
+                    <GridViewColumn Header="description" Width="150" DisplayMemberBinding="{Binding Status1}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
 
     </Grid>
 </Window>

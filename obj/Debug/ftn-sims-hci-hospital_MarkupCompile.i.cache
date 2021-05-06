@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital-test\obj\Debug\
+C:\Users\Mihajlo\Desktop\University\SIMS\ftn-sims-hci-hospital-master\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Studying\VI Semestar\SIMS\ftn-sims-hci-hospital-test\App.xaml
-181408710019
+C:\Users\Mihajlo\Desktop\University\SIMS\ftn-sims-hci-hospital-master\App.xaml
+461979898475
 
-82-1264780489
+114-357813078
 13-1505183044
-DoctorEPanel.xaml;HolidayRequestCreation.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;MainWindow.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;Secretary.xaml;PatientWindow.xaml;ManagerWindow.xaml;RoomCreation.xaml;RoomUpdate.xaml;
+DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;NotificationBoard.xaml;NotificationCreation.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;UpdateAppointmentPatient.xaml;UpdateNotification.xaml;UrgentAppointmentCreation.xaml;
 
-False
+True
 

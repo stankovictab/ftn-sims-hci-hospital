@@ -10,7 +10,7 @@ namespace ftn_sims_hci_hospital
         public HolidayRequestCreation()
         {
             InitializeComponent();
-            hrfs.HolidayRequestsInFile1 = hrfs.GetAll(); // Kada se otvori prozor ucita se cela lista u ovo lokalno polje hrfs, ovo mora
+            MainWindow.holidayRequestController.GetAll(); // Kada se otvori prozor ucita se cela lista
         }
 
         // Biznis logika za dodavanje u listu, a i u fajl
@@ -35,13 +35,9 @@ namespace ftn_sims_hci_hospital
             dfs.DoctorsInFile1 = dfs.GetAll();
             Classes.Doctor doctor = dfs.GetByID("0501"); // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
 
-            Classes.HolidayRequest hr = new Classes.HolidayRequest(currentID, desc, startDate, endDate, doctor);
-            hrfs.Create(hr); // Da update-uje listu u memoriji
-            hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Da update-uje i sam fajl, preko update-ovane liste u memoriji
+            MainWindow.holidayRequestController.Create(desc, startDate, endDate, doctor); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully created a new holiday request!");
-
-            this.Close();
-            // this.Hide(); ?
+            this.Close(); // this.Hide(); ?
         }
     }
 }

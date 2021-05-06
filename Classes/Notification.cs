@@ -4,36 +4,27 @@ namespace Classes
 {
     public class Notification
     {
-        private String Id;
-        private String Title;
-        private String Body;
-        private DateTime Date;
-        private Boolean Read;
-        private String PatientId;
-        private String DoctorId;
-        public Patient patient;
+        public String Id { get; set; }
+        public String Title { get; set; }
+        public String Body { get; set; }
+        public DateTime Date { get; set; }
+        public Boolean Read { get; set; }
+        public String PatientId { get; set; }
+        public String DoctorId { get; set; }
 
-        public Patient GetPatient()
+        public Notification(string id, string title, string body, DateTime date, bool read, string patientId, string doctorId)
         {
-            return patient;
+            Id = id;
+            Title = title;
+            Body = body;
+            Date = date;
+            Read = read;
+            PatientId = patientId;
+            DoctorId = doctorId;
         }
-
-        public void SetPatient(Patient newPatient)
+        public Notification()
         {
-            if (this.patient != newPatient)
-            {
-                if (this.patient != null)
-                {
-                    Patient oldPatient = this.patient;
-                    this.patient = null;
-                    oldPatient.RemoveNotifications(this);
-                }
-                if (newPatient != null)
-                {
-                    this.patient = newPatient;
-                    this.patient.AddNotifications(this);
-                }
-            }
+
         }
     }
 }

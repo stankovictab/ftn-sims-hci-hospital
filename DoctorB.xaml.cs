@@ -21,6 +21,11 @@ namespace ftn_sims_hci_hospital
             InitializeComponent();
         }
 
+        private void openMedicalRecords(Object sender, RoutedEventArgs e)
+        {
+            MedicalRecords medicalRecords = new MedicalRecords();
+            medicalRecords.Show();
+        }
         private void openAppointmentsList(Object sender, RoutedEventArgs e)
         {
             AppointmentsListDoctorB a = new AppointmentsListDoctorB();

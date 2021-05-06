@@ -5,42 +5,36 @@ namespace Classes
 {
     public class DoctorService
     {
-        public DoctorRepository doctorRepository;
+        public DoctorRepository dr = new DoctorRepository();
 
         public Boolean Create(Doctor d)
         {
-            // TODO: implement
-            return false;
+            return dr.Create(d);
         }
 
         public Doctor GetByID(String id)
         {
-            // TODO: implement
-            return null;
+            return dr.GetByID(id);
         }
 
         public List<Doctor> GetAll()
         {
-            // TODO: implement
-            return null;
+            return dr.GetAll();
         }
 
         public Boolean Update(Doctor d)
         {
-            // TODO: implement
-            return false;
+            return dr.Update(d);
         }
 
-        public Boolean UpdateAll(List<Doctor> doctorsInFile)
+        public Boolean UpdateFile()
         {
-            // TODO: implement
-            return false;
+            return dr.UpdateFile();
         }
 
         public Boolean Delete(String id)
         {
-            // TODO: implement
-            return false;
+            return dr.Delete(id);
         }
     }
 }

@@ -5,42 +5,36 @@ namespace Classes
 {
     public class DoctorController
     {
-        public DoctorService doctorService;
+        public DoctorService ds = new DoctorService();
 
         public Boolean Create(Doctor d)
         {
-            // TODO: implement
-            return false;
+            return ds.Create(d);
         }
 
         public Doctor GetByID(String id)
         {
-            // TODO: implement
-            return null;
+            return ds.GetByID(id);
         }
 
         public List<Doctor> GetAll()
         {
-            // TODO: implement
-            return null;
+            return ds.GetAll();
         }
 
         public Boolean Update(Doctor d)
         {
-            // TODO: implement
-            return false;
+            return ds.Update(d);
         }
 
-        public Boolean UpdateAll(List<Doctor> doctorsInFile)
+        public Boolean UpdateFile()
         {
-            // TODO: implement
-            return false;
+            return ds.UpdateFile();
         }
 
         public Boolean Delete(String id)
         {
-            // TODO: implement
-            return false;
+            return ds.Delete(id);
         }
     }
 }

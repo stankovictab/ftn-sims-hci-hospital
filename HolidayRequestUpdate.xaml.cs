@@ -10,8 +10,8 @@ namespace ftn_sims_hci_hospital
         public HolidayRequestUpdate(string selectedRHID)
         {
             InitializeComponent();
-            hrfs.HolidayRequestsInFile1 = hrfs.GetAll();
-            this.selectedRHID = selectedRHID;
+            MainWindow.holidayRequestController.GetAll();
+            this.selectedHRID = selectedHRID;
         }
 
         private void btnHolidayUpdate_Click(object sender, RoutedEventArgs e)
@@ -21,15 +21,14 @@ namespace ftn_sims_hci_hospital
             DateTime startDate = (DateTime)holidayStartDate.SelectedDate;
             DateTime endDate = (DateTime)holidayEndDate.SelectedDate;
 
-            Classes.DoctorFileStorage dfs = new Classes.DoctorFileStorage();
-            dfs.DoctorsInFile1 = dfs.GetAll();
-            Classes.Doctor doctor = dfs.GetByID("0501"); // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
+            Classes.DoctorController dc = new Classes.DoctorController();
+            dc.GetAll(); // Punjenje liste doktora u memoriji
+            // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
+            Classes.Doctor doctor = dc.GetByID("0501");
 
-            Classes.HolidayRequest hr = new Classes.HolidayRequest(selectedRHID, desc, startDate, endDate, doctor);
-            hrfs.Update(hr); // Da update-uje listu u memoriji
-            hrfs.UpdateAll(hrfs.HolidayRequestsInFile1); // Da update-uje i sam fajl, preko update-ovane liste u memoriji
+            MainWindow.holidayRequestController.Update(selectedHRID, desc, startDate, endDate, doctor); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");
-            this.Close();
+            this.Close(); // this.Hide(); ?
         }
     }
 }

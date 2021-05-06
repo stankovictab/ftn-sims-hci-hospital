@@ -7,14 +7,29 @@
         mc:Ignorable="d"
         Title="CreateAppointment" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="Doc" HorizontalAlignment="Left" Height="23" Margin="448,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <DatePicker x:Name="Dat" HorizontalAlignment="Left" Height="23" Margin="448,192,0,0" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Doctor:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="278,134,0,0" VerticalAlignment="Top"/>
-        <Label Content="Date:&#xD;&#xA;" HorizontalAlignment="Left" Margin="278,197,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Submit" Content="Submit" HorizontalAlignment="Left" Margin="562,309,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="txtStart" HorizontalAlignment="Left" Height="23" Margin="448,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Time:" HorizontalAlignment="Left" Margin="276,246,0,0" VerticalAlignment="Top"/>
 
+        <DatePicker x:Name="startDate" HorizontalAlignment="Left" Height="28" Margin="197,198,0,0" Text="" VerticalAlignment="Top" Width="141"/>
+        <Label Content="Lekar:&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="72,160,0,0" VerticalAlignment="Top" Height="26"/>
+        <Label Content="Početni datum:&#xD;&#xA;&#xA;" HorizontalAlignment="Left" Margin="72,197,0,0" VerticalAlignment="Top" Height="29"/>
+        <Button x:Name="Submit" Content="Potvrdi zakazivanje" HorizontalAlignment="Left" Margin="562,309,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click"/>
+        <Label Content="Kranji datum:" HorizontalAlignment="Left" Margin="72,231,0,0" VerticalAlignment="Top"/>
+        <Label Content="Prioritet:" HorizontalAlignment="Left" Margin="72,269,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="endDate" HorizontalAlignment="Left" Margin="197,232,0,0" VerticalAlignment="Top" Width="141" Height="28"/>
+        <ComboBox x:Name="doctorCombo" HorizontalAlignment="Left" Margin="197,161,0,0" VerticalAlignment="Top" Width="141">
+            <ComboBoxItem >0501</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">6331</ComboBoxItem>
+        </ComboBox>
+        <RadioButton x:Name="doctorRadio" Content="Lekar" HorizontalAlignment="Left" Margin="197,275,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="dateRadio" Content="Datum" HorizontalAlignment="Left" Margin="273,275,0,0" VerticalAlignment="Top"/>
+        <Button Content="Prikaži slobodne termine" HorizontalAlignment="Left" Margin="136,314,0,0" VerticalAlignment="Top" Width="159" Click="showAvailableAppointments"/>
 
+        <ListView Margin="479,136,74.6,160" Name="availableAppointments">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Lekar" Width="100" DisplayMemberBinding="{Binding doctor.user.Jmbg1}" />
+                    <GridViewColumn Header="Datum" Width="100" DisplayMemberBinding="{Binding StartTime}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

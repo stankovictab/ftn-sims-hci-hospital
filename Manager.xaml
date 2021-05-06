@@ -1,0 +1,18 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.Manager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="Manager" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="_static" Content="Static Equipment Storage" HorizontalAlignment="Left" Margin="307,72,0,0" VerticalAlignment="Top" Click="_static_Click"/>
+        <Button x:Name="dynamic" Content="Dynamic Equipment Storage" HorizontalAlignment="Left" Margin="549,72,0,0" VerticalAlignment="Top" Click="dynamic_Click"/>
+        <Button x:Name="rooms" Content="Rooms" HorizontalAlignment="Left" Margin="122,72,0,0" VerticalAlignment="Top" Click="rooms_Click"/>
+        <Button x:Name="staticMove" Content="Moving Schedule" HorizontalAlignment="Left" Margin="307,113,0,0" VerticalAlignment="Top" Click="staticMove_Click" Width="137"/>
+        <Button x:Name="btnHolidayRequestApproval" Content="Holiday Request Approval" HorizontalAlignment="Left" Margin="32,272,0,0" VerticalAlignment="Top" Width="165" Height="20" Click="btnHolidayRequestApproval_Click"/>
+        <Button x:Name="btnDynamicEquipmentRequestApproval" Content="Dynamic Equipment Request Approval" HorizontalAlignment="Left" Margin="8,317,0,0" VerticalAlignment="Top" Width="214" Height="20" Click="btnDynamicEquipmentRequestApproval_Click"/>
+
+    </Grid>
+</Window>
