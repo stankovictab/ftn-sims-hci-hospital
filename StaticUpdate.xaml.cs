@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for StaticUpdate.xaml
@@ -23,7 +23,7 @@ namespace ManagerKT3
         public StaticUpdate(String id)
         {
             InitializeComponent();
-            equipmentController.equipmentService.staticEquipmentRepository.StaticInFile = equipmentController.GetAllStatic();
+            equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment = equipmentController.GetAllStatic();
             toUpdate = equipmentController.GetStaticById(id);
             staticId.Text = toUpdate.statId.ToString();
             staticName.Text = toUpdate.statName;
@@ -36,7 +36,7 @@ namespace ManagerKT3
 
             StaticEquipment staticc = new StaticEquipment(id, name, toUpdate.statLocation);
             _ = equipmentController.UpdateStatic(staticc);
-            equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.StaticInFile);
+            equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment);
             this.Close();
         }
     }

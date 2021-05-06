@@ -1,21 +1,28 @@
-/***********************************************************************
- * Module:  Appointment.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Appointment
- ***********************************************************************/
-
 using System;
-
 namespace Classes
 {
     public class Appointment
     {
+        public String AppointmentID { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public AppointmentType Type { get; set; }
+        public Room Room { get; set; }
+        public Boolean StatusFinished { get; set; }
         public Doctor doctor { get; set; }
         public Patient patient { get; set; }
-      public String AppointmentID { get; set; }
-      public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        private AppointmentType Type;
+
+        public Appointment(String id, String doctorId, String patientId, DateTime start, AppointmentType type, String roomId)
+        {
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = new DateTime(start.Year, start.Month, start.Day, start.Hour + 1, start.Minute, start.Second);
+            this.Type = type;
+            //this.Room = new(roomId);
+            this.StatusFinished = false;
+        }
 
         public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
         {
@@ -25,66 +32,14 @@ namespace Classes
             StartTime = start;
             EndTime = end;
         }
-        public Appointment(String id,DateTime start,DateTime end)
+        public Appointment()
+        { }
+
+        public Appointment(String id, DateTime start, DateTime end)
         {
             AppointmentID = id;
             StartTime = start;
             EndTime = end;
         }
-
-        /// <pdGenerated>default parent getter</pdGenerated>
-        public Doctor GetDoctor()
-      {
-         return doctor;
-      }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newDoctor</param>
-      public void SetDoctor(Doctor newDoctor)
-      {
-         if (this.doctor != newDoctor)
-         {
-            if (this.doctor != null)
-            {
-               Doctor oldDoctor = this.doctor;
-               this.doctor = null;
-               oldDoctor.RemoveAppointments(this);
-            }
-            if (newDoctor != null)
-            {
-               this.doctor = newDoctor;
-               this.doctor.AddAppointments(this);
-            }
-         }
-      }
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Patient GetPatient()
-      {
-         return patient;
-      }
-
-
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newPatient</param>
-        public void SetPatient(Patient newPatient)
-        {
-            if (this.patient != newPatient)
-            {
-                if (this.patient != null)
-                {
-                    Patient oldPatient = this.patient;
-                    this.patient = null;
-                    oldPatient.RemoveAppointments(this);
-                }
-                if (newPatient != null)
-                {
-                    this.patient = newPatient;
-                    this.patient.AddAppointments(this);
-                }
-            }
-        }
-
-
     }
 }

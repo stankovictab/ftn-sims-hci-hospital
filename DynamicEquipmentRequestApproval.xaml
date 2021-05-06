@@ -1,0 +1,27 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.DynamicEquipmentRequestApproval"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="DynamicEquipmentRequestApproval" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btnApproveRequest" Content="Approve Request" HorizontalAlignment="Left" Margin="254,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnApproveRequest_Click"/>
+        <Button x:Name="btnDenyRequest" Content="Deny Request" HorizontalAlignment="Left" Margin="428,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnDenyRequest_Click"/>
+        <Label Content="Manager's Dynamic Equipment Request Approval Panel" HorizontalAlignment="Center" Margin="67,27,0,0" VerticalAlignment="Top" FontSize="24" Width="659"/>
+        <Button x:Name="btnShowRequests" Content="Show Requests" HorizontalAlignment="Left" Margin="15,188,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnShowRequests_Click"/>
+        <ListView x:Name="dynamicEquipmentRequestListView" HorizontalAlignment="Left" Height="218" Margin="169,86,0,0" VerticalAlignment="Top" Width="472" SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
+                    <GridViewColumn Header="Equipment Name" DisplayMemberBinding="{Binding EquipmentName1}"/>
+                    <GridViewColumn Header="Request Date" DisplayMemberBinding="{Binding RequestDate1}"/>
+                    <GridViewColumn Header="Doctor" DisplayMemberBinding="{Binding DoctorFullName1}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="All shown requests are on hold." HorizontalAlignment="Left" Margin="467,304,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

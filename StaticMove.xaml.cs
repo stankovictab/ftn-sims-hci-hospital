@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for StaticMove.xaml
@@ -54,7 +54,7 @@ namespace ManagerKT3
         private void createEnschedulement_Click(object sender, RoutedEventArgs e)
         {
             //id je hard code-ovan
-            enschedulementController.enschedulementService.enschedulementRepository.EnschedulementsInFile = enschedulementController.GetAll();
+            enschedulementController.enschedulementService.enschedulementRepository.Enschedulements = enschedulementController.GetAll();
             Room fromRoom = new Room();
             fromRoom = roomController.GetById(fromRoomCombo.SelectedItem.ToString());
             Room toRoom = new Room();

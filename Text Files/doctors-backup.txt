@@ -1,0 +1,6 @@
+// This is a backup file in case the contents of the source file get deleted
+// id,name,lastname,roomnumber,specialization,appointmentarray,holidayrequestarray,dynamicequipmentrequestarray,notifications
+
+0501,Djordje,Stankovic,1A,0,[1;2],[1;3],[1],[]
+7601,Stevica,Stevkic,1B,0,[3;4],[2],[2],[]
+6331,Mikica,Mikic,1C,0,[5],[4],[],[]

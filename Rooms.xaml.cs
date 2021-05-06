@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for Rooms.xaml
@@ -33,15 +33,12 @@ namespace ManagerKT3
 
         private void viewrooms_Click(object sender, RoutedEventArgs e)
         {
-
-
-            storage.AccessRoomsInFile = storage.GetAll();
+            storage.Rooms = storage.GetAll();
             roomDataList.Items.Clear();
             foreach (Room r in storage.AccessRoomsInFile)
             {
                 roomDataList.Items.Add(new { RoomNumber = r.RoomNumber, FloorNumber = r.FloorNumber, Description = r.Description, Type = r.Type, Status = r.Status });
             }
-
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)
@@ -54,7 +51,7 @@ namespace ManagerKT3
                     string[] parts2 = parts[0].Split(' ');
                     String toDelete = parts2[3];
                     storage.Delete(toDelete);
-                    storage.UpdateAll(storage.AccessRoomsInFile);
+                    storage.UpdateFile(storage.AccessRoomsInFile);
                     viewrooms.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }

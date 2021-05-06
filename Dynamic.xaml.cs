@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for Dynamic.xaml
@@ -39,7 +39,7 @@ namespace ManagerKT3
             dynamicDataList.Items.Clear();
             foreach (DynamicEquipment d in allDynamic)
             {
-                dynamicDataList.Items.Add(new { dynamicId = d.dynamicId, dynamicName = d.dynamicName, dynamicAmount = d.dynamicAmount });
+                dynamicDataList.Items.Add(new { dynamicId = d.Id, dynamicName = d.Name, dynamicAmount = d.Amount });
             }
 
             List<DynamicAssignment> allAssignments = new List<DynamicAssignment>();
@@ -47,7 +47,7 @@ namespace ManagerKT3
             dynamicDataListUsed.Items.Clear();
             foreach (DynamicAssignment a in allAssignments)
             {
-                dynamicDataListUsed.Items.Add(new { dynamicNameUsed = a.EquipmentAssigned.dynamicName, dynamicAmountUsed = a.AmountAssigned});
+                dynamicDataListUsed.Items.Add(new { dynamicNameUsed = a.EquipmentAssigned.Name, dynamicAmountUsed = a.AmountAssigned});
             }
         }
 
@@ -77,7 +77,7 @@ namespace ManagerKT3
                     string[] parts2 = parts[0].Split(' ');
                     String toDelete = parts2[3];
                     _ = equipmentController.DeleteDynamic(toDelete);
-                    equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile);
+                    equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.DynamicEquipment);
                     viewDynamic.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }

@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for DynamicUpdate.xaml
@@ -24,11 +24,11 @@ namespace ManagerKT3
         public DynamicUpdate(String id)
         {
             InitializeComponent();
-            equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile = equipmentController.GetAllDynamic();
+            equipmentController.equipmentService.dynamicEquipmentRepository.DynamicEquipment = equipmentController.GetAllDynamic();
             toUpdate = equipmentController.GetDynamicById(id);
-            dynamicId.Text = toUpdate.dynamicId.ToString();
-            dynamicName.Text = toUpdate.dynamicName;
-            dynamicAmount.Text = toUpdate.dynamicAmount;
+            dynamicId.Text = toUpdate.Id.ToString();
+            dynamicName.Text = toUpdate.Name;
+            dynamicAmount.Text = toUpdate.Amount;
         }
 
         private void dynamicUpdate_Click(object sender, RoutedEventArgs e)
@@ -39,7 +39,7 @@ namespace ManagerKT3
 
             DynamicEquipment dynamic = new DynamicEquipment(id, name, amount);
             _ = equipmentController.UpdateDynamic(dynamic);
-            equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile);
+            equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.DynamicEquipment);
             this.Close();
         }
     }

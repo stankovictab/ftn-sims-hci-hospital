@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for StaticCreation.xaml
@@ -33,7 +33,7 @@ namespace ManagerKT3
 
         private void staticAdd_Click(object sender, RoutedEventArgs e)
         {
-            equipmentController.equipmentService.staticEquipmentRepository.StaticInFile = equipmentController.GetAllStatic();
+            equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment = equipmentController.GetAllStatic();
             StaticEquipment newStatic = new StaticEquipment(Convert.ToInt32(staticId.Text), staticName.Text, staticLocation.SelectedItem.ToString());
             _ = equipmentController.AddStatic(newStatic);
             this.Hide();

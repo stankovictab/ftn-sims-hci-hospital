@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for DynamicUse.xaml
@@ -26,13 +26,13 @@ namespace ManagerKT3
         {
             InitializeComponent();
             toAssign = equipmentController.GetDynamicById(id);
-            availableTextbox.Text = toAssign.dynamicAmount;
+            availableTextbox.Text = toAssign.Amount;
         }
 
         private void outOfStorage_Click(object sender, RoutedEventArgs e)
         {
             var amount = Convert.ToInt32(amountTextbox.Text);
-            bool success = assignmentController.CreateAssignment(amount, toAssign);
+            bool success = assignmentController.Create(amount, toAssign);
             if (!success)
                 MessageBox.Show("Nedovoljna kolicina u magacinu.");
             this.Close();

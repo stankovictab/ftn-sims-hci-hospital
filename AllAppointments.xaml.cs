@@ -17,33 +17,44 @@ namespace ftn_sims_hci_hospital
 {
     public partial class AllAppointments : Window
     {
-        private AppointmentFileStorage afs;
+        private AppointmentController appointmentController;
         private String patientName;
         public AllAppointments()
         {
             InitializeComponent();
-            patientName = "Pavle";
-            afs = new AppointmentFileStorage();
-            List<Appointment> appoinments = afs.GetAllByPatientID(patientName);
+            appointmentController = new AppointmentController();
+            List<Appointment> appoinments = appointmentController.GetAllByPatientId(PatientWindow.user.Jmbg1);
             lvUsers.ItemsSource = appoinments;
         }
 
         private void submitDeletion(object sender, RoutedEventArgs e)
         {
-            String id = Deletion.Text;
-            if (!afs.Delete(id))
-            {
-                MessageBox.Show("Id doesn't exist");
-            }
-            else
-            {
-                MessageBox.Show("Successfully deleted");
-            }
+            Appointment selected = (Appointment)(lvUsers.SelectedItem);
+            String id = selected.AppointmentID;
+            appointmentController.DeleteAppointment(id);
         }
 
         private void submitUpdate(object sender, RoutedEventArgs e)
         {
-            string id = UpdateID.Text;
+            String id;
+            DateTime oldDate;
+            Appointment appointment = (Appointment)lvUsers.SelectedItem;
+            id = appointment.AppointmentID;
+            oldDate = appointment.StartTime;
+            var dani = (oldDate - DateTime.Now).Days;
+
+            //DateTime currentDate = DateTime.Now;
+            if ((oldDate - DateTime.Now).Days <= 1)
+            {
+                MessageBox.Show("Ne mozete da pomerate datum ako je ostalo manje od 24h do pregleda");
+            }
+            else
+            {
+                UpdateAppointmentPatient uap = new UpdateAppointmentPatient(id, oldDate);
+                uap.Show();
+            }
+
+            /*string id = UpdateID.Text;
             string doc = UpdateDoc.Text;
             string[] startTime = UpdateTime.Text.Split(':');
             string[] date = UpdateDate.Text.Split('.');
@@ -53,15 +64,14 @@ namespace ftn_sims_hci_hospital
             DateTime start = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(startTime[0]), int.Parse(startTime[1]), int.Parse(startTime[2]));
             DateTime end = new DateTime(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]), int.Parse(endTime[0]), int.Parse(endTime[1]), int.Parse(endTime[2]));
             Appointment ap = new Appointment(id, doc, patientName, start, end);
-            if (!afs.Update(ap))
+            if (!afs.UpdateAppointment(ap))
             {
                 MessageBox.Show("Id doesn't exist");
             }
             else
             {
                 MessageBox.Show("Successfully updated");
-            }
+            }*/
         }
-
     }
 }

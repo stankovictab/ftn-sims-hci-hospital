@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for Static.xaml
@@ -67,7 +67,7 @@ namespace ManagerKT3
                     string[] parts2 = parts[0].Split(' ');
                     String toDelete = parts2[3];
                     _ = equipmentController.DeleteStatic(toDelete);
-                    equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.StaticInFile);
+                    equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment);
                     viewStat.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }

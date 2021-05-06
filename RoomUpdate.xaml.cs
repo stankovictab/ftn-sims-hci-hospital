@@ -1,10 +1,10 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for RoomUpdate.xaml
@@ -13,11 +13,11 @@ namespace ManagerKT3
     {
         public Room toUpdate = new Room();
         public static RoomRepository storage = new RoomRepository();
-        public RoomUpdate(String id)
+        public RoomUpdate(String roomNumber)
         {
             InitializeComponent();
             storage.AccessRoomsInFile = storage.GetAll();
-            toUpdate = storage.GetById(id);
+            toUpdate = storage.GetByNumber(roomNumber);
             numberTextbox.Text = toUpdate.RoomNumber;
             floorTextbox.Text = toUpdate.FloorNumber.ToString();
             descriptionTextbox.Text = toUpdate.Description;
@@ -65,7 +65,7 @@ namespace ManagerKT3
 
             Room room = new Room(number, floor, description, newType, newStatus);
             storage.Update(room);
-            storage.UpdateAll(storage.AccessRoomsInFile);
+            storage.UpdateFile(storage.AccessRoomsInFile);
             this.Close();
         }
 

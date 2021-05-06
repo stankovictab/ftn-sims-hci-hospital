@@ -1,4 +1,4 @@
-﻿using Manager;
+﻿using Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ManagerKT3
+namespace ftn_sims_hci_hospital
 {
     /// <summary>
     /// Interaction logic for DynamicCreation.xaml
@@ -29,7 +29,7 @@ namespace ManagerKT3
 
         private void dynamicAdd_Click(object sender, RoutedEventArgs e)
         {
-            equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile = equipmentController.GetAllDynamic();
+            equipmentController.equipmentService.dynamicEquipmentRepository.DynamicEquipment = equipmentController.GetAllDynamic();
             DynamicEquipment newDynamic = new DynamicEquipment(Convert.ToInt32(dynamicId.Text), dynamicName.Text, dynamicAmount.Text);
             _ = equipmentController.AddDynamic(newDynamic);
             this.Hide();
