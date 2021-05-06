@@ -29,7 +29,21 @@ namespace ftn_sims_hci_hospital
             tbbloodtype.Text = "A+";
             tbgender.Text = currentPatient.user.Gender1.ToString();
             tballergies.Text = "";
-            foreach(Allergy allergy in currentPatient.medicalRecord.allergies)
+            List<PatientAllergy> patientAllergies = new List<PatientAllergy>();
+            patientAllergies = MainWindow.patientController.patientService.PatientallergyRepository.GetAllByPatientID(currentPatient.user.Jmbg1);
+            List<Allergy> allergies = new List<Allergy>();
+            allergies = MainWindow.patientController.patientService.allergiesRepository.GetAll();
+            foreach (PatientAllergy patientAllergy in patientAllergies)
+            {
+                foreach (Allergy allergy in allergies)
+                {
+                    if (patientAllergy.allergyID == allergy.Id1)
+                    {
+                        currentPatient.medicalRecord.allergies.Add(allergy);
+                    }
+                }
+            }
+            foreach (Allergy allergy in currentPatient.medicalRecord.allergies)
             {
                 if (tballergies.Text != "")
                     tballergies.Text += "," + allergy.Name1;

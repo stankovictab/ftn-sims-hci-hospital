@@ -88,7 +88,7 @@ namespace Classes
                     requests.Add(req);
                 }
             }
-            if (flag == 1) return null;
+            if (flag == 0) return null;
             return requests;
         }
 
@@ -123,9 +123,8 @@ namespace Classes
                     UpdateFile(); // Update fajla
                     return true;
                 }
-                else throw new Exception("Zahtev je vec odobren ili odbijen!");
             }
-            return false;
+            throw new Exception("Zahtev je vec odobren ili odbijen!");
         }
 
         // Lista u memoriji se upisuje u fajl
@@ -154,7 +153,7 @@ namespace Classes
         // Brisanje i iz liste u memoriji, i iz fajla
         public Boolean Delete(String id)
         {
-            GetAll();
+            GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
             {
                 if (hr.RequestID1.Equals(id))
@@ -169,7 +168,7 @@ namespace Classes
 
         public Boolean Approve(String id)
         {
-            GetAll();
+            GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
             {
                 if (hr.RequestID1.Equals(id))
@@ -184,7 +183,7 @@ namespace Classes
 
         public Boolean Deny(String id)
         {
-            GetAll();
+            GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
             {
                 if (hr.RequestID1.Equals(id))

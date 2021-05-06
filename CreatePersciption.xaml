@@ -1,0 +1,14 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.CreatePersciption"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="CreatePersciption" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="57,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="13" Width="57"><Run Text="persciption: "/><LineBreak/><Run/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="119,43,0,0" TextWrapping="Wrap" Text="enter persciption" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

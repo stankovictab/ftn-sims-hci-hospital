@@ -39,13 +39,13 @@ namespace ftn_sims_hci_hospital
                 DateTime dt = (DateTime)dpdate.SelectedDate;
                 DateTime beginDt = new DateTime(dt.Year, dt.Month, dt.Day, currentAppointment.StartTime.Hour, currentAppointment.StartTime.Minute, currentAppointment.StartTime.Second);
                 DateTime endDt= new DateTime(dt.Year, dt.Month, dt.Day, currentAppointment.StartTime.Hour+1, currentAppointment.StartTime.Minute, currentAppointment.StartTime.Second);
-                Doctor d = MainWindow.doctorController.doctorService.doctorRepository.GetByID(currentAppointment.doctor.user.Jmbg1);
+                Doctor d = MainWindow.doctorController.ds.dr.GetByID(currentAppointment.doctor.user.Jmbg1);
                 Patient p = MainWindow.patientController.GetByID(currentAppointment.patient.user.Jmbg1);
-                d.Notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(currentAppointment.doctor.user.Jmbg1);
+                d.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(currentAppointment.doctor.user.Jmbg1);
                 p.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByPatientID(currentAppointment.patient.user.Jmbg1);
                 String id = (MainWindow.notificationController.notificationService.notificationRepository.GetAll().Count() + 1).ToString();
                 Notification notification = new Notification(id, "Alert", "Your appointment on  " + currentAppointment.StartTime.ToString() + " has been moved to "+ beginDt.ToString() + "!", DateTime.Now, false, currentAppointment.patient.user.Jmbg1, currentAppointment.doctor.user.Jmbg1);
-                d.Notifications.Add(notification);
+                d.notifications.Add(notification);
                 p.notifications.Add(notification);
                 MainWindow.notificationController.notificationService.notificationRepository.Create(notification);
                 MessageBox.Show("You have successfuly updated an appointment and all relevant parties have been notified!");

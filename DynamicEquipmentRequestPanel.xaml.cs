@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using Classes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -22,10 +21,10 @@ namespace ftn_sims_hci_hospital
         {
             MainWindow.dynamicEquipmentRequestController.GetAll();
             string equipmentName = dynamicEquipmentTextBox.Text;
-            DoctorController dc = new DoctorController();
+            Classes.DoctorController dc = new Classes.DoctorController();
             dc.GetAll(); // Punjenje liste doktora u memoriji
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            Doctor doctor = dc.GetByID("0501");
+            Classes.Doctor doctor = dc.GetByID("0501");
             MainWindow.dynamicEquipmentRequestController.Create(equipmentName, doctor); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully created a new holiday request!");
 
@@ -38,9 +37,9 @@ namespace ftn_sims_hci_hospital
             // TODO: Doctor ID ce se dobiti pri logovanju, pa ce se proslediti u ovaj GetAllByDoctorID()
             // Za sad zamisli da je ulogovan lekar sa ID 0501
             // Takodje moze i da se napravi labela na prozoru da pokazuje koji je doktor ulogovan, ali to je HCI prica
-            List<DynamicEquipmentRequest> list = MainWindow.dynamicEquipmentRequestController.GetAllByDoctorID("0501"); // Dobavlja prvo iz fajla pa iz liste
+            List<Classes.DynamicEquipmentRequest> list = MainWindow.dynamicEquipmentRequestController.GetAllByDoctorID("0501"); // Dobavlja prvo iz fajla pa iz liste
             dynamicEquipmentRequestListView.Items.Clear();
-            foreach (DynamicEquipmentRequest req in list)
+            foreach (Classes.DynamicEquipmentRequest req in list)
             {
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
                 dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Status1 = req.Status1 });
@@ -68,10 +67,10 @@ namespace ftn_sims_hci_hospital
         {
             MainWindow.dynamicEquipmentRequestController.GetAll();
             string equipmentName = dynamicEquipmentTextBox.Text;
-            DoctorController dc = new DoctorController();
+            Classes.DoctorController dc = new Classes.DoctorController();
             dc.GetAll(); // Punjenje liste doktora u memoriji
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            Doctor doctor = dc.GetByID("0501");
+            Classes.Doctor doctor = dc.GetByID("0501");
             MainWindow.dynamicEquipmentRequestController.Update(selectedDERID, equipmentName, doctor); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");
 

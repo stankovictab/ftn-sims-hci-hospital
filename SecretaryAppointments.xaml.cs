@@ -38,7 +38,7 @@ namespace ftn_sims_hci_hospital
                 Patient p = new Patient();
                 p=MainWindow.patientController.GetByID(appointment.patient.user.Jmbg1);
                 Doctor d = new Doctor();
-                d = MainWindow.doctorController.doctorService.doctorRepository.GetByID(appointment.doctor.user.Jmbg1);
+                d = MainWindow.doctorController.ds.dr.GetByID(appointment.doctor.user.Jmbg1);
                 allAppointments.Items.Add(new Appointment { AppointmentID=appointment.AppointmentID,doctor = d,patient=p,StartTime=appointment.StartTime });
             }
         }
@@ -69,6 +69,12 @@ namespace ftn_sims_hci_hospital
                     break;
                 case 3:
                     break;
+                case 4:
+                    Window notifications= new NotificationBoard();
+                    this.Hide();
+                    notifications.ShowDialog();
+                    this.Close();
+                    break;
 
 
             }
@@ -82,13 +88,13 @@ namespace ftn_sims_hci_hospital
                 {
                     Appointment appointment = (Appointment)allAppointments.SelectedItem;
                     MainWindow.appointmentController.appointmentService.appointmentRepository.Delete(appointment.AppointmentID);
-                    Doctor d = MainWindow.doctorController.doctorService.doctorRepository.GetByID(appointment.doctor.user.Jmbg1);
+                    Doctor d = MainWindow.doctorController.ds.dr.GetByID(appointment.doctor.user.Jmbg1);
                     Patient p = MainWindow.patientController.GetByID(appointment.patient.user.Jmbg1);
-                    d.Notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(appointment.doctor.user.Jmbg1);
+                    d.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(appointment.doctor.user.Jmbg1);
                     p.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByPatientID(appointment.patient.user.Jmbg1);
                     String id = (MainWindow.notificationController.notificationService.notificationRepository.GetAll().Count() + 1).ToString();
                     Notification notification = new Notification(id, "Alert", "Your appointment on  " + appointment.StartTime.ToString() + " has been canceled!", DateTime.Now, false, appointment.patient.user.Jmbg1, appointment.doctor.user.Jmbg1);
-                    d.Notifications.Add(notification);
+                    d.notifications.Add(notification);
                     p.notifications.Add(notification);
                     MainWindow.notificationController.notificationService.notificationRepository.Create(notification);
                     MessageBox.Show("You have successfuly canceled an appointment and all relevant parties have been notified!");
@@ -100,7 +106,7 @@ namespace ftn_sims_hci_hospital
                         Patient patient = new Patient();
                         patient = MainWindow.patientController.GetByID(app.patient.user.Jmbg1);
                         Doctor doctor = new Doctor();
-                        doctor = MainWindow.doctorController.doctorService.doctorRepository.GetByID(app.doctor.user.Jmbg1);
+                        doctor = MainWindow.doctorController.GetByID(app.doctor.user.Jmbg1);
                         allAppointments.Items.Add(new Appointment { AppointmentID = app.AppointmentID, doctor = doctor, patient = patient, StartTime = app.StartTime });
                     }
                 }
@@ -119,7 +125,7 @@ namespace ftn_sims_hci_hospital
                 Patient p = new Patient();
                 p = MainWindow.patientController.GetByID(app.patient.user.Jmbg1);
                 Doctor d = new Doctor();
-                d = MainWindow.doctorController.doctorService.doctorRepository.GetByID(app.doctor.user.Jmbg1);
+                d = MainWindow.doctorController.GetByID(app.doctor.user.Jmbg1);
                 allAppointments.Items.Add(new Appointment { AppointmentID = app.AppointmentID, doctor = d, patient = p, StartTime = app.StartTime });
             }
         }
@@ -139,9 +145,26 @@ namespace ftn_sims_hci_hospital
                     Patient p = new Patient();
                     p = MainWindow.patientController.GetByID(app.patient.user.Jmbg1);
                     Doctor d = new Doctor();
-                    d = MainWindow.doctorController.doctorService.doctorRepository.GetByID(app.doctor.user.Jmbg1);
+                    d = MainWindow.doctorController.GetByID(app.doctor.user.Jmbg1);
                     allAppointments.Items.Add(new Appointment { AppointmentID = app.AppointmentID, doctor = d, patient = p, StartTime = app.StartTime });
                 }
+            }
+        }
+
+        private void btnurgentappointment_Click(object sender, RoutedEventArgs e)
+        {
+            Window urgentAppointmentCreation = new UrgentAppointmentCreation();
+            urgentAppointmentCreation.ShowDialog();
+            allAppointments.Items.Clear();
+            List<Appointment> appointments = new List<Appointment>();
+            appointments = MainWindow.appointmentController.appointmentService.appointmentRepository.GetAll();
+            foreach (Appointment app in appointments)
+            {
+                Patient p = new Patient();
+                p = MainWindow.patientController.GetByID(app.patient.user.Jmbg1);
+                Doctor d = new Doctor();
+                d = MainWindow.doctorController.GetByID(app.doctor.user.Jmbg1);
+                allAppointments.Items.Add(new Appointment { AppointmentID = app.AppointmentID, doctor = d, patient = p, StartTime = app.StartTime });
             }
         }
     }

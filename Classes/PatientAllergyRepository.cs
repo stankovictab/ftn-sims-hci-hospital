@@ -49,6 +49,8 @@ namespace Classes
             List<PatientAllergy> patientallergies = new List<PatientAllergy>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
+            if (text == null || text == "")
+                return new List<PatientAllergy>();
             while (text != null && text != "\n")
             {
                 string[] components = text.Split(',');

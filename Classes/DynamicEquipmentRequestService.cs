@@ -13,9 +13,9 @@ namespace Classes
             List<DynamicEquipment> temp = der.GetAll();
             foreach (DynamicEquipment eq in temp)
             {
-                if (eq.NameDyn1.Equals(equipmentName))
+                if (eq.dynamicName.Equals(equipmentName))
                 {
-                    return eq.AmountDyn1;
+                    return Convert.ToInt32(eq.dynamicAmount);
                 }
             }
             return 0;

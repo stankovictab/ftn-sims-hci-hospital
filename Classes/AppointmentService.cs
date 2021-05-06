@@ -1,11 +1,13 @@
+using ftn_sims_hci_hospital;
 using System;
 using System.Collections.Generic;
+
 
 namespace Classes
 {
     public class AppointmentService
     {
-        public AppointmentRepository appointmentRepository=new AppointmentRepository();
+        public AppointmentRepository appointmentRepository = new AppointmentRepository();
         public DoctorRepository doctorRepository;
         public PatientRepository patientRepository;
         public RoomRepository roomRepository;
@@ -55,10 +57,25 @@ namespace Classes
                     zauzeti.Clear();
                 }
             }
-
+            int day;
             if (priority == Priority.Doctor)
             {
-                slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year, endTime.Month, endTime.Day + 7));
+                if (startTime.Day + 2 > DateTime.DaysInMonth(startTime.Year, startTime.Month))
+                {
+                    day = startTime.Day + 2 - DateTime.DaysInMonth(startTime.Year, startTime.Month);
+                    if (startTime.Month == 12)
+                    {
+                        slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year + 1, endTime.Month + 1, day));
+                    }
+                    else
+                    {
+                        slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year, endTime.Month + 1, day));
+                    }
+                }
+                else
+                {
+                    slots = GeneratePossibleSlots(startTime, new DateTime(endTime.Year, endTime.Month, endTime.Day+2));
+                }
                 available(filteredAppointments, slots, appointments, doctorId);
             }
 
@@ -90,12 +107,31 @@ namespace Classes
         {
             List<Appointment> possibleSlots = new List<Appointment>();
             var interval = endTime - startTime;
-            for (int i = 0; i < interval.Days; i++)
+            for (int i = 0; i <= interval.Days; i++)
             {
                 for (int j = 0; j < 12; j++)
                 {
-                    DateTime begin = new DateTime(startTime.Year, startTime.Month, startTime.Day + i, startTime.Hour + 8 + j, startTime.Minute, startTime.Second);
-                    DateTime end = new DateTime(startTime.Year, startTime.Month, startTime.Day + i, startTime.Hour + 8 + j + 1, startTime.Minute, startTime.Second);
+                    DateTime begin=new DateTime();
+                    DateTime end= new DateTime();
+                    if (startTime.Day + i > DateTime.DaysInMonth(startTime.Year, startTime.Month))
+                    {
+                        int day = startTime.Day + i - DateTime.DaysInMonth(startTime.Year, startTime.Month);
+                        if (startTime.Month == 12)
+                        {
+                            begin = new DateTime(startTime.Year + 1, 1, day, startTime.Hour + 8 + j, startTime.Minute, startTime.Second);
+                            end = new DateTime(startTime.Year + 1, 1, day, startTime.Hour + 8 + j + 1, startTime.Minute, startTime.Second);
+                        }
+                        else
+                        {
+                            begin = new DateTime(startTime.Year, startTime.Month + 1, day, startTime.Hour + 8 + j, startTime.Minute, startTime.Second);
+                            end = new DateTime(startTime.Year, startTime.Month + 1, day, startTime.Hour + 8 + j + 1, startTime.Minute, startTime.Second);
+                        }
+                    }
+                    else
+                    {
+                        begin = new DateTime(startTime.Year, startTime.Month, startTime.Day + i, startTime.Hour + 8 + j, startTime.Minute, startTime.Second);
+                        end = new DateTime(startTime.Year, startTime.Month, startTime.Day + i, startTime.Hour + 8 + j + 1, startTime.Minute, startTime.Second);
+                    }
                     Appointment a = new Appointment("1", "", "", begin, end);
                     possibleSlots.Add(a);
                 }
@@ -103,10 +139,24 @@ namespace Classes
             return possibleSlots;
         }
 
-        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, int type, String roomId)
+        public Boolean CreateAppointment(String doctorId, String patientId, DateTime startTime, DateTime endTime, int type, String roomId)
         {
-            // TODO: implement
-            return false;
+            if (MainWindow.user.Role1 == Roles.Patient)
+            {
+                List<Appointment> appointments = appointmentRepository.GetAll();
+                int newId = int.Parse(appointments[appointments.Count - 1].AppointmentID);
+                newId++;
+                appointmentRepository.Create(new Appointment((newId).ToString(), doctorId, patientId, startTime, endTime, roomId));
+                return true;
+            }
+            else
+            {
+                Random random = new Random();
+                Appointment app = new Appointment(random.Next(1, 1000).ToString(), doctorId, patientId, startTime, endTime, roomId);
+                app.Type = (AppointmentType)type;
+                appointmentRepository.Create(app);
+                return true;
+            }
         }
 
         public List<String> ShowAvailableAppointmentsUpdate(String appointmentId, DateTime newDate)
@@ -115,11 +165,13 @@ namespace Classes
             return null;
         }
 
-        public Boolean UpdateAppointment(String appointmentId, DateTime startTime, DateTime endTime, String roomId)
+        public Boolean UpdateAppointment(String appointmentId, DateTime startTime, DateTime endTime, String roomId, int type)
         {
             Appointment appointment = appointmentRepository.GetByID(appointmentId);
             appointment.StartTime = startTime;
             appointment.EndTime = endTime;
+            appointment.Room.RoomNumber1 = roomId;
+            appointment.Type = (AppointmentType)type;
             appointmentRepository.Update(appointment);
             return true;
         }
@@ -144,8 +196,7 @@ namespace Classes
 
         public List<Appointment> GetAllByDoctorId(String doctorId)
         {
-            // TODO: implement
-            return null;
+            return appointmentRepository.GetAllByDoctorID(doctorId);
         }
 
         public Boolean AreDatesValid(DateTime start, DateTime end)

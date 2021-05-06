@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,9 @@ namespace ftn_sims_hci_hospital
 {
     public partial class PatientWindow : Window
     {
+
+        public static User user;
+
         public PatientWindow()
         {
             InitializeComponent();
@@ -24,6 +28,7 @@ namespace ftn_sims_hci_hospital
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AllAppointments allApp = new AllAppointments();
+            //Main.Content = new AllAppointmentsPage();
             allApp.Show();
         }
 
@@ -31,6 +36,17 @@ namespace ftn_sims_hci_hospital
         {
             CreateAppointment c = new CreateAppointment();
             c.Show();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NotificationsList(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new NotificationsPage();
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Classes
         public Boolean AreDatesValid(DateTime start, DateTime end)
         {
             // Moze da se popravi ali radi
-            if (start > end) return true;
+            if (start < end) return true;
             else return false;
         }
 

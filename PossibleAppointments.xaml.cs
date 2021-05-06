@@ -31,7 +31,7 @@ namespace ftn_sims_hci_hospital
                 p = MainWindow.patientController.GetByID(patientID);
                 Doctor d = new Doctor();
                 doctorID= appointment.doctor.user.Jmbg1;
-                d = MainWindow.doctorController.doctorService.doctorRepository.GetByID(doctorID);
+                d = MainWindow.doctorController.ds.dr.GetByID(doctorID);
                 possibleAppointments.Items.Add(new Appointment { AppointmentID = appointment.AppointmentID, doctor = d, patient = p, StartTime = appointment.StartTime });
             }
         }
@@ -46,14 +46,16 @@ namespace ftn_sims_hci_hospital
             {
                 Appointment app = (Appointment)possibleAppointments.SelectedItem;
                 app.AppointmentID = (MainWindow.appointmentController.appointmentService.appointmentRepository.GetAll().Count()+1).ToString();
+                app.Room = new Room();
+                app.Room.RoomNumber = "123";
                 MainWindow.appointmentController.appointmentService.appointmentRepository.Create(app);
-                Doctor d= MainWindow.doctorController.doctorService.doctorRepository.GetByID(doctorID);
+                Doctor d= MainWindow.doctorController.ds.dr.GetByID(doctorID);
                 Patient p = MainWindow.patientController.GetByID(patientID);
-                d.Notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(doctorID);
+                d.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(doctorID);
                 p.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByPatientID(patientID);
                 String id = (MainWindow.notificationController.notificationService.notificationRepository.GetAll().Count() + 1).ToString();
                 Notification notification = new Notification(id, "Alert","You have a new appointment on  " + app.StartTime.ToString(),DateTime.Now, false, patientID, doctorID);
-                d.Notifications.Add(notification);
+                d.notifications.Add(notification);
                 p.notifications.Add(notification);
                 MainWindow.notificationController.notificationService.notificationRepository.Create(notification);
                 MessageBox.Show("You have successfuly created an appointment and all relevant parties have been notified!");

@@ -80,7 +80,7 @@ namespace Classes
                     requests.Add(req);
                 }
             }
-            if (flag == 1) return null;
+            if (flag == 0) return null;
             return requests;
         }
 
@@ -142,7 +142,7 @@ namespace Classes
 
         public Boolean Delete(String id)
         {
-            GetAll();
+            GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
                 if (hr.RequestID1.Equals(id))
@@ -157,7 +157,7 @@ namespace Classes
 
         public Boolean Approve(String id)
         {
-            GetAll();
+            GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
                 if (hr.RequestID1.Equals(id))
@@ -172,7 +172,7 @@ namespace Classes
 
         public Boolean Deny(String id)
         {
-            GetAll();
+            GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
                 if (hr.RequestID1.Equals(id))

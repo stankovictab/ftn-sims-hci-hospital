@@ -24,7 +24,7 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             List<Doctor> doctors = new List<Doctor>();
-            doctors = MainWindow.doctorController.doctorService.doctorRepository.GetAll();
+            doctors = MainWindow.doctorController.ds.dr.GetAll();
             List<Patient> patients = new List<Patient>();
             patients = MainWindow.patientController.GetAll();
             foreach(Doctor doctor in doctors)
@@ -72,7 +72,7 @@ namespace ftn_sims_hci_hospital
                 if (rbdoctor.IsChecked==false&&rbtime.IsChecked==false)
                 {
                     Priority priority = Priority.None;
-                    Doctor doctor = (Doctor)MainWindow.doctorController.doctorService.doctorRepository.GetByID(cbdoctor.SelectedItem.ToString());
+                    Doctor doctor = (Doctor)MainWindow.doctorController.ds.dr.GetByID(cbdoctor.SelectedItem.ToString());
                     DateTime begin = (DateTime)dpbegin.SelectedDate;
                     DateTime end = (DateTime)dpend.SelectedDate;
                     Patient patient = (Patient)MainWindow.patientController.GetByID(cbpatient.SelectedItem.ToString());
@@ -88,7 +88,7 @@ namespace ftn_sims_hci_hospital
                 else if (rbdoctor.IsChecked == true && rbtime.IsChecked == false)
                 {
                     Priority priority = Priority.Doctor;
-                    Doctor doctor = (Doctor)MainWindow.doctorController.doctorService.doctorRepository.GetByID(cbdoctor.SelectedItem.ToString());
+                    Doctor doctor = (Doctor)MainWindow.doctorController.ds.dr.GetByID(cbdoctor.SelectedItem.ToString());
                     DateTime begin = (DateTime)dpbegin.SelectedDate;
                     DateTime end = (DateTime)dpend.SelectedDate;
                     Patient patient = (Patient)MainWindow.patientController.GetByID(cbpatient.SelectedItem.ToString());
@@ -104,7 +104,7 @@ namespace ftn_sims_hci_hospital
                 else
                 {
                     Priority priority = Priority.Date;
-                    Doctor doctor = (Doctor)MainWindow.doctorController.doctorService.doctorRepository.GetByID(cbdoctor.SelectedItem.ToString());
+                    Doctor doctor = (Doctor)MainWindow.doctorController.ds.dr.GetByID(cbdoctor.SelectedItem.ToString());
                     DateTime begin = (DateTime)dpbegin.SelectedDate;
                     DateTime end = (DateTime)dpend.SelectedDate;
                     Patient patient = (Patient)MainWindow.patientController.GetByID(cbpatient.SelectedItem.ToString());

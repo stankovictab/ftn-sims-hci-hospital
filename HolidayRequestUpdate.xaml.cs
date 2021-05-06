@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using Classes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -21,10 +20,10 @@ namespace ftn_sims_hci_hospital
             DateTime startDate = (DateTime)holidayStartDate.SelectedDate;
             DateTime endDate = (DateTime)holidayEndDate.SelectedDate;
 
-            DoctorController dc = new DoctorController();
+            Classes.DoctorController dc = new Classes.DoctorController();
             dc.GetAll(); // Punjenje liste doktora u memoriji
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            Doctor doctor = dc.GetByID("0501");
+            Classes.Doctor doctor = dc.GetByID("0501");
 
             MainWindow.holidayRequestController.Update(selectedHRID, desc, startDate, endDate, doctor); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");

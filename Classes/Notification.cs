@@ -4,13 +4,13 @@ namespace Classes
 {
     public class Notification
     {
-        public String Id;
-        public String Title;
-        public String Body;
-        public DateTime Date;
-        public Boolean Read;
-        public String PatientId;
-        public String DoctorId;
+        public String Id { get; set; }
+        public String Title { get; set; }
+        public String Body { get; set; }
+        public DateTime Date { get; set; }
+        public Boolean Read { get; set; }
+        public String PatientId { get; set; }
+        public String DoctorId { get; set; }
 
         public Notification(string id, string title, string body, DateTime date, bool read, string patientId, string doctorId)
         {
@@ -21,6 +21,10 @@ namespace Classes
             Read = read;
             PatientId = patientId;
             DoctorId = doctorId;
+        }
+        public Notification()
+        {
+
         }
     }
 }

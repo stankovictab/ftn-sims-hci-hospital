@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using Classes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -20,9 +19,9 @@ namespace ftn_sims_hci_hospital
 
         private void btnShowRequests_Click(object sender, RoutedEventArgs e)
         {
-            List<HolidayRequest> list = MainWindow.holidayRequestController.GetAllOnHold();
+            List<Classes.HolidayRequest> list = MainWindow.holidayRequestController.GetAllOnHold();
             holidayRequestListView.Items.Clear();
-            foreach (HolidayRequest req in list)
+            foreach (Classes.HolidayRequest req in list)
             {
                 string doc = req.doctor.user.Name1 + req.doctor.user.LastName1;
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
@@ -50,7 +49,7 @@ namespace ftn_sims_hci_hospital
         private void btnApproveRequest_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.holidayRequestController.Approve(selectedHRID); // GetAll() se radi u Approve(), tu se update-uju i lista i fajl
-            
+
             // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
             btnShowRequests.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
         }
