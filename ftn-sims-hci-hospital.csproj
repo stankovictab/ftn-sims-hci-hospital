@@ -94,6 +94,8 @@
     <Compile Include="Classes\HolidayRequestRepository.cs" />
     <Compile Include="Classes\HolidayRequestService.cs" />
     <Compile Include="Classes\HolidayRequestStatus.cs" />
+    <Compile Include="Classes\HospitalPoll.cs" />
+    <Compile Include="Classes\HospitalPollRepository.cs" />
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\NotificationController.cs" />
     <Compile Include="Classes\NotificationRepository.cs" />
@@ -163,6 +165,9 @@
     <Compile Include="NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PollPage.xaml.cs">
+      <DependentUpon>PollPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PossibleAppointments.xaml.cs">
       <DependentUpon>PossibleAppointments.xaml</DependentUpon>
     </Compile>
@@ -220,7 +225,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DynamicEquipmentOrderUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicEquipmentOrderCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicEquipmentPastRequestApprovals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DynamicEquipmentRequestApproval.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicEquipmentOrderPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -239,6 +260,10 @@
     <Page Include="GuestCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HolidayRequestPastApprovals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="HolidayRequestApproval.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -268,10 +293,6 @@
     <Compile Include="PatientView.xaml.cs">
       <DependentUpon>PatientView.xaml</DependentUpon>
     </Compile>
-    <Page Include="AllAppointments.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CreateAppointment.xaml">
       <SubType>Designer</SubType>
     </Page>

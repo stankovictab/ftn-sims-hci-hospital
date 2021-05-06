@@ -7,11 +7,12 @@ namespace ftn_sims_hci_hospital
 {
     public partial class CreateAppointmentDoctorB : Window
     {
-
+        StaticEquipmentRepository staticEquipmentRepository;
         AppointmentType type;
         public CreateAppointmentDoctorB()
         {
             InitializeComponent();
+            staticEquipmentRepository = new StaticEquipmentRepository();
         }
 
         public void createAppointment(Object sender, RoutedEventArgs e)
@@ -54,13 +55,29 @@ namespace ftn_sims_hci_hospital
             RoomController roomController = new RoomController();
             List<Room> roomList = roomController.GetAll();
 
+            btnRoomDetails.Visibility = Visibility.Visible;
             rooms.ItemsSource = roomList;
             rooms.Visibility = Visibility.Visible;
+        }
+
+        private void showRoomEquipment(object sender, RoutedEventArgs e)
+        {
+            Room room = (Room)rooms.SelectedItem;
+            List<StaticEquipment> equipmentInRoom = staticEquipmentRepository.GetByLocation(room);
+
+            string message = room.RoomNumber + ":";
+            foreach(StaticEquipment equipment in equipmentInRoom){
+                message += "\n" + equipment.statName; 
+            }
+
+            MessageBox.Show(message);
+
         }
 
         private void radioRegular_Checked(object sender, RoutedEventArgs e)
         {
             rooms.Visibility = Visibility.Hidden;
+            btnRoomDetails.Visibility = Visibility.Hidden;
         }
     }
 }

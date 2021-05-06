@@ -11,8 +11,10 @@
         <Button x:Name="dynamic" Content="Dynamic Equipment Storage" HorizontalAlignment="Left" Margin="549,72,0,0" VerticalAlignment="Top" Click="dynamic_Click"/>
         <Button x:Name="rooms" Content="Rooms" HorizontalAlignment="Left" Margin="122,72,0,0" VerticalAlignment="Top" Click="rooms_Click"/>
         <Button x:Name="staticMove" Content="Moving Schedule" HorizontalAlignment="Left" Margin="307,113,0,0" VerticalAlignment="Top" Click="staticMove_Click" Width="137"/>
-        <Button x:Name="btnHolidayRequestApproval" Content="Holiday Request Approval" HorizontalAlignment="Left" Margin="32,272,0,0" VerticalAlignment="Top" Width="165" Height="20" Click="btnHolidayRequestApproval_Click"/>
-        <Button x:Name="btnDynamicEquipmentRequestApproval" Content="Dynamic Equipment Request Approval" HorizontalAlignment="Left" Margin="8,317,0,0" VerticalAlignment="Top" Width="214" Height="20" Click="btnDynamicEquipmentRequestApproval_Click"/>
+        <Button x:Name="btnHolidayRequestApproval" Content="Holiday Request Approval" HorizontalAlignment="Left" Margin="32,228,0,0" VerticalAlignment="Top" Width="165" Height="20" Click="btnHolidayRequestApproval_Click"/>
+        <Button x:Name="btnDynamicEquipmentRequestApproval" Content="Dynamic Equipment Request Approval" HorizontalAlignment="Left" Margin="8,273,0,0" VerticalAlignment="Top" Width="214" Height="20" Click="btnDynamicEquipmentRequestApproval_Click"/>
+        <Button x:Name="btnDynamicEquipmentOrderCreation" Content="Dynamic Equipment Order Creation" HorizontalAlignment="Left" Margin="8,317,0,0" VerticalAlignment="Top" Width="214" Height="20" Click="btnDynamicEquipmentOrderCreation_Click"/>
+        <Button x:Name="btnDynamicEquipmentOrderPanel" Content="Dynamic Equipment Order Panel" HorizontalAlignment="Left" Margin="8,361,0,0" VerticalAlignment="Top" Width="214" Height="20" Click="btnDynamicEquipmentOrderPanel_Click"/>
 
     </Grid>
 </Window>

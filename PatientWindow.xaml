@@ -7,24 +7,27 @@
         mc:Ignorable="d"
         Title="PatientWindow" Height="450" Width="800">
     <Grid>
+        <WrapPanel>
+        </WrapPanel>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="50,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="700"/>
         <Label Content="Zdravo&#xD;&#xA;" HorizontalAlignment="Left" Margin="59,0,0,0" VerticalAlignment="Top" Height="80" Width="237" FontSize="60" RenderTransformOrigin="0.5,0.5"/>
         <Menu Margin="50,100,43.6,295">
             <MenuItem Header="_Zakazivanje pregleda">
                 <MenuItem Header="_Kod lekara opšte prakse" Click="Button_Click_1"/>
-                <MenuItem Header="_Kod specijaliste" />
+                <MenuItem x:Name="specijalni" Header="_Kod specijaliste" Click="createAppointmentSpecialist"/>
             </MenuItem>
-            <MenuItem Header="_Izlistaj sve preglede" Click="Button_Click">
+            <MenuItem Header="_Izlistaj sve preglede" Click="ShowAllAppointments">
             </MenuItem>
             <MenuItem Header="_Pregled zdravstvenog kartona">
                 <MenuItem Header="_Pregled recepata" />
                 <MenuItem Header="_Pregled alergena" />
             </MenuItem>
+            <MenuItem Header="Ankete" Click="FillPoll"/>
         </Menu>
         <Frame x:Name="Main" Margin="50,125,43.6,10" NavigationUIVisibility="Hidden"/>
-        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="485,41,0,0" VerticalAlignment="Top" Width="79" Click="NotificationsList"/>
-        <Button Content="Odjavi se" HorizontalAlignment="Left" Margin="639,41,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Profil" HorizontalAlignment="Left" Margin="564,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.485,0.563"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="485,41,0,0" VerticalAlignment="Top" Click="NotificationsList"/>
+        <Button x:Name="pregledProfilaButton" Content="" HorizontalAlignment="Left" Margin="564,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.485,0.563"/>
+        <Button Content="Odjavi se" HorizontalAlignment="Left" Margin="639,41,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

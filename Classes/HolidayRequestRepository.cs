@@ -63,7 +63,8 @@ namespace Classes
                 // drrep.DoctorsInFile = drrep.GetAll(); ? Da li GetByID ima u sebi GetAll()?
                 Doctor doctor = drrep.GetByID(components[6]);
 
-                HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, requestDate, status, doctor);
+                string commentary = components[7];
+                HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, requestDate, status, doctor, commentary);
                 requests.Add(request);
                 text = tr.ReadLine();
             }
@@ -142,7 +143,7 @@ namespace Classes
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (HolidayRequest item in HolidayRequestsInFile)
                 {
-                    tw.WriteLine(item.RequestID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.doctor.user.Jmbg1);
+                    tw.WriteLine(item.RequestID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok, parsira se isto
                 }
                 tw.Close();
@@ -166,7 +167,7 @@ namespace Classes
             return false;
         }
 
-        public Boolean Approve(String id)
+        public Boolean Approve(String id, String commentary)
         {
             GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
@@ -174,6 +175,7 @@ namespace Classes
                 if (hr.RequestID1.Equals(id))
                 {
                     hr.Status1 = HolidayRequestStatus.Approved;
+                    hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
                 }
@@ -181,7 +183,7 @@ namespace Classes
             return false;
         }
 
-        public Boolean Deny(String id)
+        public Boolean Deny(String id, String commentary)
         {
             GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
@@ -189,6 +191,7 @@ namespace Classes
                 if (hr.RequestID1.Equals(id))
                 {
                     hr.Status1 = HolidayRequestStatus.Denied;
+                    hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
                 }

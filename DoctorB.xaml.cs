@@ -16,10 +16,14 @@ namespace ftn_sims_hci_hospital
 {
     public partial class DoctorB : Window
     {
+        //public static Classes.User user;
 
         public DoctorB()
         {
             InitializeComponent();
+           /* user = new Classes.User();
+            user.Name1 = "Darko";
+            user.Role1 = Roles.Doctor; */
         }
 
         private void openMedicalRecords(Object sender, RoutedEventArgs e)
@@ -43,6 +47,12 @@ namespace ftn_sims_hci_hospital
         {
             DeleteAppointmentDoctorB d = new DeleteAppointmentDoctorB();
             d.Show();
+        }
+
+        private void showMedicineList(Object sender, RoutedEventArgs e)
+        {
+            MedicineList medicineListWindow = new MedicineList();
+            medicineListWindow.Show();
         }
     }
 }
