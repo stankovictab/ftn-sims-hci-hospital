@@ -1,0 +1,6 @@
+1,oprema1,3
+2,oprema2,3
+3,oprema3,4
+4,oprema4,4
+5,oprema5,1
+6,oprema6,1

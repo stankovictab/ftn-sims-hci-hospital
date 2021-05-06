@@ -1,0 +1,34 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.DeleteAppointmentDoctorB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="DeleteAppointmentDoctorB" Height="450" Width="800">
+    <Grid>
+        <Canvas Name="main">
+            <TextBox Name="txtS" HorizontalAlignment="Left" Height="23" Margin="99,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox Name="txtE"  HorizontalAlignment="Left" Height="23" Margin="99,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button Name="btnU" Content="save" HorizontalAlignment="Left" Margin="665,359,0,0" VerticalAlignment="Top" Width="75"/>
+            <TextBlock Name="bs" HorizontalAlignment="Left" Margin="60,311,0,0" TextWrapping="Wrap" Text="start:" VerticalAlignment="Top" RenderTransformOrigin="-1.291,7.333"/>
+            <TextBlock Name="be" HorizontalAlignment="Left" Margin="60,361,0,0" TextWrapping="Wrap" Text="end:" VerticalAlignment="Top"/>
+        </Canvas>
+
+        <Canvas HorizontalAlignment="Left" Height="387" Margin="22,10,0,0" VerticalAlignment="Top" Width="747">
+            <ListView x:Name="lvUsers" Height="253" Width="747">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="room" Width="150" DisplayMemberBinding="{Binding RoomNumber1}" />
+                        <GridViewColumn Header="type" Width="150" DisplayMemberBinding="{Binding Type1}" />
+                        <GridViewColumn Header="description" Width="150" DisplayMemberBinding="{Binding Description1}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            
+        </Canvas>
+
+
+
+    </Grid>
+</Window>

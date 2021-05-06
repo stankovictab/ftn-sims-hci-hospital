@@ -1,0 +1,84 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.MedicalRecords"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="MedicalRecords" Height="450" Width="800">
+    <Grid>
+        <ListView  Margin="10,32,10,161" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="name" Width="150" DisplayMemberBinding="{Binding user.Name1}" />
+                    <GridViewColumn Header="last name" Width="150" DisplayMemberBinding="{Binding user.LastName1}" />
+                    <GridViewColumn Header="jmbg" Width="150" DisplayMemberBinding="{Binding user.Jmbg1}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView  Margin="10,32,10,161" Name="prescriptionList" Visibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="medicine" Width="150" DisplayMemberBinding="{Binding Medicine}" />
+                    <GridViewColumn Header="amount" Width="150" DisplayMemberBinding="{Binding Amount}" />
+                    <GridViewColumn Header="description" Width="150" DisplayMemberBinding="{Binding Description}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView  Margin="10,32,10,161" Name="anamnesisList" Visibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Width="150" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="date" Width="150" DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="description" Width="150" DisplayMemberBinding="{Binding Date}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="create" Click="create"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="703,379,0,0"/>
+
+        <Canvas Name="CanvasPers" Margin="35,273,362,25" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Canvas.Top="5" Text="medicine: " Canvas.Left="10"/>
+            <TextBox Name="txtM" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.48,0.836" Canvas.Left="66"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="amount:" Canvas.Left="17" Canvas.Top="33"/>
+            <TextBox Name="txtA" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="28"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="description: " Canvas.Top="66"/>
+            <TextBox Name="txtD" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
+        </Canvas>
+        <Canvas Name="CanvasAnas" Margin="35,273,362,25" Visibility="Hidden">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="date:" Canvas.Left="32" Canvas.Top="33"/>
+            <TextBox Name="txtDAS" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="28"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="description: " Canvas.Top="66"/>
+            <TextBox Name="txtDES" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
+        </Canvas>
+        <Canvas Name="CanvasPersUpdate" Margin="35,273,260,25" Visibility="Hidden" >
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Canvas.Top="5" Text="medicine: " Canvas.Left="10"/>
+            <TextBox Name="txtMU" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.48,0.836" Canvas.Left="66"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="amount:" Canvas.Left="17" Canvas.Top="33"/>
+            <TextBox Name="txtAU" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="28"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="description: " Canvas.Top="66"/>
+            <TextBox Name="txtDU" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
+            <Button  Content="save" Click="save" Canvas.Left="412" Canvas.Top="91" Width="75" />
+        </Canvas>
+        <Canvas Name="CanvasAnamUpdate" Visibility="Hidden" Margin="35,273,260,25" >
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="date:" Canvas.Left="32" Canvas.Top="33"/>
+            <TextBox Name="txtDA" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="28"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Text="description: " Canvas.Top="66"/>
+            <TextBox Name="txtDE" HorizontalAlignment="Left" Height="65" TextWrapping="Wrap"  VerticalAlignment="Top" Width="329" RenderTransformOrigin="0.48,0.836" Canvas.Left="66" Canvas.Top="56"/>
+            <Button  Content="save" Click="save" Canvas.Left="412" Canvas.Top="91" Width="75" />
+            <RichTextBox Height="100" Canvas.Left="331" Canvas.Top="33" Width="100">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="RichTextBox"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+        </Canvas>
+        <Button Content="show" Click="show"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Margin="703,348,0,0"/>
+        <RadioButton Name="radioP" Content="prescription" HorizontalAlignment="Left" Margin="696,313,0,0" VerticalAlignment="Top" Checked="radioP_Checked" />
+        <RadioButton Name="radioA" Content="anamnesis" HorizontalAlignment="Left" Margin="703,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.293,0.689" Checked="radioA_Checked" />
+        <Button Name="btnU" Content="update" Click="update" HorizontalAlignment="Left" Margin="610,379,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="btnD" Content="delete" Click="delete" HorizontalAlignment="Left" Margin="610,348,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnReferralList" Content="create referral" Click="showAddReferral" HorizontalAlignment="Left" Margin="503,379,0,0" VerticalAlignment="Top" Width="85"/>
+    </Grid>
+</Window>

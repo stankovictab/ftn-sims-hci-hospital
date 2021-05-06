@@ -1,76 +1,83 @@
-/***********************************************************************
- * Module:  Appointment.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Appointment
- ***********************************************************************/
-
 using System;
-using System.Collections.Generic;
-using System.IO;
-
 namespace Classes
 {
-   public class Appointment
-   {
-      public Patient patient;
-      public Doctor doctor;
-      private String AppointmentID;
-      private DateTime StartTime;
-      private DateTime EndTime;
-      private AppointmentType Type;
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Doctor GetDoctor()
-      {
-         return doctor;
-      }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newDoctor</param>
-      public void SetDoctor(Doctor newDoctor)
-      {
-         if (this.doctor != newDoctor)
-         {
-            if (this.doctor != null)
+    public class Appointment
+    {
+        public String AppointmentID { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public AppointmentType Type { get; set; }
+        public Room Room { get; set; }
+        public Boolean StatusFinished { get; set; }
+        public int rescheduled { get; set; }
+        public Doctor doctor { get; set; }
+        public Patient patient { get; set; }
+        private DoctorRepository doctorRepository;
+        private PatientRepository patientRepository;
+
+        public Appointment(String id, String doctorId, String patientId, DateTime start, AppointmentType type, String roomId)
+        {
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = new DateTime(start.Year, start.Month, start.Day, start.Hour + 1, start.Minute, start.Second);
+            this.Type = type;
+            //this.Room = new(roomId);
+            this.StatusFinished = false;
+            rescheduled = 0;
+        }
+
+        public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end, String roomId)
+        {
+            AppointmentID = id;
+            doctor = new Doctor(doctorId);
+            patient = new Patient(patientId);
+            StartTime = start;
+            EndTime = end;
+
+            Room r = new Room();
+            r.RoomNumber1 = roomId;
+            Room = r;
+            rescheduled = 0;
+        }
+
+        public Appointment(String id, String doctorId, String patientId, DateTime start, DateTime end)
+        {
+            doctorRepository = new DoctorRepository();
+            patientRepository = new PatientRepository();
+            AppointmentID = id;
+            if(doctorRepository.GetByID(doctorId) is null)
             {
-               Doctor oldDoctor = this.doctor;
-               this.doctor = null;
-               oldDoctor.RemoveAppointments(this);
+                doctor = new Doctor(doctorId);
             }
-            if (newDoctor != null)
+            else
             {
-               this.doctor = newDoctor;
-               this.doctor.AddAppointments(this);
+                doctor = doctorRepository.GetByID(doctorId);
             }
-         }
-      }
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Patient GetPatient()
-      {
-         return patient;
-      }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newPatient</param>
-      public void SetPatient(Patient newPatient)
-      {
-         if (this.patient != newPatient)
-         {
-            if (this.patient != null)
+
+            if(patientRepository.GetByID(patientId) is null)
             {
-               Patient oldPatient = this.patient;
-               this.patient = null;
-               oldPatient.RemoveAppointments(this);
+                patient = new Patient(patientId);
             }
-            if (newPatient != null)
+            else
             {
-               this.patient = newPatient;
-               this.patient.AddAppointments(this);
+                patient = patientRepository.GetByID(patientId);
             }
-         }
-      }
-   
-   
-   }
+            
+            StartTime = start;
+            EndTime = end;
+            rescheduled = 0;
+        }
+        public Appointment()
+        { }
+
+        public Appointment(String id, DateTime start, DateTime end)
+        {
+            AppointmentID = id;
+            StartTime = start;
+            EndTime = end;
+            rescheduled = 0;
+        }
+    }
 }

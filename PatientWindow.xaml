@@ -1,0 +1,33 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.PatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="PatientWindow" Height="450" Width="800">
+    <Grid>
+        <WrapPanel>
+        </WrapPanel>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="50,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="700"/>
+        <Label Content="Zdravo&#xD;&#xA;" HorizontalAlignment="Left" Margin="59,0,0,0" VerticalAlignment="Top" Height="80" Width="237" FontSize="60" RenderTransformOrigin="0.5,0.5"/>
+        <Menu Margin="50,100,43.6,295">
+            <MenuItem Header="_Zakazivanje pregleda">
+                <MenuItem Header="_Kod lekara opšte prakse" Click="Button_Click_1"/>
+                <MenuItem x:Name="specijalni" Header="_Kod specijaliste" Click="createAppointmentSpecialist"/>
+            </MenuItem>
+            <MenuItem Header="_Izlistaj sve preglede" Click="ShowAllAppointments">
+            </MenuItem>
+            <MenuItem Header="_Pregled zdravstvenog kartona">
+                <MenuItem Header="_Pregled recepata" />
+                <MenuItem Header="_Pregled alergena" />
+            </MenuItem>
+            <MenuItem Header="Ankete" Click="FillPoll"/>
+        </Menu>
+        <Frame x:Name="Main" Margin="50,125,43.6,10" NavigationUIVisibility="Hidden"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="485,41,0,0" VerticalAlignment="Top" Click="NotificationsList"/>
+        <Button x:Name="pregledProfilaButton" Content="" HorizontalAlignment="Left" Margin="564,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.485,0.563"/>
+        <Button Content="Odjavi se" HorizontalAlignment="Left" Margin="639,41,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

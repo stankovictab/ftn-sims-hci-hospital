@@ -72,6 +72,38 @@ namespace ftn_sims_hci_hospital {
         #line default
         #line hidden
         
+        
+        #line 26 "..\..\AllAppointments.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox UpdateID;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 30 "..\..\AllAppointments.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox UpdateDoc;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 31 "..\..\AllAppointments.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DatePicker UpdateDate;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 33 "..\..\AllAppointments.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox UpdateTime;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>

@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  HolidayRequest.cs
- * Author:  stankovictab
- * Purpose: Definition of the Class Doctor.HolidayRequest
- ***********************************************************************/
-
 using System;
 
 namespace Classes
@@ -15,19 +9,21 @@ namespace Classes
         private DateTime StartDate;
         private DateTime EndDate;
         private DateTime RequestDate;
-        private HolidayRequestStatus Status = 0;
+        private HolidayRequestStatus Status;
         public Doctor doctor;
+        private string Commentary;
 
-        // Format u txt fajlu treba da bude isti kao ovi parametri, vidi GetAll() u FileStorage klasi
-        public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate, Doctor doctor)
+        // Format u txt fajlu treba da bude isti kao parametri konstruktora, vidi GetAll() metodu
+        public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate, DateTime RequestDate, HolidayRequestStatus Status, Doctor doctor, string commentary)
         {
             this.RequestID = RequestID;
             this.Description = Description;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
-            this.RequestDate = DateTime.Now; // TODO: Proveri da li radi
-            this.Status = HolidayRequestStatus.OnHold; // default, mozda ne treba?
+            this.RequestDate = RequestDate;
+            this.Status = Status;
             this.doctor = doctor;
+            this.Commentary = commentary;
         }
 
         public string RequestID1 { get => RequestID; set => RequestID = value; }
@@ -36,15 +32,13 @@ namespace Classes
         public DateTime EndDate1 { get => EndDate; set => EndDate = value; }
         public DateTime RequestDate1 { get => RequestDate; set => RequestDate = value; }
         public HolidayRequestStatus Status1 { get => Status; set => Status = value; }
+        public string Commentary1 { get => Commentary; set => Commentary = value; }
 
-        /// <pdGenerated>default parent getter</pdGenerated>
         public Doctor GetDoctor()
         {
             return doctor;
         }
 
-        /// <pdGenerated>default parent setter</pdGenerated>
-        /// <param>newDoctor</param>
         public void SetDoctor(Doctor newDoctor)
         {
             if (this.doctor != newDoctor)
