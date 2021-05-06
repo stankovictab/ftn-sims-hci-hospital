@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace Classes
 {
@@ -21,7 +22,7 @@ namespace Classes
             return 0;
         }
 
-        public Boolean Create(String equipmentName, Doctor doctor)
+        public Boolean Create(String equipmentName, String equipmentAmount, Doctor doctor)
         {
             List<DynamicEquipmentRequest> temp = derr.GetAll();
             int newid = 0;
@@ -32,7 +33,7 @@ namespace Classes
             newid++;
             String newidstring = newid.ToString();
 
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(newidstring, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor, "/");
+            DynamicEquipmentRequest req = new DynamicEquipmentRequest(newidstring, equipmentName, equipmentAmount, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, false, doctor, "/");
             return derr.Create(req);
         }
 
@@ -56,10 +57,20 @@ namespace Classes
             return derr.GetAllOnHold();
         }
 
-        public Boolean Update(String id, String equipmentName, Doctor doctor)
+        public Boolean Update(String id, String equipmentName, String equipmentAmount)
         {
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(id, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor, "/");
-            return derr.Update(req); // Provera da li postoji vec u listi se radi u repozitorijumu
+            // Posto se doktor nece menjati pri update-u, a treba ga imati za ovaj konstruktor, nalazi se ovako
+            List<DynamicEquipmentRequest> list = derr.GetAll();
+            Doctor doctor = new Doctor();
+            foreach(DynamicEquipmentRequest req in list)
+            {
+                if(req.RequestID1 == id)
+                {
+                    doctor = req.doctor;
+                }
+            }
+            DynamicEquipmentRequest r = new DynamicEquipmentRequest(id, equipmentName, equipmentAmount, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, false, doctor, "/");
+            return derr.Update(r); // Provera da li postoji vec u listi se radi u repozitorijumu
         }
 
         public Boolean Delete(String id)
@@ -75,6 +86,11 @@ namespace Classes
         public Boolean Deny(String id, String commentary)
         {
             return derr.Deny(id, commentary);
+        }
+
+        public Boolean SetAllApprovedToOrdered()
+        {
+            return derr.SetAllApprovedToOrdered();
         }
     }
 }

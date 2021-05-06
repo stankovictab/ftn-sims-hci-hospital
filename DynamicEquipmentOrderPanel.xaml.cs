@@ -47,7 +47,7 @@ namespace ftn_sims_hci_hospital
                 {
                     btnUpdateOrder.IsEnabled = true;
                     btnSimulateConfirmation.IsEnabled = true;
-                    btnSimulateShipment.IsEnabled = true;
+                    btnSimulateShipment.IsEnabled = false;
                 }
                 else if(status == DynamicEquipmentOrderStatus.Waiting.ToString())
                 {
