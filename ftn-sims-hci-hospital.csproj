@@ -183,6 +183,9 @@
     <Compile Include="HolidayRequestPanel.xaml.cs">
       <DependentUpon>HolidayRequestPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HolidayRequestPastApprovals.xaml.cs">
+      <DependentUpon>HolidayRequestPastApprovals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
