@@ -16,6 +16,7 @@ namespace ftn_sims_hci_hospital
 {
     public partial class DoctorB : Window
     {
+
         public DoctorB()
         {
             InitializeComponent();

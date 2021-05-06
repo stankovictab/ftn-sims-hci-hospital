@@ -1,38 +1,32 @@
 ﻿using Classes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
-    public partial class RoomEdit : Window
+    /// <summary>
+    /// Interaction logic for RoomUpdate.xaml
+    /// </summary>
+    public partial class RoomUpdate : Window
     {
         public Room toUpdate = new Room();
-        public static RoomFileStorage storage = new RoomFileStorage();
-        public RoomEdit(String id)
+        public static RoomRepository storage = new RoomRepository();
+        public RoomUpdate(String id)
         {
             InitializeComponent();
             storage.AccessRoomsInFile = storage.GetAll();
             toUpdate = storage.GetById(id);
-            numberTextbox.Text = toUpdate.RoomNumber1;
-            floorTextbox.Text = toUpdate.FloorNumber1.ToString();
-            descriptionTextbox.Text = toUpdate.Description1;
+            numberTextbox.Text = toUpdate.RoomNumber;
+            floorTextbox.Text = toUpdate.FloorNumber.ToString();
+            descriptionTextbox.Text = toUpdate.Description;
 
-            if (toUpdate.Type1 == RoomType.Operating)
+            if (toUpdate.Type == RoomType.Operating)
                 operatingRadio.IsChecked = true;
-            else if (toUpdate.Type1 == RoomType.Therapy)
+            else if (toUpdate.Type == RoomType.Therapy)
                 therapyRadio.IsChecked = true;
-            else if (toUpdate.Type1 == RoomType.Checkup)
+            else if (toUpdate.Type == RoomType.Checkup)
                 checkupRadio.IsChecked = true;
 
             //if (toUpdate.Status == RoomStatus.Free)

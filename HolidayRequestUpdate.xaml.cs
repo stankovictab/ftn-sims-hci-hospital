@@ -5,9 +5,9 @@ namespace ftn_sims_hci_hospital
 {
     public partial class HolidayRequestUpdate : Window
     {
-        public static Classes.HolidayRequestFileStorage hrfs = new Classes.HolidayRequestFileStorage();
-        private string selectedRHID;
-        public HolidayRequestUpdate(string selectedRHID)
+        private string selectedHRID;
+
+        public HolidayRequestUpdate(string selectedHRID)
         {
             InitializeComponent();
             MainWindow.holidayRequestController.GetAll();
@@ -16,7 +16,6 @@ namespace ftn_sims_hci_hospital
 
         private void btnHolidayUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // Ne moze samo da se kopira ista metoda kao na creation, jer ID Request-a mora da ostane isti, pa se koristi Update() metoda iz FileStorage-a
             string desc = holidayDescription.Text;
             DateTime startDate = (DateTime)holidayStartDate.SelectedDate;
             DateTime endDate = (DateTime)holidayEndDate.SelectedDate;

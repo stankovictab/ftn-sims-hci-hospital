@@ -5,20 +5,22 @@ namespace ftn_sims_hci_hospital
 {
     public partial class HolidayRequestCreation : Window
     {
-
-        public static Classes.HolidayRequestFileStorage hrfs = new Classes.HolidayRequestFileStorage();
         public HolidayRequestCreation()
         {
             InitializeComponent();
             MainWindow.holidayRequestController.GetAll(); // Kada se otvori prozor ucita se cela lista
         }
 
-        // Biznis logika za dodavanje u listu, a i u fajl
+        // Biznis logika za dodavanje u listu i fajl
         private void btnHolidaySubmit_Click(object sender, RoutedEventArgs e)
         {
             string desc = holidayDescription.Text;
             DateTime startDate = (DateTime)holidayStartDate.SelectedDate; // Mora cast jer vraca DateTime? iz nekog razloga
             DateTime endDate = (DateTime)holidayEndDate.SelectedDate;
+            Classes.DoctorController dc = new Classes.DoctorController();
+            dc.GetAll(); // Punjenje liste doktora u memoriji
+            // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
+            Classes.Doctor doctor = dc.GetByID("0501");
 
             // Da bih saznao koji je poslednji id holidayRequest-ova da bih ovom inkrementovao, trebam da prolazim kroz sve i da cim nadje null da mi kaze koji je poslednji
             string currentID = "1"; // Mora da se postavi jer vristi

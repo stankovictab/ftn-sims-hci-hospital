@@ -4,7 +4,6 @@ namespace Classes
 {
     public class HolidayRequest
     {
-        public Doctor doctor;
         private String RequestID;
         private String Description;
         private DateTime StartDate;
