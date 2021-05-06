@@ -14,8 +14,6 @@
 14;1243999081010;7601;Your appointment on  4/23/2021 4:00:00 AM has been moved to 4/25/2021 4:00:00 AM!;Alert;False;2021,04,23,02,34,39
 16;;;Room 150 will be undergoing renovations in the next 4 weeks!;Renovation;False;2021,05,04,04,10,02
 17;;;Dana 05/06/2021 ce biti neradan dan!;Alert;False;2021,05,05,11,10,56
-18;;;Alert;Alert;False;2021,05,05,11,11,28
-18;1243999081010;0501;You have a new appointment on  5/5/2021 1:00:00 PM;Alert;False;2021,05,05,12,59,08
 19;1243999081010;0501;You have a new appointment on  5/5/2021 1:00:00 PM;Alert;False;2021,05,05,01,02,50
 20;1243999081010;0501;Your appointment on  5/5/2021 1:00:00 AM has been canceled!;Alert;False;2021,05,05,01,02,59
 21;1243999081010;0501;You have a new appointment on  5/6/2021 6:00:00 PM;Alert;False;2021,05,05,01,05,16
@@ -74,3 +72,16 @@
 74;;6331;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,18,41
 75;123321123;7601;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,12,19,07
 76;;7601;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,19,07
+77;;0501;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,20,06
+78;96;0501;Your appointment on  5/6/2021 2:00:00 AM has been canceled!;Alert;False;2021,05,06,01,21,31
+79;;0501;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,21,38
+18;;;Alert;Alerta;False;2021,05,06,01,23,28
+79;1243999081010;0501;You have a new appointment on  5/13/2021 2:00:00 PM;Alert;False;2021,05,06,01,29,14
+80;;7601;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,36,31
+81;;6331;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,36,46
+82;0809999800061;0501;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,01,37,13
+83;;0501;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,37,13
+84;GGGGGGGGGGG;7601;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,01,38,16
+85;;7601;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,38,16
+86;1243999081010;7601;Your appointment has been rescheduled to  5/7/2021 9:00:00 AM;Alert;False;2021,05,06,01,38,51
+87;;7601;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,38,51

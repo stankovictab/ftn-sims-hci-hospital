@@ -1,3 +1,4 @@
 id;doctorId;patientId;description;endDate;used
 1;0501;1243999081010;Kardiologija;2021,05,10,10,00,00;False
 512;0501;123456789123;bol;2021,05,14,12,00,00;True
+531;0501;123456789123;idi leci se;2021,05,14,12,00,00;False

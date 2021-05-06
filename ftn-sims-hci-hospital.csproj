@@ -55,8 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AllAppointments.xaml.cs">
-      <DependentUpon>AllAppointments.xaml</DependentUpon>
+    <Compile Include="AddReferral.xaml.cs">
+      <DependentUpon>AddReferral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllAppointmentsPage.xaml.cs">
+      <DependentUpon>AllAppointmentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppointmentsListDoctorB.xaml.cs">
       <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
@@ -73,11 +76,18 @@
     <Compile Include="Classes\AssignmentService.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\DoctorController.cs" />
+    <Compile Include="Classes\DoctorPoll.cs" />
+    <Compile Include="Classes\DoctorPollRepository.cs" />
     <Compile Include="Classes\DoctorRepository.cs" />
     <Compile Include="Classes\DoctorService.cs" />
     <Compile Include="Classes\DoctorSpecialization.cs" />
     <Compile Include="Classes\DynamicAssignment.cs" />
     <Compile Include="Classes\DynamicEquipment.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrder.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderController.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderRepository.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderService.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderStatus.cs" />
     <Compile Include="Classes\DynamicEquipmentRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentRequest.cs" />
     <Compile Include="Classes\DynamicEquipmentRequestController.cs" />
@@ -97,6 +107,10 @@
     <Compile Include="Classes\HospitalPoll.cs" />
     <Compile Include="Classes\HospitalPollRepository.cs" />
     <Compile Include="Classes\Manager.cs" />
+    <Compile Include="Classes\Medicine.cs" />
+    <Compile Include="Classes\MedicineCotroller.cs" />
+    <Compile Include="Classes\MedicineRepository.cs" />
+    <Compile Include="Classes\MedicineService.cs" />
     <Compile Include="Classes\NotificationController.cs" />
     <Compile Include="Classes\NotificationRepository.cs" />
     <Compile Include="Classes\NotificationService.cs" />
@@ -108,6 +122,10 @@
     <Compile Include="Classes\Perscription.cs" />
     <Compile Include="Classes\PerscriptionRepository.cs" />
     <Compile Include="Classes\Priority.cs" />
+    <Compile Include="Classes\Referral.cs" />
+    <Compile Include="Classes\ReferralController.cs" />
+    <Compile Include="Classes\ReferralRepository.cs" />
+    <Compile Include="Classes\ReferralService.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\RoomController.cs" />
     <Compile Include="Classes\RoomRepository.cs" />
@@ -122,12 +140,30 @@
     <Compile Include="Classes\StaticEnschedulement.cs" />
     <Compile Include="Classes\StaticEquipment.cs" />
     <Compile Include="Classes\StaticEquipmentRepository.cs" />
+    <Compile Include="Classes\TrollingLog.cs" />
+    <Compile Include="Classes\TrollingLogRepository.cs" />
+    <Compile Include="Classes\TrollingLogService.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="createAppointmentSpecialist.xaml.cs">
+      <DependentUpon>createAppointmentSpecialist.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dynamic.xaml.cs">
       <DependentUpon>Dynamic.xaml</DependentUpon>
     </Compile>
     <Compile Include="DynamicCreation.xaml.cs">
       <DependentUpon>DynamicCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderCreation.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderPanel.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderUpdate.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentPastRequestApprovals.xaml.cs">
+      <DependentUpon>DynamicEquipmentPastRequestApprovals.xaml</DependentUpon>
     </Compile>
     <Compile Include="DynamicEquipmentRequestApproval.xaml.cs">
       <DependentUpon>DynamicEquipmentRequestApproval.xaml</DependentUpon>
@@ -155,6 +191,9 @@
     </Compile>
     <Compile Include="MedicalRecords.xaml.cs">
       <DependentUpon>MedicalRecords.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineList.xaml.cs">
+      <DependentUpon>MedicineList.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotificationBoard.xaml.cs">
       <DependentUpon>NotificationBoard.xaml</DependentUpon>
@@ -213,6 +252,18 @@
     <Compile Include="UrgentAppointmentCreation.xaml.cs">
       <DependentUpon>UrgentAppointmentCreation.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddReferral.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AllAppointmentsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="createAppointmentSpecialist.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DoctorPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -363,6 +414,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MedicineList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="NotificationBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -386,6 +441,10 @@
     <Page Include="PatientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PollPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="PossibleAppointments.xaml">
       <SubType>Designer</SubType>

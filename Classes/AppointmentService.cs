@@ -89,10 +89,10 @@ namespace Classes
 
         void available(List<Appointment> filtered, List<Appointment> slots, List<Appointment> appointments, String doctorId)
         {
-            int i = 0;
+            //int i = 0;
             foreach (Appointment slot in slots)
             {
-                while (!slot.StartTime.Equals(appointments[i].StartTime))
+                /*while (!slot.StartTime.Equals(appointments[i].StartTime))
                 {
                     i++;
                     if (i == appointments.Count)
@@ -104,6 +104,20 @@ namespace Classes
                     filtered.Add(slot);
                 }
                 i = 0;
+                */
+                bool flagForFiltering = false;
+                foreach(Appointment appointment in appointments)
+                {
+                    if(slot.StartTime.Equals(appointment.StartTime))
+                    {
+                        flagForFiltering = true;
+                    }
+                }
+                if(!flagForFiltering)
+                {
+                    slot.doctor.user.Jmbg1 = doctorId;
+                    filtered.Add(slot);
+                }
             }
             return;
         }

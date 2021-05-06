@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital-master\obj\Debug\
+C:\Users\Mihajlo\Desktop\temp\ftn-sims-hci-hospital\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Users\Mihajlo\Desktop\ftn-sims-hci-hospital-master\App.xaml
-461979898475
+C:\Users\Mihajlo\Desktop\temp\ftn-sims-hci-hospital\App.xaml
+55-1869382926
 
-113484546289
+141-1773109824
 13-1505183044
-DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;NotificationBoard.xaml;NotificationCreation.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;UpdateAppointmentPatient.xaml;UpdateNotification.xaml;UrgentAppointmentCreation.xaml;
+AddReferral.xaml;AllAppointmentsPage.xaml;createAppointmentSpecialist.xaml;DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentOrderUpdate.xaml;DynamicEquipmentOrderCreation.xaml;DynamicEquipmentPastRequestApprovals.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentOrderPanel.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestPastApprovals.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;MedicineList.xaml;NotificationBoard.xaml;NotificationCreation.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PollPage.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;UpdateAppointmentPatient.xaml;UpdateNotification.xaml;UrgentAppointmentCreation.xaml;
 
 False
 
