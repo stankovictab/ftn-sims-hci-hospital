@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace Classes
 {
@@ -21,7 +22,7 @@ namespace Classes
             return 0;
         }
 
-        public Boolean Create(String equipmentName, Doctor doctor)
+        public Boolean Create(DynamicEquipmentRequest req)
         {
             List<DynamicEquipmentRequest> temp = derr.GetAll();
             int newid = 0;
@@ -32,7 +33,7 @@ namespace Classes
             newid++;
             String newidstring = newid.ToString();
 
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(newidstring, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor, "/");
+            req.RequestID1 = newidstring;
             return derr.Create(req);
         }
 
@@ -56,9 +57,19 @@ namespace Classes
             return derr.GetAllOnHold();
         }
 
-        public Boolean Update(String id, String equipmentName, Doctor doctor)
+        public Boolean Update(DynamicEquipmentRequest req)
         {
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(id, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor, "/");
+            // Posto se doktor nece menjati pri update-u, a treba ga imati za ovaj konstruktor, nalazi se ovako
+            List<DynamicEquipmentRequest> list = derr.GetAll();
+            Doctor doctor = new Doctor();
+            foreach(DynamicEquipmentRequest r in list)
+            {
+                if(r.RequestID1 == req.RequestID1)
+                {
+                    doctor = r.doctor;
+                }
+            }
+            req.doctor = doctor;
             return derr.Update(req); // Provera da li postoji vec u listi se radi u repozitorijumu
         }
 
@@ -75,6 +86,11 @@ namespace Classes
         public Boolean Deny(String id, String commentary)
         {
             return derr.Deny(id, commentary);
+        }
+
+        public Boolean SetAllApprovedToOrdered()
+        {
+            return derr.SetAllApprovedToOrdered();
         }
     }
 }

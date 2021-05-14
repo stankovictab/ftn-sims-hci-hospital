@@ -14,13 +14,13 @@ namespace Classes
             else return false;
         }
 
-        public Boolean Create(String desc, DateTime start, DateTime end, Doctor doctor)
+        public Boolean Create(HolidayRequest req)
         {
             // Mora da dobavi sledeci slobodan id iz repo-a pre nego sto ga napravi u repo
-            if (AreDatesValid(start, end) == false)
+            if (AreDatesValid(req.StartDate1, req.EndDate1) == false)
             {
                 throw new Exception("Dates invalid!"); // Ili samo return false?
-            };
+            }
 
             List<HolidayRequest> temp = hrr.GetAll();
             int newid = 0;
@@ -31,7 +31,7 @@ namespace Classes
             newid++;
             String newidstring = newid.ToString();
 
-            HolidayRequest req = new HolidayRequest(newidstring, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor, "/");
+            req.RequestID1 = newidstring;
             return hrr.Create(req);
         }
 
@@ -55,13 +55,12 @@ namespace Classes
             return hrr.GetAllOnHold();
         }
 
-        public Boolean Update(String id, String desc, DateTime start, DateTime end, Doctor doctor)
+        public Boolean Update(HolidayRequest req)
         {
-            if (AreDatesValid(start, end) == false)
+            if (AreDatesValid(req.StartDate1, req.EndDate1) == false)
             {
                 throw new Exception("Dates invalid!"); // Ili samo return false?
-            };
-            HolidayRequest req = new HolidayRequest(id, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor, "/");
+            }
             return hrr.Update(req); // Provera da li postoji vec u listi se radi u repozitorijumu
         }
 

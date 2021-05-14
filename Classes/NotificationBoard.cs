@@ -4,6 +4,10 @@ namespace Classes
 {
     public class NotificationBoard
     {
-        private List<Notification> Notifications;
+        public List<Notification> Notifications;
+        public NotificationBoard()
+        {
+            Notifications = new List<Notification>();
+        }
     }
 }

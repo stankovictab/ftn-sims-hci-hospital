@@ -8,11 +8,11 @@ namespace Classes
     {
         private String FileLocation;
         private List<Patient> PatientsInFile = new List<Patient>();
+        
 
+		public List<Patient> PatientsInFile1 { get => PatientsInFile; set => PatientsInFile = value; }
 
-        public List<Patient> PatientsInFile1 { get => PatientsInFile; set => PatientsInFile = value; }
-
-        public PatientRepository()
+		public PatientRepository()
         {
             FileLocation = "../../Text Files/patients.txt";
         }
@@ -61,9 +61,8 @@ namespace Classes
                 string jmbg = components[5];
                 string address = components[6];
                 char gender = Convert.ToChar(components[7]);
-                Boolean blocked = Boolean.Parse(components[8]);
-                User user = new User(name, lastname, username, password, email, jmbg, address, gender, false, Roles.Patient, blocked);
-                Patient patient = new Patient(user, new MedicalRecord(), new List<Appointment>(), new List<Notification>());
+                User user = new User(name, lastname, username, password, email, jmbg, address, gender, false, Roles.Patient);
+                Patient patient = new Patient(user, new MedicalRecord(), new List<Appointment>(),new List<Notification>());
                 patients.Add(patient);
                 text = tr.ReadLine();
             }
@@ -86,7 +85,6 @@ namespace Classes
                     patient.user.Address1 = p.user.Address1;
                     patient.user.Gender1 = p.user.Gender1;
                     patient.medicalRecord = p.medicalRecord;
-                    patient.user.blocked = p.user.blocked;
                     UpdateAll(PatientsInFile);
                     return true;
                 }
@@ -107,7 +105,7 @@ namespace Classes
             {
                 foreach (Patient p in pif)
                 {
-                    tw.WriteLine(p.user.Name1 + "," + p.user.LastName1 + "," + p.user.Username1 + "," + p.user.Password1 + "," + p.user.Email1 + "," + p.user.Jmbg1 + "," + p.user.Address1 + "," + p.user.Gender1 + "," + p.user.blocked.ToString());
+                    tw.WriteLine(p.user.Name1 + "," + p.user.LastName1 + "," + p.user.Username1 + "," + p.user.Password1 + "," + p.user.Email1 + "," + p.user.Jmbg1 + "," + p.user.Address1 + "," + p.user.Gender1);
                 }
                 tw.Close();
                 return true;

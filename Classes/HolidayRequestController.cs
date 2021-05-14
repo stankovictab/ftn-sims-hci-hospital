@@ -7,9 +7,9 @@ namespace Classes
     {
         public HolidayRequestService hrs = new HolidayRequestService();
 
-        public Boolean Create(String desc, DateTime start, DateTime end, Doctor doctor)
+        public Boolean Create(HolidayRequest req)
         {
-            return hrs.Create(desc, start, end, doctor);
+            return hrs.Create(req);
         }
 
         public HolidayRequest GetByID(String id)
@@ -32,9 +32,9 @@ namespace Classes
             return hrs.GetAllOnHold();
         }
 
-        public Boolean Update(String id, String desc, DateTime start, DateTime end, Doctor doctor)
+        public Boolean Update(HolidayRequest req)
         {
-            return hrs.Update(id, desc, start, end, doctor);
+            return hrs.Update(req);
         }
 
         public Boolean UpdateFile()

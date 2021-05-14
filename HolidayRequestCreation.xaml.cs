@@ -23,7 +23,10 @@ namespace ftn_sims_hci_hospital
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
             Doctor doctor = dc.GetByID("0501");
 
-            MainWindow.holidayRequestController.Create(desc, startDate, endDate, doctor); // Update-uje se i lista i fajl
+            // ID je null jer ce se naci u servisu
+            HolidayRequest req = new HolidayRequest(null, desc, startDate, endDate, DateTime.Now, HolidayRequestStatus.OnHold, doctor, "/");
+            MainWindow.holidayRequestController.Create(req); // Update-uje se i lista i fajl
+
             MessageBox.Show("You have successfully created a new holiday request!");
             this.Close(); // this.Hide(); ?
         }

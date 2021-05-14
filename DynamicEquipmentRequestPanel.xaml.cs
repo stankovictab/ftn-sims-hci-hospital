@@ -1,4 +1,5 @@
 ﻿using Classes;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,7 +27,10 @@ namespace ftn_sims_hci_hospital
             dc.GetAll(); // Punjenje liste doktora u memoriji
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
             Doctor doctor = dc.GetByID("0501");
-            MainWindow.dynamicEquipmentRequestController.Create(equipmentName, doctor); // Update-uje se i lista i fajl
+
+            // ID je null jer ce se naci u servisu
+            DynamicEquipmentRequest req = new DynamicEquipmentRequest(null, equipmentName, "0", DateTime.Now, DynamicEquipmentRequestStatus.OnHold, false, doctor, "/");
+            MainWindow.dynamicEquipmentRequestController.Create(req); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully created a new holiday request!");
 
             // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
@@ -42,8 +46,7 @@ namespace ftn_sims_hci_hospital
             dynamicEquipmentRequestListView.Items.Clear();
             foreach (DynamicEquipmentRequest req in list)
             {
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                loadIntoListView(req);
             }
         }
 
@@ -73,11 +76,16 @@ namespace ftn_sims_hci_hospital
         {
             MainWindow.dynamicEquipmentRequestController.GetAll();
             string equipmentName = dynamicEquipmentTextBox.Text;
-            DoctorController dc = new DoctorController();
-            dc.GetAll(); // Punjenje liste doktora u memoriji
+            // DoctorController dc = new DoctorController();
+            // dc.GetAll(); // Punjenje liste doktora u memoriji
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            Doctor doctor = dc.GetByID("0501");
-            MainWindow.dynamicEquipmentRequestController.Update(selectedDERID, equipmentName, doctor); // Update-uje se i lista i fajl
+            // Doctor doctor = dc.GetByID("0501");
+            // Ipak doktor nije bitan kod update-a, naci ce doktora samo na osnovu id-a requesta iz repo-a
+
+            // Ovom objektu je doctor za sada null, postavice se u servisu
+            DynamicEquipmentRequest req = new DynamicEquipmentRequest(selectedDERID, equipmentName, "0", DateTime.Now, DynamicEquipmentRequestStatus.OnHold, false, null, "/");
+
+            MainWindow.dynamicEquipmentRequestController.Update(req); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");
 
             // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
@@ -138,8 +146,7 @@ namespace ftn_sims_hci_hospital
             dynamicEquipmentRequestListView.Items.Clear();
             foreach (DynamicEquipmentRequest req in list)
             {
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                loadIntoListView(req);
             }
         }
 
@@ -154,8 +161,7 @@ namespace ftn_sims_hci_hospital
             foreach (DynamicEquipmentRequest req in list)
             {
                 if (req.EquipmentName1 == query)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                    dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                    loadIntoListView(req);
             }
             if (query == "")
                 // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
@@ -176,8 +182,7 @@ namespace ftn_sims_hci_hospital
             foreach (DynamicEquipmentRequest req in list)
             {
                 if (req.Status1 == DynamicEquipmentRequestStatus.OnHold)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                    dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                    loadIntoListView(req);
             }
         }
         private void filterApproved_Checked(object sender, RoutedEventArgs e)
@@ -190,8 +195,7 @@ namespace ftn_sims_hci_hospital
             foreach (DynamicEquipmentRequest req in list)
             {
                 if (req.Status1 == DynamicEquipmentRequestStatus.Approved)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                    dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                    loadIntoListView(req);
             }
         }
         private void filterDenied_Checked(object sender, RoutedEventArgs e)
@@ -204,9 +208,14 @@ namespace ftn_sims_hci_hospital
             foreach (DynamicEquipmentRequest req in list)
             {
                 if (req.Status1 == DynamicEquipmentRequestStatus.Denied)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                    dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                    loadIntoListView(req);
             }
+        }
+
+        // Clean Code
+
+        private void loadIntoListView(DynamicEquipmentRequest req) {
+            dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
         }
     }
 }

@@ -76,21 +76,23 @@
     <Compile Include="Classes\AssignmentService.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\DoctorController.cs" />
+    <Compile Include="Classes\DoctorPoll.cs" />
+    <Compile Include="Classes\DoctorPollRepository.cs" />
     <Compile Include="Classes\DoctorRepository.cs" />
     <Compile Include="Classes\DoctorService.cs" />
     <Compile Include="Classes\DoctorSpecialization.cs" />
     <Compile Include="Classes\DynamicAssignment.cs" />
     <Compile Include="Classes\DynamicEquipment.cs" />
-    <Compile Include="Classes\DynamicEquipmentRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentOrder.cs" />
-    <Compile Include="Classes\DynamicEquipmentRequest.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderController.cs" />
-    <Compile Include="Classes\DynamicEquipmentRequestController.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderRepository.cs" />
-    <Compile Include="Classes\DynamicEquipmentRequestRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderService.cs" />
-    <Compile Include="Classes\DynamicEquipmentRequestService.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderStatus.cs" />
+    <Compile Include="Classes\DynamicEquipmentRepository.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequest.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequestController.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequestRepository.cs" />
+    <Compile Include="Classes\DynamicEquipmentRequestService.cs" />
     <Compile Include="Classes\DynamicEquipmentRequestStatus.cs" />
     <Compile Include="Classes\EnschedulementController.cs" />
     <Compile Include="Classes\EnschedulementRepository.cs" />
@@ -119,8 +121,6 @@
     <Compile Include="Classes\PatientService.cs" />
     <Compile Include="Classes\Perscription.cs" />
     <Compile Include="Classes\PerscriptionRepository.cs" />
-    <Compile Include="Classes\DoctorPoll.cs" />
-    <Compile Include="Classes\DoctorPollRepository.cs" />
     <Compile Include="Classes\Priority.cs" />
     <Compile Include="Classes\Referral.cs" />
     <Compile Include="Classes\ReferralController.cs" />
@@ -153,20 +153,20 @@
     <Compile Include="DynamicCreation.xaml.cs">
       <DependentUpon>DynamicCreation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DynamicEquipmentOrderUpdate.xaml.cs">
-      <DependentUpon>DynamicEquipmentOrderUpdate.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DynamicEquipmentOrderCreation.xaml.cs">
       <DependentUpon>DynamicEquipmentOrderCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderPanel.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderUpdate.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="DynamicEquipmentPastRequestApprovals.xaml.cs">
       <DependentUpon>DynamicEquipmentPastRequestApprovals.xaml</DependentUpon>
     </Compile>
     <Compile Include="DynamicEquipmentRequestApproval.xaml.cs">
       <DependentUpon>DynamicEquipmentRequestApproval.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DynamicEquipmentOrderPanel.xaml.cs">
-      <DependentUpon>DynamicEquipmentOrderPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="DynamicEquipmentRequestPanel.xaml.cs">
       <DependentUpon>DynamicEquipmentRequestPanel.xaml</DependentUpon>
@@ -177,14 +177,50 @@
     <Compile Include="DynamicUse.xaml.cs">
       <DependentUpon>DynamicUse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HolidayRequestPastApprovals.xaml.cs">
-      <DependentUpon>HolidayRequestPastApprovals.xaml</DependentUpon>
+    <Compile Include="HCI\HolidayRequestCreationHCI.xaml.cs">
+      <DependentUpon>HolidayRequestCreationHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\NotificationPanelHCI.xaml.cs">
+      <DependentUpon>NotificationPanelHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\AppointmentPanelHCI.xaml.cs">
+      <DependentUpon>AppointmentPanelHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\QuickAppointmentHCI.xaml.cs">
+      <DependentUpon>QuickAppointmentHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\PerscriptionReportHCI.xaml.cs">
+      <DependentUpon>PerscriptionReportHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\PerscriptionValidationHCI.xaml.cs">
+      <DependentUpon>PerscriptionValidationHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\MedicalRecordsHCI.xaml.cs">
+      <DependentUpon>MedicalRecordsHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\DynamicEquipmentPanelHCI.xaml.cs">
+      <DependentUpon>DynamicEquipmentPanelHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\HolidayRequestPanelHCI.xaml.cs">
+      <DependentUpon>HolidayRequestPanelHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\X.xaml.cs">
+      <DependentUpon>X.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\ProfileHCI.xaml.cs">
+      <DependentUpon>ProfileHCI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HCI\DoctorPanelHCI.xaml.cs">
+      <DependentUpon>DoctorPanelHCI.xaml</DependentUpon>
     </Compile>
     <Compile Include="HolidayRequestApproval.xaml.cs">
       <DependentUpon>HolidayRequestApproval.xaml</DependentUpon>
     </Compile>
     <Compile Include="HolidayRequestPanel.xaml.cs">
       <DependentUpon>HolidayRequestPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayRequestPastApprovals.xaml.cs">
+      <DependentUpon>HolidayRequestPastApprovals.xaml</DependentUpon>
     </Compile>
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
@@ -197,6 +233,12 @@
     </Compile>
     <Compile Include="MedicineList.xaml.cs">
       <DependentUpon>MedicineList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationBoard.xaml.cs">
+      <DependentUpon>NotificationBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationCreation.xaml.cs">
+      <DependentUpon>NotificationCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
@@ -243,17 +285,23 @@
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateNotification.xaml.cs">
+      <DependentUpon>UpdateNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UrgentAppointmentCreation.xaml.cs">
+      <DependentUpon>UrgentAppointmentCreation.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddReferral.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AllAppointmentsPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="createAppointmentSpecialist.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DoctorPanel.xaml">
       <SubType>Designer</SubType>
@@ -302,6 +350,54 @@
     <Page Include="GuestCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HCI\HolidayRequestCreationHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\NotificationPanelHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\AppointmentPanelHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\QuickAppointmentHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\PerscriptionReportHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\PerscriptionValidationHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\MedicalRecordsHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\DynamicEquipmentPanelHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\HolidayRequestPanelHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\X.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\ProfileHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HCI\DoctorPanelHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="HolidayRequestPastApprovals.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -409,6 +505,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="NotificationBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NotificationCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NotificationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -426,8 +530,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PollPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="PossibleAppointments.xaml">
       <SubType>Designer</SubType>
@@ -492,6 +596,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UpdateNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UrgentAppointmentCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Appointment.cs" />
@@ -530,6 +642,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logowhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="usernew.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

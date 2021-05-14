@@ -18,7 +18,7 @@ namespace Classes
 
         public Boolean Create(Appointment app)
         {
-            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.EndTime.ToString("yyyy,MM,dd,hh,mm,ss") + ";" + app.Room.RoomNumber1 + ";" + (int)app.Type + ";" + app.rescheduled  + "\n";
+            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.Year.ToString() + "," + app.StartTime.Month.ToString() + "," + app.StartTime.Day.ToString() + "," + app.StartTime.Hour.ToString() + "," + app.StartTime.Minute.ToString() + "," + app.StartTime.Second.ToString() + ";" + app.EndTime.Year.ToString() + "," + app.EndTime.Month.ToString() + "," + app.EndTime.Day.ToString() + "," + app.EndTime.Hour.ToString() + "," + app.EndTime.Minute.ToString() + "," + app.EndTime.Second.ToString() + ";" + app.Room.RoomNumber1 + ";" + (int)app.Type +";"+  app.rescheduled  + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }

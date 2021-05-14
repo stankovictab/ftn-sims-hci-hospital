@@ -22,5 +22,9 @@ namespace Classes
             PatientId = patientId;
             DoctorId = doctorId;
         }
+        public Notification()
+        {
+
+        }
     }
 }

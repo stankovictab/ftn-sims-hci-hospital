@@ -1,4 +1,5 @@
-Igor,Jakovljevic,jaki99,maja<3,majanakvadrat@gmail.com,1243999081010,Stevana Musica 3,M,False
-Mihajlooo,Zivkovic,zixazmija99@gmail.com,mihajlo!999,zixazmija99@gmail.com,0809999800061,Danila Kisa 15,M,False
-Incontinentia,Buttocks,guest1,hcihospital,,96,,N,False
-Goran,Tatomirov,gogran,123,goran.tatomirov@gmai.com,123456789123,Sutjeska 192,M,True
+Igor,Jakovljevic,jaki99,maja<3,majanakvadrat@gmail.com,1243999081010,Stevana Musica 3,M
+Mihajlooo,Zivkovic,zixazmija99@gmail.com,mihajlo!999,zixazmija99@gmail.com,0809999800061,Danila Kisa 15,M
+Incontinentia,Buttocks,guest1,hcihospital,,96,,N
+Goran,Tatomirov,gogran,123,goran.tatomirov@gmai.com,123456789123,Sutjeska 192,M
+Gogi,Gogic,guest1,hcihospital,,GGGGGGGGGGG,,N

@@ -1,7 +1,7 @@
-﻿using Classes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Classes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -37,13 +37,14 @@ namespace ftn_sims_hci_hospital
             foreach (HolidayRequest req in list)
             {
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1});
+                holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
             }
         }
 
         // SelectionChanged="holidayRequestListView_SelectionChanged" dodat u XAML ListView kao atribut
         private void holidayRequestListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            btnUpdateRequest.IsEnabled = true;
             btnDeleteRequest.IsEnabled = true;
             // Posto izbrise SelectedItem, on je null, a ova metoda se automatski poziva, pa ovako izbegavamo exception
             if (holidayRequestListView.SelectedItem != null)
