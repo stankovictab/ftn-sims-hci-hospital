@@ -12,6 +12,7 @@ namespace Classes
         public List<HolidayRequest> holidayRequests;
         public List<DynamicEquipmentRequest> dynamicEquipmentRequests;
         public List<Notification> notifications;
+        public float avergeMark;
 
         // Ovaj treba da se brise, vidi gde je referenca
         public Doctor(User user, Room room, List<Appointment> appointments, List<HolidayRequest> holidayRequests)

@@ -57,7 +57,15 @@ namespace ftn_sims_hci_hospital
 
                 if(radioA.IsChecked == true)
                 {
+                    Random rnd = new Random();
+                    int r = rnd.Next(1, 1000);
+                    CultureInfo provider = CultureInfo.InvariantCulture;
+                    DateTime date = DateTime.ParseExact(txtDAS.Text, "hh:mm:ss dd.MM.yyyy", provider);
 
+                    Patient patient = (Patient)lvUsers.SelectedItem;
+                    Anamnesis a = new Anamnesis(r.ToString(), txtDES.Text, date);
+
+                    patientController.addAnamnesis(a, patient.user.Jmbg1);
                 }
             }
             else
@@ -192,14 +200,23 @@ namespace ftn_sims_hci_hospital
             }
         }
 
+        private void showAddReferral(object sender, RoutedEventArgs e)
+        {
+            Patient patient = (Patient)lvUsers.SelectedItem;
+            AddReferral newAddReferral = new AddReferral(patient);
+            newAddReferral.Show();
+        }   
+
         private void radioA_Checked(object sender, RoutedEventArgs e)
         {
             CanvasPers.Visibility = Visibility.Hidden;
+            CanvasAnas.Visibility = Visibility.Visible;
         }
 
         private void radioP_Checked(object sender, RoutedEventArgs e)
         {
-            CanvasPers.Visibility = Visibility.Visible;
+            CanvasPers.Visibility = Visibility.Hidden;
+            CanvasAnas.Visibility = Visibility.Visible;
         }
 
         

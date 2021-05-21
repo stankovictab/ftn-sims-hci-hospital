@@ -56,7 +56,8 @@ namespace Classes
                 // drrep.DoctorsInFile = drrep.GetAll(); ? Da li GetByID ima u sebi GetAll()?
                 Doctor doctor = drrep.GetByID(components[4]);
 
-                DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, requestDate, status, doctor);
+                string commentary = components[5];
+                DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, requestDate, status, doctor, commentary);
                 requests.Add(request);
                 text = tr.ReadLine();
             }
@@ -132,7 +133,7 @@ namespace Classes
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (DynamicEquipmentRequest item in DynamicEquipmentRequestsInFile)
                 {
-                    tw.WriteLine(item.RequestID1 + "," + item.EquipmentName1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.doctor.user.Jmbg1);
+                    tw.WriteLine(item.RequestID1 + "," + item.EquipmentName1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok, parsira se isto
                 }
                 tw.Close();
@@ -155,7 +156,7 @@ namespace Classes
             return false;
         }
 
-        public Boolean Approve(String id)
+        public Boolean Approve(String id, String commentary)
         {
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
@@ -163,6 +164,7 @@ namespace Classes
                 if (hr.RequestID1.Equals(id))
                 {
                     hr.Status1 = DynamicEquipmentRequestStatus.Approved;
+                    hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
                 }
@@ -170,7 +172,7 @@ namespace Classes
             return false;
         }
 
-        public Boolean Deny(String id)
+        public Boolean Deny(String id, String commentary)
         {
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
@@ -178,6 +180,7 @@ namespace Classes
                 if (hr.RequestID1.Equals(id))
                 {
                     hr.Status1 = DynamicEquipmentRequestStatus.Denied;
+                    hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
                 }

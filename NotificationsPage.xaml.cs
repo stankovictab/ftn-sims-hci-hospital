@@ -27,7 +27,20 @@ namespace ftn_sims_hci_hospital
             InitializeComponent();
             notificationController = new NotificationController();
             List<Notification> notifications = notificationController.GetByPatientID(MainWindow.user.Jmbg1);
-            notificationTable.ItemsSource = notifications;
+            //notificationTable.ItemsSource = notifications;
+            foreach(Notification notification in notifications)
+            {
+                notificationTable.Items.Add(new Notification
+                {
+                    Id = notification.Id,
+                    Title = notification.Title,
+                    Body = notification.Body,
+                    Date = notification.Date,
+                    Read = notification.Read,
+                    PatientId = notification.PatientId,
+                    DoctorId = notification.DoctorId
+                });
+            }
         }
     }
 }

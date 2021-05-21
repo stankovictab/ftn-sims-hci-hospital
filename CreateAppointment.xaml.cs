@@ -1,4 +1,5 @@
 ﻿using Classes;
+//using ftn_sims_hci_hospital.Classes;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -43,6 +44,7 @@ namespace ftn_sims_hci_hospital
         private void showAvailableAppointments(object sender, RoutedEventArgs e)
         {
             DateTime sd = (DateTime)startDate.SelectedDate;
+            Console.WriteLine(sd);
             DateTime ed = (DateTime)endDate.SelectedDate;
             String doctor = doctorCombo.Text;
             Priority p = Priority.None;

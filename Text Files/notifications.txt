@@ -14,8 +14,6 @@
 14;1243999081010;7601;Your appointment on  4/23/2021 4:00:00 AM has been moved to 4/25/2021 4:00:00 AM!;Alert;False;2021,04,23,02,34,39
 16;;;Room 150 will be undergoing renovations in the next 4 weeks!;Renovation;False;2021,05,04,04,10,02
 17;;;Dana 05/06/2021 ce biti neradan dan!;Alert;False;2021,05,05,11,10,56
-18;;;Alert;Alert;False;2021,05,05,11,11,28
-18;1243999081010;0501;You have a new appointment on  5/5/2021 1:00:00 PM;Alert;False;2021,05,05,12,59,08
 19;1243999081010;0501;You have a new appointment on  5/5/2021 1:00:00 PM;Alert;False;2021,05,05,01,02,50
 20;1243999081010;0501;Your appointment on  5/5/2021 1:00:00 AM has been canceled!;Alert;False;2021,05,05,01,02,59
 21;1243999081010;0501;You have a new appointment on  5/6/2021 6:00:00 PM;Alert;False;2021,05,05,01,05,16
@@ -59,3 +57,56 @@
 59;;0501;You have a new appointment on  5/5/2021 3:00:00 PM;Alert;False;2021,05,05,02,50,56
 60;1243999081010;0501;You have a new appointment on  5/6/2021 10:00:00 AM;Alert;False;2021,05,05,02,52,11
 61;123123123;7601;You have a new appointment on  5/6/2021 10:00:00 AM;Alert;False;2021,05,05,02,52,38
+62;;0501;You have a new appointment on  5/6/2021 12:00:00 PM;Alert;False;2021,05,06,11,42,35
+63;;0501;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,13,10
+64;;7601;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,13,25
+65;;6331;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,13,32
+66;123321123;0501;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,12,13,50
+67;;0501;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,13,50
+68;0809999800061;7601;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,12,17,38
+69;;7601;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,17,38
+70;0809999800061;7601;Your appointment on  5/7/2021 8:00:00 AM has been canceled!;Alert;False;2021,05,06,12,18,00
+71;123123123;0501;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,12,18,21
+72;;0501;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,18,21
+73;123123123;6331;Your appointment on  5/6/2021 1:00:00 PM has been canceled!;Alert;False;2021,05,06,12,18,33
+74;;6331;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,18,41
+75;123321123;7601;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,12,19,07
+76;;7601;You have a new appointment on  5/6/2021 1:00:00 PM;Alert;False;2021,05,06,12,19,07
+77;;0501;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,20,06
+78;96;0501;Your appointment on  5/6/2021 2:00:00 AM has been canceled!;Alert;False;2021,05,06,01,21,31
+79;;0501;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,21,38
+79;1243999081010;0501;You have a new appointment on  5/13/2021 2:00:00 PM;Alert;False;2021,05,06,01,29,14
+80;;7601;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,36,31
+81;;6331;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,36,46
+82;0809999800061;0501;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,01,37,13
+83;;0501;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,37,13
+84;GGGGGGGGGGG;7601;Your appointment has been rescheduled to  5/7/2021 8:00:00 AM;Alert;False;2021,05,06,01,38,16
+85;;7601;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,38,16
+86;1243999081010;7601;Your appointment has been rescheduled to  5/7/2021 9:00:00 AM;Alert;False;2021,05,06,01,38,51
+87;;7601;You have a new appointment on  5/6/2021 2:00:00 PM;Alert;False;2021,05,06,01,38,51
+88;GGGGGGGGGGG;7601;Your appointment on  5/7/2021 9:00:00 AM has been canceled!;Alert;False;2021,05,07,12,23,38
+89;1243999081010;0501;You have a new appointment on  5/14/2021 3:00:00 PM;Alert;False;2021,05,07,12,40,42
+90;123456789123;0501;You have a new appointment on  5/14/2021 1:00:00 PM;Alert;False;2021,05,07,01,08,15
+91;123456789123;0501;Your appointment on  5/14/2021 1:00:00 PM has been canceled!;Alert;False;2021,05,07,01,09,21
+18;;;Alert;Alert21321;False;2021,05,07,01,54,32
+92;;0501;You have a new appointment on  5/7/2021 2:00:00 PM;Alert;False;2021,05,07,01,55,17
+93;;7601;You have a new appointment on  5/7/2021 2:00:00 PM;Alert;False;2021,05,07,01,55,33
+94;;6331;You have a new appointment on  5/7/2021 2:00:00 PM;Alert;False;2021,05,07,01,55,47
+95;0809999800061;0501;Your appointment has been rescheduled to  5/8/2021 8:00:00 AM;Alert;False;2021,05,07,01,56,21
+96;;0501;You have a new appointment on  5/7/2021 2:00:00 PM;Alert;False;2021,05,07,01,56,21
+97;123456789123;7601;Your appointment has been rescheduled to  5/8/2021 8:00:00 AM;Alert;False;2021,05,07,01,56,49
+98;;7601;You have a new appointment on  5/7/2021 2:00:00 PM;Alert;False;2021,05,07,01,56,49
+99;1243999081010;0501;You have a new appointment on  5/11/2021 8:00:00 AM;Alert;False;2021,05,10,08,14,41
+100;1243999081010;0501;Your appointment on  5/11/2021 8:00:00 AM has been canceled!;Alert;False;2021,05,10,08,15,56
+101;0809999800061;0501;Your appointment on  5/7/2021 2:00:00 PM has been moved to 5/13/2021 2:00:00 PM!;Alert;False;2021,05,10,08,16,04
+103;0809999800061;0501;Your appointment on  5/13/2021 2:00:00 PM has been canceled!;Alert;False;2021,05,10,08,16,23
+102;;;1231231212;123;False;2021,05,10,08,16,36
+104;;0501;You have a new appointment on  5/21/2021 1:00:00 PM;Alert;False;2021,05,21,12,43,03
+105;;7601;You have a new appointment on  5/21/2021 1:00:00 PM;Alert;False;2021,05,21,12,55,54
+106;;6331;You have a new appointment on  5/21/2021 1:00:00 PM;Alert;False;2021,05,21,12,56,12
+107;1243999081010;6331;Your appointment on  5/21/2021 1:00:00 PM has been canceled!;Alert;False;2021,05,21,01,04,57
+108;1243999081010;7601;Your appointment on  5/21/2021 1:00:00 PM has been canceled!;Alert;False;2021,05,21,01,04,59
+109;1243999081010;0501;Your appointment on  5/21/2021 1:00:00 PM has been canceled!;Alert;False;2021,05,21,01,05,02
+110;;0501;You have a new appointment on  5/21/2021 2:00:00 PM;Alert;False;2021,05,21,01,05,08
+111;;7601;You have a new appointment on  5/21/2021 2:00:00 PM;Alert;False;2021,05,21,01,05,17
+112;;6331;You have a new appointment on  5/21/2021 2:00:00 PM;Alert;False;2021,05,21,01,05,25

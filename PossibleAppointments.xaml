@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="PossibleAppointments" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="possibleAppointments" HorizontalAlignment="Left" Height="380" Margin="21,10,0,0" VerticalAlignment="Top" Width="549">
+        <ListView x:Name="possibleAppointments" HorizontalAlignment="Left" Height="380" Margin="21,10,0,0" VerticalAlignment="Top" Width="549" BorderBrush="Black" Foreground="Black">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Doctor First Name" DisplayMemberBinding="{Binding doctor.user.Name1}"/>
@@ -18,7 +18,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnmakeappointment" Content="Make Appointment" HorizontalAlignment="Left" Height="79" Margin="605,311,0,0" VerticalAlignment="Top" Width="162" Click="btnmakeappointment_Click" />
+        <Button x:Name="btnmakeappointment" Content="Make Appointment" HorizontalAlignment="Left" Height="79" Margin="605,311,0,0" VerticalAlignment="Top" Width="162" Click="btnmakeappointment_Click" BorderBrush="Black" Background="White" />
 
     </Grid>
 </Window>

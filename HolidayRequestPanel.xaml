@@ -16,11 +16,12 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status1}"/>
                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description1}"/>
                     <GridViewColumn Header="Start Date" DisplayMemberBinding="{Binding StartDate1}"/>
                     <GridViewColumn Header="End Date" DisplayMemberBinding="{Binding EndDate1}"/>
                     <GridViewColumn Header="Request Date" DisplayMemberBinding="{Binding RequestDate1}"/>
-                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status1}"/>
+                    <GridViewColumn Header="Commentary" DisplayMemberBinding="{Binding Commentary1}"/>
                 </GridView>
             </ListView.View>
         </ListView>

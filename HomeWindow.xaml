@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="HomeWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="menu" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="226" Background="#FF302E2E" Foreground="White" FontSize="20" FontFamily="Arial" SelectionChanged="menu_SelectionChanged"/>
+        <ListBox x:Name="menu" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="226" Background="Black" Foreground="White" FontSize="20" FontFamily="Arial" SelectionChanged="menu_SelectionChanged" BorderBrush="Black"/>
     </Grid>
 </Window>

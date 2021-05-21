@@ -7,21 +7,25 @@
         mc:Ignorable="d"
         Title="DynamicEquipmentRequestApproval" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnApproveRequest" Content="Approve Request" HorizontalAlignment="Left" Margin="254,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnApproveRequest_Click"/>
-        <Button x:Name="btnDenyRequest" Content="Deny Request" HorizontalAlignment="Left" Margin="428,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnDenyRequest_Click"/>
+        <Button x:Name="btnApproveRequest" Content="Approve Request" HorizontalAlignment="Left" Margin="247,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnApproveRequest_Click"/>
+        <Button x:Name="btnDenyRequest" Content="Deny Request" HorizontalAlignment="Left" Margin="421,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnDenyRequest_Click"/>
         <Label Content="Manager's Dynamic Equipment Request Approval Panel" HorizontalAlignment="Center" Margin="67,27,0,0" VerticalAlignment="Top" FontSize="24" Width="659"/>
-        <Button x:Name="btnShowRequests" Content="Show Requests" HorizontalAlignment="Left" Margin="15,188,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnShowRequests_Click"/>
-        <ListView x:Name="dynamicEquipmentRequestListView" HorizontalAlignment="Left" Height="218" Margin="169,86,0,0" VerticalAlignment="Top" Width="472" SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged">
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="247,87,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnRefresh_Click"/>
+        <ListView x:Name="dynamicEquipmentRequestListView" HorizontalAlignment="Left" Height="145" Margin="50,124,0,0" VerticalAlignment="Top" Width="696" SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
+                    <GridViewColumn Header="Doctor" DisplayMemberBinding="{Binding DoctorFullName1}"/>
                     <GridViewColumn Header="Equipment Name" DisplayMemberBinding="{Binding EquipmentName1}"/>
                     <GridViewColumn Header="Request Date" DisplayMemberBinding="{Binding RequestDate1}"/>
-                    <GridViewColumn Header="Doctor" DisplayMemberBinding="{Binding DoctorFullName1}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="All shown requests are on hold." HorizontalAlignment="Left" Margin="467,304,0,0" VerticalAlignment="Top"/>
+        <Label Content="All approved requests are sent to the current order." HorizontalAlignment="Left" Margin="51,380,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="commentaryBoxDynamicEquipmentRequest" HorizontalAlignment="Left" Height="46" Margin="299,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" IsEnabled="False"/>
+        <Label Content="Commentary" HorizontalAlignment="Left" Margin="197,298,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="btnPast" Content="Past Requests" HorizontalAlignment="Left" Margin="427,87,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnPast_Click"/>
+        <Label Content="All shown requests are on hold." HorizontalAlignment="Left" Margin="421,380,0,0" VerticalAlignment="Top" FontSize="14"/>
 
     </Grid>
 </Window>

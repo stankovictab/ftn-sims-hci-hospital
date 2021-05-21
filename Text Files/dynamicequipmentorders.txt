@@ -1,0 +1,2 @@
+1,stetoskopi;ubrusi,2;15,02/10/21 09:00:00 AM,0
+2,infuzije;maske,5;60,03/10/21 09:00:00 AM,1

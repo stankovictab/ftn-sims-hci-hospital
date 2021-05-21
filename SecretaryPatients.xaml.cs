@@ -30,7 +30,7 @@ namespace ftn_sims_hci_hospital
             menu.Items.Add("Notifications");
             menu.Items.Add("Exchange Patient Info");
             menu.SelectedItem = menu.Items[2];
-
+            btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void btncreatepatient_Click(object sender, RoutedEventArgs e)

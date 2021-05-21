@@ -1,4 +1,4 @@
-1,Godisnji odmor,10-Jan-21 6:00:00 AM,20-Jan-21 8:00:00 AM,02-Jan-21 8:00:00 AM,1,0501
-2,Koriscenje preostalih slobodnih dana,05-Feb-21 8:00:00 AM,15-Feb-21 6:00:00 PM,02-Feb-21 8:00:00 AM,2,7601
-3,Porodiljsko,28-Mar-21 9:00:00 AM,11-Apr-21 10:00:00 AM,02-Jan-21 8:00:00 AM,0,0501
-4,Zakazano kod zubara,02-Apr-21 11:00:00 AM,04-Apr-21 6:00:00 AM,21-Mar-21 8:00:00 AM,0,6331
+1,Godisnji odmor,01/10/21 06:00:00 AM,01/20/21 08:00:00 AM,01/02/21 08:00:00 AM,1,0501,/
+2,Koriscenje preostalih slobodnih dana,02/05/21 08:00:00 AM,02/15/21 06:00:00 PM,02/02/21 08:00:00 AM,2,7601,Previse puta su iskoriceni
+3,Porodiljsko,03/28/21 09:00:00 AM,04/11/21 10:00:00 AM,01/02/21 08:00:00 AM,0,0501,/
+4,Zakazano kod zubara,04/02/21 11:00:00 AM,04/04/21 06:00:00 AM,03/21/21 08:00:00 AM,0,6331,/

@@ -21,11 +21,12 @@
         <Rectangle Fill="#FF838080" HorizontalAlignment="Left" Height="700" Margin="290,35,0,0" Stroke="Black" VerticalAlignment="Top" Width="600" Grid.Column="2"/>
         <Image Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="136" Margin="529,57,0,0" VerticalAlignment="Top" Width="145" Source="logo.png"/>
         <Label Grid.ColumnSpan="3" Content="HCI Hospital" HorizontalAlignment="Left" Margin="521,193,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Arial" Foreground="Black" FontWeight="Bold"/>
-        <TextBox x:Name="tbusername" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="34" Margin="521,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Background="#FFAEAAAA"/>
+        <TextBox x:Name="usernameTextBox" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="34" Margin="521,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Background="#FFAEAAAA"/>
         <Label Grid.ColumnSpan="3" Content="Username:" HorizontalAlignment="Left" Margin="514,344,0,0" VerticalAlignment="Top" FontSize="18" Width="160" FontFamily="Arial" FontWeight="Bold"/>
         <Label Grid.ColumnSpan="3" Content="Password:" HorizontalAlignment="Left" Margin="514,426,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Arial" FontWeight="Bold"/>
-        <PasswordBox x:Name="tbpassword" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="521,457,0,0" VerticalAlignment="Top"  Width="160" Height="34" Background="#FFAEAAAA"/>
-        <Button x:Name="btnLogin" Grid.ColumnSpan="3" Content="Login" HorizontalAlignment="Left" Margin="581,522,0,0" VerticalAlignment="Top" Width="100" Height="45" Background="#FFABB1B4" BorderBrush="#FF020202"/>
+        <PasswordBox x:Name="passwordTextBox" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="521,457,0,0" VerticalAlignment="Top"  Width="160" Height="34" Background="#FFAEAAAA"/>
+        <Button x:Name="btnLogin" Grid.ColumnSpan="3" Content="Login" HorizontalAlignment="Left" Margin="581,522,0,0" VerticalAlignment="Top" Width="100" Height="45" Background="#FFABB1B4" BorderBrush="#FF020202" Click="LogIn"/>
+        <Label x:Name="errorMessage" Grid.ColumnSpan="3" Content="Username or password not valid" Foreground="#FFD71919" FontSize="16" HorizontalAlignment="Left" Margin="484,303,0,0" VerticalAlignment="Top" Background="{x:Null}" Visibility="Hidden"/>
 
     </Grid>
 </Window>

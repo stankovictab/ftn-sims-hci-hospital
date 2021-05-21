@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="PatientView" Height="644.344" Width="831.39">
     <Grid>
-        <Rectangle Fill="#FF838080" HorizontalAlignment="Left" Height="363" Margin="143,167,0,0" Stroke="Black" VerticalAlignment="Top" Width="540"/>
-        <Button x:Name="btnupdate" Content="Save changes" HorizontalAlignment="Left" Height="42" Margin="374,546,0,0" VerticalAlignment="Top" Width="103" Click="btnupdate_Click" />
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="363" Margin="143,167,0,0" Stroke="Black" VerticalAlignment="Top" Width="540"/>
+        <Button x:Name="btnupdate" Content="Save changes" HorizontalAlignment="Left" Height="42" Margin="374,546,0,0" VerticalAlignment="Top" Width="103" Click="btnupdate_Click" BorderBrush="Black" Background="White" />
         <Label x:Name="lbfirstname" Content="Firstname" HorizontalAlignment="Left" Height="24" Margin="170,202,0,0" VerticalAlignment="Top" Width="62"/>
         <Label x:Name="lblastname" Content="Lastname" HorizontalAlignment="Left" Height="24" Margin="429,202,0,0" VerticalAlignment="Top" Width="63"/>
         <TextBox x:Name="tblastname" HorizontalAlignment="Left" Height="29" Margin="497,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
@@ -29,8 +29,15 @@
         <TextBox x:Name="tballergies" HorizontalAlignment="Left" Height="69" Margin="237,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
         <Label x:Name="lbdiagnoses" Content="Diagnoses" HorizontalAlignment="Left" Height="24" Margin="421,470,0,0" VerticalAlignment="Top" Width="76"/>
         <Label x:Name="lballergies" Content="Allergies" HorizontalAlignment="Left" Height="24" Margin="156,470,0,0" VerticalAlignment="Top" Width="76"/>
-        <ComboBox x:Name="cballergy" HorizontalAlignment="Left" Margin="237,361,0,0" VerticalAlignment="Top" Width="128" Height="29"/>
-        <Button x:Name="btnaddallergy" Content="Add Allergy" HorizontalAlignment="Left" Margin="290,395,0,0" VerticalAlignment="Top" Width="75"  Height="25" Click="btnaddallergy_Click"/>
+        <ComboBox x:Name="cballergy" HorizontalAlignment="Left" Margin="237,361,0,0" VerticalAlignment="Top" Width="128" Height="29" BorderBrush="Black">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <Button x:Name="btnaddallergy" Content="Add Allergy" HorizontalAlignment="Left" Margin="290,395,0,0" VerticalAlignment="Top" Width="75"  Height="25" Click="btnaddallergy_Click" BorderBrush="Black" Background="White"/>
 
     </Grid>
 </Window>

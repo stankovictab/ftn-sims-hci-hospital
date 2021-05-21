@@ -21,7 +21,7 @@
         <TextBox x:Name="tbfirstname" HorizontalAlignment="Left" Height="38" Margin="10,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Grid.Row="2"/>
         <Label x:Name="lblastname" Content="Lastname:" HorizontalAlignment="Left" Height="31" Margin="10,62,0,0" VerticalAlignment="Top" Width="139" Grid.Row="2" Grid.RowSpan="2"/>
         <TextBox x:Name="tblastname" HorizontalAlignment="Left" Height="38" Margin="10,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Grid.Row="3"/>
-        <Button x:Name="btnregister" Content="Register" HorizontalAlignment="Left" Height="43" Margin="418,137,0,0" Grid.Row="3" VerticalAlignment="Top" Width="121" Click="btnregister_Click"/>
+        <Button x:Name="btnregister" Content="Register" HorizontalAlignment="Left" Height="43" Margin="418,137,0,0" Grid.Row="3" VerticalAlignment="Top" Width="121" Click="btnregister_Click" BorderBrush="Black" Background="White"/>
         <Label x:Name="lbphone" Content="JMBG:" HorizontalAlignment="Left" Height="31" Margin="10,68,0,0" VerticalAlignment="Top" Width="139" Grid.Row="3"/>
         <TextBox x:Name="tbjmbg" HorizontalAlignment="Left" Height="38" Margin="10,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Grid.Row="3"/>
 

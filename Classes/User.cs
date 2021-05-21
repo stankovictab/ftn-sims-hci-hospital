@@ -14,7 +14,8 @@ namespace Classes
         private Char Gender;
         private Boolean Active = false;
         private Roles Role;
-		
+        public Boolean blocked;
+
         public User() { }
 
         public User(String jmbg)
@@ -23,7 +24,7 @@ namespace Classes
         }
 
         // Za konstruktor su postavljene default vrednosti
-        public User(string name = "", string lastName = "", string username = "", string password = "", string email = "", string jmbg = "", string address = "", char gender = 'N', bool active = false, Roles role = Roles.Patient)
+        public User(string name = "", string lastName = "", string username = "", string password = "", string email = "", string jmbg = "", string address = "", char gender = 'N', bool active = false, Roles role = Roles.Patient, Boolean blocked = false)
         {
             // Ovo su seteri
             Name1 = name;
@@ -36,6 +37,7 @@ namespace Classes
             Gender1 = gender;
             Active1 = active;
             Role1 = role;
+            this.blocked = blocked;
         }
 
         public string Name1 { get => Name; set => Name = value; }
