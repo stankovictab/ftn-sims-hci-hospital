@@ -43,7 +43,6 @@ namespace ftn_sims_hci_hospital
             c.Show();
         }
 
-
         private void openDeleteAppointment(Object sender, RoutedEventArgs e)
         {
             DeleteAppointmentDoctorB d = new DeleteAppointmentDoctorB();

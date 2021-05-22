@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
 
 namespace ftn_sims_hci_hospital.Classes
@@ -6,9 +7,13 @@ namespace ftn_sims_hci_hospital.Classes
     class ReferralRepository
     {
         private String FileLocation;
+        private DoctorRepository doctorRepository;
+        private PatientRepository patientRepository;
         public ReferralRepository()
         {
             FileLocation = "../../Text Files/referrals.txt";
+            doctorRepository = new DoctorRepository();
+            patientRepository = new PatientRepository();
         }
 
         public Boolean Create(Referral r)
@@ -35,7 +40,9 @@ namespace ftn_sims_hci_hospital.Classes
                     String[] endDateParts = data[4].Split(',');
                     DateTime endDate = new DateTime(int.Parse(endDateParts[0]), int.Parse(endDateParts[1]), int.Parse(endDateParts[2]), int.Parse(endDateParts[3]), int.Parse(endDateParts[4]), int.Parse(endDateParts[5]));
                     Boolean used = Boolean.Parse(data[5]);
-                    referral = new Referral(id, doctorId, patientId, description, endDate, used);
+                    Doctor doc = doctorRepository.GetByID(doctorId);
+                    Patient pat = patientRepository.GetByID(patientId);
+                    referral = new Referral(id, doc, pat, description, endDate, used);
                     return referral;
                 }
             }
@@ -59,7 +66,9 @@ namespace ftn_sims_hci_hospital.Classes
                     String[] endDateParts = data[4].Split(',');
                     DateTime endDate = new DateTime(int.Parse(endDateParts[0]), int.Parse(endDateParts[1]), int.Parse(endDateParts[2]), int.Parse(endDateParts[3]), int.Parse(endDateParts[4]), int.Parse(endDateParts[5]));
                     Boolean used = Boolean.Parse(data[5]);
-                    Referral r = new Referral(id, doctorId, patientId, description, endDate, used);
+                    Doctor doc = doctorRepository.GetByID(doctorId);
+                    Patient pat = patientRepository.GetByID(patientId);
+                    Referral r = new Referral(id, doc, pat, description, endDate, used);
                     referrals.Add(r);
                 }
             }

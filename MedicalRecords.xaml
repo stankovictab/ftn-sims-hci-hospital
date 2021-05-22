@@ -36,7 +36,6 @@
             </ListView.View>
         </ListView>
         <Button Content="create" Click="create"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="703,379,0,0"/>
-
         <Canvas Name="CanvasPers" Margin="35,273,362,25" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="81" Canvas.Top="5" Text="medicine: " Canvas.Left="10"/>
             <TextBox Name="txtM" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.48,0.836" Canvas.Left="66"/>

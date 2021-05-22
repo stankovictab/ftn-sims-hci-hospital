@@ -13,6 +13,7 @@ namespace ftn_sims_hci_hospital
         public static AppointmentController appointmentController = new AppointmentController();
         public static HolidayRequestController holidayRequestController = new HolidayRequestController();
         public static DynamicEquipmentRequestController dynamicEquipmentRequestController = new DynamicEquipmentRequestController();
+        public static DynamicEquipmentOrderController dynamicEquipmentOrderController = new DynamicEquipmentOrderController();
         public static NotificationController notificationController = new NotificationController();
 
         public static User user;

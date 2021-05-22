@@ -7,23 +7,29 @@
         mc:Ignorable="d"
         Title="HolidayRequestApproval" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnApproveRequest" Content="Approve Request" HorizontalAlignment="Left" Margin="254,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnApproveRequest_Click"/>
-        <Button x:Name="btnDenyRequest" Content="Deny Request" HorizontalAlignment="Left" Margin="428,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnDenyRequest_Click"/>
+        <Button x:Name="btnApproveRequest" Content="Approve Request" HorizontalAlignment="Left" Margin="250,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnApproveRequest_Click"/>
+        <Button x:Name="btnDenyRequest" Content="Deny Request" HorizontalAlignment="Left" Margin="424,355,0,0" VerticalAlignment="Top" Width="130" IsEnabled="False" Click="btnDenyRequest_Click"/>
         <Label Content="Manager's Holiday Request Approval Panel" HorizontalAlignment="Center" Margin="169,28,-36,0" VerticalAlignment="Top" FontSize="24" Width="659"/>
-        <Button x:Name="btnShowRequests" Content="Show Requests" HorizontalAlignment="Left" Margin="15,188,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnShowRequests_Click"/>
-        <ListView x:Name="holidayRequestListView" HorizontalAlignment="Left" Height="218" Margin="169,86,0,0" VerticalAlignment="Top" Width="472" SelectionChanged="holidayRequestListView_SelectionChanged">
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="253,84,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnRefresh_Click"/>
+        <ListView x:Name="holidayRequestListView" HorizontalAlignment="Left" Height="148" Margin="50,119,0,0" VerticalAlignment="Top" Width="709" SelectionChanged="holidayRequestListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
+                    <GridViewColumn Header="Doctor" DisplayMemberBinding="{Binding DoctorFullName1}"/>
                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description1}"/>
                     <GridViewColumn Header="Start Date" DisplayMemberBinding="{Binding StartDate1}"/>
                     <GridViewColumn Header="End Date" DisplayMemberBinding="{Binding EndDate1}"/>
                     <GridViewColumn Header="Request Date" DisplayMemberBinding="{Binding RequestDate1}"/>
-                    <GridViewColumn Header="Doctor" DisplayMemberBinding="{Binding DoctorFullName1}"/>
                 </GridView>
             </ListView.View>
+            <Label Content="All shown requests are on hold." HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
+            <TextBox x:Name="commentaryBox" HorizontalAlignment="Left" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="392"/>
+            <Label Content="Commentary" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14"/>
         </ListView>
-        <Label Content="All shown requests are on hold." HorizontalAlignment="Left" Margin="467,304,0,0" VerticalAlignment="Top"/>
+        <Label Content="All shown requests are on hold." HorizontalAlignment="Left" Margin="285,380,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="commentaryBoxHolidayRequest" HorizontalAlignment="Left" Height="46" Margin="293,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="392" IsEnabled="False"/>
+        <Label Content="Commentary" HorizontalAlignment="Left" Margin="191,299,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="btnPast" Content="Past Requests" HorizontalAlignment="Left" Margin="427,84,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnPast_Click"/>
 
     </Grid>
 </Window>

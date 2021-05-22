@@ -14,23 +14,23 @@
                 <DatePicker SelectedDate="{Binding chosenDate}" SelectedDateChanged="ChosenDateChange" CalendarOpened="CalendarOpenedRestrictions" Focusable="False"/>
             </DataTemplate>
         </Grid.Resources>
-        <WrapPanel>
-            <DataGrid x:Name="referrals" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Lekar specijalista" Binding="{Binding doctor.user.Jmbg1}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Krajnji rok" Binding="{Binding endDate}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Opis" Binding="{Binding description}" />
-                    <DataGridTemplateColumn Header="Datum" CellTemplate="{StaticResource DateTemplate}" />
-                </DataGrid.Columns>
-            </DataGrid>
-            <DataGrid x:Name="availableTime" HorizontalAlignment="Left" Margin="484,10,0,0" VerticalAlignment="Top" AutoGenerateColumns="False">
+        <DockPanel Margin="0 15 0 0">
+            <DataGrid Margin="20" x:Name="referrals" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" DockPanel.Dock="Left" CanUserAddRows="false">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Lekar specijalista" Binding="{Binding doctor.user.Name1}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Krajnji rok" Binding="{Binding endDate}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Opis" Binding="{Binding description}" />
+                        <DataGridTemplateColumn Header="Datum" CellTemplate="{StaticResource DateTemplate}" />
+                    </DataGrid.Columns>
+             </DataGrid>
+            <Button x:Name="ConfirmButton" Margin="20" Click="confirm" Content="Potdvrdite zakazivanje" DockPanel.Dock="Bottom" Visibility="Hidden" IsEnabled="False" ToolTipService.ShowOnDisabled="True" ToolTip="Ne možete da potvrdite zakazivanje ako niste odabrali termin" Cursor="Hand"/>
+            <DataGrid Margin="20" x:Name="availableTime" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" DockPanel.Dock="Right"
+                      Visibility="Hidden" MaxHeight="200" CanUserAddRows="false" SelectionChanged="TimeIsSelected">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Vreme" Binding="{Binding StartTime}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Content="Potvrdite zakizivanje" HorizontalAlignment="Left" Margin="607,261,0,0" VerticalAlignment="Top" Width="118" Click="confirm"/>
-        </WrapPanel>
-        
-
+            <Label></Label>
+        </DockPanel>
     </Grid>
 </Page>

@@ -9,36 +9,75 @@
       Title="PollPage">
 
     <Grid>
-        <Label Content="Odaberite lekara kojeg zelite da ocenite: " HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="doctorsCombo" DisplayMemberPath = "user.Name1" HorizontalAlignment="Left" Margin="265,13,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ShowDoctorsResults"/>
-        <Label x:Name="currentDoctorMark" Content="Vasa trenutna ocena: " HorizontalAlignment="Left" Margin="34,35,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <Label x:Name="currentDoctorComment" Content="Vas trenutni komentar: " HorizontalAlignment="Left" Margin="34,94,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <ComboBox x:Name="markCombo" HorizontalAlignment="Left" Margin="130,63,0,0" VerticalAlignment="Top" Width="120" Visibility="Collapsed" SelectionChanged="SaveDoctorMark" >
-            <ComboBoxItem>5</ComboBoxItem>
-            <ComboBoxItem>4</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-        </ComboBox>
-        <Label Content="Ocenite bolnicu: " HorizontalAlignment="Left" Margin="34,215,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="currentHostpitalMark" Content="Vasa trenutna ocena: " HorizontalAlignment="Left" Margin="34,240,0,0" VerticalAlignment="Top"/>
-        <Label Content="Unesite komentar: " HorizontalAlignment="Left" Margin="34,265,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="averageHospitalMark" Content="Prosecna ocena: " HorizontalAlignment="Left" Margin="34,315,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="hospitalMarkCombo" HorizontalAlignment="Left" Margin="192,218,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SaveHospitalMark">
-            <ComboBoxItem>5</ComboBoxItem>
-            <ComboBoxItem>4</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-        </ComboBox>
-        <TextBox x:Name="hospitalCommentTextBox" HorizontalAlignment="Left" Height="23" Margin="192,265,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="saveHospitalComment" Content="sacuvaj komentar" HorizontalAlignment="Left" Margin="344,268,0,0" VerticalAlignment="Top" Width="106" Click="SaveHospitalComment"/>
-        <Label x:Name="currentHospitalComment" Content="Vas trenutni komentar: " HorizontalAlignment="Left" Margin="34,290,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="markDoctorLabel" Content="Ocenite lekara: " HorizontalAlignment="Left" Margin="34,60,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <Label x:Name="commentDoctorLabel" Content="Napisi komentar: " HorizontalAlignment="Left" Margin="34,123,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBox x:Name="doctorCommentTextBox" HorizontalAlignment="Left" Height="23" Margin="150,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Collapsed"/>
-        <Button x:Name="saveDoctorComment" Content="sacuvaj komentar" HorizontalAlignment="Left" Margin="310,128,0,0" VerticalAlignment="Top" Width="106" Visibility="Collapsed" Click="SaveDoctorComment"/>
-        <Label x:Name="averageDoctorMark" Content="Prosecna ocena: " HorizontalAlignment="Left" Margin="34,157,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Gray" BorderThickness="2" Grid.Row="0" Grid.Column="0" Margin="0 20 0 0">
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Margin="5" Content="Odaberite lekara kojeg zelite da ocenite: " HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
+                <ComboBox Margin="5" x:Name="doctorsCombo" DisplayMemberPath = "user.Name1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="ShowDoctorsResults" Grid.Column="1" Grid.Row="0"/>
+                <Label Margin="5" x:Name="currentDoctorMark" Content="Vasa trenutna ocena: " HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Label Margin="5" x:Name="currentDoctorComment" Content="Vas trenutni komentar: " HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+                <Label Margin="5" x:Name="markDoctorLabel" Content="Ocenite lekara: " HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Grid.Column="0" Grid.Row="3"/>
+                <ComboBox Margin="5" x:Name="markCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Visibility="Collapsed" SelectionChanged="SaveDoctorMark" Grid.Column="1" Grid.Row="3">
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                </ComboBox>
+                <Label Margin="5" x:Name="commentDoctorLabel" Content="Napisi komentar: " HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Grid.Column="0" Grid.Row="4"/>
+                <TextBox Margin="5" x:Name="doctorCommentTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Collapsed" Grid.Column="1" Grid.Row="4"/>
+                <Button Margin="5" x:Name="saveDoctorComment" Content="sacuvaj komentar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Visibility="Collapsed" Click="SaveDoctorComment" Grid.Column="2" Grid.Row="3"/>
+                <Label Margin="5" x:Name="averageDoctorMark" Content="Prosecna ocena: " HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"/>
+            </Grid>
+        </Border>
+        <Border BorderBrush="Gray" BorderThickness="2" Grid.Row="1" Grid.Column="0" Margin="0 5 0 20">
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Margin="5" Content="Ocenite bolnicu: " HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
+                <ComboBox Margin="5" x:Name="hospitalMarkCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectionChanged="SaveHospitalMark" Grid.Column="1" Grid.Row="0">
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>4</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>1</ComboBoxItem>
+                </ComboBox>
+                <Label Margin="5" x:Name="currentHostpitalMark" Content="Vasa trenutna ocena: " HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1"/>
+                <Label Margin="5" Content="Unesite komentar: " HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="2"/>
+                <TextBox Margin="5" x:Name="hospitalCommentTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.Row="2"/>
+                <Button Margin="5" x:Name="saveHospitalComment" Content="sacuvaj komentar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Click="SaveHospitalComment" Grid.Column="2" Grid.Row="2"/>
+                <Label Margin="5" x:Name="currentHospitalComment" Content="Vas trenutni komentar: " HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="3"/>
+                <Label Margin="5" x:Name="averageHospitalMark" Content="Prosecna ocena: " HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="4"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

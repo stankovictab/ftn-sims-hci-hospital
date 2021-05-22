@@ -56,6 +56,24 @@ namespace Classes
             }
             return notifications;
         }
+        public List<Notification> GetPublicNotifications()
+        {
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            List<Notification> notifications = new List<Notification>();
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts[2].Equals("")&&parts[1].Equals(""))
+                {
+                    String notificationId = parts[0];
+                    string[] dateParts = parts[6].Split(',');
+                    DateTime date = new DateTime(int.Parse(dateParts[0]), int.Parse(dateParts[1]), int.Parse(dateParts[2]), int.Parse(dateParts[3]), int.Parse(dateParts[4]), int.Parse(dateParts[5]));
+                    Notification notification = new Notification(parts[0], parts[4], parts[3], date, Convert.ToBoolean(parts[5]), parts[1], parts[2]);
+                    notifications.Add(notification);
+                }
+            }
+            return notifications;
+        }
 
         public Notification GetByID(String id)
         {

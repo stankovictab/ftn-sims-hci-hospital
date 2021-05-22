@@ -112,6 +112,12 @@ namespace ftn_sims_hci_hospital
                     appointments.ShowDialog();
                     this.Close();
                     break;
+                case 4:
+                    Window notifications = new NotificationBoard();
+                    this.Hide();
+                    notifications.ShowDialog();
+                    this.Close();
+                    break;
 
 
             }

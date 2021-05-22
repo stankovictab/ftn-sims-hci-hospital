@@ -1,7 +1,7 @@
-﻿using Classes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Classes;
 
 namespace ftn_sims_hci_hospital
 {

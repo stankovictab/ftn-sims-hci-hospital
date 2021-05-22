@@ -26,15 +26,12 @@ namespace ftn_sims_hci_hospital
 
         private void ShowAllAppointments(object sender, RoutedEventArgs e)
         {
-            //AllAppointments allApp = new AllAppointments();
             Main.Content = new AllAppointmentsPage();
-            //allApp.Show();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void CreateAppointmentButton(object sender, RoutedEventArgs e)
         {
-            CreateAppointment c = new CreateAppointment();
-            c.Show();
+            Main.Content = new CreateAppointmentPage();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -48,7 +45,7 @@ namespace ftn_sims_hci_hospital
 
         }
 
-        private void createAppointmentSpecialist(object sender, RoutedEventArgs e)
+        private void CreateAppointmentSpecialistButton(object sender, RoutedEventArgs e)
         {
             Main.Content = new createAppointmentSpecialist();
         }
@@ -56,6 +53,17 @@ namespace ftn_sims_hci_hospital
         private void FillPoll(object sender, RoutedEventArgs e)
         {
             Main.Content = new PollPage();
+        }
+
+        private void ViewAccount(object sender, RoutedEventArgs e)
+        {
+            Main.Content = null; //TO DO - pregled profila
+        }
+
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            MainWindow.user = null;
+            this.Close();
         }
     }
 }

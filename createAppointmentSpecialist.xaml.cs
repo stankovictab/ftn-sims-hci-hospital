@@ -20,7 +20,6 @@ namespace ftn_sims_hci_hospital
             selectedReferralId = "";
             InitializeComponent();
             List<Referral> rs = referralRepository.GetAllByPatientId(MainWindow.user.Jmbg1);
-            Console.WriteLine(rs.Count);
             referrals.ItemsSource = rs;
         }
 
@@ -36,6 +35,8 @@ namespace ftn_sims_hci_hospital
                 DateTime chosenDate = new DateTime(int.Parse(chosenDateParts[2]), int.Parse(chosenDateParts[1]), int.Parse(chosenDateParts[0]));
                 DateTime endDate = chosenDate.AddDays(1);
                 List<Appointment> a = appointmentController.ShowAvailableAppointments(Priority.None, doctorId, chosenDate, endDate, AppointmentType.Operation);
+                availableTime.Visibility = Visibility.Visible;
+                ConfirmButton.Visibility = Visibility.Visible;
                 availableTime.ItemsSource = a;
             }
         }
@@ -57,6 +58,14 @@ namespace ftn_sims_hci_hospital
             var picker = sender as DatePicker;
             picker.DisplayDateStart = DateTime.Now;
             picker.DisplayDateEnd = referral.endDate;
+        }
+
+        private void TimeIsSelected(object sender, SelectionChangedEventArgs e)
+        {
+            ConfirmButton.IsEnabled = true;
+            ToolTip tooltip = new ToolTip { };
+            ConfirmButton.ToolTip = tooltip;
+            tooltip.Visibility = Visibility.Hidden;
         }
     }
 }

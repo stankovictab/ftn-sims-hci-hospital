@@ -81,6 +81,11 @@
     <Compile Include="Classes\DoctorSpecialization.cs" />
     <Compile Include="Classes\DynamicAssignment.cs" />
     <Compile Include="Classes\DynamicEquipment.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrder.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderController.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderRepository.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderService.cs" />
+    <Compile Include="Classes\DynamicEquipmentOrderStatus.cs" />
     <Compile Include="Classes\DynamicEquipmentRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentRequest.cs" />
     <Compile Include="Classes\DynamicEquipmentRequestController.cs" />
@@ -139,6 +144,9 @@
     <Compile Include="Classes\TrollingLogRepository.cs" />
     <Compile Include="Classes\TrollingLogService.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="CreateAppointmentPage.xaml.cs">
+      <DependentUpon>CreateAppointmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="createAppointmentSpecialist.xaml.cs">
       <DependentUpon>createAppointmentSpecialist.xaml</DependentUpon>
     </Compile>
@@ -147,6 +155,18 @@
     </Compile>
     <Compile Include="DynamicCreation.xaml.cs">
       <DependentUpon>DynamicCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderCreation.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderPanel.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentOrderUpdate.xaml.cs">
+      <DependentUpon>DynamicEquipmentOrderUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicEquipmentPastRequestApprovals.xaml.cs">
+      <DependentUpon>DynamicEquipmentPastRequestApprovals.xaml</DependentUpon>
     </Compile>
     <Compile Include="DynamicEquipmentRequestApproval.xaml.cs">
       <DependentUpon>DynamicEquipmentRequestApproval.xaml</DependentUpon>
@@ -166,6 +186,9 @@
     <Compile Include="HolidayRequestPanel.xaml.cs">
       <DependentUpon>HolidayRequestPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HolidayRequestPastApprovals.xaml.cs">
+      <DependentUpon>HolidayRequestPastApprovals.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -177,6 +200,12 @@
     </Compile>
     <Compile Include="MedicineList.xaml.cs">
       <DependentUpon>MedicineList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationBoard.xaml.cs">
+      <DependentUpon>NotificationBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationCreation.xaml.cs">
+      <DependentUpon>NotificationCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
@@ -223,6 +252,12 @@
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateNotification.xaml.cs">
+      <DependentUpon>UpdateNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UrgentAppointmentCreation.xaml.cs">
+      <DependentUpon>UrgentAppointmentCreation.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddReferral.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -230,6 +265,10 @@
     <Page Include="AllAppointmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateAppointmentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="createAppointmentSpecialist.xaml">
       <SubType>Designer</SubType>
@@ -244,6 +283,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DynamicCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicEquipmentOrderCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicEquipmentOrderPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicEquipmentOrderUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicEquipmentPastRequestApprovals.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -276,6 +331,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HolidayRequestPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HolidayRequestPastApprovals.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -369,6 +428,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="NotificationBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NotificationCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="NotificationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -451,6 +518,14 @@
     <Page Include="UpdateAppointmentPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateNotification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UrgentAppointmentCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

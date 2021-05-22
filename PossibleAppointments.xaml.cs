@@ -46,6 +46,8 @@ namespace ftn_sims_hci_hospital
             {
                 Appointment app = (Appointment)possibleAppointments.SelectedItem;
                 app.AppointmentID = (MainWindow.appointmentController.appointmentService.appointmentRepository.GetAll().Count()+1).ToString();
+                app.Room = new Room();
+                app.Room.RoomNumber = "123";
                 MainWindow.appointmentController.appointmentService.appointmentRepository.Create(app);
                 Doctor d= MainWindow.doctorController.ds.dr.GetByID(doctorID);
                 Patient p = MainWindow.patientController.GetByID(patientID);

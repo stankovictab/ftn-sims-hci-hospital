@@ -8,11 +8,11 @@ namespace Classes
     {
         private String FileLocation;
         private List<Patient> PatientsInFile = new List<Patient>();
+        
 
+		public List<Patient> PatientsInFile1 { get => PatientsInFile; set => PatientsInFile = value; }
 
-        public List<Patient> PatientsInFile1 { get => PatientsInFile; set => PatientsInFile = value; }
-
-        public PatientRepository()
+		public PatientRepository()
         {
             FileLocation = "../../Text Files/patients.txt";
         }
@@ -63,7 +63,7 @@ namespace Classes
                 char gender = Convert.ToChar(components[7]);
                 Boolean blocked = Boolean.Parse(components[8]);
                 User user = new User(name, lastname, username, password, email, jmbg, address, gender, false, Roles.Patient, blocked);
-                Patient patient = new Patient(user, new MedicalRecord(), new List<Appointment>(), new List<Notification>());
+                Patient patient = new Patient(user, new MedicalRecord(), new List<Appointment>(),new List<Notification>());
                 patients.Add(patient);
                 text = tr.ReadLine();
             }

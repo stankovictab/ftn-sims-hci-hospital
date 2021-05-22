@@ -8,19 +8,22 @@ namespace Classes
         private DateTime RequestDate;
         private DynamicEquipmentRequestStatus Status;
         public Doctor doctor;
+        private string Commentary;
 
         public string RequestID1 { get => RequestID; set => RequestID = value; }
         public string EquipmentName1 { get => EquipmentName; set => EquipmentName = value; }
         public DateTime RequestDate1 { get => RequestDate; set => RequestDate = value; }
         public DynamicEquipmentRequestStatus Status1 { get => Status; set => Status = value; }
+        public string Commentary1 { get => Commentary; set => Commentary = value; }
 
-        public DynamicEquipmentRequest(String RequestID, String EquipmentName, DateTime RequestDate, DynamicEquipmentRequestStatus Status, Doctor doctor)
+        public DynamicEquipmentRequest(String RequestID, String EquipmentName, DateTime RequestDate, DynamicEquipmentRequestStatus Status, Doctor doctor, string commentary)
         {
             this.RequestID = RequestID;
             this.EquipmentName = EquipmentName;
             this.RequestDate = RequestDate;
             this.Status = Status;
             this.doctor = doctor;
+            this.Commentary = commentary;
         }
 
         public Doctor GetDoctor()

@@ -47,14 +47,14 @@ namespace Classes
             return hrs.Delete(id);
         }
 
-        public Boolean Approve(String id)
+        public Boolean Approve(String id, String commentary)
         {
-            return hrs.Approve(id);
+            return hrs.Approve(id, commentary);
         }
 
-        public Boolean Deny(String id)
+        public Boolean Deny(String id, String commentary)
         {
-            return hrs.Deny(id);
+            return hrs.Deny(id, commentary);
         }
     }
 }

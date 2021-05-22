@@ -23,17 +23,22 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             appointmentController = new AppointmentController();
-            List<Appointment> appoinments = appointmentController.GetAllByPatientId(MainWindow.user.Jmbg1);
-            appointmentsTable.ItemsSource = appoinments;
+            LoadAppointments();
         }
         public void CancelAppointment(object sender, RoutedEventArgs e)
         {
-            Appointment selected = (Appointment)(appointmentsTable.SelectedItem);
-            appointmentController.DeleteAppointment(selected.AppointmentID);
-            if (MainWindow.user.blocked)
+            MessageBoxResult result = MessageBox.Show("Da li sigurno zelite da otkazete pregled?", "My App", MessageBoxButton.YesNo);
+            if (result.Equals(MessageBoxResult.Yes))
             {
-                Application.Current.Shutdown();
+                Appointment selected = (Appointment)(appointmentsTable.SelectedItem);
+                appointmentController.DeleteAppointment(selected.AppointmentID);
+                if (MainWindow.user.blocked)
+                {
+                    Application.Current.Shutdown();
+                }
+                LoadAppointments();
             }
+
         }
         public void UpdateAppointmentTime(object sender, RoutedEventArgs e)
         {
@@ -61,6 +66,12 @@ namespace ftn_sims_hci_hospital
                     uap.Show();
                 }
             }
+        }
+
+        void LoadAppointments()
+        {
+            List<Appointment> appoinments = appointmentController.GetAllByPatientId(MainWindow.user.Jmbg1);
+            appointmentsTable.ItemsSource = appoinments;
         }
 
     }

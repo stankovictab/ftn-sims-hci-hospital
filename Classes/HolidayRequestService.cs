@@ -31,7 +31,7 @@ namespace Classes
             newid++;
             String newidstring = newid.ToString();
 
-            HolidayRequest req = new HolidayRequest(newidstring, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor);
+            HolidayRequest req = new HolidayRequest(newidstring, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor, "/");
             return hrr.Create(req);
         }
 
@@ -61,7 +61,7 @@ namespace Classes
             {
                 throw new Exception("Dates invalid!"); // Ili samo return false?
             };
-            HolidayRequest req = new HolidayRequest(id, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor);
+            HolidayRequest req = new HolidayRequest(id, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor, "/");
             return hrr.Update(req); // Provera da li postoji vec u listi se radi u repozitorijumu
         }
 
@@ -75,14 +75,14 @@ namespace Classes
             return hrr.Delete(id);
         }
 
-        public Boolean Approve(String id)
+        public Boolean Approve(String id, String commentary)
         {
-            return hrr.Approve(id);
+            return hrr.Approve(id, commentary);
         }
 
-        public Boolean Deny(String id)
+        public Boolean Deny(String id, String commentary)
         {
-            return hrr.Deny(id);
+            return hrr.Deny(id, commentary);
         }
     }
 }

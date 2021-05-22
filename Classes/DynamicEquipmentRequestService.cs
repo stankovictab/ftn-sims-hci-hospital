@@ -32,7 +32,7 @@ namespace Classes
             newid++;
             String newidstring = newid.ToString();
 
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(newidstring, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor);
+            DynamicEquipmentRequest req = new DynamicEquipmentRequest(newidstring, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor, "/");
             return derr.Create(req);
         }
 
@@ -58,7 +58,7 @@ namespace Classes
 
         public Boolean Update(String id, String equipmentName, Doctor doctor)
         {
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(id, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor);
+            DynamicEquipmentRequest req = new DynamicEquipmentRequest(id, equipmentName, DateTime.Now, DynamicEquipmentRequestStatus.OnHold, doctor, "/");
             return derr.Update(req); // Provera da li postoji vec u listi se radi u repozitorijumu
         }
 
@@ -67,14 +67,14 @@ namespace Classes
             return derr.Delete(id);
         }
 
-        public Boolean Approve(String id)
+        public Boolean Approve(String id, String commentary)
         {
-            return derr.Approve(id);
+            return derr.Approve(id, commentary);
         }
 
-        public Boolean Deny(String id)
+        public Boolean Deny(String id, String commentary)
         {
-            return derr.Deny(id);
+            return derr.Deny(id, commentary);
         }
     }
 }
