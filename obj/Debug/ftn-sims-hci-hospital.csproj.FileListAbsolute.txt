@@ -985,7 +985,6 @@ C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayReque
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayRequestPanel.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.g.cs
-C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateAppointment.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AppointmentsListDoctorB.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateAppointmentDoctorB.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\DeleteAppointmentDoctorB.g.cs
@@ -1034,7 +1033,6 @@ C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayReque
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayRequestPanel.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.baml
-C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateAppointment.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AppointmentsListDoctorB.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateAppointmentDoctorB.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\DeleteAppointmentDoctorB.baml
@@ -1097,3 +1095,7 @@ C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\Notification
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\UpdateNotification.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\UrgentAppointmentCreation.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentPastRequestApprovals.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PatientProfilePage.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PatientProfilePage.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateReminder.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateReminder.baml

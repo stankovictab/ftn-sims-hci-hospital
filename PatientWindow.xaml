@@ -42,6 +42,9 @@
                             <Button Content="Obaveštenja" Grid.Row="0" Grid.Column="0" Padding="5 2 5 2" Click="NotificationsList"/>
                             <Button x:Name="pregledProfilaButton" Content="Pregled profila" Grid.Row="0" Padding="5 2 5 2" Grid.Column="1" Click="ViewAccount"/>
                             <Button Content="Odjavi se" Grid.Row="0" Grid.Column="2" Padding="5 2 5 2" Click="LogOut"/>
+                            <Border x:Name="reminderCounterBorder" Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-15" Visibility="Hidden">
+                                <Label x:Name="reminderCounter" Content="0" Background="#FFFA4040" Height="auto" Width="auto" Padding="2"></Label>
+                            </Border>
                         </Grid>
                     </Grid>
                 </Border>
@@ -53,7 +56,10 @@
                     <MenuItem Header="_Izlistaj sve preglede" Padding="5 2 5 2" Click="ShowAllAppointments">
                     </MenuItem>
                     <MenuItem Header="_Pregled zdravstvenog kartona" Padding="5 2 5 2">
+                        <MenuItem Header="_Pregled anamneza"/>
                         <MenuItem Header="_Pregled recepata" />
+                        <MenuItem Header="_Pregled uputa za specijalistički pregled" Click="CreateAppointmentSpecialistButton"/>
+                        <MenuItem Header="_Pregled uputa za bolničko lečenje" />
                         <MenuItem Header="_Pregled alergena" />
                     </MenuItem>
                     <MenuItem Header="Ankete" Click="FillPoll" Padding="5 2 5 2"/>
