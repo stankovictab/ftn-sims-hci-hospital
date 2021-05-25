@@ -50,20 +50,6 @@ namespace ftn_sims_hci_hospital
             }
         }
 
-        private void btnviewpatient_Click(object sender, RoutedEventArgs e)
-        {
-            if (!patientData.Items.IsEmpty)
-            {
-                if (patientData.SelectedItem != null)
-                {
-                    User user = (User)patientData.SelectedItem;
-                    String id = user.Jmbg1;
-                    Window patientView = new PatientView(id);
-                    patientView.ShowDialog();
-                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                }
-            }
-        }
 
         private void btndeletepatient_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +107,27 @@ namespace ftn_sims_hci_hospital
 
 
             }
+        }
+
+        private void btnviewpatient_Click(object sender, RoutedEventArgs e)
+        {
+            if (!patientData.Items.IsEmpty)
+            {
+                if (patientData.SelectedItem != null)
+                {
+                    User user = (User)patientData.SelectedItem;
+                    String id = user.Jmbg1;
+                    Window patientView = new PatientView(id);
+                    patientView.ShowDialog();
+                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+            }
+        }
+
+        private void btnreleaselist_Click(object sender, RoutedEventArgs e)
+        {
+            Window releaseList = new SecretaryReleaseList();
+            releaseList.ShowDialog();
         }
     }
 }

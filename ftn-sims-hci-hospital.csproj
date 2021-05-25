@@ -104,6 +104,9 @@
     <Compile Include="Classes\HolidayRequestRepository.cs" />
     <Compile Include="Classes\HolidayRequestService.cs" />
     <Compile Include="Classes\HolidayRequestStatus.cs" />
+    <Compile Include="Classes\HospitalizationReferal.cs" />
+    <Compile Include="Classes\HospitalizationReferalRepository.cs" />
+    <Compile Include="Classes\HospitalizedPatientDTO.cs" />
     <Compile Include="Classes\HospitalPoll.cs" />
     <Compile Include="Classes\HospitalPollRepository.cs" />
     <Compile Include="Classes\Manager.cs" />
@@ -224,6 +227,9 @@
     </Compile>
     <Compile Include="SecretaryPatients.xaml.cs">
       <DependentUpon>SecretaryPatients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryReleaseList.xaml.cs">
+      <DependentUpon>SecretaryReleaseList.xaml</DependentUpon>
     </Compile>
     <Compile Include="SecretaryUpdateAppointment.xaml.cs">
       <DependentUpon>SecretaryUpdateAppointment.xaml</DependentUpon>
@@ -478,6 +484,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SecretaryPatients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretaryReleaseList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

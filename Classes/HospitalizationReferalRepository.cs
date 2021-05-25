@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Classes;
-namespace ftn_sims_hci_hospital.Classes
+namespace Classes
 {
     class HospitalizationReferalRepository
     {
         private String FileLocation;
         private PatientRepository patientRepository = new PatientRepository();
+        private RoomRepository roomRepository = new RoomRepository();
         public HospitalizationReferalRepository()
         {
             FileLocation = "../../Text Files/hospitalizationreferals.txt";
@@ -43,7 +43,9 @@ namespace ftn_sims_hci_hospital.Classes
                     DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
                     String[] endDateParts = data[4].Split(',');
                     DateTime endDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate);
+                    String roomId = data[5];
+                    Room room = roomRepository.GetById(roomId);
+                    hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate,room);
                     return hospitalizationReferral;
                 }
             }
@@ -68,7 +70,9 @@ namespace ftn_sims_hci_hospital.Classes
                     DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
                     String[] endDateParts = data[4].Split(',');
                     DateTime endDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate);
+                    String roomId = data[5];
+                    Room room = roomRepository.GetById(roomId);
+                    HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room);
                     referrals.Add(hospitalizationReferral);
                 }
             }
@@ -110,7 +114,7 @@ namespace ftn_sims_hci_hospital.Classes
             {
                 String[] data = row.Split(';');
                 String[] endDateParts = data[4].Split(',');
-                if (endDateParts[0].Equals(requestedEndDate.Year.ToString())&&endDateParts[1].Equals(requestedEndDate.Month.ToString())&&endDateParts[2].Equals(requestedEndDate.Day.ToString()))
+                if (endDateParts[0].Equals(requestedEndDate.Year.ToString())&& Convert.ToInt32(endDateParts[1]).ToString().Equals(requestedEndDate.Month.ToString())&&Convert.ToInt32(endDateParts[2]).ToString().Equals(requestedEndDate.Day.ToString()))
                 {
                     String id = data[0];
                     String patientId = data[1];
@@ -118,8 +122,10 @@ namespace ftn_sims_hci_hospital.Classes
                     String description = data[2];
                     String[] startDateParts = data[3].Split(',');
                     DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    DateTime endDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate);
+                    DateTime endDate = new DateTime(int.Parse(endDateParts[0]), int.Parse(endDateParts[1]), int.Parse(endDateParts[2]), int.Parse(endDateParts[3]), int.Parse(endDateParts[4]), int.Parse(endDateParts[5]));
+                    String roomId = data[5];
+                    Room room = roomRepository.GetById(roomId);
+                    HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room);
                     referralsByEndDate.Add(hospitalizationReferral);
                 }
             }
