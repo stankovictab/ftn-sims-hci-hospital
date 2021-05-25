@@ -8,7 +8,7 @@
         Title="DynamicEquipmentOrderPanel" Height="450" Width="800">
     <Grid>
         <Label Content="Manager's Dynamic Equipment Order Panel" HorizontalAlignment="Left" Margin="169,27,0,0" VerticalAlignment="Top" FontSize="24" Width="564"/>
-        <Button x:Name="btnShowOrders" Content="Show Orders" HorizontalAlignment="Left" Margin="15,87,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnShowOrders_Click"/>
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="15,87,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnRefresh_Click"/>
         <ListView x:Name="dynamicEquipmentOrderListView" HorizontalAlignment="Left" Height="233" Margin="169,87,0,0" VerticalAlignment="Top" Width="592" SelectionChanged="dynamicEquipmentOrderListView_SelectionChanged">
             <ListView.View>
                 <GridView>

@@ -32,6 +32,45 @@ namespace Classes
             this.Commentary = commentary;
         }
 
+        // Koristi se u Create-u u DERPanel-u
+        public DynamicEquipmentRequest(String EquipmentName, Doctor Doctor)
+        {
+            this.RequestID = null;
+            this.EquipmentName = EquipmentName;
+            this.EquipmentAmount = "0";
+            this.RequestDate = DateTime.Now;
+            this.Status = DynamicEquipmentRequestStatus.OnHold;
+            this.Ordered = false;
+            this.doctor = Doctor;
+            this.Commentary = "/";
+        }
+
+        // Koristi se u Update-u u DERPanel-u
+        public DynamicEquipmentRequest(String RequestID, String EquipmentName)
+        {
+            this.RequestID = RequestID;
+            this.EquipmentName = EquipmentName;
+            this.EquipmentAmount = "0";
+            this.RequestDate = DateTime.Now;
+            this.Status = DynamicEquipmentRequestStatus.OnHold;
+            this.Ordered = false;
+            this.doctor = null;
+            this.Commentary = "/";
+        }
+
+        // Koristi se u Update-u u DEOCreation-u
+        public DynamicEquipmentRequest(String RequestID, String EquipmentName, String EquipmentAmount)
+        {
+            this.RequestID = RequestID;
+            this.EquipmentName = EquipmentName;
+            this.EquipmentAmount = EquipmentAmount;
+            this.RequestDate = DateTime.Now;
+            this.Status = DynamicEquipmentRequestStatus.OnHold;
+            this.Ordered = false;
+            this.doctor = null;
+            this.Commentary = "/";
+        }
+
         public Doctor GetDoctor()
         {
             return doctor;

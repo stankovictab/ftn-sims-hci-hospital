@@ -55,7 +55,6 @@ namespace Classes
 
                 // Loadovanje lekara u memoriju da bi im pristupili
                 DoctorRepository drrep = new DoctorRepository();
-                // drrep.DoctorsInFile = drrep.GetAll(); ? Da li GetByID ima u sebi GetAll()?
                 Doctor doctor = drrep.GetByID(components[6]);
 
                 string commentary = components[7];

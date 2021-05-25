@@ -11,7 +11,7 @@ namespace ftn_sims_hci_hospital
         public HolidayRequestUpdate(string selectedHRID)
         {
             InitializeComponent();
-            MainWindow.holidayRequestController.GetAll();
+            MainWindow.holidayRequestController.GetAll(); // Ucitavanje liste u memoriji
             this.selectedHRID = selectedHRID;
         }
 
@@ -20,13 +20,9 @@ namespace ftn_sims_hci_hospital
             string desc = holidayDescription.Text;
             DateTime startDate = (DateTime)holidayStartDate.SelectedDate;
             DateTime endDate = (DateTime)holidayEndDate.SelectedDate;
-
-            DoctorController dc = new DoctorController();
-            dc.GetAll(); // Punjenje liste doktora u memoriji
-            // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            Doctor doctor = dc.GetByID("0501");
-
-            HolidayRequest req = new HolidayRequest(selectedHRID, desc, startDate, endDate, DateTime.Now, HolidayRequestStatus.OnHold, doctor, "/");
+            
+            // Ovom request-u je doctor null jer ce se naci u servisu na osnovu id-a request-a
+            HolidayRequest req = new HolidayRequest(selectedHRID, desc, startDate, endDate);
             MainWindow.holidayRequestController.Update(req); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");
             this.Close(); // this.Hide(); ?

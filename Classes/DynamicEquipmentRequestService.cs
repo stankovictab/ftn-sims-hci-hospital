@@ -8,32 +8,17 @@ namespace Classes
     {
         public DynamicEquipmentRequestRepository derr = new DynamicEquipmentRequestRepository();
 
-        public int CheckQuantity(String equipmentName)
-        {
-            DynamicEquipmentRepository der = new DynamicEquipmentRepository();
-            List<DynamicEquipment> temp = der.GetAll();
-            foreach (DynamicEquipment eq in temp)
-            {
-                if (eq.dynamicName.Equals(equipmentName))
-                {
-                    return Convert.ToInt32(eq.dynamicAmount);
-                }
-            }
-            return 0;
-        }
-
         public Boolean Create(DynamicEquipmentRequest req)
         {
             List<DynamicEquipmentRequest> temp = derr.GetAll();
-            int newid = 0;
+            int newID = 0;
             foreach (DynamicEquipmentRequest r in temp)
             {
-                newid = Int32.Parse(r.RequestID1);
+                newID = Int32.Parse(r.RequestID1);
             }
-            newid++;
-            String newidstring = newid.ToString();
-
-            req.RequestID1 = newidstring;
+            newID++;
+            String newerID = newID.ToString();
+            req.RequestID1 = newerID;
             return derr.Create(req);
         }
 
@@ -46,7 +31,7 @@ namespace Classes
         {
             return derr.GetAll();
         }
-
+        
         public List<DynamicEquipmentRequest> GetAllByDoctorID(String id)
         {
             return derr.GetAllByDoctorID(id);
@@ -59,7 +44,7 @@ namespace Classes
 
         public Boolean Update(DynamicEquipmentRequest req)
         {
-            // Posto se doktor nece menjati pri update-u, a treba ga imati za ovaj konstruktor, nalazi se ovako
+            // Posto se doktor nece menjati pri update-u, nalazi se po ID-u request-a
             List<DynamicEquipmentRequest> list = derr.GetAll();
             Doctor doctor = new Doctor();
             foreach(DynamicEquipmentRequest r in list)
