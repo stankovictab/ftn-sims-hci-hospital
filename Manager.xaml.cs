@@ -73,5 +73,11 @@ namespace ftn_sims_hci_hospital
             Window dynamicEquipmentOrderPanel = new DynamicEquipmentOrderPanel();
             dynamicEquipmentOrderPanel.ShowDialog();
         }
+
+        private void btnPollResults_Click(object sender, RoutedEventArgs e)
+        {
+            Window pollResults = new PollResultsPanel();
+            pollResults.ShowDialog();
+        }
     }
 }

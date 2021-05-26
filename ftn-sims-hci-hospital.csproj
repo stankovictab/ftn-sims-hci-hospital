@@ -76,6 +76,7 @@
     <Compile Include="Classes\AssignmentService.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\DoctorController.cs" />
+    <Compile Include="Classes\Poll.cs" />
     <Compile Include="Classes\DoctorPoll.cs" />
     <Compile Include="Classes\DoctorPollRepository.cs" />
     <Compile Include="Classes\DoctorRepository.cs" />
@@ -215,6 +216,9 @@
     </Compile>
     <Compile Include="HolidayRequestApproval.xaml.cs">
       <DependentUpon>HolidayRequestApproval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PollResultsPanel.xaml.cs">
+      <DependentUpon>PollResultsPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="HolidayRequestPanel.xaml.cs">
       <DependentUpon>HolidayRequestPanel.xaml</DependentUpon>
@@ -396,6 +400,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="HCI\DoctorPanelHCI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PollResultsPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
