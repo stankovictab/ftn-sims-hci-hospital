@@ -1,6 +1,6 @@
-1,oprema1,3
-2,oprema2,3
-3,oprema3,4
-4,oprema4,4
-5,oprema5,1
-6,oprema6,1
+1,bed 101,3
+2,bed 202,3
+3,bed 303,4
+4,bed 404,4
+5,bed 505,1
+6,bed 606,1

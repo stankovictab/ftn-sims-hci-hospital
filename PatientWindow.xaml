@@ -56,11 +56,12 @@
                     <MenuItem Header="_Izlistaj sve preglede" Padding="5 2 5 2" Click="ShowAllAppointments">
                     </MenuItem>
                     <MenuItem Header="_Pregled zdravstvenog kartona" Padding="5 2 5 2">
-                        <MenuItem Header="_Pregled anamneza"/>
-                        <MenuItem Header="_Pregled recepata" />
+                        <MenuItem Header="_Pregled osnovnih podataka" Click="ShowPersonalData"/>
+                        <MenuItem Header="_Pregled anamneza" Click="ShowAnamnesis"/>
+                        <MenuItem Header="_Pregled recepata" Click="ShowPersriptions"/>
                         <MenuItem Header="_Pregled uputa za specijalistički pregled" Click="CreateAppointmentSpecialistButton"/>
-                        <MenuItem Header="_Pregled uputa za bolničko lečenje" />
-                        <MenuItem Header="_Pregled alergena" />
+                        <MenuItem Header="_Pregled uputa za bolničko lečenje" Click="ShowHospitalizationReferrals"/>
+                        <MenuItem Header="_Pregled alergena" Click="ShowAlergies"/>
                     </MenuItem>
                     <MenuItem Header="Ankete" Click="FillPoll" Padding="5 2 5 2"/>
                 </Menu>

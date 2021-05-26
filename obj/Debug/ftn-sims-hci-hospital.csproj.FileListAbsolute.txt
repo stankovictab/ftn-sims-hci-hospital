@@ -1099,3 +1099,17 @@ C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PatientProfi
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PatientProfilePage.baml
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateReminder.g.cs
 C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\CreateReminder.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAnamnesisPage.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAnamnesisPage.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllHospitalizationReferralsPage.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllHospitalizationReferralsPage.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAllergiesPage.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllAllergiesPage.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllPerscriptionsPage.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\AllPerscriptionsPage.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PersonalData.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\PersonalData.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\Diagnosis.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\Treatments.g.cs
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\Diagnosis.baml
+C:\Users\Goran\Desktop\Nedefinisano\ftn-sims-hci-hospital\obj\Debug\Treatments.baml

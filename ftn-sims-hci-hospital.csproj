@@ -58,8 +58,20 @@
     <Compile Include="AddReferral.xaml.cs">
       <DependentUpon>AddReferral.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllAllergiesPage.xaml.cs">
+      <DependentUpon>AllAllergiesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllAnamnesisPage.xaml.cs">
+      <DependentUpon>AllAnamnesisPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllAppointmentsPage.xaml.cs">
       <DependentUpon>AllAppointmentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllHospitalizationReferralsPage.xaml.cs">
+      <DependentUpon>AllHospitalizationReferralsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllPerscriptionsPage.xaml.cs">
+      <DependentUpon>AllPerscriptionsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppointmentsListDoctorB.xaml.cs">
       <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
@@ -102,6 +114,8 @@
     <Compile Include="Classes\HolidayRequestRepository.cs" />
     <Compile Include="Classes\HolidayRequestService.cs" />
     <Compile Include="Classes\HolidayRequestStatus.cs" />
+    <Compile Include="Classes\HospitalizationReferal.cs" />
+    <Compile Include="Classes\HospitalizationReferalRepository.cs" />
     <Compile Include="Classes\HospitalPoll.cs" />
     <Compile Include="Classes\HospitalPollRepository.cs" />
     <Compile Include="Classes\Manager.cs" />
@@ -109,6 +123,7 @@
     <Compile Include="Classes\MedicineCotroller.cs" />
     <Compile Include="Classes\MedicineRepository.cs" />
     <Compile Include="Classes\MedicineService.cs" />
+    <Compile Include="Classes\MedicineStatus.cs" />
     <Compile Include="Classes\NotificationController.cs" />
     <Compile Include="Classes\NotificationRepository.cs" />
     <Compile Include="Classes\NotificationService.cs" />
@@ -121,6 +136,7 @@
     <Compile Include="Classes\PerscriptionRepository.cs" />
     <Compile Include="Classes\DoctorPoll.cs" />
     <Compile Include="Classes\DoctorPollRepository.cs" />
+    <Compile Include="Classes\PrescriptionService.cs" />
     <Compile Include="Classes\Priority.cs" />
     <Compile Include="Classes\Referral.cs" />
     <Compile Include="Classes\ReferralController.cs" />
@@ -156,6 +172,9 @@
     </Compile>
     <Compile Include="CreateReminder.xaml.cs">
       <DependentUpon>CreateReminder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnosis.xaml.cs">
+      <DependentUpon>Diagnosis.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dynamic.xaml.cs">
       <DependentUpon>Dynamic.xaml</DependentUpon>
@@ -220,6 +239,9 @@
     <Compile Include="PatientProfilePage.xaml.cs">
       <DependentUpon>PatientProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PersonalData.xaml.cs">
+      <DependentUpon>PersonalData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PollPage.xaml.cs">
       <DependentUpon>PollPage.xaml</DependentUpon>
     </Compile>
@@ -259,6 +281,9 @@
     <Compile Include="StaticUpdate.xaml.cs">
       <DependentUpon>StaticUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Treatments.xaml.cs">
+      <DependentUpon>Treatments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
@@ -272,7 +297,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AllAllergiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllAnamnesisPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AllAppointmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllHospitalizationReferralsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllPerscriptionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,6 +328,10 @@
     <Page Include="CreateReminder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diagnosis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="DoctorPanel.xaml">
       <SubType>Designer</SubType>
@@ -464,6 +509,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PersonalData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PollPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -524,6 +573,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="StaticUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Treatments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

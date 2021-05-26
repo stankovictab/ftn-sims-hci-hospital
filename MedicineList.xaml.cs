@@ -33,16 +33,16 @@ namespace ftn_sims_hci_hospital
         private void showUpdateCanvas(object sender, RoutedEventArgs e)
         {
             medicineForUpadate = (Medicine)medicinesView.SelectedItem;
-            medicineName.Text = medicineForUpadate.name;
-            medicineDescription.Text = medicineForUpadate.description;
+            medicineName.Text = medicineForUpadate.Name;
+            medicineDescription.Text = medicineForUpadate.Description;
 
             updateCanvas.Visibility = Visibility.Visible;
         }
 
         private void saveChanges(object sender, RoutedEventArgs e)
         {
-            medicineForUpadate.name = medicineName.Text;
-            medicineForUpadate.description = medicineDescription.Text;
+            medicineForUpadate.Name = medicineName.Text;
+            medicineForUpadate.Description = medicineDescription.Text;
 
             medicineController.Update(medicineForUpadate);
         }
@@ -64,7 +64,7 @@ namespace ftn_sims_hci_hospital
         private void declineMedicine(object sender, RoutedEventArgs e)
         {
             medicineForDelete = (Medicine)medicinesView.SelectedItem;
-            if (medicineForDelete.verified == false)
+            if (medicineForDelete.Status == MedicineStatus.OnHold)
                 declineCanvas.Visibility = Visibility.Visible;
             else
                 MessageBox.Show("already verified!");
@@ -74,7 +74,7 @@ namespace ftn_sims_hci_hospital
         private void approveMedicine(object sender, RoutedEventArgs e)
         {
             Medicine medicineForApprove = (Medicine)medicinesView.SelectedItem;
-            if (medicineForApprove.verified == false)
+            if (medicineForApprove.Status == MedicineStatus.OnHold)
             {
                 medicineController.Approve(medicineForApprove);
             } else

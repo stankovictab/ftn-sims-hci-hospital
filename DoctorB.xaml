@@ -5,23 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
         mc:Ignorable="d"
-        Title="DoctorB" Height="450" Width="800">
+        Title="DoctorB" Height="800" Width="1200" ResizeMode="NoResize">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:DoctorB.openMedicalRecordsCommand}" Executed="showMedRecCanvas"/>
+    </Window.CommandBindings>
+
     <Grid>
         <Grid>
-            <TabControl>
+            <TabControl >
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="main"/>
+                            <TextBlock Text="main" FontSize="14"/>
                         </StackPanel>
                     </TabItem.Header>
                     <Label>
-                        <StackPanel>
-                            <Button Name="btnM" Content="Medical records"  Click="openMedicalRecords" HorizontalAlignment="Left" Margin="313,156,0,0" VerticalAlignment="Top" Width="164"/>
-                            <Button Name="btnA" Content="Appointments list"  Click="openAppointmentsList" HorizontalAlignment="Left" Margin="313,20,0,0" VerticalAlignment="Top" Width="164"/>
-                            <Button x:Name="btnC" Content="create appointment" Click="openCreateAppointment" HorizontalAlignment="Left" Margin="313,20,0,0" VerticalAlignment="Top" Width="164"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="607,-250,0,0" TextWrapping="Wrap" Text="doctor Darko" VerticalAlignment="Top" Width="160"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="607,-230,0,0" TextWrapping="Wrap" Text="room 215" VerticalAlignment="Top" Width="160"/>
+                        <StackPanel Height="741" Width="1186">
+
+                            <Canvas Name="canvasHi" Visibility="Visible">
+                                <Label HorizontalContentAlignment="Center" Content="Hi!" FontSize="100" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="415" Canvas.Top="274" />
+                            </Canvas>
+
+                            <Canvas Name="canvasMedicalRecords" Visibility="Hidden">
+                                <ListView Name="lvUsers" Canvas.Left="8" Canvas.Top="8" Width="935" >
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="name" Width="300" DisplayMemberBinding="{Binding user.Name1}" />
+                                            <GridViewColumn Header="last name" Width="300" DisplayMemberBinding="{Binding user.LastName1}" />
+                                            <GridViewColumn Header="jmbg" Width="300" DisplayMemberBinding="{Binding user.Jmbg1}" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button Content="diagnosis" HorizontalAlignment="Right" Background="LightGray" Canvas.Right="240" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695" RenderTransformOrigin="0.573,0.545"/>
+                                <Button Content="inspect (i)" HorizontalAlignment="Right" Canvas.Right="323" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695"/>
+                                <Button Content="persciption" HorizontalAlignment="Right" Canvas.Right="408" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695" Click="openDiagnosis"/>
+                                <Button Content="refferal" HorizontalAlignment="Right" Canvas.Right="493" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695" Click="openAddRefferal" />
+                                <Button Content="show treatments" HorizontalAlignment="Right" Canvas.Right="578" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="94" Canvas.Top="695" Click="openHospitalTreatments" Canvas.Left="514"/>
+                            </Canvas>
+
+                            <Canvas Name="canvasSchedule" Visibility="Hidden">
+                                <ListView Name="appointmentsList" Canvas.Left="8" Canvas.Top="8" Width="935">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="id" Width="50" DisplayMemberBinding="{Binding AppointmentID}" />
+                                            <GridViewColumn Header="start time" Width="200" DisplayMemberBinding="{Binding StartTime}" />
+                                            <GridViewColumn Header="end time" Width="200" DisplayMemberBinding="{Binding EndTime}" />
+                                            <GridViewColumn Header="patient" Width="200" DisplayMemberBinding="{Binding patient.user.Jmbg1}">
+                                            </GridViewColumn>
+                                            <GridViewColumn Header="type" Width="180 " DisplayMemberBinding="{Binding Type}">
+                                            </GridViewColumn>
+                                            <GridViewColumn Header="room" Width="80" DisplayMemberBinding="{Binding Room.RoomNumber1}" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button Content="delete" HorizontalAlignment="Right" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Left="795" Canvas.Top="695"/>
+                                <Button Content="edit (e)" HorizontalAlignment="Right" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Left="885" Canvas.Top="695" RenderTransformOrigin="0.182,0.636"/>
+
+                            </Canvas>
+
+                            <Canvas Name="canvasMedicine" Visibility="Hidden">
+                                <ListView Name="medicineList" Canvas.Left="8" Canvas.Top="8" Width="935">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding id}" />
+                                            <GridViewColumn Header="name" Width="250" DisplayMemberBinding="{Binding name}" />
+                                            <GridViewColumn Header="verified" Width="250" DisplayMemberBinding="{Binding verified}" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <Button Content="approve (a)" Click="approveMedicine" HorizontalAlignment="Right" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Left="705" Canvas.Top="695" RenderTransformOrigin="0.297,0.545"/>
+                                <Button Content="decline (d)" Click="deleteMedicine" HorizontalAlignment="Right" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Left="795" Canvas.Top="695" RenderTransformOrigin="0.387,0.5"/>
+                                <Button Content="inspect (i)" HorizontalAlignment="Right" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Left="885" Canvas.Top="695" RenderTransformOrigin="0.182,0.636"/>
+
+                            </Canvas>
+
+                            <ListBox x:Name="menu" HorizontalAlignment="Right" Height="731" VerticalAlignment="Top" Width="230" Background="LightGray" Foreground="White" FontSize="20" SelectionChanged="menuSelection"/>
+
                         </StackPanel>
                     </Label>
                 </TabItem>
@@ -29,20 +89,32 @@
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
 
-                            <TextBlock Text="notificaions" />
+                            <TextBlock Text="notificaions" FontSize="14"/>
                         </StackPanel>
                     </TabItem.Header>
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Orientation="Horizontal">
-
-                            <TextBlock Text="my profile" Foreground="Green" />
+                            <TextBlock Text="my profile" FontSize="14" />
                         </StackPanel>
                     </TabItem.Header>
+                    <Label>
+                        <StackPanel Height="741" Width="1186">
+
+                            <ListBox x:Name="menu1" HorizontalAlignment="Right" Height="730" VerticalAlignment="Top" Width="217" Background="#f2eded" Foreground="White">
+                                <Button x:Name="btnMp" Content="vacation requests (v)" HorizontalAlignment="Center" Background="LightGray" Margin="5,5,5,5" VerticalAlignment="Top" Width="183" Height="32"/>
+                                <Button x:Name="btnAp" Content="edit profile (e)" HorizontalAlignment="Center" Background="LightGray" Margin="5,5,5,5" VerticalAlignment="Top" Width="183" Height="32"/>
+                                <Button x:Name="btnMedicinep" Content="change password (c)" HorizontalAlignment="Center" Background="LightGray" Margin="5,5,5,5" VerticalAlignment="Top" Width="183" Height="32"/>
+                                <Button x:Name="btnCp" Content="log out (l)" Click="openMain" HorizontalAlignment="Center" Background="LightGray" Margin="5,5,5,5" VerticalAlignment="Top" Width="183" Height="32"/>
+                            </ListBox>
+
+
+
+                        </StackPanel>
+                    </Label>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Button x:Name="btnMedicine" Content="medicine" Click="showMedicineList" HorizontalAlignment="Left" Margin="323,304,0,0" VerticalAlignment="Top" Width="164"/>
     </Grid>
 </Window>

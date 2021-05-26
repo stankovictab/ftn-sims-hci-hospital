@@ -100,7 +100,6 @@ namespace ftn_sims_hci_hospital
                 }
             }
         }
-
         private void UpdateReminderCounter()
         {
             if(reminderCounterBorder.Visibility == Visibility.Hidden)
@@ -110,6 +109,31 @@ namespace ftn_sims_hci_hospital
             }
             int broj = int.Parse(reminderCounter.Content.ToString());
             reminderCounter.Content = (++broj).ToString();
+        }
+
+        private void ShowAnamnesis(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AllAnamnesisPage(); ;
+        }
+
+        private void ShowHospitalizationReferrals(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AllHospitalizationReferralsPage();
+        }
+
+        private void ShowAlergies(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AllAllergiesPage();
+        }
+
+        private void ShowPersriptions(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AllPerscriptionsPage();
+        }
+
+        private void ShowPersonalData(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new PersonalData();
         }
     }
 }

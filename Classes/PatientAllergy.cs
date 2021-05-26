@@ -8,13 +8,13 @@ namespace Classes
 {
     class PatientAllergy
     {
-        public String patientID;
-        public int allergyID;
+        public String patientID { get; set; }
+        public Allergy allergy { get; set; }
 
-        public PatientAllergy(string patientID, int allergyID)
+        public PatientAllergy(string patientID, Allergy allergy)
         {
             this.patientID = patientID;
-            this.allergyID = allergyID;
+            this.allergy = allergy;
         }
     }
 }
