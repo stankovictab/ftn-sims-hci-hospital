@@ -7,12 +7,13 @@ namespace Classes
     {
         public User user { get; set; }
         public Room room;
-        public DoctorSpecialization specialization;
+        public DoctorSpecialization specialization { get; set; }
         public List<Appointment> appointments;
         public List<HolidayRequest> holidayRequests;
         public List<DynamicEquipmentRequest> dynamicEquipmentRequests;
         public List<Notification> notifications;
         public float avergeMark;
+        public Shift shift { get; set; }
 
         // Ovaj treba da se brise, vidi gde je referenca
         public Doctor(User user, Room room, List<Appointment> appointments, List<HolidayRequest> holidayRequests)

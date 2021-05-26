@@ -59,7 +59,6 @@ namespace ftn_sims_hci_hospital
                 {
                     User user = (User)patientData.SelectedItem;
                     MainWindow.patientController.Delete(user.Jmbg1);
-                    MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
                     btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }

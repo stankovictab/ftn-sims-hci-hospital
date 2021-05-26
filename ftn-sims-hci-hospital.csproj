@@ -140,6 +140,7 @@
     <Compile Include="Classes\Secretary.cs" />
     <Compile Include="Classes\Notification.cs" />
     <Compile Include="Classes\NotificationBoard.cs" />
+    <Compile Include="Classes\Shift.cs" />
     <Compile Include="Classes\StaticEnschedulement.cs" />
     <Compile Include="Classes\StaticEquipment.cs" />
     <Compile Include="Classes\StaticEquipmentRepository.cs" />
@@ -225,6 +226,9 @@
     <Compile Include="SecretaryAppointments.xaml.cs">
       <DependentUpon>SecretaryAppointments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SecretaryCreateDoctor.xaml.cs">
+      <DependentUpon>SecretaryCreateDoctor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SecretaryPatients.xaml.cs">
       <DependentUpon>SecretaryPatients.xaml</DependentUpon>
     </Compile>
@@ -233,6 +237,9 @@
     </Compile>
     <Compile Include="SecretaryUpdateAppointment.xaml.cs">
       <DependentUpon>SecretaryUpdateAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryViewDoctor.xaml.cs">
+      <DependentUpon>SecretaryViewDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Static.xaml.cs">
       <DependentUpon>Static.xaml</DependentUpon>
@@ -483,6 +490,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SecretaryCreateDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SecretaryPatients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -492,6 +503,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SecretaryUpdateAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretaryViewDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

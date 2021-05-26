@@ -1429,3 +1429,8 @@ C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\ftn-sims
 C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.pdb
 C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\SecretaryReleaseList.g.cs
 C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\SecretaryReleaseList.baml
+C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache
+C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\SecretaryCreateDoctor.g.cs
+C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\SecretaryViewDoctor.g.cs
+C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\SecretaryCreateDoctor.baml
+C:\Users\Mihajlo\Desktop\New folder (2)\ftn-sims-hci-hospital\obj\Debug\SecretaryViewDoctor.baml
