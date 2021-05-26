@@ -74,7 +74,8 @@ namespace ftn_sims_hci_hospital
             equipmentNames = equipmentNames.Remove(equipmentNames.Length - 1, 1);
             equipmentAmounts = equipmentAmounts.Remove(equipmentAmounts.Length - 1, 1);
             MessageBox.Show("Oprema : " + equipmentNames + "\n" + "Kolicina : " + equipmentAmounts);
-            MainWindow.dynamicEquipmentOrderController.Create(equipmentNames, equipmentAmounts);
+            DynamicEquipmentOrder ord = new DynamicEquipmentOrder(equipmentNames, equipmentAmounts);
+            MainWindow.dynamicEquipmentOrderController.Create(ord);
             // Request lista mora da se izbrise kada se finalizuje, mozda jos neki bool, kao ordered?
             MainWindow.dynamicEquipmentRequestController.SetAllApprovedToOrdered();
             refreshListView();

@@ -7,18 +7,17 @@ namespace Classes
     {
         public DynamicEquipmentOrderRepository deor = new DynamicEquipmentOrderRepository();
 
-        public Boolean Create(String equipmentNames, String equipmentAmounts)
+        public Boolean Create(DynamicEquipmentOrder ord)
         {
             List<DynamicEquipmentOrder> temp = deor.GetAll();
-            int newid = 0;
+            int newID = 0;
             foreach (DynamicEquipmentOrder o in temp)
             {
-                newid = Int32.Parse(o.OrderID1);
+                newID = Int32.Parse(o.OrderID1);
             }
-            newid++;
-            String newidstring = newid.ToString();
-
-            DynamicEquipmentOrder ord = new DynamicEquipmentOrder(newidstring, equipmentNames, equipmentAmounts, DateTime.Now, DynamicEquipmentOrderStatus.Sent);
+            newID++;
+            String newerID = newID.ToString();
+            ord.OrderID1 = newerID;
             return deor.Create(ord);
         }
 
@@ -32,9 +31,12 @@ namespace Classes
             return deor.GetAll();
         }
 
-        public Boolean Update(String id, String equipmentNames, String equipmentAmounts)
+        public Boolean Update(DynamicEquipmentOrder ord)
         {
-            DynamicEquipmentOrder ord = new DynamicEquipmentOrder(id, equipmentNames, equipmentAmounts, DateTime.Now, DynamicEquipmentOrderStatus.Sent);
+            // TODO: Ovo treba da se doda za Order Update
+
+
+            // DynamicEquipmentOrder ord = new DynamicEquipmentOrder(id, equipmentNames, equipmentAmounts, DateTime.Now, DynamicEquipmentOrderStatus.Sent);
             return deor.Update(ord); // Provera da li postoji vec u listi se radi u repozitorijumu
         }
 
