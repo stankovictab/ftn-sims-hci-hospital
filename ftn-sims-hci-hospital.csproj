@@ -97,11 +97,14 @@
     <Compile Include="Classes\HolidayRequestRepository.cs" />
     <Compile Include="Classes\HolidayRequestService.cs" />
     <Compile Include="Classes\HolidayRequestStatus.cs" />
+    <Compile Include="Classes\HospitalizationReferal.cs" />
+    <Compile Include="Classes\HospitalizationReferalRepository.cs" />
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\Medicine.cs" />
     <Compile Include="Classes\MedicineCotroller.cs" />
     <Compile Include="Classes\MedicineRepository.cs" />
     <Compile Include="Classes\MedicineService.cs" />
+    <Compile Include="Classes\MedicineStatus.cs" />
     <Compile Include="Classes\NotificationController.cs" />
     <Compile Include="Classes\NotificationRepository.cs" />
     <Compile Include="Classes\NotificationService.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="Classes\PatientService.cs" />
     <Compile Include="Classes\Perscription.cs" />
     <Compile Include="Classes\PerscriptionRepository.cs" />
+    <Compile Include="Classes\PrescriptionService.cs" />
     <Compile Include="Classes\Priority.cs" />
     <Compile Include="Classes\Referral.cs" />
     <Compile Include="Classes\ReferralController.cs" />
@@ -132,6 +136,12 @@
     <Compile Include="Classes\StaticEquipment.cs" />
     <Compile Include="Classes\StaticEquipmentRepository.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Diagnosis.xaml.cs">
+      <DependentUpon>Diagnosis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorBNew.xaml.cs">
+      <DependentUpon>DoctorBNew.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dynamic.xaml.cs">
       <DependentUpon>Dynamic.xaml</DependentUpon>
     </Compile>
@@ -207,10 +217,21 @@
     <Compile Include="StaticUpdate.xaml.cs">
       <DependentUpon>StaticUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Treatments.xaml.cs">
+      <DependentUpon>Treatments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
     <Page Include="AddReferral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diagnosis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorBNew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -426,6 +447,10 @@
     <Page Include="StaticUpdate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Treatments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateAppointmentPatient.xaml">
       <SubType>Designer</SubType>

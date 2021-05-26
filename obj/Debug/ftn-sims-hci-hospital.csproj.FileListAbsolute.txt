@@ -396,3 +396,9 @@ C:\Users\Brt\Desktop\ftn-sims-hci-hospital (kt4 pushovan)\obj\Debug\ftn-sims-hci
 C:\Users\Brt\Desktop\ftn-sims-hci-hospital (kt4 pushovan)\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
 C:\Users\Brt\Desktop\ftn-sims-hci-hospital (kt4 pushovan)\obj\Debug\ftn-sims-hci-hospital.exe
 C:\Users\Brt\Desktop\ftn-sims-hci-hospital (kt4 pushovan)\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\DoctorBNew.g.cs
+C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\DoctorBNew.baml
+C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\Diagnosis.g.cs
+C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\Diagnosis.baml
+C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\Treatments.g.cs
+C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\Treatments.baml

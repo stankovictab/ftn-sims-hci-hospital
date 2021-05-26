@@ -60,6 +60,7 @@ namespace ftn_sims_hci_hospital
             user.Jmbg1 = "0501";
             user.Role1 = Roles.Doctor;
             user.Name1 = "Dakaz";
+
             DoctorB doctorB = new DoctorB();
             doctorB.Show();
         }

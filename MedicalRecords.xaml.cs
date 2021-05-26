@@ -50,7 +50,7 @@ namespace ftn_sims_hci_hospital
                     int r = rnd.Next(1, 1000);
 
                     Patient patient = (Patient)lvUsers.SelectedItem;
-                    Perscription p = new Perscription(r.ToString(), txtM.Text, int.Parse(txtA.Text), txtD.Text);
+                    Perscription p = new Perscription(r.ToString(), new Medicine(), int.Parse(txtA.Text), txtD.Text);
 
                     patientController.addPrescription(p, patient.user.Jmbg1);
                 }
@@ -144,11 +144,12 @@ namespace ftn_sims_hci_hospital
                     PatientController patientController = new PatientController();
                     prescriptionUpdate = (Perscription)prescriptionList.SelectedItem;
 
-                    txtMU.Text = prescriptionUpdate.Medicine;
+                    txtMU.Text = prescriptionUpdate.Medicine.Name;
                     txtAU.Text = prescriptionUpdate.Amount.ToString();
                     txtDU.Text = prescriptionUpdate.Description;
 
-                    CanvasPersUpdate.Visibility = Visibility.Visible;
+                    CanvasAnamUpdate.Visibility = Visibility.Hidden;
+                    CanvasPersUpdate.Visibility = Visibility.Visible;   
                 }
 
                 if (radioA.IsChecked == true)
@@ -159,6 +160,7 @@ namespace ftn_sims_hci_hospital
                     txtDA.Text = anamnesisUpdate.Date.ToString("hh:mm:ss dd.MM.yyyy");
                     txtDE.Text = anamnesisUpdate.Description;
 
+                    CanvasPersUpdate.Visibility = Visibility.Hidden;
                     CanvasAnamUpdate.Visibility = Visibility.Visible;
                 }
             }
@@ -175,7 +177,7 @@ namespace ftn_sims_hci_hospital
                 if (radioP.IsChecked == true)
                 {
                     PatientController patientController = new PatientController();
-                    Perscription per = new Perscription(prescriptionUpdate.Id, txtMU.Text, int.Parse(txtAU.Text), txtDU.Text); ;
+                    Perscription per = new Perscription(prescriptionUpdate.Id, new Medicine(), int.Parse(txtAU.Text), txtDU.Text); ;
 
                     patientController.updatePrescription(per, p.user.Jmbg);
 
@@ -215,8 +217,8 @@ namespace ftn_sims_hci_hospital
 
         private void radioP_Checked(object sender, RoutedEventArgs e)
         {
-            CanvasPers.Visibility = Visibility.Hidden;
-            CanvasAnas.Visibility = Visibility.Visible;
+            CanvasPers.Visibility = Visibility.Visible;
+            CanvasAnas.Visibility = Visibility.Hidden;
         }
 
         

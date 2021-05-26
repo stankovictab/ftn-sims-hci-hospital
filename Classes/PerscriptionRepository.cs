@@ -6,6 +6,7 @@ namespace Classes
     public class PerscriptionRepository
     {
         private String FileLocation;
+        private MedicineRepository medicineRepository;
         private List<Perscription> PerscriptionsInFile;
 
         public PerscriptionRepository()
@@ -15,7 +16,10 @@ namespace Classes
 
         public Boolean Create(Perscription per,String patientId)
         {
-            string newLine = per.Id + ";" + patientId + ";" + per.Medicine + ";" + per.Amount + ";" + per.Description + "\n";
+            Random random = new Random();
+            String id = random.Next(1, 1000).ToString();
+
+            string newLine = id + ";" + patientId + ";" + per.Medicine.Id + ";" + per.Amount + ";" + per.Description + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }
@@ -36,7 +40,8 @@ namespace Classes
                 string[] parts = line.Split(';');
                 if (parts[1].Equals(id))
                 {
-                    Perscription p = new Perscription(parts[0], parts[2], int.Parse(parts[3]), parts[4]);
+                    Medicine medicine = medicineRepository.GetById(parts[2]);
+                    Perscription p = new Perscription(parts[0], medicine, int.Parse(parts[3]), parts[4]);
                     ret.Add(p);
                 }
             }
@@ -86,5 +91,7 @@ namespace Classes
             System.IO.File.WriteAllLines(FileLocation, novi);
             return true;
         }
+
+        
     }
 }
