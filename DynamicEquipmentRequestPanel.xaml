@@ -31,8 +31,8 @@
         <RadioButton x:Name="filterDenied" Content="Denied" HorizontalAlignment="Left" Margin="38,365,0,0" VerticalAlignment="Top" Checked="filterDenied_Checked"/>
         <Label Content="Filter :" HorizontalAlignment="Left" Margin="34,279,0,0" VerticalAlignment="Top"/>
         <Label Content="Search by Equipment Name :" HorizontalAlignment="Left" Margin="2,177,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="dynamicEquipmentSearch" HorizontalAlignment="Left" Height="23" Margin="8,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
-        <Button x:Name="btnDynamicEquipmentSearch" Content="Search" HorizontalAlignment="Left" Margin="15,236,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnDynamicEquipmentSearch_Click"/>
+        <TextBox x:Name="searchField" HorizontalAlignment="Left" Height="23" Margin="8,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="15,236,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnSearch_Click"/>
         <Label Content="Equipment Name :" HorizontalAlignment="Left" Margin="166,324,0,0" VerticalAlignment="Top"/>
 
     </Grid>

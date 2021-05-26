@@ -126,9 +126,9 @@ namespace ftn_sims_hci_hospital
                 loadIntoListView(req);
         }
 
-        private void btnDynamicEquipmentSearch_Click(object sender, RoutedEventArgs e)
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            string query = dynamicEquipmentSearch.Text;
+            string query = searchField.Text;
             List<DynamicEquipmentRequest> list = getDynamicEquipmentRequestList();
             foreach (DynamicEquipmentRequest req in list)
             {

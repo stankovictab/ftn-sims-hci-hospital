@@ -32,6 +32,11 @@ namespace Classes
             return hrs.GetAllOnHold();
         }
 
+        public List<HolidayRequest> GetAllNotOnHold()
+        {
+            return hrs.GetAllNotOnHold();
+        }
+
         public Boolean Update(HolidayRequest req)
         {
             return hrs.Update(req);

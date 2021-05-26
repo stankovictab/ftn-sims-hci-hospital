@@ -44,6 +44,11 @@ namespace Classes
             return hrr.GetAllOnHold();
         }
 
+        public List<HolidayRequest> GetAllNotOnHold()
+        {
+            return hrr.GetAllNotOnHold();
+        }
+
         public Boolean Update(HolidayRequest req)
         {
             CheckDates(req);
