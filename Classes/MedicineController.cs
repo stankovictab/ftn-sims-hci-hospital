@@ -13,9 +13,34 @@ namespace Classes
     {
         public MedicineService medicineService = new MedicineService();
 
-        public bool UpdateAllUnverified(List<Medicine> mif)
+        public bool UpdateAllOnHold(List<Medicine> mif)
         {
-            return medicineService.UpdateAllUnverified(mif);
+            return medicineService.UpdateAllOnHold(mif);
+        }
+
+        public List<Medicine> GetAllOnHold()
+        {
+            return medicineService.GetAllOnHold();
+        }
+
+        public bool DeleteOnHold(string name)
+        {
+            return medicineService.DeleteOnHold(name);
+        }
+
+        public bool AddOnHold(Medicine medicine)
+        {
+            return medicineService.AddOnHold(medicine);
+        }
+
+        public Medicine GetOnHoldByName(string name)
+        {
+            return medicineService.GetOnHoldByName(name);
+        }
+
+        public bool UpdateOnHold(Medicine medicine)
+        {
+            return medicineService.UpdateOnHold(medicine);
         }
 
         public List<Medicine> GetAllUnverified()
@@ -23,24 +48,19 @@ namespace Classes
             return medicineService.GetAllUnverified();
         }
 
-        public bool DeleteUnverified(string name)
-        {
-            return medicineService.DeleteUnverified(name);
-        }
-
-        public bool AddUnverified(Medicine medicine)
-        {
-            return medicineService.AddUnverified(medicine);
-        }
-
         public Medicine GetUnverifiedByName(string name)
         {
             return medicineService.GetUnverifiedByName(name);
         }
 
-        public bool UpdateUnverified(Medicine medicine)
+        public bool DeleteUnverified(string id)
         {
-            return medicineService.UpdateUnverified(medicine);
+            return medicineService.DeleteUnverified(id);
+        }
+
+        public bool UpdateAllUnverified(List<Medicine> mif)
+        {
+            return medicineService.UpdateAllUnverified(mif);
         }
     }
 }

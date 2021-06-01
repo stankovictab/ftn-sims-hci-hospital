@@ -16,6 +16,7 @@
         <Button x:Name="medicine" Content="Medicine" HorizontalAlignment="Left" Margin="108,118,0,0" VerticalAlignment="Top" Width="75" Click="medicine_Click"/>
         <Button x:Name="storage" Content="Storage" HorizontalAlignment="Left" Margin="477,181,0,0" VerticalAlignment="Top" Width="75" Click="storage_Click"/>
         <Button x:Name="basicRenovations" Content="Basic Renovations" HorizontalAlignment="Left" Margin="459,232,0,0" VerticalAlignment="Top" Width="117" Click="basicRenovations_Click"/>
+        <Button Content="Advanced Renovations" HorizontalAlignment="Left" Margin="449,272,0,0" VerticalAlignment="Top" Width="138" Click="Button_Click"/>
 
     </Grid>
 </Window>

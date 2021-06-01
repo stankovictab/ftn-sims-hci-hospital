@@ -36,6 +36,16 @@ namespace Classes
             return true;
         }
 
+        public void UpdateTime(DateTime currentTime)
+        {
+            enschedulementRepository.UpdateTime(currentTime);
+        }
+
+        public Boolean Delete(StaticEnschedulement enschedulement)
+        {
+            return enschedulementRepository.Delete(enschedulement);
+        }
+
         public bool CheckAvailable(StaticEnschedulement newEnsch)
         {
             List<StaticEnschedulement> se = enschedulementRepository.GetAll();
@@ -54,5 +64,9 @@ namespace Classes
             return enschedulementRepository.GetAll();
         }
 
+        public List<StaticEnschedulement> GetAllFinished()
+        {
+            return enschedulementRepository.GetAllFinished();
+        }
     }
 }

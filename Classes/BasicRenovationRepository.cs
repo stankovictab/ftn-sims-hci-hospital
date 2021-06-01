@@ -16,10 +16,12 @@ namespace Classes
     {
         private String FileLocation = "../../Text Files/basicrenovations.txt";
         private String FileLocationTasks = "../../Text Files/basicrenovationtasks.txt";
+        private String FileLocationFinished = "../../Text Files/finishedbasicrenovations.txt";
         public List<BasicRenovation> BasicRenovations = new List<BasicRenovation>();
+        public List<BasicRenovation> FinishedBasicRenovations = new List<BasicRenovation>();
         public RoomRepository roomRepository = new RoomRepository();
 
-        public void WriteToFile(List<BasicRenovation> basicRenovations)
+        public void WriteToFile(List<BasicRenovation> basicRenovations, String FileLocation)
         {
             TextWriter tw = new StreamWriter(FileLocation);
 
@@ -44,28 +46,44 @@ namespace Classes
                 .Execute();
         }
 
+        public void UpdateTime(DateTime currentTime)
+        {
+            BasicRenovations = GetAll();
+            List<BasicRenovation> basicRenovationIterator = GetAll();
+            FinishedBasicRenovations = GetAllFinished();
+            foreach (BasicRenovation renovation in BasicRenovations)
+            {
+                if (DateTime.Compare(currentTime, renovation.DateTime.AddMinutes(renovation.Duration)) >= 0)
+                {
+                    BasicRenovations.Remove(renovation);
+                    WriteToFile(BasicRenovations, FileLocation);
+
+                    FinishedBasicRenovations.Add(renovation);
+                    WriteToFile(FinishedBasicRenovations, FileLocationFinished);
+                }
+            }
+        }
+
         public Boolean Create(BasicRenovation newBasicRenovation)
         {
             BasicRenovations = GetAll();
             BasicRenovations.Add(newBasicRenovation);
-            WriteToFile(BasicRenovations);
+            WriteToFile(BasicRenovations, FileLocation);
 
             //zauzimanje sobe
-            newBasicRenovation.Room.Status = RoomStatus.Renovating;
-            roomRepository.Update(newBasicRenovation.Room);
-            roomRepository.UpdateFile(roomRepository.Rooms);
+            roomRepository.Renovate(newBasicRenovation.Room);
 
             ScheduleTask(newBasicRenovation);
             
             return true;
         }
 
-        public List<BasicRenovation> PullFromFile()
+        public List<BasicRenovation> PullFromFile(String FileLocation)
         {
             List<BasicRenovation> basicRenovations = new List<BasicRenovation>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
-            while (text != null && text != "\n")
+            while (text != null && text != "\n" && text != "")
             {
                 string[] components = text.Split(',');
                 int id = Convert.ToInt32(components[0]);
@@ -85,11 +103,17 @@ namespace Classes
         {
             List<BasicRenovation> basicRenovations = new List<BasicRenovation>();
 
-            basicRenovations = PullFromFile();
+            basicRenovations = PullFromFile(FileLocation);
 
             return basicRenovations;
         }
 
+        public List<BasicRenovation> GetAllFinished()
+        {
+            List<BasicRenovation> finishedBasicRenovations = new List<BasicRenovation>();
+            finishedBasicRenovations = PullFromFile(FileLocationFinished);
+            return finishedBasicRenovations;
+        }
         public Boolean UpdateFile(List<BasicRenovation> renovations)
         {
             if (renovations == null)
@@ -98,7 +122,7 @@ namespace Classes
             }
             else
             {
-                WriteToFile(renovations);
+                WriteToFile(renovations, FileLocation);
                 return true;
             }
         }
@@ -110,7 +134,12 @@ namespace Classes
             {
                 if (renovation.Id == id)
                 {
+                    renovation.Room.Status = RoomStatus.Free;
+                    roomRepository.Update(renovation.Room);
+                    roomRepository.UpdateFile(roomRepository.Rooms);
                     BasicRenovations.Remove(renovation);
+                    WriteToFile(BasicRenovations, FileLocation);
+                    
                     return true;
                 }
             }

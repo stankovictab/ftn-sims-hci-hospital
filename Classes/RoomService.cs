@@ -33,7 +33,7 @@ namespace Classes
             return roomRepository.Delete(id);
         }
 
-        public bool UpdateAll(List<Room> rif)
+        public bool UpdateFile(List<Room> rif)
         {
             return roomRepository.UpdateFile(rif);
         }

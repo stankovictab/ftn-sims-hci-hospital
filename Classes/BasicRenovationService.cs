@@ -38,10 +38,10 @@ namespace Classes
             foreach (BasicRenovation renovation in basicRenovations)
             {
                 bool available = checkDateTime(renovation, toCheck);
-                if (available)
-                    return true;
+                if (!available)
+                    return false;
             }
-            return false;
+            return true;
         }
 
         public bool checkDateTime(BasicRenovation renovation, BasicRenovation toCheck)
@@ -55,6 +55,11 @@ namespace Classes
         public bool UpdateFile(List<BasicRenovation> basicRenovationsInFile)
         {
             return basicRenovationRepository.UpdateFile(basicRenovationsInFile);
+        }
+
+        public void UpdateTime(DateTime currentTime)
+        {
+            basicRenovationRepository.UpdateTime(currentTime);
         }
     }
 }

@@ -29,9 +29,9 @@ namespace ftn_sims_hci_hospital
 
         private void medicineAdd_Click(object sender, RoutedEventArgs e)
         {
-            medicineController.medicineService.medicineRepository.UnverifiedMedicine = medicineController.GetAllUnverified();
-            Classes.Medicine newMedicine = new Classes.Medicine(medicineName.Text, medicineDescription.Text, medicineIngredients.Text, medicineAlternatives.Text, MedicineStatus.Unverified);
-            _ = medicineController.AddUnverified(newMedicine);
+            medicineController.medicineService.medicineRepository.OnHoldMedicine = medicineController.GetAllOnHold();
+            Classes.Medicine newMedicine = new Classes.Medicine(medicineId.Text, medicineName.Text, medicineDescription.Text, medicineIngredients.Text, medicineAlternatives.Text, MedicineStatus.OnHold, "No reason");
+            _ = medicineController.AddOnHold(newMedicine);
             this.Hide();
         }
     }

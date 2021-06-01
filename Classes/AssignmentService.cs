@@ -43,5 +43,9 @@ namespace Classes
             return assignmentRepository.GetAll();
         }
 
+        public Boolean Delete(DynamicAssignment assignment)
+        {
+            return assignmentRepository.Delete(assignment);
+        }
     }
 }

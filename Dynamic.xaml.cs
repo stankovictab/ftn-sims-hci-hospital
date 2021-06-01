@@ -24,6 +24,13 @@ namespace ftn_sims_hci_hospital
         public Dynamic()
         {
             InitializeComponent();
+            //ciscenje fajla
+            List<DynamicAssignment> allAssignments = assignmentController.GetAll();
+            foreach (DynamicAssignment da in allAssignments)
+            {
+                if (da.EquipmentAssigned == null)
+                    assignmentController.Delete(da);
+            }
         }
 
         private void addDynamic_Click(object sender, RoutedEventArgs e)

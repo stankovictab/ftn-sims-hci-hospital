@@ -11,6 +11,7 @@ namespace Classes
    public enum MedicineStatus
    {
       Verified,
-      Unverified
+      Unverified,
+      OnHold
    }
 }

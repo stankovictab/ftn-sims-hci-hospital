@@ -68,5 +68,20 @@ namespace Classes
             return dynamicAssignments;
         }
 
+        public Boolean Delete(DynamicAssignment assignment)
+        {
+            Assignments = GetAll();
+            foreach (DynamicAssignment da in Assignments)
+            {
+                if (da.IdAssign.Equals(assignment.IdAssign))
+                {
+                    Assignments.Remove(da);
+                    WriteToFile(Assignments);
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

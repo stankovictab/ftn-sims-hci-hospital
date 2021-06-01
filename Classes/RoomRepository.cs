@@ -26,11 +26,44 @@ namespace Classes
             return RoomType.Therapy;
         }
 
+        public void Renovate(Room room)
+        {
+            room.Status = RoomStatus.Renovating;
+            Update(room);
+            UpdateFile(Rooms);
+        }
+
+        public void Reorder(Room room)
+        {
+            room.Status = RoomStatus.Reordering;
+            Update(room);
+            UpdateFile(Rooms);
+        }
+
+        public void Free(Room room)
+        {
+            room.Status = RoomStatus.Free;
+            Update(room);
+            UpdateFile(Rooms); ;
+        }
+
+        public static RoomStatus ParseRoomStatus(string input)
+        {
+            if (input == "Free")
+                return RoomStatus.Free;
+            else if (input == "Reordering")
+                return RoomStatus.Reordering;
+            else if (input == "Renovating")
+                return RoomStatus.Renovating;
+
+            return RoomStatus.Busy;
+        }
+
         public void WriteToFile(List<Room> roomsInFile)
         {
             TextWriter tw = new StreamWriter(FileLocation);
 
-            foreach (var item in Rooms)
+            foreach (var item in roomsInFile)
             {
                 tw.WriteLine(string.Format("{0},{1},{2},{3},{4}", item.RoomNumber, item.FloorNumber.ToString(), item.Description, item.Type.ToString(), item.Status.ToString()));
             }
@@ -71,7 +104,8 @@ namespace Classes
                 int floorNumber = Convert.ToInt32(components[1]);
                 string description = components[2];
                 RoomType type = ParseRoomType(components[3]);
-                Room room = new Room(roomNumber, floorNumber, description, type, RoomStatus.Free);
+                RoomStatus status = ParseRoomStatus(components[4]);
+                Room room = new Room(roomNumber, floorNumber, description, type, status);
                 rooms.Add(room);
                 text = tr.ReadLine();
             }
@@ -88,6 +122,7 @@ namespace Classes
 
         public Boolean Update(Room oldRoom)
         {
+            Rooms = GetAll();
             foreach (Room newRoom in Rooms)
             {
                 if (newRoom.RoomNumber.Equals(oldRoom.RoomNumber))
@@ -118,6 +153,7 @@ namespace Classes
 
         public Boolean Delete(String roomNumber)
         {
+            Rooms = GetAll();
             foreach (Room room in Rooms)
             {
                 if (room.RoomNumber.Equals(roomNumber))

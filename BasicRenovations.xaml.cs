@@ -25,6 +25,10 @@ namespace ftn_sims_hci_hospital
         public BasicRenovations()
         {
             InitializeComponent();
+            //basicRenovationController.UpdateTime(DateTime.Now);
+
+            List<BasicRenovation> allRenovations = basicRenovationController.GetAll();
+            
         }
 
         private void addBasicRenovation_Click(object sender, RoutedEventArgs e)

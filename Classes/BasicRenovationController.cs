@@ -32,5 +32,10 @@ namespace Classes
         {
             return basicRenovationService.UpdateFile(basicRenovationsInFile);
         }
+
+        public void UpdateTime(DateTime currentTime)
+        {
+            basicRenovationService.UpdateTime(currentTime);
+        }
     }
 }

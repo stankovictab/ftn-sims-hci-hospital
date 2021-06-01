@@ -26,6 +26,7 @@
         <Label Grid.ColumnSpan="3" Content="Password:" HorizontalAlignment="Left" Margin="514,426,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Arial" FontWeight="Bold"/>
         <PasswordBox x:Name="tbpassword" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="521,457,0,0" VerticalAlignment="Top"  Width="160" Height="34" Background="#FFAEAAAA"/>
         <Button x:Name="btnLogin" Grid.ColumnSpan="3" Content="Login" HorizontalAlignment="Left" Margin="581,522,0,0" VerticalAlignment="Top" Width="100" Height="45" Background="#FFABB1B4" BorderBrush="#FF020202"/>
+        <Button x:Name="managerHCI" Grid.ColumnSpan="3" Content="Manager HCI" HorizontalAlignment="Left" Margin="1109,168,0,0" VerticalAlignment="Top" Width="75" Click="managerHCI_Click"/>
 
     </Grid>
 </Window>

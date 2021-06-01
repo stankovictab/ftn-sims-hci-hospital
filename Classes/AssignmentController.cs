@@ -23,5 +23,9 @@ namespace Classes
             return assignmentService.GetAll();
         }
 
+        public Boolean Delete(DynamicAssignment assignment)
+        {
+            return assignmentService.Delete(assignment);
+        }
     }
 }

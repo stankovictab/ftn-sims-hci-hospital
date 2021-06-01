@@ -21,6 +21,8 @@ namespace ftn_sims_hci_hospital
     /// </summary>
     public partial class Manager : Window
     {
+        EnschedulementController enschedulementController = new EnschedulementController();
+        BasicRenovationController basicRenovationController = new BasicRenovationController();
         public Manager()
         {
             InitializeComponent();
@@ -78,6 +80,12 @@ namespace ftn_sims_hci_hospital
         {
             Window basicRenovations = new BasicRenovations();
             basicRenovations.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window advancedRenovations = new AdvancedRenovations();
+            advancedRenovations.ShowDialog();
         }
     }
 }

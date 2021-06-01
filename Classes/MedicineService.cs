@@ -13,9 +13,34 @@ namespace Classes
     {
         public MedicineRepository medicineRepository = new MedicineRepository();
 
-        public bool UpdateAllUnverified(List<Medicine> mif)
+        public bool UpdateAllOnHold(List<Medicine> mif)
         {
-            return medicineRepository.UpdateAllUnverified(mif);
+            return medicineRepository.UpdateAllOnHold(mif);
+        }
+
+        public List<Medicine> GetAllOnHold()
+        {
+            return medicineRepository.GetAllOnHold();
+        }
+
+        public bool DeleteOnHold(string name)
+        {
+            return medicineRepository.DeleteOnHold(name);
+        }
+
+        public bool AddOnHold(Medicine medicine)
+        {
+            return medicineRepository.CreateOnHold(medicine);
+        }
+
+        public Medicine GetOnHoldByName(string name)
+        {
+            return medicineRepository.GetOnHoldByName(name);
+        }
+
+        public bool UpdateOnHold(Medicine medicine)
+        {
+            return medicineRepository.UpdateOnHold(medicine);
         }
 
         public List<Medicine> GetAllUnverified()
@@ -23,24 +48,19 @@ namespace Classes
             return medicineRepository.GetAllUnverified();
         }
 
-        public bool DeleteUnverified(string name)
-        {
-            return medicineRepository.DeleteUnverified(name);
-        }
-
-        public bool AddUnverified(Medicine medicine)
-        {
-            return medicineRepository.CreateUnverified(medicine);
-        }
-
         public Medicine GetUnverifiedByName(string name)
         {
             return medicineRepository.GetUnverifiedByName(name);
         }
 
-        public bool UpdateUnverified(Medicine medicine)
+        public bool DeleteUnverified(string id)
         {
-            return medicineRepository.UpdateUnverified(medicine);
+            return medicineRepository.DeleteUnverified(id);
+        }
+
+        public bool UpdateAllUnverified(List<Medicine> mif)
+        {
+            return medicineRepository.UpdateAllUnverified(mif);
         }
     }
 }

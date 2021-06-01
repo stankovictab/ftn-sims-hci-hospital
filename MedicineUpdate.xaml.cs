@@ -26,8 +26,9 @@ namespace ftn_sims_hci_hospital
         public MedicineUpdate(String name)
         {
             InitializeComponent();
-            medicineController.medicineService.medicineRepository.UnverifiedMedicine = medicineController.GetAllUnverified();
-            toUpdate = medicineController.GetUnverifiedByName(name);
+            medicineController.medicineService.medicineRepository.OnHoldMedicine = medicineController.GetAllOnHold();
+            toUpdate = medicineController.GetOnHoldByName(name);
+            medicineId.Text = toUpdate.Id;
             medicineName.Text = toUpdate.Name;
             medicineDescription.Text = toUpdate.Description;
             medicineIngredients.Text = toUpdate.Alternatives;
@@ -36,14 +37,15 @@ namespace ftn_sims_hci_hospital
 
         private void medicineUpdate_Click(object sender, RoutedEventArgs e)
         {
+            string id = medicineId.Text;
             string name = medicineName.Text;
             string description = medicineDescription.Text;
             string ingredients = medicineIngredients.Text;
             string alternatives = medicineAlternatives.Text;
 
-            Classes.Medicine medicine = new Classes.Medicine(name, description, ingredients, alternatives, MedicineStatus.Unverified); ;
-            _ = medicineController.UpdateUnverified(medicine);
-            medicineController.UpdateAllUnverified(medicineController.medicineService.medicineRepository.UnverifiedMedicine);
+            Classes.Medicine medicine = new Classes.Medicine(id, name, description, ingredients, alternatives, MedicineStatus.OnHold, "No reason");
+            _ = medicineController.UpdateOnHold(medicine);
+            medicineController.UpdateAllOnHold(medicineController.medicineService.medicineRepository.OnHoldMedicine);
             this.Close();
         }
     }

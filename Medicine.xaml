@@ -10,6 +10,7 @@
         <ListView x:Name="medicineDataList" HorizontalAlignment="Left" Height="319" Margin="274,44,0,0" VerticalAlignment="Top" Width="445">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
                     <GridViewColumn Header="Ingredients" DisplayMemberBinding="{Binding Ingredients}"/>
@@ -22,6 +23,7 @@
         <Button x:Name="viewmedicine" Content="View" HorizontalAlignment="Left" Margin="83,123,0,0" VerticalAlignment="Top" Width="75" Click="viewmedicine_Click"/>
         <Button x:Name="updatemedicine" Content="Update" HorizontalAlignment="Left" Margin="83,180,0,0" VerticalAlignment="Top" Width="75" Click="updatemedicine_Click"/>
         <Button x:Name="deletemedicine" Content="Delete" HorizontalAlignment="Left" Margin="83,234,0,0" VerticalAlignment="Top" Width="75" Click="deletemedicine_Click"/>
+        <Button x:Name="resubmitmedicine" Content="Resubmit" HorizontalAlignment="Left" Margin="83,343,0,0" VerticalAlignment="Top" Width="75" Click="resubmitmedicine_Click"/>
 
     </Grid>
 </Window>
