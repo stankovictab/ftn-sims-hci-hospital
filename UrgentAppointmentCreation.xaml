@@ -7,13 +7,27 @@
         mc:Ignorable="d"
         Title="UrgentAppointmentCreation" Height="450" Width="800">
     <Grid>
-        <Label x:Name="lbpatient" Content="Patient:" HorizontalAlignment="Left" Margin="40,62,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
-        <ComboBox x:Name="cbpatient" HorizontalAlignment="Left" Margin="154,66,0,0" VerticalAlignment="Top" Width="223" FontSize="20" FontFamily="Arial"/>
-        <Label x:Name="lbdoctortype" Content="Specialization:" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" RenderTransformOrigin="1.373,0.628"/>
-        <ComboBox x:Name="cbspecialization" HorizontalAlignment="Left" Margin="154,145,0,0" VerticalAlignment="Top" Width="223" FontSize="20" FontFamily="Arial" RenderTransformOrigin="0.289,0.57"/>
-        <Button x:Name="btnguest" Content="Make Guest" HorizontalAlignment="Left" Margin="455,96,0,0" VerticalAlignment="Top" Width="196"  RenderTransformOrigin="1.212,0.49" Height="50" Click="btnguest_Click" FontSize="18" FontFamily="Arial"/>
-        <Button x:Name="viewappointmentsbtn" Content="View Appointments" HorizontalAlignment="Left" Height="70" Margin="89,230,0,0" VerticalAlignment="Top" Width="202" FontSize="22" FontFamily="Arial" Click="viewappointmentsbtn_Click"/>
-        <ListView x:Name="reservedAppointments" HorizontalAlignment="Left" Height="194" Margin="384,215,0,0" VerticalAlignment="Top" Width="398">
+        <Label x:Name="lbpatient" Content="Patient:" HorizontalAlignment="Left" Margin="16,66,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial"/>
+        <ComboBox x:Name="cbpatient" HorizontalAlignment="Left" Margin="160,70,0,0" VerticalAlignment="Top" Width="173" FontSize="20" FontFamily="Arial" BorderBrush="Black">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <Label x:Name="lbdoctortype" Content="Specialization:" HorizontalAlignment="Left" Margin="16,145,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" RenderTransformOrigin="1.373,0.628"/>
+        <ComboBox x:Name="cbspecialization" HorizontalAlignment="Left" Margin="160,149,0,0" VerticalAlignment="Top" Width="173" FontSize="20" FontFamily="Arial" RenderTransformOrigin="0.289,0.57" BorderBrush="Black">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <Button x:Name="btnguest" Content="Make Guest" HorizontalAlignment="Left" Margin="513,68,0,0" VerticalAlignment="Top" Width="196"  RenderTransformOrigin="1.212,0.49" Height="50" Click="btnguest_Click" FontSize="18" FontFamily="Arial" Background="White" BorderBrush="Black"/>
+        <Button x:Name="viewappointmentsbtn" Content="View Appointments" HorizontalAlignment="Left" Height="70" Margin="16,215,0,0" VerticalAlignment="Top" Width="202" FontSize="22" FontFamily="Arial" Click="viewappointmentsbtn_Click" BorderBrush="Black" Background="White"/>
+        <ListView x:Name="reservedAppointments" HorizontalAlignment="Left" Height="194" Margin="339,215,0,0" VerticalAlignment="Top" Width="443" BorderBrush="Black" Foreground="Black">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Doctor First Name" DisplayMemberBinding="{Binding doctor.user.Name1}"/>
@@ -22,7 +36,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="makeappointmentbtn" Content="Make Appointment" HorizontalAlignment="Left" Height="70" Margin="89,319,0,0" VerticalAlignment="Top" Width="202" FontSize="22" FontFamily="Arial" Click="makeappointmentbtn_Click"/>
+        <Button x:Name="makeappointmentbtn" Content="Make Appointment" HorizontalAlignment="Left" Height="70" Margin="16,316,0,0" VerticalAlignment="Top" Width="202" FontSize="22" FontFamily="Arial" Click="makeappointmentbtn_Click" Background="White" BorderBrush="Black"/>
 
     </Grid>
 </Window>

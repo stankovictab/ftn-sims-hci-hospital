@@ -12,6 +12,7 @@ namespace Classes
         public int rescheduled { get; set; }
         public Doctor doctor { get; set; }
         public Patient patient { get; set; }
+        public Boolean isUrgent { get; set; }
         private DoctorRepository doctorRepository;
         private PatientRepository patientRepository;
 

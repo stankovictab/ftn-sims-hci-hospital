@@ -30,7 +30,7 @@ namespace ftn_sims_hci_hospital
             menu.Items.Add("Notifications");
             menu.Items.Add("Exchange Patient Info");
             menu.SelectedItem = menu.Items[2];
-
+            btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
 
         private void btncreatepatient_Click(object sender, RoutedEventArgs e)
@@ -50,20 +50,6 @@ namespace ftn_sims_hci_hospital
             }
         }
 
-        private void btnviewpatient_Click(object sender, RoutedEventArgs e)
-        {
-            if (!patientData.Items.IsEmpty)
-            {
-                if (patientData.SelectedItem != null)
-                {
-                    User user = (User)patientData.SelectedItem;
-                    String id = user.Jmbg1;
-                    Window patientView = new PatientView(id);
-                    patientView.ShowDialog();
-                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                }
-            }
-        }
 
         private void btndeletepatient_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +59,6 @@ namespace ftn_sims_hci_hospital
                 {
                     User user = (User)patientData.SelectedItem;
                     MainWindow.patientController.Delete(user.Jmbg1);
-                    MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
                     btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }
@@ -121,6 +106,27 @@ namespace ftn_sims_hci_hospital
 
 
             }
+        }
+
+        private void btnviewpatient_Click(object sender, RoutedEventArgs e)
+        {
+            if (!patientData.Items.IsEmpty)
+            {
+                if (patientData.SelectedItem != null)
+                {
+                    User user = (User)patientData.SelectedItem;
+                    String id = user.Jmbg1;
+                    Window patientView = new PatientView(id);
+                    patientView.ShowDialog();
+                    btnlistallpatients.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+            }
+        }
+
+        private void btnreleaselist_Click(object sender, RoutedEventArgs e)
+        {
+            Window releaseList = new SecretaryReleaseList();
+            releaseList.ShowDialog();
         }
     }
 }

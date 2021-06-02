@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="NotificationBoard" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="menu" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="226" Background="#FF302E2E" Foreground="White" FontSize="20" FontFamily="Arial" SelectionChanged="menu_SelectionChanged"/>
-        <ListView x:Name="notificationData" HorizontalAlignment="Left" Height="255" Margin="263,20,0,0" VerticalAlignment="Top" Width="509">
+        <ListBox x:Name="menu" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="226" Background="Black" Foreground="White" FontSize="20" FontFamily="Arial" SelectionChanged="menu_SelectionChanged" BorderBrush="Black"/>
+        <ListView x:Name="notificationData" HorizontalAlignment="Left" Height="255" Margin="263,20,0,0" VerticalAlignment="Top" Width="509" BorderBrush="Black" Foreground="Black">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}"/>
@@ -17,10 +17,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btncreatenotification" Content="Create a new Notification" HorizontalAlignment="Left" Height="40" Margin="346,286,0,0" VerticalAlignment="Top" Width="148" Click="btncreatenotification_Click"/>
-        <Button x:Name="btnlistallnotifications" Content="View all notifications" HorizontalAlignment="Left" Height="40" Margin="346,361,0,0" VerticalAlignment="Top" Width="148" Click="btnlistallnotifications_Click"/>
-        <Button x:Name="btnviewnotification" Content="View Notification" HorizontalAlignment="Left" Height="40" Margin="565,361,0,0" VerticalAlignment="Top" Width="148" Click="btnviewnotification_Click"/>
-        <Button x:Name="btndeletenotification" Content="Delete Notification" HorizontalAlignment="Left" Height="40" Margin="565,286,0,0" VerticalAlignment="Top" Width="148" Click="btndeletenotification_Click"/>
+        <Button x:Name="btncreatenotification" Content="Create a new Notification" HorizontalAlignment="Left" Height="40" Margin="346,286,0,0" VerticalAlignment="Top" Width="148" Click="btncreatenotification_Click" Background="White" BorderBrush="Black"/>
+        <Button x:Name="btnlistallnotifications" Content="View all notifications" HorizontalAlignment="Left" Height="40" Margin="346,361,0,0" VerticalAlignment="Top" Width="148" Click="btnlistallnotifications_Click" BorderBrush="Black" Background="White"/>
+        <Button x:Name="btnviewnotification" Content="View Notification" HorizontalAlignment="Left" Height="40" Margin="565,361,0,0" VerticalAlignment="Top" Width="148" Click="btnviewnotification_Click" Background="White" BorderBrush="Black"/>
+        <Button x:Name="btndeletenotification" Content="Delete Notification" HorizontalAlignment="Left" Height="40" Margin="565,286,0,0" VerticalAlignment="Top" Width="148" Click="btndeletenotification_Click" BorderBrush="Black" Background="White"/>
 
     </Grid>
 </Window>

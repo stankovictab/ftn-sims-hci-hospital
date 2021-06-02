@@ -222,3 +222,233 @@ C:\Users\Mihajlo\Desktop\github\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hos
 C:\Users\Mihajlo\Desktop\github\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
 C:\Users\Mihajlo\Desktop\github\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CopyComplete
 C:\Users\Mihajlo\Desktop\github\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.exe
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AddReferral.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAllergiesPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AdvancedRenovations.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAnamnesisPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\BasicRenovationCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAppointmentsPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\BasicRenovations.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllHospitalizationReferralsPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DoctorPanel.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllPerscriptionsPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\CreateAppointmentPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Dynamic.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\createAppointmentSpecialist.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\CreateReminder.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentRequestApproval.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentRequestPanel.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Diagnosis.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicUpdate.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\AppointmentPanelHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicUse.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\DoctorPanelHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\DynamicEquipmentPanelHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\GuestCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\HolidayRequestCreationHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\HolidayRequestPanelHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\MedicalRecordsHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\NotificationPanelHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\PerscriptionReportHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\PerscriptionValidationHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\ProfileHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\QuickAppointmentHCI.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\X.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentOrderUpdate.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentOrderCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentPastRequestApprovals.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentOrderPanel.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Inventory.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\InventoryAddDynamic.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\InventoryAddStatic.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Manager.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Orders.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Rooms.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\RoomsCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\RoomsEdit.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Schedule.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PollResultsPanel.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestPastApprovals.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestApproval.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestPanel.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAppointments.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AppointmentsListDoctorB.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\CreateAppointmentDoctorB.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DeleteAppointmentDoctorB.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DoctorB.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HomeWindow.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MainWindow.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Manager.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineWindow.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineResubmit.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineUpdate.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicalRecords.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineList.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\NotificationBoard.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\NotificationCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MergeRenovationCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\NotificationsPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientManagement.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientProfilePage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientView.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PersonalData.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PollPage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PossibleAppointments.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ProfileWindow.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientWindow.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\RoomCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Rooms.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\RoomUpdate.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryAppointmentCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryAppointments.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryCreateDoctor.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryPatients.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryReleaseList.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryUpdateAppointment.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SplitRenovationCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryViewDoctor.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Static.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticMove.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticSchedule.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticUpdate.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Storage.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Treatments.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\UpdateAppointmentPatient.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\UpdateNotification.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\UrgentAppointmentCreation.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\App.g.cs
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.cache
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital_MarkupCompile.lref
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.exe
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.exe.config
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.exe
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\ftn-sims-hci-hospital.pdb
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AddReferral.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAllergiesPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AdvancedRenovations.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAnamnesisPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\BasicRenovationCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAppointmentsPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\BasicRenovations.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllHospitalizationReferralsPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DoctorPanel.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllPerscriptionsPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\CreateAppointmentPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Dynamic.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\createAppointmentSpecialist.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\CreateReminder.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentRequestApproval.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentRequestPanel.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Diagnosis.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicUpdate.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\AppointmentPanelHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicUse.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\DoctorPanelHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\DynamicEquipmentPanelHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\GuestCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\HolidayRequestCreationHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\HolidayRequestPanelHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\MedicalRecordsHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\NotificationPanelHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\PerscriptionReportHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\PerscriptionValidationHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\ProfileHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\QuickAppointmentHCI.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Djordje HCI\X.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentOrderUpdate.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentOrderCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentPastRequestApprovals.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DynamicEquipmentOrderPanel.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Inventory.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\InventoryAddDynamic.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\InventoryAddStatic.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Manager.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Orders.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Rooms.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\RoomsCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\RoomsEdit.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Igor HCI\Schedule.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PollResultsPanel.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestPastApprovals.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestApproval.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestPanel.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HolidayRequestUpdate.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AllAppointments.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\AppointmentsListDoctorB.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\CreateAppointmentDoctorB.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DeleteAppointmentDoctorB.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\DoctorB.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\HomeWindow.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MainWindow.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Manager.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineWindow.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineResubmit.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineUpdate.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicalRecords.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MedicineList.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\NotificationBoard.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\NotificationCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\MergeRenovationCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\NotificationsPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientManagement.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientProfilePage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientView.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PersonalData.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PollPage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PossibleAppointments.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ProfileWindow.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\PatientWindow.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\RoomCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Rooms.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\RoomUpdate.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryAppointmentCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryAppointments.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryCreateDoctor.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryPatients.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryReleaseList.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryUpdateAppointment.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SplitRenovationCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\SecretaryViewDoctor.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Static.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticMove.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticSchedule.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\StaticUpdate.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Storage.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\Treatments.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\UpdateAppointmentPatient.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\UpdateNotification.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\UrgentAppointmentCreation.baml
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.g.resources
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn_sims_hci_hospital.Properties.Resources.resources
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CopyComplete
