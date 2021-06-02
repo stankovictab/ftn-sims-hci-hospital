@@ -1,3 +1,4 @@
-1,flasteri,02/10/21 9:00:00 AM,1,0501,/
-2,zavoji,02/19/21 9:00:00 AM,1,7601,
-3,skalpeli,02/15/21 9:00:00 AM,2,0501,Vrlo ostro!
+1,flasteri,0,02/10/21 09:00:00 AM,1,False,0501,/
+2,zavoji,0,02/19/21 09:00:00 AM,0,False,7601,/
+3,skalpeli,0,02/15/21 09:00:00 AM,2,False,0501,Vrlo ostro!
+4,igle,0,03/01/21 09:00:00 AM,1,False,7601,/

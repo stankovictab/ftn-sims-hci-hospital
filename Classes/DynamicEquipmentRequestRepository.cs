@@ -48,16 +48,17 @@ namespace Classes
                 string[] components = text.Split(','); // Po defaultu su svi componenti stringovi, pa za neke mora convert
                 string id = components[0];
                 string equipmentName = components[1];
-                DateTime requestDate = Convert.ToDateTime(components[2]);
-                DynamicEquipmentRequestStatus status = (DynamicEquipmentRequestStatus)Convert.ToInt32(components[3]);
+                string equipmentAmount = components[2];
+                DateTime requestDate = Convert.ToDateTime(components[3]);
+                DynamicEquipmentRequestStatus status = (DynamicEquipmentRequestStatus)Convert.ToInt32(components[4]);
+                bool ordered = bool.Parse(components[5]);
 
                 // Loadovanje lekara u memoriju da bi im pristupili
                 DoctorRepository drrep = new DoctorRepository();
-                // drrep.DoctorsInFile = drrep.GetAll(); ? Da li GetByID ima u sebi GetAll()?
-                Doctor doctor = drrep.GetByID(components[4]);
+                Doctor doctor = drrep.GetByID(components[6]);
 
-                string commentary = components[5];
-                DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, requestDate, status, doctor, commentary);
+                string commentary = components[7];
+                DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, equipmentAmount, requestDate, status, ordered, doctor, commentary);
                 requests.Add(request);
                 text = tr.ReadLine();
             }
@@ -106,12 +107,13 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest nadjeni in DynamicEquipmentRequestsInFile)
             {
-                if (prosledjeni.RequestID1.Equals(nadjeni.RequestID1) && nadjeni.Status1 == DynamicEquipmentRequestStatus.OnHold)
+                if (prosledjeni.RequestID1.Equals(nadjeni.RequestID1))
+                // Uslov && nadjeni.Status1 == DynamicEquipmentRequestStatus.OnHold nije potreban jer se ta provera vec radi u WPF-u, bolje je korisnik tamo da vidi da ne moze da update-uje tako nego odavde
                 {
                     nadjeni.EquipmentName1 = prosledjeni.EquipmentName1;
+                    nadjeni.EquipmentAmount1 = prosledjeni.EquipmentAmount1;
                     nadjeni.RequestDate1 = prosledjeni.RequestDate1; // Ovo se ipak menja
-                    // Status se ne menja
-                    nadjeni.doctor = prosledjeni.doctor; // Ovo se tehnicki ne menja
+                    // Status i doktor se ne menjaju
                     UpdateFile(); // Update fajla
                     return true;
                 }
@@ -133,7 +135,7 @@ namespace Classes
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (DynamicEquipmentRequest item in DynamicEquipmentRequestsInFile)
                 {
-                    tw.WriteLine(item.RequestID1 + "," + item.EquipmentName1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
+                    tw.WriteLine(item.RequestID1 + "," + item.EquipmentName1 + "," + item.EquipmentAmount1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.Ordered1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok, parsira se isto
                 }
                 tw.Close();
@@ -186,6 +188,16 @@ namespace Classes
                 }
             }
             return false;
+        }
+
+        public Boolean SetAllApprovedToOrdered()
+        {
+            GetAll(); // Update liste
+            foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
+                if (hr.Status1.Equals(DynamicEquipmentRequestStatus.Approved))
+                    hr.Ordered1 = true;
+            UpdateFile(); // Update fajla
+            return true;
         }
     }
 }

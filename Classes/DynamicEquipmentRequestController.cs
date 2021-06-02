@@ -7,9 +7,9 @@ namespace Classes
     {
         public DynamicEquipmentRequestService ders = new DynamicEquipmentRequestService();
 
-        public Boolean Create(String equipmentName, Doctor doctor)
+        public Boolean Create(DynamicEquipmentRequest req)
         {
-            return ders.Create(equipmentName, doctor);
+            return ders.Create(req);
         }
 
         public DynamicEquipmentRequest GetByID(String id)
@@ -32,9 +32,9 @@ namespace Classes
             return ders.GetAllOnHold();
         }
 
-        public Boolean Update(String id, String equipmentName, Doctor doctor)
+        public Boolean Update(DynamicEquipmentRequest req)
         {
-            return ders.Update(id, equipmentName, doctor);
+            return ders.Update(req);
         }
 
         public Boolean Delete(String id)
@@ -50,6 +50,11 @@ namespace Classes
         public Boolean Deny(String id, String commentary)
         {
             return ders.Deny(id, commentary);
+        }
+
+        public Boolean SetAllApprovedToOrdered()
+        {
+            return ders.SetAllApprovedToOrdered();
         }
     }
 }

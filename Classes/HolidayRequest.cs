@@ -26,6 +26,32 @@ namespace Classes
             this.Commentary = commentary;
         }
 
+        // Koristi se u HolidayRequestCreation
+        public HolidayRequest(String Description, DateTime StartDate, DateTime EndDate, Doctor doctor)
+        {
+            this.RequestID = null;
+            this.Description = Description;
+            this.StartDate = StartDate;
+            this.EndDate = EndDate;
+            this.RequestDate = DateTime.Now;
+            this.Status = HolidayRequestStatus.OnHold;
+            this.doctor = doctor;
+            this.Commentary = "/";
+        }
+
+        // Koristi se u HolidayRequestUpdate
+        public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate)
+        {
+            this.RequestID = RequestID;
+            this.Description = Description;
+            this.StartDate = StartDate;
+            this.EndDate = EndDate;
+            this.RequestDate = DateTime.Now;
+            this.Status = HolidayRequestStatus.OnHold;
+            this.doctor = null;
+            this.Commentary = "/";
+        }
+
         public string RequestID1 { get => RequestID; set => RequestID = value; }
         public string Description1 { get => Description; set => Description = value; }
         public DateTime StartDate1 { get => StartDate; set => StartDate = value; }

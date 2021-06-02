@@ -7,9 +7,9 @@ namespace Classes
     {
         public DynamicEquipmentOrderService deos = new DynamicEquipmentOrderService();
 
-        public Boolean Create(String equipmentNames, String equipmentAmounts)
+        public Boolean Create(DynamicEquipmentOrder ord)
         {
-            return deos.Create(equipmentNames, equipmentAmounts);
+            return deos.Create(ord);
         }
 
         public DynamicEquipmentOrder GetByID(String id)
@@ -22,9 +22,9 @@ namespace Classes
             return deos.GetAll();
         }
 
-        public Boolean Update(String id, String equipmentNames, String equipmentAmounts)
+        public Boolean Update(DynamicEquipmentOrder ord)
         {
-            return deos.Update(id, equipmentNames, equipmentAmounts);
+            return deos.Update(ord);
         }
 
         public Boolean Delete(String id)

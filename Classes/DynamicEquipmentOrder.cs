@@ -25,5 +25,15 @@ namespace Classes
             this.OrderDate = OrderDate;
             this.Status = Status;
         }
+
+        // Koristi se u DEOCreation
+        public DynamicEquipmentOrder(string equipmentNames, string equipmentAmounts)
+        {
+            this.OrderID = null;
+            this.EquipmentNames = equipmentNames;
+            this.EquipmentAmounts = equipmentAmounts;
+            this.OrderDate = DateTime.Now;
+            this.Status = DynamicEquipmentOrderStatus.Sent;
+        }
     }
 }

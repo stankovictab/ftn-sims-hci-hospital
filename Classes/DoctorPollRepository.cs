@@ -12,7 +12,7 @@ namespace ftn_sims_hci_hospital.Classes
         private DoctorRepository doctorRepository;
         public DoctorPollRepository()
         {
-            FileLocation = "../../Text Files/poll.txt";
+            FileLocation = "../../Text Files/doctorPoll.txt";
             patientRepository = new PatientRepository();
             doctorRepository = new DoctorRepository();
         }
@@ -47,6 +47,19 @@ namespace ftn_sims_hci_hospital.Classes
             }
             System.IO.File.WriteAllLines(FileLocation, novi);
             return true;
+        }
+
+        public List<DoctorPoll> GetAll()
+        {
+            List<DoctorPoll> polls = new List<DoctorPoll>();
+            string[] lines = System.IO.File.ReadAllLines(FileLocation);
+            foreach (String line in lines)
+            {
+                String[] data = line.Split(';');
+                DoctorPoll hp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
+                polls.Add(hp);
+            }
+            return polls;
         }
 
         public DoctorPoll GetPoll(String patientId, String doctorId)

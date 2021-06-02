@@ -9,26 +9,24 @@ namespace ftn_sims_hci_hospital
     {
         private string selectedDEOID;
         private int alternator = 0;
+
         public DynamicEquipmentOrderPanel()
         {
             InitializeComponent();
-            MainWindow.dynamicEquipmentOrderController.GetAll();
-
-            // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowOrders_Click()
-            btnShowOrders.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
+            MainWindow.dynamicEquipmentOrderController.GetAll(); // Ucitavanje liste u memoriji
+            refreshListView();
         }
 
-        private void btnShowOrders_Click(object sender, RoutedEventArgs e)
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            List<DynamicEquipmentOrder> list = MainWindow.dynamicEquipmentOrderController.GetAll();
-            dynamicEquipmentOrderListView.Items.Clear();
+            List<DynamicEquipmentOrder> list = getDynamicEquipmentOrderList();
             foreach (DynamicEquipmentOrder ord in list)
             {
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayOrder {...}? Mozda ne?
-                dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
+                loadIntoListView(ord);
             }
         }
 
+        // SelectionChanged="dynamicEquipmentOrderListView_SelectionChanged" dodat u XAML ListView kao atribut
         private void dynamicEquipmentOrderListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             btnDeleteOrder.IsEnabled = true;
@@ -43,24 +41,7 @@ namespace ftn_sims_hci_hospital
 
                 string[] parts3 = parts[1].Split(' ');
                 string status = parts3[3];
-                if (status == DynamicEquipmentOrderStatus.Sent.ToString())
-                {
-                    btnUpdateOrder.IsEnabled = true;
-                    btnSimulateConfirmation.IsEnabled = true;
-                    btnSimulateShipment.IsEnabled = true;
-                }
-                else if(status == DynamicEquipmentOrderStatus.Waiting.ToString())
-                {
-                    btnUpdateOrder.IsEnabled = false;
-                    btnSimulateConfirmation.IsEnabled = false;
-                    btnSimulateShipment.IsEnabled = true;
-                }
-                else
-                {
-                    btnUpdateOrder.IsEnabled = false;
-                    btnSimulateConfirmation.IsEnabled = false;
-                    btnSimulateShipment.IsEnabled = false;
-                }
+                activateButtonsByStatus(status);
             }
         }
 
@@ -74,14 +55,14 @@ namespace ftn_sims_hci_hospital
         private void btnDeleteOrder_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.dynamicEquipmentOrderController.Delete(selectedDEOID); // Update liste i fajla
-            btnShowOrders.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
+            refreshListView();
         }
 
         private void btnSortByOrderDate_Click(object sender, RoutedEventArgs e)
         {
-            List<DynamicEquipmentOrder> list = MainWindow.dynamicEquipmentOrderController.GetAll();
+            List<DynamicEquipmentOrder> list = getDynamicEquipmentOrderList();
 
-            // Bubble sort
+            // Bubble sort - ne mora da se pravi posebna metoda za clean code jer se samo ovde koristi
             if (alternator == 0) // Ascending
             {
                 for (int i = 0; i < list.Count - 1; i++) // list.Count == list.Length
@@ -117,32 +98,28 @@ namespace ftn_sims_hci_hospital
                 alternator = 0;
             }
 
-            dynamicEquipmentOrderListView.Items.Clear();
             foreach (DynamicEquipmentOrder ord in list)
-            {
-                // Ovde treba da stoji new {...} umesto new Classes.HolidayOrder {...}? Mozda ne?
-                dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
-            }
+                loadIntoListView(ord);
         }
 
         private void btnDynamicEquipmentSearch_Click(object sender, RoutedEventArgs e)
         {
             string query = dynamicEquipmentSearch.Text;
-            List<DynamicEquipmentOrder> list = MainWindow.dynamicEquipmentOrderController.GetAll();
-            dynamicEquipmentOrderListView.Items.Clear();
+            List<DynamicEquipmentOrder> list = getDynamicEquipmentOrderList();
             foreach (DynamicEquipmentOrder ord in list)
             {
                 if (ord.EquipmentNames1 == query)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayOrder {...}? Mozda ne?
-                    dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
+                    loadIntoListView(ord);
             }
             if (query == "")
-                btnShowOrders.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
+                refreshListView();
         }
+
+        // Filteri
 
         private void filterNone_Checked(object sender, RoutedEventArgs e)
         {
-            btnShowOrders.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
+            refreshListView();
         }
         private void filterSent_Checked(object sender, RoutedEventArgs e)
         {
@@ -151,8 +128,7 @@ namespace ftn_sims_hci_hospital
             foreach (DynamicEquipmentOrder ord in list)
             {
                 if (ord.Status1 == DynamicEquipmentOrderStatus.Sent)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayOrder {...}? Mozda ne?
-                    dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
+                    loadIntoListView(ord);
             }
         }
         private void filterWaiting_Checked(object sender, RoutedEventArgs e)
@@ -162,8 +138,7 @@ namespace ftn_sims_hci_hospital
             foreach (DynamicEquipmentOrder ord in list)
             {
                 if (ord.Status1 == DynamicEquipmentOrderStatus.Waiting)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayOrder {...}? Mozda ne?
-                    dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
+                    loadIntoListView(ord);
             }
         }
         private void filterCompleted_Checked(object sender, RoutedEventArgs e)
@@ -173,8 +148,7 @@ namespace ftn_sims_hci_hospital
             foreach (DynamicEquipmentOrder ord in list)
             {
                 if (ord.Status1 == DynamicEquipmentOrderStatus.Completed)
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayOrder {...}? Mozda ne?
-                    dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
+                    loadIntoListView(ord);
             }
         }
 
@@ -182,13 +156,53 @@ namespace ftn_sims_hci_hospital
         {
             MainWindow.dynamicEquipmentOrderController.SetToWaiting(selectedDEOID); // Update-uje se i lista i fajl
             MessageBox.Show("Confirmation has been simulated. The shipment will arrive at {DD-MM-YY}");
-            btnShowOrders.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            refreshListView();
         }
         private void btnSimulateShipment_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.dynamicEquipmentOrderController.SetToCompleted(selectedDEOID); // Update-uje se i lista i fajl
             MessageBox.Show("Shipment has arrived.");
-            btnShowOrders.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            refreshListView();
+        }
+
+        // Clean Code
+
+        private void loadIntoListView(DynamicEquipmentOrder ord)
+        {
+            dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
+        }
+
+        private List<DynamicEquipmentOrder> getDynamicEquipmentOrderList()
+        {
+            dynamicEquipmentOrderListView.Items.Clear();
+            return MainWindow.dynamicEquipmentOrderController.GetAll();
+        }
+
+        private void refreshListView()
+        {
+            btnRefresh.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
+        }
+
+        private void activateButtonsByStatus(string status)
+        {
+            if (status == DynamicEquipmentOrderStatus.Sent.ToString())
+            {
+                btnUpdateOrder.IsEnabled = true;
+                btnSimulateConfirmation.IsEnabled = true;
+                btnSimulateShipment.IsEnabled = false;
+            }
+            else if (status == DynamicEquipmentOrderStatus.Waiting.ToString())
+            {
+                btnUpdateOrder.IsEnabled = false;
+                btnSimulateConfirmation.IsEnabled = false;
+                btnSimulateShipment.IsEnabled = true;
+            }
+            else
+            {
+                btnUpdateOrder.IsEnabled = false;
+                btnSimulateConfirmation.IsEnabled = false;
+                btnSimulateShipment.IsEnabled = false;
+            }
         }
     }
 }

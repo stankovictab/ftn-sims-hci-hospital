@@ -11,7 +11,7 @@
         <Button x:Name="btnUpdateRequest" Content="Update Selected Request" HorizontalAlignment="Left" Margin="488,371,0,0" VerticalAlignment="Top" Width="153" IsEnabled="False" Click="btnUpdateRequest_Click"/>
         <Button x:Name="btnDeleteRequest" Content="Delete Request" HorizontalAlignment="Left" Margin="667,188,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False" Click="btnDeleteRequest_Click"/>
         <Label Content="Doctor's Dynamic Equipment Request Panel" HorizontalAlignment="Left" Margin="169,27,0,0" VerticalAlignment="Top" FontSize="24" Width="472"/>
-        <Button x:Name="btnShowRequests" Content="Show Requests" HorizontalAlignment="Left" Margin="15,87,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnShowRequests_Click"/>
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="15,87,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnRefresh_Click"/>
         <ListView x:Name="dynamicEquipmentRequestListView" HorizontalAlignment="Left" Height="218" Margin="169,86,0,0" VerticalAlignment="Top" Width="472" SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -31,8 +31,8 @@
         <RadioButton x:Name="filterDenied" Content="Denied" HorizontalAlignment="Left" Margin="38,365,0,0" VerticalAlignment="Top" Checked="filterDenied_Checked"/>
         <Label Content="Filter :" HorizontalAlignment="Left" Margin="34,279,0,0" VerticalAlignment="Top"/>
         <Label Content="Search by Equipment Name :" HorizontalAlignment="Left" Margin="2,177,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="dynamicEquipmentSearch" HorizontalAlignment="Left" Height="23" Margin="8,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
-        <Button x:Name="btnDynamicEquipmentSearch" Content="Search" HorizontalAlignment="Left" Margin="15,236,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnDynamicEquipmentSearch_Click"/>
+        <TextBox x:Name="searchField" HorizontalAlignment="Left" Height="23" Margin="8,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="15,236,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnSearch_Click"/>
         <Label Content="Equipment Name :" HorizontalAlignment="Left" Margin="166,324,0,0" VerticalAlignment="Top"/>
 
     </Grid>

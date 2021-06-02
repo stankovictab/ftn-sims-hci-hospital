@@ -99,7 +99,21 @@ namespace Classes
             List<HolidayRequest> requests = new List<HolidayRequest>();
             foreach (HolidayRequest req in HolidayRequestsInFile)
             {
-                if (req.Status1.Equals(HolidayRequestStatus.OnHold))
+                if (req.Status1 == HolidayRequestStatus.OnHold)
+                {
+                    requests.Add(req);
+                }
+            }
+            return requests;
+        }
+
+        public List<HolidayRequest> GetAllNotOnHold()
+        {
+            GetAll(); // Update liste
+            List<HolidayRequest> requests = new List<HolidayRequest>();
+            foreach (HolidayRequest req in HolidayRequestsInFile)
+            {
+                if (req.Status1 != HolidayRequestStatus.OnHold)
                 {
                     requests.Add(req);
                 }
