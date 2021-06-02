@@ -6,20 +6,49 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    class Medicine
+    public class Medicine
     {
-        public String id { get; set; }
-        public String name { get; set; }
-        public String description { get; set; }
-        public Boolean verified { get; set; }
+            public string Id;
+            public string Name;
+            public string Description;
+            public string Ingredients;
+            public string Alternatives;
+            public string DenialReason;
+            public List<Allergy> Allergies;
+            public MedicineStatus Status;
 
-        public Medicine(String id, String name, String description, Boolean verified)
-        {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.verified = verified;
-        }
+            public Medicine()
+            {
+            }
+
+            public Medicine(string id, string name, string description, string ingredients, string alternatives, MedicineStatus status, string denialReason)
+            {
+                Id = id;
+                Name = name;
+                Description = description;
+                Ingredients = ingredients;
+                Alternatives = alternatives;
+                Status = status;
+                DenialReason = denialReason;
+            }
+
+            public Medicine(string id, string name, string description, string ingredients, string alternatives, MedicineStatus status, string denialReason, List<Allergy> allergies)
+            {
+                Id = id;
+                Name = name;
+                Description = description;
+                Ingredients = ingredients;
+                Alternatives = alternatives;
+                Status = status;
+                DenialReason = denialReason;
+                Allergies = allergies;
+            }
+
+
+            public override string ToString()
+            {
+                return string.Format("{0}-{1}", Id, Name);
+            }
 
     }
 }

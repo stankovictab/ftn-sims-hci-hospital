@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="DynamicEquipmentOrderUpdate" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnUpdateAmount" Content="Update" HorizontalAlignment="Left" Margin="661,152,0,0" VerticalAlignment="Top" Width="64" IsEnabled="False" Click="btnUpdateAmount_Click"/>
+        <Button x:Name="btnUpdateAmount" Content="Update" HorizontalAlignment="Left" Margin="608,178,0,0" VerticalAlignment="Top" Width="64" IsEnabled="False" Click="btnUpdateAmount_Click"/>
         <Label Content="Manager's Dynamic Equipment Order Update" HorizontalAlignment="Left" Margin="169,27,0,0" VerticalAlignment="Top" FontSize="24" Width="564"/>
         <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="19,112,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnRefresh_Click"/>
-        <ListView x:Name="dynamicEquipmentOrderListView" HorizontalAlignment="Left" Height="283" Margin="169,111,0,0" VerticalAlignment="Top" Width="387" SelectionChanged="dynamicEquipmentOrderListView_SelectionChanged">
+        <ListView x:Name="dynamicEquipmentOrderListView" HorizontalAlignment="Left" Height="283" Margin="169,111,0,0" VerticalAlignment="Top" Width="340" SelectionChanged="dynamicEquipmentOrderListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Equipment Name" DisplayMemberBinding="{Binding EquipmentName1}"/>
@@ -19,9 +19,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="dynamicEquipmentTextBox" HorizontalAlignment="Left" Height="23" Margin="661,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
-        <Button x:Name="btnFinalizeOrder" Content="Finalize Order" HorizontalAlignment="Left" Margin="608,352,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnFinalizeOrder_Click"/>
-        <Label Content="Amount :" HorizontalAlignment="Left" Margin="583,110,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dynamicEquipmentTextBox" HorizontalAlignment="Left" Height="23" Margin="639,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="btnFinalizeOrder" Content="Finalize Order" HorizontalAlignment="Left" Margin="580,346,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnFinalizeOrder_Click"/>
+        <Label Content="Amount :" HorizontalAlignment="Left" Margin="561,136,0,0" VerticalAlignment="Top"/>
         <Label Content="Selected Order" HorizontalAlignment="Left" Margin="166,76,0,0" VerticalAlignment="Top" FontSize="16" Height="32"/>
 
     </Grid>

@@ -1,4 +1,3 @@
-using ftn_sims_hci_hospital;
 using System;
 using System.Collections.Generic;
 
@@ -18,7 +17,7 @@ namespace Classes
 
         public Boolean Create(Appointment app)
         {
-            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.Year.ToString() + "," + app.StartTime.Month.ToString() + "," + app.StartTime.Day.ToString() + "," + app.StartTime.Hour.ToString() + "," + app.StartTime.Minute.ToString() + "," + app.StartTime.Second.ToString() + ";" + app.EndTime.Year.ToString() + "," + app.EndTime.Month.ToString() + "," + app.EndTime.Day.ToString() + "," + app.EndTime.Hour.ToString() + "," + app.EndTime.Minute.ToString() + "," + app.EndTime.Second.ToString() + ";" + app.Room.RoomNumber1 + ";" + (int)app.Type +";"+  app.rescheduled  + "\n";
+            string newLine = app.AppointmentID + ";" + app.doctor.user.Jmbg1 + ";" + app.patient.user.Jmbg1 + ";" + app.StartTime.Year.ToString() + "," + app.StartTime.Month.ToString() + "," + app.StartTime.Day.ToString() + "," + app.StartTime.Hour.ToString() + "," + app.StartTime.Minute.ToString() + "," + app.StartTime.Second.ToString() + ";" + app.EndTime.Year.ToString() + "," + app.EndTime.Month.ToString() + "," + app.EndTime.Day.ToString() + "," + app.EndTime.Hour.ToString() + "," + app.EndTime.Minute.ToString() + "," + app.EndTime.Second.ToString() + ";" + app.Room.RoomNumber1 + ";" + (int)app.Type + ";" + app.rescheduled + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }
@@ -63,7 +62,7 @@ namespace Classes
                 Appointment a = new Appointment(id, doctorId, patientId, start, end);
                 a.rescheduled = int.Parse(data[7]);
                 appointments.Add(a);
-                
+
             }
             return appointments;
         }
@@ -94,22 +93,22 @@ namespace Classes
 
         public List<Appointment> GetAllByDoctorID(String doctorID)
         {
-           List<Appointment> ret = new List<Appointment>();
+            List<Appointment> ret = new List<Appointment>();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (string line in lines)
             {
                 string[] parts = line.Split(';');
-                if (parts[1].Equals(doctorID)) 
+                if (parts[1].Equals(doctorID))
                 {
                     String appointmentId = parts[0];
                     string[] startParts = parts[3].Split(',');
                     DateTime start = new DateTime(int.Parse(startParts[0]), int.Parse(startParts[1]), int.Parse(startParts[2]), int.Parse(startParts[3]), int.Parse(startParts[4]), int.Parse(startParts[5]));
-                    
+
                     string[] endParts = parts[4].Split(',');
                     DateTime end = new DateTime(int.Parse(endParts[0]), int.Parse(endParts[1]), int.Parse(endParts[2]), int.Parse(endParts[3]), int.Parse(endParts[4]), int.Parse(endParts[5]));
 
                     Appointment a = new Appointment(parts[0], parts[1], parts[2], start, end, parts[5]);
-                    a.Type = (AppointmentType) int.Parse(parts[6]);
+                    a.Type = (AppointmentType)int.Parse(parts[6]);
                     a.rescheduled = int.Parse(parts[7]);
                     ret.Add(a);
                 }
@@ -130,7 +129,7 @@ namespace Classes
         }
 
         public Boolean Delete(String id)
-        { 
+        {
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
             List<Appointment> appointments = new List<Appointment>();
             List<String> novi = new List<string>();
@@ -167,9 +166,9 @@ namespace Classes
         {
             List<Appointment> allAppointments = this.GetAllByPatientID(patientId);
             List<Doctor> doctorsNames = new List<Doctor>();
-            foreach(Appointment app in allAppointments)
+            foreach (Appointment app in allAppointments)
             {
-                if((app.StartTime - DateTime.Now).Seconds < 0 && !isDoctorInList(doctorsNames, app.doctor.user.Jmbg1))
+                if ((app.StartTime - DateTime.Now).Seconds < 0 && !isDoctorInList(doctorsNames, app.doctor.user.Jmbg1))
                 {
                     doctorsNames.Add(app.doctor);
                 }
@@ -180,7 +179,7 @@ namespace Classes
         private Boolean isDoctorInList(List<Doctor> doctors, String id)
         {
             Boolean found = false;
-            foreach(Doctor doc in doctors)
+            foreach (Doctor doc in doctors)
             {
                 if (doc.user.Jmbg1.Equals(id))
                     found = true;

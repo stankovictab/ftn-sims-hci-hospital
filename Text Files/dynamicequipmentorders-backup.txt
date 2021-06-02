@@ -1,5 +1,5 @@
 // This is a backup file in case the contents of the source file get deleted
-// id,equipmentNames,equipmentAmounts,orderDate,status
+// id,equipmentName,requestDate,status,doctorID,commentary
 
 1,stetoskopi;ubrusi,2;15,02/10/21 09:00:00 AM,0
 2,infuzije;maske,5;60,03/10/21 09:00:00 AM,1

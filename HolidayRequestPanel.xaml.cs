@@ -37,7 +37,7 @@ namespace ftn_sims_hci_hospital
             foreach (HolidayRequest req in list)
             {
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1, RequestDate1 = req.RequestDate1, Status1 = req.Status1 });
             }
         }
 
@@ -53,14 +53,8 @@ namespace ftn_sims_hci_hospital
                 // Ovo izgleda kao "{ RequestID1 = 2, Desc..."
                 string[] parts = holidayRequestListView.SelectedItem.ToString().Split(','); // Ne ""
                 string[] parts2 = parts[0].Split(' ');
+                // MessageBox.Show(parts2[3]);
                 selectedHRID = parts2[3];
-
-                string[] parts3 = parts[1].Split(' ');
-                string status = parts3[3];
-                if (status == "OnHold")
-                    btnUpdateRequest.IsEnabled = true;
-                else
-                    btnUpdateRequest.IsEnabled = false;
             }
         }
 

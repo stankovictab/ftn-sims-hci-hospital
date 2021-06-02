@@ -26,7 +26,7 @@ namespace ftn_sims_hci_hospital
             dc.GetAll(); // Punjenje liste doktora u memoriji
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
             Doctor doctor = dc.GetByID("0501");
-            MainWindow.dynamicEquipmentRequestController.Create(equipmentName, "0", doctor); // Update-uje se i lista i fajl
+            MainWindow.dynamicEquipmentRequestController.Create(equipmentName, doctor); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully created a new holiday request!");
 
             // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
@@ -73,12 +73,11 @@ namespace ftn_sims_hci_hospital
         {
             MainWindow.dynamicEquipmentRequestController.GetAll();
             string equipmentName = dynamicEquipmentTextBox.Text;
-            // DoctorController dc = new DoctorController();
-            // dc.GetAll(); // Punjenje liste doktora u memoriji
+            DoctorController dc = new DoctorController();
+            dc.GetAll(); // Punjenje liste doktora u memoriji
             // TODO: Ovde ce se ubacivati id lekara koji je ulogovan
-            // Doctor doctor = dc.GetByID("0501");
-            // Ipak doktor nije bitan kod update-a, naci ce doktora samo na osnovu id-a requesta iz repo-a
-            MainWindow.dynamicEquipmentRequestController.Update(selectedDERID, equipmentName, "0"); // Update-uje se i lista i fajl
+            Doctor doctor = dc.GetByID("0501");
+            MainWindow.dynamicEquipmentRequestController.Update(selectedDERID, equipmentName, doctor); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");
 
             // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()

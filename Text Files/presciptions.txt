@@ -1,3 +1,6 @@
-1;1243999081010;Bromazepam;10;Svaki dan po 5 puta
-2;1243999081010;Aspirin;100;Svaki treci dan po 5-6 puta
-3;0809999800061;Bromazepam;10;Svaki dan po 5 puta
+1;1243999081010;3;10;Svaki dan po 5 puta
+2;1243999081010;3;100;Svaki treci dan po 5-6 puta
+3;0809999800061;3;10;Svaki dan po 5 puta
+78;1243999081010;9;1;Svaki dan po 5 puta
+336;123456789123;1;45;rrr
+693;123456789124;1;12;ssdasd

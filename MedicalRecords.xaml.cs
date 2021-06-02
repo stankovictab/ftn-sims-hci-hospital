@@ -144,7 +144,7 @@ namespace ftn_sims_hci_hospital
                     PatientController patientController = new PatientController();
                     prescriptionUpdate = (Perscription)prescriptionList.SelectedItem;
 
-                    txtMU.Text = prescriptionUpdate.Medicine;
+                    txtMU.Text = prescriptionUpdate.Medicine.Name;
                     txtAU.Text = prescriptionUpdate.Amount.ToString();
                     txtDU.Text = prescriptionUpdate.Description;
 

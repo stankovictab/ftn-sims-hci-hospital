@@ -17,10 +17,21 @@ namespace ftn_sims_hci_hospital.Classes
         public DateTime chosenDate { get; set; }
         public Boolean used { get; set; }
 
-        public Referral(String id, String doctorId, String patientId, String description, DateTime endDate, Boolean used)
+        public Referral(String id, Doctor doctor, Patient patient, String description, DateTime endDate, Boolean used)
         {
             this.id = id;
-            this.doctor = new Doctor(doctorId);
+            this.doctor = doctor;
+            this.patient = patient;
+            this.description = description;
+            this.endDate = endDate;
+            this.chosenDate = DateTime.Now; //nema ga u bazi
+            this.used = used;
+        }
+
+        public Referral(String id, String doctordId, String patientId, String description, DateTime endDate, Boolean used)
+        {
+            this.id = id;
+            this.doctor = new Doctor(doctordId);
             this.patient = new Patient(patientId);
             this.description = description;
             this.endDate = endDate;

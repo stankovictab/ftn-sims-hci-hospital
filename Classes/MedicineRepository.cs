@@ -1,97 +1,253 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace Classes
 {
-    class MedicineRepository
+    public class MedicineRepository
     {
-        private String FileLocation;
-        public MedicineRepository()
+        private String FileLocationOnHold = "../../Text Files/onholdmedicine.txt";
+        private String FileLocationUnverified = "../../Text Files/unverifiedmedicine.txt";
+        private String FIleLocationMedicine = "../../Text Files/medicine.txt";
+        public List<Medicine> UnverifiedMedicine = new List<Medicine>();
+        public List<Medicine> OnHoldMedicine = new List<Medicine>();
+
+
+        public static MedicineStatus ParseStatus(string input)
         {
-            FileLocation = "../../Text Files/medicine.txt";
+            if (input == "Unverified")
+                return MedicineStatus.Unverified;
+            else if (input == "Verified")
+                return MedicineStatus.Verified;
+
+            return MedicineStatus.OnHold;
         }
 
-        public Medicine Create(Medicine newMedicine)
+        public Boolean CreateOnHold(Medicine newMedicine)
         {
-            string newLine = newMedicine.id + ";" + newMedicine.name + ";" + newMedicine.description + ";" + newMedicine.verified  + "\n";
-            System.IO.File.AppendAllText(FileLocation, newLine);
-            return newMedicine;
-        }
+            OnHoldMedicine = GetAllOnHold();
+            OnHoldMedicine.Add(newMedicine);
+            TextWriter tw = new StreamWriter(FileLocationOnHold);
 
-        public Medicine GetById(String medicineId)
-        {
-            Medicine medicine;
-            String[] rows = System.IO.File.ReadAllLines(FileLocation);
-
-            foreach (String row in rows)
+            foreach (var item in OnHoldMedicine)
             {
-                String[] data = row.Split(';');
-                if (data[0].Equals(medicineId))
-                {
-                    String id = data[0];
-                    String name = data[1];
-                    String description = data[2];
-                    Boolean verified = Boolean.Parse(data[3]);
-                    medicine = new Medicine(id, name, description, verified);
+                tw.WriteLine(string.Format("{0},{1},{2},{3},{4},{5},{6}", item.Id, item.Name, item.Description, item.Ingredients, item.Alternatives, item.Status.ToString(), item.DenialReason));
+            }
+            tw.Close();
 
+            return true;
+        }
+
+        public Medicine GetOnHoldByName(string name)
+        {
+            OnHoldMedicine = GetAllOnHold();
+            foreach (Medicine medicine in OnHoldMedicine)
+            {
+                if (medicine.Name.Equals(name))
+                {
                     return medicine;
                 }
             }
             return null;
         }
 
-        public List<Medicine> GetAll()
+        public List<Medicine> GetAllOnHold()
         {
-            List<Medicine> allMedicines = new List<Medicine>();
-            String[] rows = System.IO.File.ReadAllLines(FileLocation);
-
-            foreach (String row in rows)
+            List<Medicine> medicine = new List<Medicine>();
+            TextReader tr = new StreamReader(FileLocationOnHold);
+            string text = tr.ReadLine();
+            while (text != null && text != "\n")
             {
-                String[] data = row.Split(';');
-                String id = data[0];
-                String name = data[1];
-                String description = data[2];
-                Boolean verified = Boolean.Parse(data[3]);
-
-                Medicine newMedicine = new Medicine(id,name,description,verified);
-
-                allMedicines.Add(newMedicine);
+                string[] components = text.Split(',');
+                string id = components[0];
+                string name = components[1];
+                string description = components[2];
+                string ingredients = components[3];
+                string alternatives = components[4];
+                MedicineStatus status = ParseStatus(components[5]);
+                string denialReason = components[6];
+                Medicine newMedicine = new Medicine(id, name, description, ingredients, alternatives, status, denialReason);
+                medicine.Add(newMedicine);
+                text = tr.ReadLine();
             }
-            return allMedicines;
+            tr.Close();
+            return medicine;
         }
 
-        public Boolean Delete(String id)
+        public Boolean UpdateOnHold(Medicine updateMedicine)
         {
-            String[] rows = System.IO.File.ReadAllLines(FileLocation);
-            List<Medicine> medicines = new List<Medicine>();
-            List<String> newList = new List<string>();
-            foreach (String row in rows)
+            foreach (Medicine newMedicine in OnHoldMedicine)
             {
-                String[] data = row.Split(';');
-                if (!data[0].Equals(id))
+                if (newMedicine.Id.Equals(updateMedicine.Id))
                 {
-                    String r = String.Join(";", data);
-                    newList.Add(r);
+                    newMedicine.Name = updateMedicine.Name;
+                    newMedicine.Description = updateMedicine.Description;
+                    newMedicine.Ingredients = updateMedicine.Ingredients;
+                    newMedicine.Alternatives = updateMedicine.Alternatives;
+                    newMedicine.Status = updateMedicine.Status;
+                    return true;
                 }
             }
-            System.IO.File.WriteAllLines(FileLocation, newList);
-            return true;
+            return false;
         }
 
-        
-        
-        public Medicine Update(Medicine medicine)
+        public Boolean UpdateAllOnHold(List<Medicine> mif)
         {
-            if (Delete(medicine.id))
+            TextWriter tw = new StreamWriter(FileLocationOnHold);
+            if (mif == null)
             {
-                Create(medicine);
-                return medicine;
+                tw.Close();
+                return false;
+            }
+            else
+            {
+                foreach (var item in mif)
+                {
+                    tw.WriteLine(string.Format("{0},{1},{2},{3},{4},{5},{6}", item.Id, item.Name, item.Description, item.Ingredients, item.Alternatives, item.Status.ToString(), item.DenialReason));
+                }
+                tw.Close();
+                return true;
+            }
+        }
+
+        public Boolean DeleteOnHold(string name)
+        {
+            OnHoldMedicine = GetAllOnHold();
+            foreach (Medicine medicine in OnHoldMedicine)
+            {
+                if (medicine.Name.Equals(name))
+                {
+                    OnHoldMedicine.Remove(medicine);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public List<Medicine> GetAllUnverified()
+        {
+            List<Medicine> medicine = new List<Medicine>();
+            TextReader tr = new StreamReader(FileLocationUnverified);
+            string text = tr.ReadLine();
+            while (text != null && text != "\n")
+            {
+                string[] components = text.Split(',');
+                string id = components[0];
+                string name = components[1];
+                string description = components[2];
+                string ingredients = components[3];
+                string alternatives = components[4];
+                MedicineStatus status = ParseStatus(components[5]);
+                string denialReason = components[6];
+                Medicine newMedicine = new Medicine(id, name, description, ingredients, alternatives, status, denialReason);
+                medicine.Add(newMedicine);
+                text = tr.ReadLine();
+            }
+            tr.Close();
+            return medicine;
+        }
+
+        public Medicine GetUnverifiedByName(string name)
+        {
+            UnverifiedMedicine = GetAllUnverified();
+            foreach (Medicine medicine in UnverifiedMedicine)
+            {
+                if (medicine.Name.Equals(name))
+                {
+                    return medicine;
+                }
+            }
+            return null;
+        }
+
+        public Boolean DeleteUnverified(string id)
+        {
+            UnverifiedMedicine = GetAllUnverified();
+            foreach (Medicine medicine in UnverifiedMedicine)
+            {
+                if (medicine.Id.Equals(id))
+                {
+                    UnverifiedMedicine.Remove(medicine);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public Boolean UpdateAllUnverified(List<Medicine> mif)
+        {
+            TextWriter tw = new StreamWriter(FileLocationUnverified);
+            if (mif == null)
+            {
+                tw.Close();
+                return false;
+            }
+            else
+            {
+                foreach (var item in mif)
+                {
+                    tw.WriteLine(string.Format("{0},{1},{2},{3},{4},{5},{6}", item.Id, item.Name, item.Description, item.Ingredients, item.Alternatives, item.Status.ToString(), item.DenialReason));
+                }
+                tw.Close();
+                return true;
+            }
+        }
+
+        // medicine je samo ono sto je verifikovano
+        public List<Medicine> GetAllMedicine()
+        {
+            List<Medicine> medicine = new List<Medicine>();
+            TextReader tr = new StreamReader(FIleLocationMedicine);
+            string text = tr.ReadLine();
+            while (text != null && text != "\n")
+            {
+                string[] components = text.Split(';');
+                Medicine newMedicine = readMedicne(components);
+                medicine.Add(newMedicine);
+                text = tr.ReadLine();
+            }
+            tr.Close();
+            return medicine;
+        }
+        public Medicine GetById(String medicineId)
+        {
+            List<Medicine> medicines = GetAllMedicine();
+
+            foreach (Medicine medicine in medicines)
+            {
+                if (medicine.Id == medicineId)
+                    return medicine;
+            }
+            return null;
+        }
+
+        public Medicine readMedicne(String[] components)
+        {
+
+            string id = components[0];
+            string name = components[1];
+            string description = components[2];
+            string ingredients = components[3];
+            List<Allergy> allergies = readAllergies(ingredients);
+            string alternatives = components[4];
+            MedicineStatus status = ParseStatus(components[5]);
+            string denialReason = components[6];
+            Medicine newMedicine = new Medicine(id, name, description, ingredients, alternatives, status, denialReason, allergies);
+
+            return newMedicine;
+        }
+
+        private List<Allergy> readAllergies(String ingredients)
+        {
+            List<Allergy> allergies = new List<Allergy>();
+            String[] components = ingredients.Split(',');
+            foreach(String component in components)
+            {
+                Allergy allergy = new Allergy(component);
+                allergies.Add(allergy);
             }
 
-            return medicine;
+            return allergies;
         }
     }
 }

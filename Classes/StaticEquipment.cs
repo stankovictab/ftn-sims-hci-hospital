@@ -10,7 +10,7 @@ namespace Classes
 {
     public class StaticEquipment
     {
-        public int statId;
+        public int statId { get; set; }
         public string statName;
         public string statLocation;
 
@@ -23,6 +23,10 @@ namespace Classes
             this.statId = statId;
             this.statName = statName;
             this.statLocation = statLocation;
+        }
+        public override string ToString()
+        {
+            return string.Format("{0}-{1}", statId.ToString(), statName);
         }
     }
 }

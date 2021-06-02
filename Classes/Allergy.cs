@@ -14,5 +14,9 @@ namespace Classes
             Name = name;
             Id = id;
         }
+        public Allergy(string name)
+        {
+            Name = name;
+        }
     }
 }
