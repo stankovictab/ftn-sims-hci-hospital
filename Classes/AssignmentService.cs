@@ -11,29 +11,23 @@ namespace Classes
 {
     public class AssignmentService
     {
-        public DynamicEquipmentRepository dynamicEquipmentRepository = new DynamicEquipmentRepository();
-        public AssignmentRepository assignmentRepository = new AssignmentRepository();
+        public IDynamicEquipmentRepository dynamicEquipmentRepository;
+        public IAssignmentRepository assignmentRepository;
 
-        public bool Update()
+        public AssignmentService(/*IAssignmentRepository iRepo, IDynamicEquipmentRepository dynRepo*/)
         {
-            // TODO: implement
-            return false;
+            /*this.assignmentRepository = iRepo;
+            this.dynamicEquipmentRepository = dynRepo;*/
         }
 
-        public bool Delete()
+        public bool Create(int amount, DynamicEquipment equipment)
         {
-            // TODO: implement
-            return false;
-        }
-
-        public bool CreateAssignment(int amount, DynamicEquipment equipment)
-        {
-            if (!CheckAvailableAmount(equipment, amount))
+            if (!AmountIsAvailable(equipment, amount))
                 return false;
 
-            equipment.dynamicAmount = (Convert.ToInt32(equipment.dynamicAmount) - amount).ToString();
+            equipment.Amount = (Convert.ToInt32(equipment.Amount) - amount).ToString();
             dynamicEquipmentRepository.Update(equipment);
-            dynamicEquipmentRepository.UpdateAll(dynamicEquipmentRepository.DynamicInFile);
+            dynamicEquipmentRepository.UpdateFile(dynamicEquipmentRepository.AccessDynamicEquipment);
 
             DynamicAssignment newAssignment = new DynamicAssignment(amount, equipment, 1);
             assignmentRepository.Create(newAssignment);
@@ -41,23 +35,22 @@ namespace Classes
             return true;
         }
 
-        public bool CheckAvailableAmount(DynamicEquipment newDynamic, int amountToCheck)
+        public bool AmountIsAvailable(DynamicEquipment newDynamic, int amountToCheck)
         {
-            if(Convert.ToInt32(newDynamic.dynamicAmount) - amountToCheck < 0)
+            if(Convert.ToInt32(newDynamic.Amount) - amountToCheck < 0)
                 return false;
             return true;
         }
 
-        public List<DynamicEquipment> GetDynamicEquipment()
-        {
-            // TODO: implement
-            return null;
-        }
 
         public List<DynamicAssignment> GetAll()
         {
             return assignmentRepository.GetAll();
         }
 
+        public Boolean Delete(DynamicAssignment assignment)
+        {
+            return assignmentRepository.Delete(assignment);
+        }
     }
 }

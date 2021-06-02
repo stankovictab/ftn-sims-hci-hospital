@@ -1,0 +1,42 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.Storage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="Storage" Height="450" Width="800">
+    <Grid>
+        <ListView x:Name="storageDataList" HorizontalAlignment="Left" Height="210" Margin="140,78,0,0" VerticalAlignment="Top" Width="485">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Equipment ID" DisplayMemberBinding="{Binding equipmentId}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding equipmentName}"/>
+                    <GridViewColumn Header="Location" DisplayMemberBinding="{Binding equipmentLocation}"/>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding equipmentType}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox  Width="109"  VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="nameSearchTextBox" Margin="140,56,0,0"/>
+        <TextBlock IsHitTestVisible="False" Text="Search By Name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,57,0,0" Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=nameSearchTextBox}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Button x:Name="nameSearchButton" Content="Search" HorizontalAlignment="Left" Margin="254,57,0,0" VerticalAlignment="Top" Width="75" Height="17" Click="nameSearchButton_Click"/>
+        <Label Content="Filter By:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="455,7,0,0"/>
+        <Label Content="Location" HorizontalAlignment="Left" Margin="455,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="475,53,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="locationCombo" HorizontalAlignment="Left" Margin="527,37,0,0" VerticalAlignment="Top" Width="83" Height="15" SelectionChanged="locationCombo_SelectionChanged"/>
+        <ComboBox x:Name="typeCombo" HorizontalAlignment="Left" Margin="527,59,0,0" VerticalAlignment="Top" Width="83" Height="15" SelectionChanged="typeCombo_SelectionChanged"/>
+        <Button x:Name="loadStorageButton" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="24,144,0,0" Click="loadStorageButton_Click"/>
+
+    </Grid>
+</Window>

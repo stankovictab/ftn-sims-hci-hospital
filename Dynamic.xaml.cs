@@ -24,6 +24,13 @@ namespace ftn_sims_hci_hospital
         public Dynamic()
         {
             InitializeComponent();
+            //ciscenje fajla
+            List<DynamicAssignment> allAssignments = assignmentController.GetAll();
+            foreach (DynamicAssignment da in allAssignments)
+            {
+                if (da.EquipmentAssigned == null)
+                    assignmentController.Delete(da);
+            }
         }
 
         private void addDynamic_Click(object sender, RoutedEventArgs e)
@@ -39,7 +46,7 @@ namespace ftn_sims_hci_hospital
             dynamicDataList.Items.Clear();
             foreach (DynamicEquipment d in allDynamic)
             {
-                dynamicDataList.Items.Add(new { dynamicId = d.dynamicId, dynamicName = d.dynamicName, dynamicAmount = d.dynamicAmount });
+                dynamicDataList.Items.Add(new { dynamicId = d.Id, dynamicName = d.Name, dynamicAmount = d.Amount });
             }
 
             List<DynamicAssignment> allAssignments = new List<DynamicAssignment>();
@@ -47,7 +54,7 @@ namespace ftn_sims_hci_hospital
             dynamicDataListUsed.Items.Clear();
             foreach (DynamicAssignment a in allAssignments)
             {
-                dynamicDataListUsed.Items.Add(new { dynamicNameUsed = a.EquipmentAssigned.dynamicName, dynamicAmountUsed = a.AmountAssigned});
+                dynamicDataListUsed.Items.Add(new { dynamicNameUsed = a.EquipmentAssigned.Name, dynamicAmountUsed = a.AmountAssigned});
             }
         }
 
@@ -77,7 +84,7 @@ namespace ftn_sims_hci_hospital
                     string[] parts2 = parts[0].Split(' ');
                     String toDelete = parts2[3];
                     _ = equipmentController.DeleteDynamic(toDelete);
-                    equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile);
+                    equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.dynamicEquipmentRepository.DynamicEquipment);
                     viewDynamic.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }

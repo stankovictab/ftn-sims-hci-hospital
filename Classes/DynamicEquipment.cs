@@ -10,23 +10,23 @@ namespace Classes
 {
    public class DynamicEquipment
    {
-        public int dynamicId;
-        public string dynamicName;
-        public string dynamicAmount;
+        public int Id;
+        public string Name;
+        public string Amount;
 
         public DynamicEquipment()
         {
         }
 
-        public DynamicEquipment(int dynamicId, string dynamicName)
+        public DynamicEquipment(int Id, string Name)
         {
-            this.dynamicId = dynamicId;
-            this.dynamicName = dynamicName;
+            this.Id = Id;
+            this.Name = Name;
         }
 
-        public DynamicEquipment(int dynamicId, string dynamicName, string dynamicAmount) : this(dynamicId, dynamicName)
+        public DynamicEquipment(int Id, string Name, string Amount) : this(Id, Name)
         {
-            this.dynamicAmount = dynamicAmount;
+            this.Amount = Amount;
         }
     }
 }

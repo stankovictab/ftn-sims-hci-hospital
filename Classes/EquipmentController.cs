@@ -39,12 +39,6 @@ namespace Classes
             return equipmentService.GetDynamicById(id);
         }
 
-        public bool UpdateStatic()
-        {
-            // TODO: implement
-            return false;
-        }
-
         public bool UpdateDynamic(DynamicEquipment dynamic)
         {
             return equipmentService.UpdateDynamic(dynamic);
@@ -57,12 +51,12 @@ namespace Classes
 
         public bool UpdateAllStatic(List<StaticEquipment> staticInFile)
         {
-            return equipmentService.UpdateAllStatic(staticInFile);
+            return equipmentService.UpdateFileStatic(staticInFile);
         }
 
         public bool UpdateAllDynamic(List<DynamicEquipment> dynamicInFile)
         {
-            return equipmentService.UpdateAllDynamic(dynamicInFile);
+            return equipmentService.UpdateFileDynamic(dynamicInFile);
         }
 
         public List<StaticEquipment> GetAllStatic()

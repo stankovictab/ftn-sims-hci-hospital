@@ -22,13 +22,18 @@ namespace ftn_sims_hci_hospital
         public StaticSchedule()
         {
             InitializeComponent();
+            //enschedulementController.UpdateTime(DateTime.Now);
+
             List<StaticEnschedulement> allEnschedulements = new List<StaticEnschedulement>();
             allEnschedulements = enschedulementController.GetAll();
+
+            List<StaticEnschedulement> allFinishedEnschedulements = new List<StaticEnschedulement>();
+            allFinishedEnschedulements = enschedulementController.GetAllFinished();
+
             scheduleDataList.Items.Clear();
-            foreach (StaticEnschedulement s in allEnschedulements)
-            {
-                scheduleDataList.Items.Add(new { time = s.Time.ToString(), fromRoom = s.FromRoom.RoomNumber, toRoom = s.ToRoom.RoomNumber, equipment = s.MovedEquipment.statName });
-            }
+            movedDataList.Items.Clear();
+            //ciscenje fajla
+            
         }
 
         private void staticMove_Click(object sender, RoutedEventArgs e)
@@ -40,7 +45,7 @@ namespace ftn_sims_hci_hospital
         private void triggerMoveButton_Click(object sender, RoutedEventArgs e)
         {
             List <StaticEnschedulement> moved = new List<StaticEnschedulement>();
-            moved = enschedulementController.dateCheck(DateTime.Parse(triggerMoveDate.Text));
+            moved = enschedulementController.DateCheck(DateTime.Parse(triggerMoveDate.Text));
 
             movedDataList.Items.Clear();
             foreach (StaticEnschedulement s in moved)

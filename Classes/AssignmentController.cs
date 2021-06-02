@@ -13,33 +13,9 @@ namespace Classes
     {
         AssignmentService assignmentService = new AssignmentService();
 
-        public bool Update()
+        public bool Create(int amount, DynamicEquipment equipment)
         {
-            // TODO: implement
-            return false;
-        }
-
-        public bool Delete()
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public bool CreateAssignment(int amount, DynamicEquipment equipment)
-        {
-            return assignmentService.CreateAssignment(amount, equipment);
-        }
-
-        public bool CheckAvailable(DynamicEquipment newDynamic, int amountToCheck)
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public List<DynamicEquipment> GetDynamicEquipment()
-        {
-            // TODO: implement
-            return null;
+            return assignmentService.Create(amount, equipment);
         }
 
         public List<DynamicAssignment> GetAll()
@@ -47,5 +23,9 @@ namespace Classes
             return assignmentService.GetAll();
         }
 
+        public Boolean Delete(DynamicAssignment assignment)
+        {
+            return assignmentService.Delete(assignment);
+        }
     }
 }

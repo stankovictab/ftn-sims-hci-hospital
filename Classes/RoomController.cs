@@ -32,9 +32,9 @@ namespace Classes
             return roomService.Delete(id);
         }
 
-        public bool UpdateAll(List<Room> rif)
+        public bool UpdateFile(List<Room> rif)
         {
-            return roomService.UpdateAll(rif);
+            return roomService.UpdateFile(rif);
         }
 
         public Room GetById(String id)

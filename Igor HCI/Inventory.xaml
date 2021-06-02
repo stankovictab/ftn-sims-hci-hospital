@@ -1,0 +1,59 @@
+﻿<Page x:Class="ftn_sims_hci_hospital.HCI.Inventory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ftn_sims_hci_hospital.HCI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Inventory">
+
+    <Grid Background="White">
+        <Menu HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="800" FontFamily="Sitka Text" Background="#FFFF7171">
+
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+
+            <MenuItem Header="Oprema" Background="Transparent" FontFamily="Times New Roman" FontSize="18">
+                <MenuItem x:Name="inventoryButton" Header="Inventar" Click="inventoryButton_Click" />
+                <MenuItem x:Name="scheduleButton" Header="Preraspoređivanja" Margin="0,0,-37,0" Click="scheduleButton_Click" />
+                <MenuItem x:Name="orderingButton" Header="Naručivanje" Click="orderingButton_Click" />
+            </MenuItem>
+            <MenuItem x:Name="roomsButton" Header="Sobe" Background="Transparent" FontFamily="Times New Roman" FontSize="18" Click="roomsButton_Click"/>
+            <MenuItem Header="Lekovi" Background="Transparent" FontFamily="Times New Roman" FontSize="18">
+                <MenuItem x:Name="medicineInventoryButton" Header="Skladište" />
+                <MenuItem x:Name="registerMedicineButton" Header="Registracija" Margin="0,0,-37,0" />
+                <MenuItem x:Name="medicineReportButton" Header="Izveštaj" />
+            </MenuItem>
+            <MenuItem Header="Zaposleni" Background="Transparent" FontFamily="Times New Roman" FontSize="18">
+                <MenuItem Header="Spisak" />
+                <MenuItem Header="Zahtevi" Margin="0,0,-37,0" />
+            </MenuItem>
+            <MenuItem Header="Cveta Cvetić" HorizontalAlignment="Right" Background="Transparent" FontFamily="Times New Roman" FontSize="18" Width="119">
+                <MenuItem x:Name="profilButton" Header="Profil" />
+                <MenuItem x:Name="signoutButton" Header="Odjava" Margin="0,0,-37,0" />
+            </MenuItem>
+
+        </Menu>
+        <ListView x:Name="storageDataList" HorizontalAlignment="Left" Height="245" Margin="186,81,0,0" VerticalAlignment="Top" Width="432">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Equipment ID" DisplayMemberBinding="{Binding equipmentId}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding equipmentName}"/>
+                    <GridViewColumn Header="Location" DisplayMemberBinding="{Binding equipmentLocation}"/>
+                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding equipmentType}"/>
+                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding equipmentAmount}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Inventar:" HorizontalAlignment="Left" Margin="374,49,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addStatic" Content="Add Static" HorizontalAlignment="Left" Margin="186,334,0,0" VerticalAlignment="Top" Width="75" Click="addStatic_Click"/>
+        <Button x:Name="addDynamic" Content="Add Dynamic" HorizontalAlignment="Left" Margin="186,365,0,0" VerticalAlignment="Top" Width="75" Click="addDynamic_Click"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="278,334,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="374,334,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="543,334,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Page>

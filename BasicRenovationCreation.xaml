@@ -1,0 +1,24 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="ftn_sims_hci_hospital.BasicRenovationCreation"
+        mc:Ignorable="d"
+        Title="BasicRenovationCreation" Height="450" Width="800">
+    <Grid x:Name="idTextbox">
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="309,74,0,0" VerticalAlignment="Top"/>
+        <Label Content="Room:" HorizontalAlignment="Left" Margin="289,134,0,0" VerticalAlignment="Top"/>
+        <Label Content="Desired Time:" HorizontalAlignment="Left" Margin="251,194,0,0" VerticalAlignment="Top"/>
+        <Label Content="Estimated Duration:" HorizontalAlignment="Left" Margin="219,250,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="renovationIdTextbox" HorizontalAlignment="Left" Height="23" Margin="377,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="renovatedRoomCombo" HorizontalAlignment="Left" Margin="377,136,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <xctk:DateTimePicker x:Name="renovationTime" HorizontalAlignment="Left" Margin="377,194,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="durationTextbox" HorizontalAlignment="Left" Height="23" Margin="377,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="(in minutes)" HorizontalAlignment="Left" Margin="516,250,0,0" VerticalAlignment="Top" Opacity="0.5"/>
+        <Button x:Name="createBasicRenovation" Content="Create" HorizontalAlignment="Left" Margin="377,313,0,0" VerticalAlignment="Top" Width="75" Click="createBasicRenovation_Click"/>
+
+    </Grid>
+</Window>

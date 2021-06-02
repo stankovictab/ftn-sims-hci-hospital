@@ -12,8 +12,14 @@ namespace Classes
 {
     public class EquipmentService
     {
-        public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
-        public DynamicEquipmentRepository dynamicEquipmentRepository = new DynamicEquipmentRepository();
+        public IStaticEquipmentRepository staticEquipmentRepository;
+        public IDynamicEquipmentRepository dynamicEquipmentRepository;
+
+        public EquipmentService(/*IStaticEquipmentRepository statRepo, IDynamicEquipmentRepository dynRepo*/)
+        {
+            /*this.staticEquipmentRepository = statRepo;
+            this.dynamicEquipmentRepository = dynRepo;*/
+        }
 
         public bool AddStatic(StaticEquipment newStatic)
         {
@@ -73,14 +79,14 @@ namespace Classes
             return dynamicEquipmentRepository.GetAll();
         }
 
-        public bool UpdateAllStatic(List<StaticEquipment> staticInFile)
+        public bool UpdateFileStatic(List<StaticEquipment> staticc)
         {
-            return staticEquipmentRepository.UpdateAll(staticInFile);
+            return staticEquipmentRepository.UpdateAll(staticc);
         }
 
-        public bool UpdateAllDynamic(List<DynamicEquipment> dynamicInFile)
+        public bool UpdateFileDynamic(List<DynamicEquipment> dynamic)
         {
-            return dynamicEquipmentRepository.UpdateAll(dynamicInFile);
+            return dynamicEquipmentRepository.UpdateFile(dynamic);
         }
     }
 }

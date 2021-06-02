@@ -28,6 +28,7 @@
         <Button x:Name="btnLogin" Grid.ColumnSpan="3" Content="Login" HorizontalAlignment="Left" Margin="581,522,0,0" VerticalAlignment="Top" Width="100" Height="45" Background="#FFABB1B4" BorderBrush="#FF020202" Click="LogIn"/>
         <Label x:Name="errorMessage" Grid.ColumnSpan="3" Content="Username or password not valid" Foreground="#FFD71919" FontSize="16" HorizontalAlignment="Left" Margin="484,303,0,0" VerticalAlignment="Top" Background="{x:Null}" Visibility="Hidden"/>
         <Button x:Name="btdHCI" Click="btdHCI_Click" Content="Djordje Doctor HCI" HorizontalAlignment="Left" Margin="112,309,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2" Height="20"/>
+        <Button x:Name="managerHCI" Grid.ColumnSpan="3" Content="Manager HCI" HorizontalAlignment="Left" Margin="1109,168,0,0" VerticalAlignment="Top" Width="75" Click="managerHCI_Click"/>
 
     </Grid>
 </Window>

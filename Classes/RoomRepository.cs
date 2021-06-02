@@ -12,7 +12,11 @@ namespace Classes
 {
    public class RoomRepository
    {
-        public static RoomType ParseType(string input)
+        private String FileLocation = "../../Text Files/rooms.txt";
+        public List<Room> Rooms = new List<Room>();
+        public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
+
+        public static RoomType ParseRoomType(string input)
         {
             if (input == "Operating")
                 return RoomType.Operating;
@@ -22,27 +26,65 @@ namespace Classes
             return RoomType.Therapy;
         }
 
-        public Boolean Create(Room room)
+        public void Renovate(Room room)
+        { 
+            room.Status = RoomStatus.Renovating;
+            Update(room);
+            UpdateFile(Rooms);
+        }
+
+        public void Reorder(Room room)
+        { 
+            room.Status = RoomStatus.Reordering;
+            Update(room);
+            UpdateFile(Rooms);
+        }
+
+        public void Free(Room room)
+        { 
+            room.Status = RoomStatus.Free;
+            Update(room);
+            UpdateFile(Rooms); ;
+        }
+
+        public static RoomStatus ParseRoomStatus(string input)
         {
-            RoomsInFile = GetAll();
-            RoomsInFile.Add(room);
+            if (input == "Free")
+                return RoomStatus.Free;
+            else if (input == "Reordering")
+                return RoomStatus.Reordering;
+            else if (input == "Renovating")
+                return RoomStatus.Renovating;
+
+            return RoomStatus.Busy;
+        }
+
+        public void WriteToFile(List<Room> roomsInFile)
+        { 
             TextWriter tw = new StreamWriter(FileLocation);
 
-            foreach (var item in RoomsInFile)
+            foreach (var item in roomsInFile)
             {
                 tw.WriteLine(string.Format("{0},{1},{2},{3},{4}", item.RoomNumber, item.FloorNumber.ToString(), item.Description, item.Type.ToString(), item.Status.ToString()));
             }
             tw.Close();
+        }
+
+        public Boolean Create(Room room)
+        { 
+            Rooms = GetAll();
+            Rooms.Add(room);
+            WriteToFile(Rooms);
 
             return true;
         }
 
-        public Room GetById(String id)
-        {
-            RoomsInFile = GetAll();
-            foreach (Room room in RoomsInFile)
+        public Room GetByNumber(String roomNumber)
+        { 
+            Rooms = GetAll();
+            foreach (Room room in Rooms)
             {
-                if (room.RoomNumber.Equals(id))
+                if (room.RoomNumber.Equals(roomNumber))
                 {
                     return room;
                 }
@@ -50,7 +92,7 @@ namespace Classes
             return null;
         }
 
-        public List<Room> GetAll()
+        public List<Room> PullFromFile()
         {
             List<Room> rooms = new List<Room>();
             TextReader tr = new StreamReader(FileLocation);
@@ -61,8 +103,9 @@ namespace Classes
                 string roomNumber = components[0];
                 int floorNumber = Convert.ToInt32(components[1]);
                 string description = components[2];
-                RoomType type = ParseType(components[3]);
-                Room room = new Room(roomNumber, floorNumber, description, type, RoomStatus.Free);
+                RoomType type = ParseRoomType(components[3]);
+                RoomStatus status = ParseRoomStatus(components[4]);
+                Room room = new Room(roomNumber, floorNumber, description, type, status);
                 rooms.Add(room);
                 text = tr.ReadLine();
             }
@@ -70,9 +113,17 @@ namespace Classes
             return rooms;
         }
 
+        public List<Room> GetAll()
+        { 
+            List<Room> rooms = new List<Room>();
+            rooms = PullFromFile();
+            return rooms;
+        }
+
         public Boolean Update(Room oldRoom)
-        {
-            foreach (Room newRoom in RoomsInFile)
+        { 
+            Rooms = GetAll();
+            foreach (Room newRoom in Rooms)
             {
                 if (newRoom.RoomNumber.Equals(oldRoom.RoomNumber))
                 {
@@ -87,43 +138,36 @@ namespace Classes
             return false;
         }
 
-        public Boolean UpdateAll(List<Room> rif)
-        {
-            TextWriter tw = new StreamWriter(FileLocation);
-            if (rif == null)
+        public Boolean UpdateFile(List<Room> roomsInFile)
+        { 
+            if (roomsInFile == null)
             {
-                tw.Close();
                 return false;
-
             }
             else
             {
-                foreach (var item in rif)
-                {
-                    tw.WriteLine(string.Format("{0},{1},{2},{3},{4}", item.RoomNumber, item.FloorNumber.ToString(), item.Description, item.Type.ToString(), item.Status.ToString()));
-                }
-                tw.Close();
+                WriteToFile(roomsInFile);
                 return true;
             }
         }
 
-        public Boolean Delete(String id)
-        {
-            foreach (Room room in RoomsInFile)
+        public Boolean Delete(String roomNumber)
+        { 
+            Rooms = GetAll();
+            foreach (Room room in Rooms)
             {
-                if (room.RoomNumber.Equals(id))
+                if (room.RoomNumber.Equals(roomNumber))
                 {
-                    RoomsInFile.Remove(room);
+                    Rooms.Remove(room);
+                    staticEquipmentRepository.DeleteByLocation(room.RoomNumber);
                     return true;
                 }
             }
             return false;
         }
 
-        private String FileLocation = "../../Text Files/rooms.txt";
-        private List<Room> RoomsInFile = new List<Room>();
 
-        public List<Room> AccessRoomsInFile { get => RoomsInFile; set => RoomsInFile = value; }
+        public List<Room> AccessRooms { get => Rooms; set => Rooms = value; }
 
         private static RoomRepository repo = null;
         public static RoomRepository getRoomStorage()

@@ -33,15 +33,12 @@ namespace ftn_sims_hci_hospital
 
         private void viewrooms_Click(object sender, RoutedEventArgs e)
         {
-
-
-            storage.AccessRoomsInFile = storage.GetAll();
+            storage.Rooms = storage.GetAll();
             roomDataList.Items.Clear();
-            foreach (Room r in storage.AccessRoomsInFile)
+            foreach (Room r in storage.AccessRooms)
             {
                 roomDataList.Items.Add(new { RoomNumber = r.RoomNumber, FloorNumber = r.FloorNumber, Description = r.Description, Type = r.Type, Status = r.Status });
             }
-
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)
@@ -54,7 +51,7 @@ namespace ftn_sims_hci_hospital
                     string[] parts2 = parts[0].Split(' ');
                     String toDelete = parts2[3];
                     storage.Delete(toDelete);
-                    storage.UpdateAll(storage.AccessRoomsInFile);
+                    storage.UpdateFile(storage.AccessRooms);
                     viewrooms.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }

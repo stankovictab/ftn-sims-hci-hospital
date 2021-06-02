@@ -60,6 +60,12 @@ namespace ftn_sims_hci_hospital
             Manager.ShowDialog();
         }
 
+        private void managerHCI_Click(object sender, RoutedEventArgs e)
+        {
+            HCI.Manager managerHCI = new HCI.Manager();
+            managerHCI.ShowDialog();
+        }
+
         private void LogIn(object sender, RoutedEventArgs e)
         {
             List<Patient> patientsInFile = patientController.GetAll();

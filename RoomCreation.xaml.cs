@@ -17,6 +17,7 @@ namespace ftn_sims_hci_hospital
 {
     public partial class RoomCreation : Window
     {
+        RoomController roomController = new RoomController();
         public RoomCreation()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace ftn_sims_hci_hospital
 
             Room newRoom = new Room(roomNumber.Text, Convert.ToInt32(roomFloor.Text), roomDescription.Text, newType);
 
-           // _ = RoomFileStorage.getRoomStorage().Create(newRoom);
+           _ = roomController.Create(newRoom);
 
             this.Hide();
         }
