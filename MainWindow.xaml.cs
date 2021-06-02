@@ -1,18 +1,7 @@
-﻿using System;
+﻿using Classes;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Classes;
 
 namespace ftn_sims_hci_hospital
 {
@@ -24,12 +13,16 @@ namespace ftn_sims_hci_hospital
         public static AppointmentController appointmentController = new AppointmentController();
         public static HolidayRequestController holidayRequestController = new HolidayRequestController();
         public static DynamicEquipmentRequestController dynamicEquipmentRequestController = new DynamicEquipmentRequestController();
+        public static DynamicEquipmentOrderController dynamicEquipmentOrderController = new DynamicEquipmentOrderController();
         public static NotificationController notificationController = new NotificationController();
+
+        public static User user;
 
         public static int guestCounter = 0;
         public MainWindow()
         {
             InitializeComponent();
+            user = new User();
         }
 
         private void btde_Click(object sender, RoutedEventArgs e)
@@ -46,11 +39,17 @@ namespace ftn_sims_hci_hospital
         }
         private void patientClick(object sender, RoutedEventArgs e)
         {
+            user.Role1 = Roles.Patient;
+            user.Jmbg1 = "1243999081010";
+            user.Name1 = "Igor";
             PatientWindow win1 = new PatientWindow();
             win1.Show();
         }
         private void openDoctorB(Object sender, RoutedEventArgs e)
         {
+            user.Jmbg1 = "0501";
+            user.Role1 = Roles.Doctor;
+            user.Name1 = "Dakaz";
             DoctorB doctorB = new DoctorB();
             doctorB.Show();
         }
@@ -65,6 +64,52 @@ namespace ftn_sims_hci_hospital
         {
             HCI.Manager managerHCI = new HCI.Manager();
             managerHCI.ShowDialog();
+        }
+
+        private void LogIn(object sender, RoutedEventArgs e)
+        {
+            List<Patient> patientsInFile = patientController.GetAll();
+            foreach (Patient p in patientsInFile)
+            {
+                if (CredentialsMatch(p.user))
+                {
+                    if (p.user.blocked)
+                    {
+                        showError("Blokirani ste");
+                        return;
+                    }
+                    else
+                    {
+                        preparePatientWindow(p);
+                        return;
+                    }
+                }
+            }
+            showError("Korisnicko ime ili lozinka nisu ispravni");
+        }
+        private Boolean CredentialsMatch(User user)
+        {
+            return user.Username1.Equals(usernameTextBox.Text) && user.Password1.Equals(passwordTextBox.Password);
+        }
+
+        private void showError(String message)
+        {
+            errorMessage.Content = message;
+            errorMessage.Visibility = Visibility.Visible;
+        }
+
+        private void preparePatientWindow(Patient p)
+        {
+            user = p.user;
+            errorMessage.Visibility = Visibility.Hidden;
+            PatientWindow win1 = new PatientWindow();
+            win1.Show();
+        }
+
+        private void btdHCI_Click(object sender, RoutedEventArgs e)
+        {
+            Window doctorHCIPanel = new HCI.DoctorPanelHCI();
+            doctorHCIPanel.ShowDialog();
         }
     }
 }

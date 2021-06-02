@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Classes
@@ -10,21 +7,23 @@ namespace Classes
     class PatientAllergyRepository
     {
         private String FileLocation;
+        private AllergiesRepository allergiesRepository;
         private List<PatientAllergy> PatientAllergiesInFile = new List<PatientAllergy>();
 
         public PatientAllergyRepository()
         {
             FileLocation = "../../Text Files/patientallergies.txt";
+            allergiesRepository = new AllergiesRepository();
         }
         public Boolean Create(PatientAllergy pa)
         {
             PatientAllergiesInFile = GetAll();
-            foreach(PatientAllergy pall in PatientAllergiesInFile)
+            foreach (PatientAllergy pall in PatientAllergiesInFile)
             {
-                if (pall.allergyID == pa.allergyID && pall.patientID.Equals(pa.patientID))
+                if (pall.allergy.Id1 == pa.allergy.Id1 && pall.patientID.Equals(pa.patientID))
                     return false;
             }
-            
+
             PatientAllergiesInFile.Add(pa);
             UpdateAll(PatientAllergiesInFile);
             return true;
@@ -49,12 +48,15 @@ namespace Classes
             List<PatientAllergy> patientallergies = new List<PatientAllergy>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
+            if (text == null || text == "")
+                return new List<PatientAllergy>();
             while (text != null && text != "\n")
             {
                 string[] components = text.Split(',');
                 int allergyID = Convert.ToInt32(components[0]);
-                string patientID= components[1];
-                PatientAllergy patientallergy = new PatientAllergy(patientID, allergyID);
+                string patientID = components[1];
+                Allergy a = allergiesRepository.GetByID(allergyID);
+                PatientAllergy patientallergy = new PatientAllergy(patientID, a);
                 patientallergies.Add(patientallergy);
                 text = tr.ReadLine();
             }
@@ -90,7 +92,7 @@ namespace Classes
             {
                 foreach (PatientAllergy pa in paif)
                 {
-                    tw.WriteLine(pa.allergyID + "," + pa.patientID);
+                    tw.WriteLine(pa.allergy.Id1 + "," + pa.patientID);
                 }
                 tw.Close();
                 return true;

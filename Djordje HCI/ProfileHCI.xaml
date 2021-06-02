@@ -1,0 +1,49 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.HCI.ProfileHCI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.HCI"
+        mc:Ignorable="d"
+        Title="ProfileHCI" Height="550" Width="1050">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF289DFF" Offset="0"/>
+                <GradientStop Color="#FF1B0553" Offset="0.993"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="100" Margin="942,419,0,0" VerticalAlignment="Top" Width="100" Source="/ftn-sims-hci-hospital;component/logowhite.png"/>
+        <Menu HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="1042" Background="#FF0C2D66">
+            <MenuItem Header="Notifications" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="Notif_Click"/>
+            <MenuItem Header="Appointments" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" >
+                <MenuItem Header="Appointment Panel" Background="#FF0C2D66" BorderBrush="{x:Null}" FontWeight="Bold"  Click="Appointments_Click"/>
+                <MenuItem Header="Quickly Create Appointment" Background="#FF0C2D66" BorderBrush="{x:Null}" FontWeight="Bold"  Click="QuickAppointment_Click"/>
+            </MenuItem>
+            <MenuItem Header="Holidays" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold"  Click="Holidays_Click"/>
+            <MenuItem Header="Dynamic Equipment" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold"  Click="DynamicEquipment_Click"/>
+            <MenuItem Header="Medical Records" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold"  Click="MedicalRecords_Click"/>
+            <MenuItem Header="Perscriptions" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold">
+                <MenuItem Header="Perscription Validation" Background="#FF0C2D66"  Click="PerscValid_Click"/>
+                <MenuItem Header="Perscription Report" Background="#FF0C2D66"  Click="PerscReport_Click"/>
+            </MenuItem>
+            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="163 0 0 0">
+                <MenuItem Header="View / Edit Profile" Background="#FF0C2D66" Click="ViewProfile_Click" />
+                <MenuItem Header="Log Out" Background="#FF0C2D66" Click="LogOut_Click"/>
+            </MenuItem>
+        </Menu>
+        <Image HorizontalAlignment="Left" Height="176" Margin="219,57,0,0" VerticalAlignment="Top" Width="148" Source="/ftn-sims-hci-hospital;component/usernew.png"/>
+        <Label Content="Username" Margin="290,258,620,0" VerticalAlignment="Top" FontSize="24" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontFamily="Tahoma" HorizontalAlignment="Center" Height="55"/>
+        <Label Content="New Password" Margin="234,302,620,0" VerticalAlignment="Top" FontSize="24" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontFamily="Tahoma" HorizontalAlignment="Center" Height="54"/>
+        <Label Content="Address" Margin="316,343,620,0" VerticalAlignment="Top" FontSize="24" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontFamily="Tahoma" HorizontalAlignment="Center" Height="56"/>
+        <Label Content="Email" Margin="345,387,621,0" VerticalAlignment="Top" FontSize="24" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontFamily="Tahoma" HorizontalAlignment="Center" Height="55"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="433,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="433,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="433,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24"/>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="433,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="487,450,0,0" VerticalAlignment="Top" Width="107" Background="#FF246AC6" Foreground="White" FontFamily="Tahoma" FontSize="24" BorderBrush="{x:Null}" Height="40"/>
+        <Label Content="{}{fName} {lName}" HorizontalAlignment="Center" Margin="428,75,245,0" VerticalAlignment="Top" FontSize="28" Width="369" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontFamily="Tahoma" Height="45"/>
+        <Label Content="Date of Birth: {dob}" HorizontalAlignment="Center" Margin="428,121,130,0" VerticalAlignment="Top" FontSize="28" Width="484" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontFamily="Tahoma" Height="45"/>
+        <Label Content="JMBG: {jmbg}" HorizontalAlignment="Center" Margin="428,167,286,0" VerticalAlignment="Top" FontSize="28" Width="328" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontFamily="Tahoma" Height="45"/>
+    </Grid>
+</Window>

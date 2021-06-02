@@ -12,8 +12,14 @@ namespace Classes
 {
     public class EquipmentService
     {
-        public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
-        public DynamicEquipmentRepository dynamicEquipmentRepository = new DynamicEquipmentRepository();
+        public IStaticEquipmentRepository staticEquipmentRepository;
+        public IDynamicEquipmentRepository dynamicEquipmentRepository;
+
+        public EquipmentService(/*IStaticEquipmentRepository statRepo, IDynamicEquipmentRepository dynRepo*/)
+        {
+            /*this.staticEquipmentRepository = statRepo;
+            this.dynamicEquipmentRepository = dynRepo;*/
+        }
 
         public bool AddStatic(StaticEquipment newStatic)
         {

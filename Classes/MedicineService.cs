@@ -1,17 +1,20 @@
-/***********************************************************************
- * Module:  MedicineService.cs
- * Author:  Igor
- * Purpose: Definition of the Class Controllers,Services&Repositories.MedicineService
- ***********************************************************************/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace Classes
 {
     public class MedicineService
     {
         public MedicineRepository medicineRepository = new MedicineRepository();
+
+        public List<Medicine> GetAll()
+        {
+            return medicineRepository.GetAllMedicine();
+        }
 
         public bool UpdateAllOnHold(List<Medicine> mif)
         {
@@ -61,6 +64,11 @@ namespace Classes
         public bool UpdateAllUnverified(List<Medicine> mif)
         {
             return medicineRepository.UpdateAllUnverified(mif);
+        }
+
+        public Medicine GetByID(String medicineId)
+        {
+            return medicineRepository.GetById(medicineId);
         }
     }
 }

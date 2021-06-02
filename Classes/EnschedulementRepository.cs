@@ -4,8 +4,6 @@
  * Purpose: Definition of the Class Manager.ManagerService
  ***********************************************************************/
 
-using ASquare.WindowsTaskScheduler;
-using ASquare.WindowsTaskScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,7 +32,7 @@ namespace Classes
         }
 
         public void UpdateTime(DateTime currentTime)
-        {
+        { 
             Enschedulements = GetAll();
             List<StaticEnschedulement> enschedulementIterator = GetAll();
             FinishedEnschedulements = GetAllFinished();
@@ -52,18 +50,6 @@ namespace Classes
             }
         }
 
-        public void ScheduleTask(StaticEnschedulement newEnschedulement)
-        {
-            SchedulerResponse response = WindowTaskScheduler
-                .Configure()
-                .CreateTask(newEnschedulement.IdEnsch.ToString(), FileLocationTasks)
-                .RunMonthly()
-                .SetMonthsToRun(1)
-                .RunDurationFor(new TimeSpan(0, 10, 0))
-                .SetStartDate(newEnschedulement.Time.Date)
-                .SetStartTime(newEnschedulement.Time.TimeOfDay)
-                .Execute();
-        }
 
         public Boolean Create(StaticEnschedulement newEnschedulement)
         {
@@ -71,8 +57,6 @@ namespace Classes
             Enschedulements.Add(newEnschedulement);
 
             WriteToFile(Enschedulements, FileLocation);
-
-            ScheduleTask(newEnschedulement);
 
             return true;
         }
@@ -105,14 +89,14 @@ namespace Classes
         }
 
         public List<StaticEnschedulement> GetAllFinished()
-        {
+        { 
             List<StaticEnschedulement> finishedEnschedulements = new List<StaticEnschedulement>();
             finishedEnschedulements = PullFromFile(FileLocationFinished);
             return finishedEnschedulements;
         }
 
         public Boolean Delete(StaticEnschedulement enschedulement)
-        {
+        { 
             Enschedulements = GetAll();
             foreach (StaticEnschedulement se in Enschedulements)
             {

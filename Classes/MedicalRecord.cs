@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-
 namespace Classes
 {
     public class MedicalRecord
@@ -19,6 +16,6 @@ namespace Classes
             anamneses = new List<Anamnesis>();
         }
 
-        
+
     }
 }

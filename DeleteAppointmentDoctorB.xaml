@@ -7,14 +7,26 @@
         mc:Ignorable="d"
         Title="DeleteAppointmentDoctorB" Height="450" Width="800">
     <Grid>
-        <Button Click="deleteAppointment" Content="delete" HorizontalAlignment="Left" Margin="188,61,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox Name="txtDel" HorizontalAlignment="Left" Height="23" Margin="27,58,0,0" TextWrapping="Wrap" Text="enter Appointment id" VerticalAlignment="Top" Width="133"/>
-        <Button Content="choose for update" Click="findAp" HorizontalAlignment="Left" Margin="297,61,0,0" VerticalAlignment="Top" Width="158"/>
-        <TextBox Name="txtS" HorizontalAlignment="Left" Height="23" Margin="188,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtE"  HorizontalAlignment="Left" Height="23" Margin="188,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Name="btnU" Click="updateAp" Content="update" HorizontalAlignment="Left" Margin="380,274,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock Name="bs" HorizontalAlignment="Left" Margin="134,169,0,0" TextWrapping="Wrap" Text="start:" VerticalAlignment="Top"/>
-        <TextBlock Name="be" HorizontalAlignment="Left" Margin="137,232,0,0" TextWrapping="Wrap" Text="end:" VerticalAlignment="Top"/>
+        <Canvas Name="main">
+            <TextBox Name="txtS" HorizontalAlignment="Left" Height="23" Margin="99,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox Name="txtE"  HorizontalAlignment="Left" Height="23" Margin="99,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Button Name="btnU" Content="save" HorizontalAlignment="Left" Margin="665,359,0,0" VerticalAlignment="Top" Width="75"/>
+            <TextBlock Name="bs" HorizontalAlignment="Left" Margin="60,311,0,0" TextWrapping="Wrap" Text="start:" VerticalAlignment="Top" RenderTransformOrigin="-1.291,7.333"/>
+            <TextBlock Name="be" HorizontalAlignment="Left" Margin="60,361,0,0" TextWrapping="Wrap" Text="end:" VerticalAlignment="Top"/>
+        </Canvas>
+
+        <Canvas HorizontalAlignment="Left" Height="387" Margin="22,10,0,0" VerticalAlignment="Top" Width="747">
+            <ListView x:Name="lvUsers" Height="253" Width="747">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="room" Width="150" DisplayMemberBinding="{Binding RoomNumber1}" />
+                        <GridViewColumn Header="type" Width="150" DisplayMemberBinding="{Binding Type1}" />
+                        <GridViewColumn Header="description" Width="150" DisplayMemberBinding="{Binding Description1}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            
+        </Canvas>
 
 
 

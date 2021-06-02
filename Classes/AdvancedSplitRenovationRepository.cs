@@ -43,7 +43,7 @@ namespace Classes
         }
 
         public void WriteToFile(List<SplitRenovation> splitRenovations, String FileLocation)
-        {
+        { 
             TextWriter tw = new StreamWriter(FileLocation);
 
             foreach (var item in splitRenovations)
@@ -54,7 +54,7 @@ namespace Classes
         }
 
         public List<SplitRenovation> GetAllSplit()
-        {
+        { 
             List<SplitRenovation> splitRenovations = new List<SplitRenovation>();
 
             splitRenovations = PullFromFile(FileLocationSplit);
@@ -63,7 +63,7 @@ namespace Classes
         }
 
         public List<SplitRenovation> GetAllSplitFinished()
-        {
+        { 
             List<SplitRenovation> splitRenovations = new List<SplitRenovation>();
 
             splitRenovations = PullFromFile(FileLocationSplitFinished);
@@ -72,7 +72,7 @@ namespace Classes
         }
 
         public Boolean Create(SplitRenovation newSplitRenovation)
-        {
+        { 
             SplitRenovations = GetAllSplit();
             SplitRenovations.Add(newSplitRenovation);
             WriteToFile(SplitRenovations, FileLocationSplit);
@@ -84,7 +84,7 @@ namespace Classes
         }
 
         public Boolean Delete(int id)
-        {
+        { 
             SplitRenovations = GetAllSplit();
             foreach (SplitRenovation renovation in SplitRenovations)
             {
@@ -101,7 +101,7 @@ namespace Classes
         }
 
         public Boolean UpdateFile(List<SplitRenovation> splitRenovations)
-        {
+        { 
             if (splitRenovations == null)
             {
                 return false;
@@ -114,7 +114,7 @@ namespace Classes
         }
 
         public void UpdateTime(DateTime currentTime)
-        {
+        { 
             SplitRenovations = GetAllSplit();
             FinishedSplitRenovations = GetAllSplitFinished();
             List<StaticEquipment> staticEquipment = staticEquipmentRepository.GetAll();

@@ -27,21 +27,21 @@ namespace Classes
         }
 
         public void Renovate(Room room)
-        {
+        { 
             room.Status = RoomStatus.Renovating;
             Update(room);
             UpdateFile(Rooms);
         }
 
         public void Reorder(Room room)
-        {
+        { 
             room.Status = RoomStatus.Reordering;
             Update(room);
             UpdateFile(Rooms);
         }
 
         public void Free(Room room)
-        {
+        { 
             room.Status = RoomStatus.Free;
             Update(room);
             UpdateFile(Rooms); ;
@@ -60,7 +60,7 @@ namespace Classes
         }
 
         public void WriteToFile(List<Room> roomsInFile)
-        {
+        { 
             TextWriter tw = new StreamWriter(FileLocation);
 
             foreach (var item in roomsInFile)
@@ -71,7 +71,7 @@ namespace Classes
         }
 
         public Boolean Create(Room room)
-        {
+        { 
             Rooms = GetAll();
             Rooms.Add(room);
             WriteToFile(Rooms);
@@ -80,7 +80,7 @@ namespace Classes
         }
 
         public Room GetByNumber(String roomNumber)
-        {
+        { 
             Rooms = GetAll();
             foreach (Room room in Rooms)
             {
@@ -114,14 +114,14 @@ namespace Classes
         }
 
         public List<Room> GetAll()
-        {
+        { 
             List<Room> rooms = new List<Room>();
             rooms = PullFromFile();
             return rooms;
         }
 
         public Boolean Update(Room oldRoom)
-        {
+        { 
             Rooms = GetAll();
             foreach (Room newRoom in Rooms)
             {
@@ -139,7 +139,7 @@ namespace Classes
         }
 
         public Boolean UpdateFile(List<Room> roomsInFile)
-        {
+        { 
             if (roomsInFile == null)
             {
                 return false;
@@ -152,7 +152,7 @@ namespace Classes
         }
 
         public Boolean Delete(String roomNumber)
-        {
+        { 
             Rooms = GetAll();
             foreach (Room room in Rooms)
             {
@@ -167,7 +167,7 @@ namespace Classes
         }
 
 
-        public List<Room> AccessRoomsInFile { get => Rooms; set => Rooms = value; }
+        public List<Room> AccessRooms { get => Rooms; set => Rooms = value; }
 
         private static RoomRepository repo = null;
         public static RoomRepository getRoomStorage()

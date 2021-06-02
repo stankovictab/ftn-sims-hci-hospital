@@ -11,8 +11,15 @@ namespace Classes
 {
     public class AdvancedRenovationService
     {
-        public AdvancedMergeRenovationRepository advancedMergeRenovationRepository = new AdvancedMergeRenovationRepository();
-        public AdvancedSplitRenovationRepository advancedSplitRenovationRepository = new AdvancedSplitRenovationRepository();
+        public IAdvancedMergeRenovationRepository advancedMergeRenovationRepository;
+        public IAdvancedSplitRenovationRepository advancedSplitRenovationRepository;
+
+        public AdvancedRenovationService(/*IAdvancedSplitRenovationRepository splitRepo, IAdvancedMergeRenovationRepository mergeRepo*/)
+        {
+            /*this.advancedSplitRenovationRepository = splitRepo;
+            this.advancedMergeRenovationRepository = mergeRepo;*/
+        }
+
         public List<MergeRenovation> GetAllMerge()
         {
             return advancedMergeRenovationRepository.GetAllMerge();

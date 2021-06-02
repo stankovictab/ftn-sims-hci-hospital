@@ -37,9 +37,9 @@ namespace Classes
 
             return true;
         }
-      
+
         public List<DynamicAssignment> PullFromFile()
-        {
+        { 
             List<DynamicAssignment> dynamicAssignments= new List<DynamicAssignment>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();

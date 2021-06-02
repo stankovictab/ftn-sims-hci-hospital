@@ -36,7 +36,7 @@ namespace ftn_sims_hci_hospital
 
         private void createBasicRenovation_Click(object sender, RoutedEventArgs e)
         {
-            basicRenovationController.basicRenovationService.basicRenovationRepository.BasicRenovations = basicRenovationController.GetAll();
+            basicRenovationController.basicRenovationService.basicRenovationRepository.AccessBasicRenovations = basicRenovationController.GetAll();
             BasicRenovation newBasicRenovation = new BasicRenovation(Convert.ToInt32(renovationIdTextbox.Text), roomController.GetById(renovatedRoomCombo.SelectedItem.ToString()), Convert.ToDateTime(renovationTime.Text), Convert.ToInt32(durationTextbox.Text));
             bool success = basicRenovationController.Create(newBasicRenovation);
             

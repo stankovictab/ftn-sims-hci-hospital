@@ -23,7 +23,7 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             appointmentController = new AppointmentController();
-            List<Appointment> appoinments = appointmentController.GetAllByPatientId(PatientWindow.user.Jmbg1);
+            List<Appointment> appoinments = appointmentController.GetAllByPatientId(MainWindow.user.Jmbg1);
             lvUsers.ItemsSource = appoinments;
         }
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Igor\Desktop\master\ftn-sims-hci-hospital\obj\Debug\
+C:\Users\Igor\Desktop\asdf\ftn-sims-hci-hospital\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Users\Igor\Desktop\master\ftn-sims-hci-hospital\App.xaml
-601788528610
+C:\Users\Igor\Desktop\asdf\ftn-sims-hci-hospital\App.xaml
+105-1265293314
 
-143-480472804
-191283201793
-AdvancedRenovations.xaml;BasicRenovationCreation.xaml;BasicRenovations.xaml;DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HCI\Inventory.xaml;HCI\InventoryAddDynamic.xaml;HCI\InventoryAddStatic.xaml;HCI\Manager.xaml;HCI\Orders.xaml;HCI\Rooms.xaml;HCI\RoomsCreation.xaml;HCI\RoomsEdit.xaml;HCI\Schedule.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;Medicine.xaml;MedicineCreation.xaml;MedicineResubmit.xaml;MedicineUpdate.xaml;MergeRenovationCreation.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;SplitRenovationCreation.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;Storage.xaml;UpdateAppointmentPatient.xaml;
+215-1578901731
+18-142537551
+AddReferral.xaml;AllAllergiesPage.xaml;AdvancedRenovations.xaml;AllAnamnesisPage.xaml;BasicRenovationCreation.xaml;AllAppointmentsPage.xaml;BasicRenovations.xaml;AllHospitalizationReferralsPage.xaml;DoctorPanel.xaml;AllPerscriptionsPage.xaml;CreateAppointmentPage.xaml;Dynamic.xaml;createAppointmentSpecialist.xaml;CreateReminder.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;Diagnosis.xaml;DynamicUpdate.xaml;Djordje HCI\AppointmentPanelHCI.xaml;DynamicUse.xaml;Djordje HCI\DoctorPanelHCI.xaml;Djordje HCI\DynamicEquipmentPanelHCI.xaml;GuestCreation.xaml;Djordje HCI\HolidayRequestCreationHCI.xaml;Djordje HCI\HolidayRequestPanelHCI.xaml;Djordje HCI\MedicalRecordsHCI.xaml;Djordje HCI\NotificationPanelHCI.xaml;Djordje HCI\PerscriptionReportHCI.xaml;Djordje HCI\PerscriptionValidationHCI.xaml;Djordje HCI\ProfileHCI.xaml;Djordje HCI\QuickAppointmentHCI.xaml;Djordje HCI\X.xaml;DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentOrderUpdate.xaml;DynamicEquipmentOrderCreation.xaml;DynamicEquipmentPastRequestApprovals.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentOrderPanel.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;Igor HCI\Inventory.xaml;Igor HCI\InventoryAddDynamic.xaml;Igor HCI\InventoryAddStatic.xaml;Igor HCI\Manager.xaml;Igor HCI\Orders.xaml;Igor HCI\Rooms.xaml;Igor HCI\RoomsCreation.xaml;Igor HCI\RoomsEdit.xaml;Igor HCI\Schedule.xaml;PollResultsPanel.xaml;HolidayRequestPastApprovals.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;AppointmentsListDoctorB.xaml;CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicineWindow.xaml;MedicineCreation.xaml;MedicineResubmit.xaml;MedicineUpdate.xaml;MedicalRecords.xaml;MedicineList.xaml;NotificationBoard.xaml;NotificationCreation.xaml;MergeRenovationCreation.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientProfilePage.xaml;PatientView.xaml;PersonalData.xaml;PollPage.xaml;PossibleAppointments.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;SplitRenovationCreation.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;Storage.xaml;Treatments.xaml;UpdateAppointmentPatient.xaml;UpdateNotification.xaml;UrgentAppointmentCreation.xaml;
 
 True
 

@@ -1,0 +1,16 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.NotificationCreation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        mc:Ignorable="d"
+        Title="NotificationCreation" Height="450" Width="503.166">
+    <Grid>
+        <Label x:Name="lbtitle" Content="Title:" HorizontalAlignment="Left" Height="31" Margin="80,82,0,0" VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="tbtitle" HorizontalAlignment="Left" Height="38" Margin="80,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+        <Label x:Name="lbbody" Content="Body:" HorizontalAlignment="Left" Height="31" Margin="80,161,0,0" VerticalAlignment="Top" Width="139"/>
+        <TextBox x:Name="tbbody" HorizontalAlignment="Left" Height="38" Margin="80,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+        <Button x:Name="btncreatenotification" Content="Create Notification" HorizontalAlignment="Left" Height="43" Margin="171,276,0,0" VerticalAlignment="Top" Width="121" Click="btncreatenotification_Click" RenderTransformOrigin="0.499,-0.864"/>
+    </Grid>
+</Window>

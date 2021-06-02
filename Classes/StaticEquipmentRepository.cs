@@ -15,16 +15,10 @@ namespace Classes
     {
         private String FileLocation = "../../Text Files/staticequipment.txt";
         public List<StaticEquipment> StaticEquipment = new List<StaticEquipment>();
-        
 
-        public List<StaticEquipment> GetStaticByLocation()
-        {
-            // TODO: implement
-            return null;
-        }
 
         public StaticEquipment GetByName(string name)
-        {
+        { 
             StaticEquipment = GetAll();
             foreach (StaticEquipment s in StaticEquipment)
             {
@@ -38,12 +32,20 @@ namespace Classes
 
         public List<StaticEquipment> GetByLocation(Room location)
         {
-            // TODO: implement
-            return null;
+            StaticEquipment = GetAll();
+            List<StaticEquipment> equipmentInRoom = new List<StaticEquipment>();
+            foreach (StaticEquipment s in StaticEquipment)
+            {
+                if (s.statLocation.Equals(location.RoomNumber1))
+                {
+                    equipmentInRoom.Add(s);
+                }
+            }
+            return equipmentInRoom;
         }
 
         public Boolean Create(StaticEquipment newStatic)
-        {
+        { 
             StaticEquipment.Add(newStatic);
             TextWriter tw = new StreamWriter(FileLocation);
 
@@ -57,7 +59,7 @@ namespace Classes
         }
 
         public bool Delete(int toDelete)
-        {
+        { 
             StaticEquipment = GetAll();
             foreach (StaticEquipment s in StaticEquipment)
             {
@@ -72,7 +74,7 @@ namespace Classes
         }
 
         public StaticEquipment GetById(int id)
-        {
+        { 
             StaticEquipment = GetAll();
             foreach (StaticEquipment s in StaticEquipment)
             {
@@ -85,7 +87,7 @@ namespace Classes
         }
 
         public List<StaticEquipment> GetAll()
-        {
+        { 
             List<StaticEquipment> se = new List<StaticEquipment>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
@@ -104,7 +106,7 @@ namespace Classes
         }
 
         public Boolean Update(StaticEquipment updateStatic)
-        {
+        { 
             
             foreach (StaticEquipment s in StaticEquipment)
             {
@@ -119,7 +121,7 @@ namespace Classes
         }
 
         public Boolean UpdateAll(List<StaticEquipment> sif)
-        {
+        { 
             TextWriter tw = new StreamWriter(FileLocation);
             if (sif == null)
             {
@@ -138,7 +140,7 @@ namespace Classes
         }
 
         public void DeleteByLocation(string location)
-        {
+        { 
             foreach(StaticEquipment staticEquipment in StaticEquipment)
             {
                 if (staticEquipment.statLocation.Equals(location))

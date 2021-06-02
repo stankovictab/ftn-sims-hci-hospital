@@ -69,6 +69,12 @@ namespace ftn_sims_hci_hospital
                     break;
                 case 3:
                     break;
+                case 4:
+                    Window notifications= new NotificationBoard();
+                    this.Hide();
+                    notifications.ShowDialog();
+                    this.Close();
+                    break;
 
 
             }
@@ -142,6 +148,23 @@ namespace ftn_sims_hci_hospital
                     d = MainWindow.doctorController.GetByID(app.doctor.user.Jmbg1);
                     allAppointments.Items.Add(new Appointment { AppointmentID = app.AppointmentID, doctor = d, patient = p, StartTime = app.StartTime });
                 }
+            }
+        }
+
+        private void btnurgentappointment_Click(object sender, RoutedEventArgs e)
+        {
+            Window urgentAppointmentCreation = new UrgentAppointmentCreation();
+            urgentAppointmentCreation.ShowDialog();
+            allAppointments.Items.Clear();
+            List<Appointment> appointments = new List<Appointment>();
+            appointments = MainWindow.appointmentController.appointmentService.appointmentRepository.GetAll();
+            foreach (Appointment app in appointments)
+            {
+                Patient p = new Patient();
+                p = MainWindow.patientController.GetByID(app.patient.user.Jmbg1);
+                Doctor d = new Doctor();
+                d = MainWindow.doctorController.GetByID(app.doctor.user.Jmbg1);
+                allAppointments.Items.Add(new Appointment { AppointmentID = app.AppointmentID, doctor = d, patient = p, StartTime = app.StartTime });
             }
         }
     }

@@ -67,5 +67,10 @@ namespace Classes
             if (roomEquipment != null)
                 roomEquipment.Clear();
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0}-{1}", RoomNumber, FloorNumber);
+        }
     }
 }

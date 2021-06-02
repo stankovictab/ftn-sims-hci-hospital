@@ -7,9 +7,14 @@
         mc:Ignorable="d"
         Title="UpdateAppointmentPatient" Height="450" Width="800">
     <Grid>
-        <Label Content="Unesite novi datum: " HorizontalAlignment="Left" Margin="175,155,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="newDate" HorizontalAlignment="Left" Margin="298,157,0,0" VerticalAlignment="Top"/>
-        <Button Content="Potvrdi izmenu" HorizontalAlignment="Left" Margin="582,294,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click"/>
+        <Label Content="Unesite novi datum: " HorizontalAlignment="Left" Margin="175,139,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="newDate" HorizontalAlignment="Left" Margin="298,141,0,0" VerticalAlignment="Top" SelectedDateChanged="DateChange" Focusable="False"/>
+        <DataGrid x:Name="availableTimes" HorizontalAlignment="Left" Margin="505,139,0,0" VerticalAlignment="Top" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Vreme" Binding="{Binding StartTime}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Potvrdi izmenu" HorizontalAlignment="Left" Margin="654,293,0,0" VerticalAlignment="Top" Width="96" Click="ConfirmDateChange"/>
 
     </Grid>
 </Window>

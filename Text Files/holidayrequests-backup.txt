@@ -1,13 +1,15 @@
 // This is a backup file in case the contents of the source file get deleted
-// id,description,startDate,endDate,doctor
+// id,description,startDate,endDate,requestDate,status,doctor,commentary
 
-1,Godisnji odmor,01/10/21 06:00:00 AM,01/20/21 08:00:00 AM,01/02/21 08:00:00 AM,0,0501
-2,Koriscenje preostalih slobodnih dana,02/05/21 08:00:00 AM,02/15/21 06:00:00 PM,02/02/21 08:00:00 AM,0,7601
-3,Porodiljsko,03/28/21 09:00:00 AM,04/11/21 10:00:00 AM,01/02/21 08:00:00 AM,0,0501
-4,Zakazano kod zubara,04/02/21 11:00:00 AM,04/04/21 06:00:00 AM,03/21/21 08:00:00 AM,0,6331
+1,Godisnji odmor,01/10/21 06:00:00 AM,01/20/21 08:00:00 AM,01/02/21 08:00:00 AM,1,0501,Odobren
+2,Koriscenje preostalih slobodnih dana,02/05/21 08:00:00 AM,02/15/21 06:00:00 PM,02/02/21 08:00:00 AM,2,7601,Previse puta su iskoriceni
+3,Letovanje,06/12/21 08:00:00 AM,06/29/21 06:00:00 PM,04/08/21 08:00:00 AM,2,0501,Prevelik odmor
+4,Porodiljsko,03/28/21 09:00:00 AM,04/11/21 10:00:00 AM,01/02/21 08:00:00 AM,0,0501,/
+5,Zakazano kod zubara,04/02/21 11:00:00 AM,04/04/21 06:00:00 AM,03/21/21 08:00:00 AM,0,6331,/
 
 // Za gogija :
-1,Godisnji odmor,10/01/21 06:00:00 AM,20/01/21 08:00:00 AM,02/01/21 08:00:00 AM,0,0501
-2,Koriscenje preostalih slobodnih dana,05/02/21 08:00:00 AM,15/02/21 06:00:00 PM,02/02/21 08:00:00 AM,0,7601
-3,Porodiljsko,28/03/21 09:00:00 AM,11/04/21 10:00:00 AM,02/01/21 08:00:00 AM,0,0501
-4,Zakazano kod zubara,02/04/21 11:00:00 AM,04/04/21 06:00:00 AM,21/03/21 08:00:00 AM,0,6331
+1,Godisnji odmor,10/01/21 06:00:00 AM,20/01/21 08:00:00 AM,02/01/21 08:00:00 AM,1,0501,/
+2,Koriscenje preostalih slobodnih dana,05/02/21 08:00:00 AM,15/02/21 06:00:00 PM,02/02/21 08:00:00 AM,2,7601,Previse puta su iskoriceni
+3,Letovanje,12/06/21 08:00:00 AM,29/06/21 06:00:00 PM,08/04/21 08:00:00 AM,2,0501,Prevelik odmor
+4,Porodiljsko,28/03/21 09:00:00 AM,11/04/21 10:00:00 AM,02/01/21 08:00:00 AM,0,0501,/
+5,Zakazano kod zubara,02/04/21 11:00:00 AM,04/04/21 06:00:00 AM,21/03/21 08:00:00 AM,0,6331,/

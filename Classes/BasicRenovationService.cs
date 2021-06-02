@@ -11,7 +11,11 @@ namespace Classes
 {
     public class BasicRenovationService
     {
-        public BasicRenovationRepository basicRenovationRepository = new BasicRenovationRepository();
+        public IBasicRenovationRepository basicRenovationRepository;
+        public BasicRenovationService(/*IBasicRenovationRepository repo*/)
+        {
+            //this.basicRenovationRepository = repo;
+        }
 
         public List<BasicRenovation> GetAll()
         {

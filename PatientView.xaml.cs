@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +29,21 @@ namespace ftn_sims_hci_hospital
             tbbloodtype.Text = "A+";
             tbgender.Text = currentPatient.user.Gender1.ToString();
             tballergies.Text = "";
-            foreach(Allergy allergy in currentPatient.medicalRecord.allergies)
+            List<PatientAllergy> patientAllergies = new List<PatientAllergy>();
+            patientAllergies = MainWindow.patientController.patientService.PatientallergyRepository.GetAllByPatientID(currentPatient.user.Jmbg1);
+            List<Allergy> allergies = new List<Allergy>();
+            allergies = MainWindow.patientController.patientService.allergiesRepository.GetAll();
+            foreach (PatientAllergy patientAllergy in patientAllergies)
+            {
+                foreach (Allergy allergy in allergies)
+                {
+                    if (patientAllergy.allergy.Id1 == allergy.Id1)
+                    {
+                        currentPatient.medicalRecord.allergies.Add(allergy);
+                    }
+                }
+            }
+            foreach (Allergy allergy in currentPatient.medicalRecord.allergies)
             {
                 if (tballergies.Text != "")
                     tballergies.Text += "," + allergy.Name1;
@@ -90,7 +104,7 @@ namespace ftn_sims_hci_hospital
             MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
             foreach(Allergy a in currentPatient.medicalRecord.allergies)
             {
-                PatientAllergy pa = new PatientAllergy(currentPatient.user.Jmbg1, a.Id1);
+                PatientAllergy pa = new PatientAllergy(currentPatient.user.Jmbg1, a);
                 MainWindow.patientController.patientService.PatientallergyRepository.Create(pa);
             }
             

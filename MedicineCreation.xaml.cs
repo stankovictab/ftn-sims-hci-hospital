@@ -30,7 +30,7 @@ namespace ftn_sims_hci_hospital
         private void medicineAdd_Click(object sender, RoutedEventArgs e)
         {
             medicineController.medicineService.medicineRepository.OnHoldMedicine = medicineController.GetAllOnHold();
-            Classes.Medicine newMedicine = new Classes.Medicine(medicineId.Text, medicineName.Text, medicineDescription.Text, medicineIngredients.Text, medicineAlternatives.Text, MedicineStatus.OnHold, "No reason");
+            Medicine newMedicine = new Medicine(medicineId.Text, medicineName.Text, medicineDescription.Text, medicineIngredients.Text, medicineAlternatives.Text, MedicineStatus.OnHold, "No reason");
             _ = medicineController.AddOnHold(newMedicine);
             this.Hide();
         }

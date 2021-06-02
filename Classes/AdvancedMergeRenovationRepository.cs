@@ -20,7 +20,7 @@ namespace Classes
         StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
 
         public List<MergeRenovation> PullFromFile(String FileLocation)
-        {
+        { 
             List<MergeRenovation> mergeRenovations = new List<MergeRenovation>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
@@ -43,7 +43,7 @@ namespace Classes
         }
 
         public void WriteToFile(List<MergeRenovation> mergeRenovations, String FileLocation)
-        {
+        { 
             TextWriter tw = new StreamWriter(FileLocation);
 
             foreach (var item in mergeRenovations)
@@ -72,7 +72,7 @@ namespace Classes
         }
 
         public Boolean Create(MergeRenovation newMergeRenovation)
-        {
+        { 
             MergeRenovations = GetAllMerge();
             MergeRenovations.Add(newMergeRenovation);
             WriteToFile(MergeRenovations, FileLocationMerge);
@@ -85,7 +85,7 @@ namespace Classes
         }
 
         public Boolean Delete(int id)
-        {
+        { 
             MergeRenovations = GetAllMerge();
             foreach (MergeRenovation renovation in MergeRenovations)
             {
@@ -103,7 +103,7 @@ namespace Classes
         }
 
         public Boolean UpdateFile(List<MergeRenovation> mergeRenovations)
-        {
+        { 
             if (mergeRenovations == null)
             {
                 return false;

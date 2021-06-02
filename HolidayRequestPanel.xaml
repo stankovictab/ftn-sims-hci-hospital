@@ -11,16 +11,17 @@
         <Button x:Name="btnUpdateRequest" Content="Update Request" HorizontalAlignment="Left" Margin="664,142,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False" Click="btnUpdateRequest_Click"/>
         <Button x:Name="btnDeleteRequest" Content="Delete Request" HorizontalAlignment="Left" Margin="664,233,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False" Click="btnDeleteRequest_Click"/>
         <Label Content="Doctor's Holiday Request Panel" HorizontalAlignment="Left" Margin="225,33,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="btnShowRequests" Content="Show Requests" HorizontalAlignment="Left" Margin="15,188,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnShowRequests_Click"/>
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="15,188,0,0" VerticalAlignment="Top" Width="129" RenderTransformOrigin="1.063,0.447" Click="btnRefresh_Click"/>
         <ListView x:Name="holidayRequestListView" HorizontalAlignment="Left" Height="218" Margin="169,86,0,0" VerticalAlignment="Top" Width="472" SelectionChanged="holidayRequestListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status1}"/>
                     <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description1}"/>
                     <GridViewColumn Header="Start Date" DisplayMemberBinding="{Binding StartDate1}"/>
                     <GridViewColumn Header="End Date" DisplayMemberBinding="{Binding EndDate1}"/>
                     <GridViewColumn Header="Request Date" DisplayMemberBinding="{Binding RequestDate1}"/>
-                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status1}"/>
+                    <GridViewColumn Header="Commentary" DisplayMemberBinding="{Binding Commentary1}"/>
                 </GridView>
             </ListView.View>
         </ListView>

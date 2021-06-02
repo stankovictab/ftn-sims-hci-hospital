@@ -21,7 +21,7 @@ namespace ftn_sims_hci_hospital
     public partial class MedicineUpdate : Window
     {
         MedicineController medicineController = new MedicineController();
-        Classes.Medicine toUpdate = new Classes.Medicine();
+        Medicine toUpdate = new Medicine();
 
         public MedicineUpdate(String name)
         {
@@ -43,7 +43,7 @@ namespace ftn_sims_hci_hospital
             string ingredients = medicineIngredients.Text;
             string alternatives = medicineAlternatives.Text;
 
-            Classes.Medicine medicine = new Classes.Medicine(id, name, description, ingredients, alternatives, MedicineStatus.OnHold, "No reason");
+            Medicine medicine = new Medicine(id, name, description, ingredients, alternatives, MedicineStatus.OnHold, "No reason");
             _ = medicineController.UpdateOnHold(medicine);
             medicineController.UpdateAllOnHold(medicineController.medicineService.medicineRepository.OnHoldMedicine);
             this.Close();

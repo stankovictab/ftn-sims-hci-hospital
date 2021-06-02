@@ -7,21 +7,10 @@ namespace Classes
     {
         public HolidayRequestRepository hrr = new HolidayRequestRepository();
 
-        public Boolean AreDatesValid(DateTime start, DateTime end)
-        {
-            // Moze da se popravi ali radi
-            if (start < end) return true;
-            else return false;
-        }
-
-        public Boolean Create(String desc, DateTime start, DateTime end, Doctor doctor)
+        public Boolean Create(HolidayRequest req)
         {
             // Mora da dobavi sledeci slobodan id iz repo-a pre nego sto ga napravi u repo
-            if (AreDatesValid(start, end) == false)
-            {
-                throw new Exception("Dates invalid!"); // Ili samo return false?
-            };
-
+            CheckDates(req);
             List<HolidayRequest> temp = hrr.GetAll();
             int newid = 0;
             foreach (HolidayRequest r in temp)
@@ -31,7 +20,7 @@ namespace Classes
             newid++;
             String newidstring = newid.ToString();
 
-            HolidayRequest req = new HolidayRequest(newidstring, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor);
+            req.RequestID1 = newidstring;
             return hrr.Create(req);
         }
 
@@ -55,13 +44,25 @@ namespace Classes
             return hrr.GetAllOnHold();
         }
 
-        public Boolean Update(String id, String desc, DateTime start, DateTime end, Doctor doctor)
+        public List<HolidayRequest> GetAllNotOnHold()
         {
-            if (AreDatesValid(start, end) == false)
+            return hrr.GetAllNotOnHold();
+        }
+
+        public Boolean Update(HolidayRequest req)
+        {
+            CheckDates(req);
+            // Posto se doktor nece menjati pri update-u, nalazi se po ID-u request-a
+            List<HolidayRequest> list = hrr.GetAll();
+            Doctor doctor = new Doctor();
+            foreach (HolidayRequest r in list)
             {
-                throw new Exception("Dates invalid!"); // Ili samo return false?
-            };
-            HolidayRequest req = new HolidayRequest(id, desc, start, end, DateTime.Now, HolidayRequestStatus.OnHold, doctor);
+                if (r.RequestID1 == req.RequestID1)
+                {
+                    doctor = r.doctor;
+                }
+            }
+            req.doctor = doctor;
             return hrr.Update(req); // Provera da li postoji vec u listi se radi u repozitorijumu
         }
 
@@ -75,14 +76,24 @@ namespace Classes
             return hrr.Delete(id);
         }
 
-        public Boolean Approve(String id)
+        public Boolean Approve(String id, String commentary)
         {
-            return hrr.Approve(id);
+            return hrr.Approve(id, commentary);
         }
 
-        public Boolean Deny(String id)
+        public Boolean Deny(String id, String commentary)
         {
-            return hrr.Deny(id);
+            return hrr.Deny(id, commentary);
+        }
+
+        // Clean Code
+
+        public void CheckDates(HolidayRequest req)
+        {
+            if (req.StartDate1 > req.EndDate1)
+            {
+                throw new Exception("Dates invalid!"); // Ili samo return false?
+            }
         }
     }
 }

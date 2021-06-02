@@ -6,6 +6,11 @@ namespace Classes
         public User user;
         public NotificationBoard notificationBoard;
 
+        public Secretary()
+        {
+            user = new User();
+            notificationBoard = new NotificationBoard();
+        }
         public String SharePatientInfo()
         {
             // TODO: implement

@@ -1,10 +1,4 @@
-/***********************************************************************
- * Module:  MedicineRepository.cs
- * Author:  Igor
- * Purpose: Definition of the Class Controllers,Services&Repositories.MedicineRepository
- ***********************************************************************/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -14,6 +8,7 @@ namespace Classes
     {
         private String FileLocationOnHold = "../../Text Files/onholdmedicine.txt";
         private String FileLocationUnverified = "../../Text Files/unverifiedmedicine.txt";
+        private String FIleLocationMedicine = "../../Text Files/medicine.txt";
         public List<Medicine> UnverifiedMedicine = new List<Medicine>();
         public List<Medicine> OnHoldMedicine = new List<Medicine>();
 
@@ -196,6 +191,63 @@ namespace Classes
                 tw.Close();
                 return true;
             }
+        }
+
+        // medicine je samo ono sto je verifikovano
+        public List<Medicine> GetAllMedicine()
+        {
+            List<Medicine> medicine = new List<Medicine>();
+            TextReader tr = new StreamReader(FIleLocationMedicine);
+            string text = tr.ReadLine();
+            while (text != null && text != "\n")
+            {
+                string[] components = text.Split(';');
+                Medicine newMedicine = readMedicne(components);
+                medicine.Add(newMedicine);
+                text = tr.ReadLine();
+            }
+            tr.Close();
+            return medicine;
+        }
+        public Medicine GetById(String medicineId)
+        {
+            List<Medicine> medicines = GetAllMedicine();
+
+            foreach (Medicine medicine in medicines)
+            {
+                if (medicine.Id == medicineId)
+                    return medicine;
+            }
+            return null;
+        }
+
+        public Medicine readMedicne(String[] components)
+        {
+
+            string id = components[0];
+            string name = components[1];
+            string description = components[2];
+            string ingredients = components[3];
+            List<Allergy> allergies = readAllergies(ingredients);
+            string alternatives = components[4];
+            MedicineStatus status = ParseStatus(components[5]);
+            string denialReason = components[6];
+            Medicine newMedicine = new Medicine(id, name, description, ingredients, alternatives, status, denialReason, allergies);
+
+            return newMedicine;
+        }
+
+        private List<Allergy> readAllergies(String ingredients)
+        {
+            List<Allergy> allergies = new List<Allergy>();
+            String[] components = ingredients.Split(',');
+            foreach(String component in components)
+            {
+                Allergy allergy = new Allergy(component);
+                allergies.Add(allergy);
+            }
+
+            return allergies;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ftn_sims_hci_hospital
     public partial class MedicineResubmit : Window
     {
         MedicineController medicineController = new MedicineController();
-        Classes.Medicine toResubmit = new Classes.Medicine();
+        Medicine toResubmit = new Medicine();
 
         public MedicineResubmit(string name)
         {
@@ -36,7 +36,7 @@ namespace ftn_sims_hci_hospital
             medicineDenialReason.Text = toResubmit.DenialReason;
         }
 
-        private void medicineResubmit_Click(object sender, RoutedEventArgs e)
+        public void medicineResubmit_Click(object sender, RoutedEventArgs e)
         {
             string id = medicineId.Text;
             string name = medicineName.Text;
@@ -44,7 +44,7 @@ namespace ftn_sims_hci_hospital
             string ingredients = medicineIngredients.Text;
             string alternatives = medicineAlternatives.Text;
 
-            Classes.Medicine medicine = new Classes.Medicine(id, name, description, ingredients, alternatives, MedicineStatus.OnHold, "No reason");
+            Medicine medicine = new Medicine(id, name, description, ingredients, alternatives, MedicineStatus.OnHold, "No reason");
             medicineController.DeleteUnverified(id);
             medicineController.UpdateAllUnverified(medicineController.medicineService.medicineRepository.UnverifiedMedicine);
             medicineController.AddOnHold(medicine);

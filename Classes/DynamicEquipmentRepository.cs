@@ -28,7 +28,7 @@ namespace Classes
         }
 
         public Boolean Create(DynamicEquipment newDynamic)
-        {
+        { 
             DynamicEquipment.Add(newDynamic);
             WriteToFile(DynamicEquipment);
 
@@ -36,7 +36,7 @@ namespace Classes
         }
 
         public DynamicEquipment GetById(int id)
-        {
+        { 
             DynamicEquipment = GetAll();
             foreach (DynamicEquipment dynamicEquipment in DynamicEquipment)
             {
@@ -49,7 +49,7 @@ namespace Classes
         }
 
         public DynamicEquipment GetByName(string name)
-        {
+        { 
             DynamicEquipment = GetAll();
             foreach (DynamicEquipment dynamicEquipment in DynamicEquipment)
             {
@@ -81,7 +81,7 @@ namespace Classes
         }
 
         public List<DynamicEquipment> GetAll()
-        {
+        { 
             List<DynamicEquipment> dynamicEquipment = new List<DynamicEquipment>();
 
             dynamicEquipment = PullFromFile();
@@ -90,7 +90,7 @@ namespace Classes
         }
 
         public Boolean Update(DynamicEquipment updateDynamic)
-        {
+        { 
             DynamicEquipment = GetAll();
             foreach (DynamicEquipment d in DynamicEquipment)
             {
@@ -106,7 +106,7 @@ namespace Classes
         }
 
         public Boolean UpdateFile(List<DynamicEquipment> dynamicInFile)
-        {
+        { 
             if (dynamicInFile == null)
             {
                 return false;
@@ -119,7 +119,7 @@ namespace Classes
         }
 
         public Boolean Delete(int toDelete)
-        {
+        { 
             DynamicEquipment = GetAll();
             foreach (DynamicEquipment d in DynamicEquipment)
             {

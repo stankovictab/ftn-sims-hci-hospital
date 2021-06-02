@@ -11,8 +11,12 @@ namespace Classes
 {
     public class EnschedulementService
     {
-        public EnschedulementRepository enschedulementRepository = new EnschedulementRepository();
+        public IEnschedulementRepository enschedulementRepository;
 
+        public EnschedulementService(/*IEnschedulementRepository repo*/)
+        {
+            //this.enschedulementRepository = repo;
+        }
 
         public List<StaticEnschedulement> DateCheck(DateTime date)
         {

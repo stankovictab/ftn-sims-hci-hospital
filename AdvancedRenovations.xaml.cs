@@ -51,16 +51,16 @@ namespace ftn_sims_hci_hospital
                 {
                     string roomToDelete2 = parts3[4];
                     _ = roomController.Delete(roomToDelete2);
-                    roomController.UpdateFile(roomController.roomService.roomRepository.Rooms);
+                    roomController.UpdateFile(roomController.roomService.roomRepository.AccessRooms);
                 }
                 
 
                 _ = advancedRenovationController.DeleteMerge(renovationToDelete);
                 _ = advancedRenovationController.DeleteSplit(renovationToDelete);
                 _ = roomController.Delete(roomToDelete1);
-                advancedRenovationController.UpdateFileMerge(advancedRenovationController.advancedRenovationService.advancedMergeRenovationRepository.MergeRenovations);
-                advancedRenovationController.UpdateFileSplit(advancedRenovationController.advancedRenovationService.advancedSplitRenovationRepository.SplitRenovations);
-                roomController.UpdateFile(roomController.roomService.roomRepository.Rooms);
+                advancedRenovationController.UpdateFileMerge(advancedRenovationController.advancedRenovationService.advancedMergeRenovationRepository.AccessMergeRenovations);
+                advancedRenovationController.UpdateFileSplit(advancedRenovationController.advancedRenovationService.advancedSplitRenovationRepository.AccessSplitRenovations);
+                roomController.UpdateFile(roomController.roomService.roomRepository.AccessRooms);
                 viewAdvancedRenovations.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
 
             }

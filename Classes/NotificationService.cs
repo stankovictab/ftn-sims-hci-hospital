@@ -23,7 +23,7 @@ namespace Classes
             return notifications;
         }
 
-        public Notification GetByDoctorID(String id)
+        public List<Notification> GetByDoctorID(String id)
         {
             // TODO: implement
             return null;

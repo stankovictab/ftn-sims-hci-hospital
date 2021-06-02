@@ -1,45 +1,48 @@
 ﻿using Classes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ftn_sims_hci_hospital
 {
     public partial class UpdateAppointmentPatient : Window
     {
-        private DateTime currentDate;
-        private String appointmentId;
+        private Appointment selectedAppointment;
         private AppointmentController appointmentController;
-        public UpdateAppointmentPatient(String appointmentId, DateTime newDate)
+        private AppointmentRepository appointmentRepository;
+        public UpdateAppointmentPatient(Appointment selectedAppointment)
         {
-            this.appointmentId = appointmentId;
-            currentDate = newDate;
+            this.selectedAppointment = selectedAppointment;
             appointmentController = new AppointmentController();
+            appointmentRepository = new AppointmentRepository();
             InitializeComponent();
+            SetDateRestrictions();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void DateChange(object sender, SelectionChangedEventArgs e)
         {
-            DateTime novi = (DateTime)newDate.SelectedDate;
-            Boolean provera = appointmentController.UpdateAppointment(this.appointmentId, this.currentDate, novi, new DateTime(), null);
-            if (provera)
-            {
-                MessageBox.Show("Uspesno ste pomerili datum");
-            }
-            else
-            {
-                MessageBox.Show("Neuspesno ste pomerili datum");
-            }
+            
+            String chosenDateString = sender.ToString();
+            String[] chosenDateParts = chosenDateString.Split('.');
+            DateTime chosenDate = new DateTime(int.Parse(chosenDateParts[2]), int.Parse(chosenDateParts[1]), int.Parse(chosenDateParts[0]));
+            DateTime endDate = chosenDate.AddDays(1);
+            availableTimes.ItemsSource = appointmentController.ShowAvailableAppointments(Priority.None, this.selectedAppointment.doctor.user.Jmbg1, chosenDate, endDate, AppointmentType.Operation);
+        }
+
+        private void ConfirmDateChange(object sender, RoutedEventArgs e)
+        {
+            Appointment app = (Appointment)availableTimes.SelectedItem;
+            DateTime novi = app.StartTime;
+            Boolean provera = appointmentController.UpdateAppointment(this.selectedAppointment.AppointmentID, this.selectedAppointment.StartTime, novi, novi.AddHours(1), null, 0);
+            appointmentRepository.updateDateStatus(this.selectedAppointment.AppointmentID);
+        }
+
+        private void SetDateRestrictions()
+        {
+            newDate.DisplayDateStart = this.selectedAppointment.StartTime;
+            newDate.DisplayDateEnd = this.selectedAppointment.StartTime.AddDays(2);
+            newDate.SelectedDate = this.selectedAppointment.StartTime;
         }
     }
 }

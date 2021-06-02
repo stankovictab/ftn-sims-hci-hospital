@@ -1,0 +1,7 @@
+1;Lek1;Opis1;Balsam of Peru,Buckwheat,Egg,Fish;Alternativa1;Verfied;Razlog odbijanja1
+2;Lek2;Opis2;Balsam of Peru,Buckwheat,Egg,Fish;Alternativa2;Verfied;Razlog odbijanja2
+8;Lek8;Opis8;Balsam of Peru,Buckwheat,Egg,Fish;Alternativa3;Verfied;Razlog odbijanja8
+5;Lek5;Opis5;Balsam of Peru,Buckwheat,Egg,Fish;Alternativa4;Verfied;Razlog odbijanja5
+3;Lek3;Opis3;Fish;Alternativa5;Verfied;Razlog odbijanja3
+9;Lek9;Opis9;Fish;Alternativa6;Verfied;Razlog odbijanja9
+6;Lek6;Opis6;Fish;Alternativa7;Verfied;Razlog odbijanja6

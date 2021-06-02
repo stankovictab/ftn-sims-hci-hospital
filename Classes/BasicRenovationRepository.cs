@@ -4,8 +4,6 @@
  * Purpose: Definition of the Class Controllers,Services&Repositories.BasicRenovationRepository
  ***********************************************************************/
 
-using ASquare.WindowsTaskScheduler;
-using ASquare.WindowsTaskScheduler.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,22 +30,9 @@ namespace Classes
             tw.Close();
         }
 
-        public void ScheduleTask(BasicRenovation newBasicRenovation)
-        {
-            SchedulerResponse response = WindowTaskScheduler
-                .Configure()
-                .CreateTask(newBasicRenovation.Id.ToString(), FileLocationTasks)
-                .RunMonthly()
-                .SetMonthsToRun(1)
-                .RunDurationFor(new TimeSpan(0, newBasicRenovation.Duration, 0))
-                .SetStartDate(newBasicRenovation.DateTime.Date)
-                .SetStartTime(newBasicRenovation.DateTime.TimeOfDay)
-                .SetEndDate(newBasicRenovation.DateTime.AddMinutes(newBasicRenovation.Duration))
-                .Execute();
-        }
 
         public void UpdateTime(DateTime currentTime)
-        {
+        { 
             BasicRenovations = GetAll();
             List<BasicRenovation> basicRenovationIterator = GetAll();
             FinishedBasicRenovations = GetAllFinished();
@@ -65,21 +50,19 @@ namespace Classes
         }
 
         public Boolean Create(BasicRenovation newBasicRenovation)
-        {
+        { 
             BasicRenovations = GetAll();
             BasicRenovations.Add(newBasicRenovation);
             WriteToFile(BasicRenovations, FileLocation);
 
             //zauzimanje sobe
             roomRepository.Renovate(newBasicRenovation.Room);
-
-            ScheduleTask(newBasicRenovation);
             
             return true;
         }
 
         public List<BasicRenovation> PullFromFile(String FileLocation)
-        {
+        { 
             List<BasicRenovation> basicRenovations = new List<BasicRenovation>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
@@ -100,7 +83,7 @@ namespace Classes
         }
 
         public List<BasicRenovation> GetAll()
-        {
+        { 
             List<BasicRenovation> basicRenovations = new List<BasicRenovation>();
 
             basicRenovations = PullFromFile(FileLocation);
@@ -109,13 +92,13 @@ namespace Classes
         }
 
         public List<BasicRenovation> GetAllFinished()
-        {
+        { 
             List<BasicRenovation> finishedBasicRenovations = new List<BasicRenovation>();
             finishedBasicRenovations = PullFromFile(FileLocationFinished);
             return finishedBasicRenovations;
         }
         public Boolean UpdateFile(List<BasicRenovation> renovations)
-        {
+        { 
             if (renovations == null)
             {
                 return false;
@@ -128,7 +111,7 @@ namespace Classes
         }
 
         public Boolean Delete(int id)
-        {
+        { 
             BasicRenovations = GetAll();
             foreach (BasicRenovation renovation in BasicRenovations)
             {

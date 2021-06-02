@@ -7,9 +7,9 @@ namespace Classes
     {
         public HolidayRequestService hrs = new HolidayRequestService();
 
-        public Boolean Create(String desc, DateTime start, DateTime end, Doctor doctor)
+        public Boolean Create(HolidayRequest req)
         {
-            return hrs.Create(desc, start, end, doctor);
+            return hrs.Create(req);
         }
 
         public HolidayRequest GetByID(String id)
@@ -32,9 +32,14 @@ namespace Classes
             return hrs.GetAllOnHold();
         }
 
-        public Boolean Update(String id, String desc, DateTime start, DateTime end, Doctor doctor)
+        public List<HolidayRequest> GetAllNotOnHold()
         {
-            return hrs.Update(id, desc, start, end, doctor);
+            return hrs.GetAllNotOnHold();
+        }
+
+        public Boolean Update(HolidayRequest req)
+        {
+            return hrs.Update(req);
         }
 
         public Boolean UpdateFile()
@@ -47,14 +52,14 @@ namespace Classes
             return hrs.Delete(id);
         }
 
-        public Boolean Approve(String id)
+        public Boolean Approve(String id, String commentary)
         {
-            return hrs.Approve(id);
+            return hrs.Approve(id, commentary);
         }
 
-        public Boolean Deny(String id)
+        public Boolean Deny(String id, String commentary)
         {
-            return hrs.Deny(id);
+            return hrs.Deny(id, commentary);
         }
     }
 }

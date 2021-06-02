@@ -1,0 +1,36 @@
+﻿<Page x:Class="ftn_sims_hci_hospital.createAppointmentSpecialist"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="createAppointmentSpecialist">
+
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="DateTemplate" >
+                <DatePicker SelectedDate="{Binding chosenDate}" SelectedDateChanged="ChosenDateChange" CalendarOpened="CalendarOpenedRestrictions" Focusable="False"/>
+            </DataTemplate>
+        </Grid.Resources>
+        <DockPanel Margin="0 15 0 0">
+            <DataGrid Margin="20" x:Name="referrals" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" DockPanel.Dock="Left" CanUserAddRows="false">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Lekar specijalista" Binding="{Binding doctor.user.Name1}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Krajnji rok" Binding="{Binding endDate}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Opis" Binding="{Binding description}" />
+                        <DataGridTemplateColumn Header="Datum" CellTemplate="{StaticResource DateTemplate}" />
+                    </DataGrid.Columns>
+             </DataGrid>
+            <Button x:Name="ConfirmButton" Margin="20" Click="confirm" Content="Potdvrdite zakazivanje" DockPanel.Dock="Bottom" Visibility="Hidden" IsEnabled="False" ToolTipService.ShowOnDisabled="True" ToolTip="Ne možete da potvrdite zakazivanje ako niste odabrali termin" Cursor="Hand"/>
+            <DataGrid Margin="20" x:Name="availableTime" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" DockPanel.Dock="Right"
+                      Visibility="Hidden" MaxHeight="200" CanUserAddRows="false" SelectionChanged="TimeIsSelected">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Vreme" Binding="{Binding StartTime}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label></Label>
+        </DockPanel>
+    </Grid>
+</Page>

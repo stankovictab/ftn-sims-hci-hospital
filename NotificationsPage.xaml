@@ -12,9 +12,9 @@
         <ListView Margin="10,10,9.6,201" Name="notificationTable">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Naslov" Width="100" DisplayMemberBinding="{Binding Title}" />
-                    <GridViewColumn Header="Telo" Width="100" DisplayMemberBinding="{Binding Body}" />
-                    <GridViewColumn Header="Datum" Width="100" DisplayMemberBinding="{Binding Date}" />
+                    <GridViewColumn Header="Naslov" DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Telo"  DisplayMemberBinding="{Binding Body}" />
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Date}" />
                 </GridView>
             </ListView.View>
         </ListView>
