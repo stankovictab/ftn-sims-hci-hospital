@@ -37,7 +37,7 @@ namespace ftn_sims_hci_hospital
             {
                 foreach (Allergy allergy in allergies)
                 {
-                    if (patientAllergy.allergyID == allergy.Id1)
+                    if (patientAllergy.allergy.Id1 == allergy.Id1)
                     {
                         currentPatient.medicalRecord.allergies.Add(allergy);
                     }
@@ -104,7 +104,7 @@ namespace ftn_sims_hci_hospital
             MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
             foreach(Allergy a in currentPatient.medicalRecord.allergies)
             {
-                PatientAllergy pa = new PatientAllergy(currentPatient.user.Jmbg1, a.Id1);
+                PatientAllergy pa = new PatientAllergy(currentPatient.user.Jmbg1, a);
                 MainWindow.patientController.patientService.PatientallergyRepository.Create(pa);
             }
             

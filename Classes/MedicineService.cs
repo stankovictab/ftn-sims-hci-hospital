@@ -7,43 +7,68 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    class MedicineService
+    public class MedicineService
     {
-        MedicineRepository medicineRepository = new MedicineRepository();
-
-        public Medicine Create(Medicine newMedicine)
-        {
-            return medicineRepository.Create(newMedicine);
-        }
-
-        public Medicine GetByID(String id)
-        {
-            return medicineRepository.GetById(id);
-        }
+        public MedicineRepository medicineRepository = new MedicineRepository();
 
         public List<Medicine> GetAll()
         {
-            return medicineRepository.GetAll();
+            return medicineRepository.GetAllMedicine();
         }
 
-        public Medicine Update(Medicine changedMedicine)
+        public bool UpdateAllOnHold(List<Medicine> mif)
         {
-            return medicineRepository.Update(changedMedicine);
+            return medicineRepository.UpdateAllOnHold(mif);
         }
 
-        public Medicine Approve(Medicine medicineForApprove)
+        public List<Medicine> GetAllOnHold()
         {
-            medicineForApprove.verified = true;
-            return medicineRepository.Update(medicineForApprove);
-            
+            return medicineRepository.GetAllOnHold();
         }
 
-        public Medicine Decline(Medicine medicineForDecline)
+        public bool DeleteOnHold(string name)
         {
-            medicineRepository.Delete(medicineForDecline.id);
-            return medicineForDecline;
+            return medicineRepository.DeleteOnHold(name);
         }
 
-   
+        public bool AddOnHold(Medicine medicine)
+        {
+            return medicineRepository.CreateOnHold(medicine);
+        }
+
+        public Medicine GetOnHoldByName(string name)
+        {
+            return medicineRepository.GetOnHoldByName(name);
+        }
+
+        public bool UpdateOnHold(Medicine medicine)
+        {
+            return medicineRepository.UpdateOnHold(medicine);
+        }
+
+        public List<Medicine> GetAllUnverified()
+        {
+            return medicineRepository.GetAllUnverified();
+        }
+
+        public Medicine GetUnverifiedByName(string name)
+        {
+            return medicineRepository.GetUnverifiedByName(name);
+        }
+
+        public bool DeleteUnverified(string id)
+        {
+            return medicineRepository.DeleteUnverified(id);
+        }
+
+        public bool UpdateAllUnverified(List<Medicine> mif)
+        {
+            return medicineRepository.UpdateAllUnverified(mif);
+        }
+
+        public Medicine GetByID(String medicineId)
+        {
+            return medicineRepository.GetById(medicineId);
+        }
     }
 }

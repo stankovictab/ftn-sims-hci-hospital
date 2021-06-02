@@ -13,6 +13,14 @@ namespace Classes
 
         internal PatientAllergyRepository PatientallergyRepository { get => patientallergyRepository; set => patientallergyRepository = value; }
 
+        public PatientService()
+        {
+            patientRepository = new PatientRepository();
+            anamnesisRepository = new AnamnesisRepository();
+            perscriptionRepository = new PerscriptionRepository();
+            allergiesRepository = new AllergiesRepository();
+        }
+
         public Boolean Create(Patient p)
         {
             if (patientRepository.GetByID(p.user.Jmbg1)!=null)
@@ -82,7 +90,7 @@ namespace Classes
                 {
                     foreach(Allergy allergy in allergies)
                     {
-                        if(patientAllergy.allergyID==allergy.Id1)
+                        if(patientAllergy.allergy.Id1==allergy.Id1)
                         {
                             patient.medicalRecord.allergies.Add(allergy);
                         }

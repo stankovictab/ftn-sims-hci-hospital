@@ -17,18 +17,17 @@
                 <Button Content="Pomeri" Click="UpdateAppointmentTime"></Button>
             </DataTemplate>
         </Grid.Resources>
-        <StackPanel HorizontalAlignment="Center">
-            <Label Content="Svi zakazani pregledi" HorizontalAlignment="Center" ></Label>
-            <DataGrid x:Name="appointmentsTable" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" Margin="0,10,0,0" CanUserAddRows="false">
+        <StackPanel Margin="20" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+            <Label Content="Svi zakazani pregledi" HorizontalAlignment="Center" FontSize="15"/>
+            <DataGrid x:Name="appointmentsTable" HorizontalAlignment="Left" VerticalAlignment="Top" AutoGenerateColumns="False" Margin="0 0 0 0" CanUserAddRows="false" MaxHeight="200">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding AppointmentID}"/>
-                    <DataGridTextColumn Header="Lekar" Binding="{Binding doctor.user.Jmbg1}"/>
+                    <DataGridTextColumn Header="Lekar" Binding="{Binding doctor.user.Name1}"/>
                     <DataGridTextColumn Header="Datum" Binding="{Binding StartTime}"/>
                     <DataGridTemplateColumn Header="Otkaži" CellTemplate="{StaticResource CancelTemplate}"/>
                     <DataGridTemplateColumn Header="Pomeri datum" CellTemplate="{StaticResource UpdateTemplate}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
-
     </Grid>
 </Page>

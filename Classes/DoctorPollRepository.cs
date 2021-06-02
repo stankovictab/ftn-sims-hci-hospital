@@ -12,7 +12,7 @@ namespace ftn_sims_hci_hospital.Classes
         private DoctorRepository doctorRepository;
         public DoctorPollRepository()
         {
-            FileLocation = "../../Text Files/poll.txt";
+            FileLocation = "../../Text Files/doctorPoll.txt";
             patientRepository = new PatientRepository();
             doctorRepository = new DoctorRepository();
         }

@@ -12,7 +12,8 @@ namespace Classes
         public MedicineService medicineService = new MedicineService();
         public Medicine Create(Medicine newMedicine)
         {
-           return medicineService.Create(newMedicine);   
+            // return medicineService.Create(newMedicine);
+            return null;
         }
 
         public Medicine GetByID(String id)
@@ -27,17 +28,20 @@ namespace Classes
 
         public Medicine Update(Medicine changedMedicine)
         {
-           return medicineService.Update(changedMedicine);
+           //return medicineService.Update(changedMedicine);
+           return null;
         }
 
         public Medicine Approve(Medicine medicineForApprove)
         {
-            return medicineService.Approve(medicineForApprove);
+            //return medicineService.Approve(medicineForApprove);
+            return null;
         }
 
         public Medicine Decline(Medicine medicineForDecline)
         {
-            return medicineService.Decline(medicineForDecline);
+            //return medicineService.Decline(medicineForDecline);
+            return null;
         }
 
     }

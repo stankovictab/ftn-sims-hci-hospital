@@ -5,15 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
         mc:Ignorable="d"
-        Title="AddReferral" Height="450" Width="800">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="55,84,0,0" TextWrapping="Wrap" Text="doctor: " VerticalAlignment="Top"/>
-        <TextBox Name="txtDoctorId" HorizontalAlignment="Left" Height="23" Margin="112,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <DatePicker Name="durationDate" HorizontalAlignment="Left" Margin="112,121,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,125,0,0" TextWrapping="Wrap" Text="valid unitl:" VerticalAlignment="Top"/>
-        <TextBox Name="txtDescription" HorizontalAlignment="Left" Height="145" Margin="42,228,0,0" VerticalAlignment="Top" Width="725"></TextBox>
-        <TextBlock HorizontalAlignment="Left" Margin="42,196,0,0" TextWrapping="Wrap" Text="Descrption:" VerticalAlignment="Top"/>
-        <Button Content="add" Click="createReferral" HorizontalAlignment="Left" Margin="692,389,0,0" VerticalAlignment="Top" Width="75"/>
+        Title="AddReferral" Height="379.827" Width="351.114">
+    <Grid Margin="0,0,0,0">
+        <TextBlock HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="refferal for: " VerticalAlignment="Top"/>
+        <RadioButton Content="doctor" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="hostpital treatment" HorizontalAlignment="Left" Margin="180,20,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <Canvas Name="hostpitalTreatmentCanvas" Margin="10,40,10,10">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="room: " VerticalAlignment="Top"/>
+            <ComboBox Name="roomsComboBox" Width="120" ItemsSource="{Binding Path=rooms}" Canvas.Left="80" Canvas.Top="10" SelectionChanged="fillBeds" />
+            <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="bed: " VerticalAlignment="Top"/>
+            <ComboBox Name="bedsComboBox" Margin="80,30,0,0" DisplayMemberPath="statId" Width="120"/>
+            <DatePicker Name="startDate" HorizontalAlignment="Left" Margin="80,50,0,0" VerticalAlignment="Top"/>
+            <DatePicker Name="endDate" HorizontalAlignment="Left" Margin="80,70,0,0" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" Text="startDate: " VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="endDate: " VerticalAlignment="Top"/>
+            <TextBox Name="txtDescription" HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="303" Canvas.Left="10" Canvas.Top="111"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,90,0,0" TextWrapping="Wrap" Text="Descrption:" VerticalAlignment="Top"/>
+            <Button Content="add" Click="createHosReferral" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="238" Canvas.Top="269"/>
+
+        </Canvas>
 
     </Grid>
 </Window>
