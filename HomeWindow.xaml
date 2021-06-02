@@ -8,7 +8,7 @@
         Title="HomeWindow" Height="450" Width="800">
     <Grid>
         <ListBox x:Name="menu" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="226" Background="Black" Foreground="White" FontSize="20" FontFamily="Arial" SelectionChanged="menu_SelectionChanged" BorderBrush="Black"/>
-        <ListView x:Name="doctorData" HorizontalAlignment="Left" Height="255" Margin="253,10,0,0" VerticalAlignment="Top" Width="420" Foreground="Black" BorderBrush="Black">
+        <ListView x:Name="doctorData" HorizontalAlignment="Left" Height="255" Margin="253,10,0,0" VerticalAlignment="Top" Width="304" Foreground="Black" BorderBrush="Black">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding user.Name1}"/>
@@ -17,8 +17,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btncreatedoctor" Content="Create Doctor" HorizontalAlignment="Left" Margin="279,286,0,0" VerticalAlignment="Top" Width="156" Height="45" Background="White" BorderBrush="Black" Click="btncreatedoctor_Click"/>
-        <Button x:Name="btnviewdoctor" Content="View Doctor" HorizontalAlignment="Left" Margin="279,350,0,0" VerticalAlignment="Top" Width="156" Height="45" BorderBrush="Black" Background="White" Click="btnviewdoctor_Click"/>
-        <Button x:Name="btndeletedoctor" Content="Delete Doctor" HorizontalAlignment="Left" Margin="497,286,0,0" VerticalAlignment="Top" Width="156" Height="45" Background="White" BorderBrush="Black" Click="btndeletedoctor_Click"/>
+        <Button x:Name="btncreatedoctor" Content="Create Doctor" HorizontalAlignment="Left" Margin="599,10,0,0" VerticalAlignment="Top" Width="156" Height="45" Background="White" BorderBrush="Black" Click="btncreatedoctor_Click"/>
+        <Button x:Name="btnviewdoctor" Content="View Doctor" HorizontalAlignment="Left" Margin="599,80,0,0" VerticalAlignment="Top" Width="156" Height="45" BorderBrush="Black" Background="White" Click="btnviewdoctor_Click"/>
+        <Button x:Name="btndeletedoctor" Content="Delete Doctor" HorizontalAlignment="Left" Margin="599,150,0,0" VerticalAlignment="Top" Width="156" Height="45" Background="White" BorderBrush="Black" Click="btndeletedoctor_Click"/>
+        <Button x:Name="btnreportschedule" Content="Schedule Report" HorizontalAlignment="Left" Margin="599,220,0,0" VerticalAlignment="Top" Width="156" Height="45" Background="White" BorderBrush="Black"/>
     </Grid>
 </Window>

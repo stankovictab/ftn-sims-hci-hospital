@@ -25,11 +25,15 @@ namespace ftn_sims_hci_hospital
         public SecretaryReleaseList()
         {
             InitializeComponent();
-            
+            initHospitalizedPatients();
+        }
+
+        private void initHospitalizedPatients()
+        {
             referalsOnThisDay = hospitalizationReferalRepository.getAllByEndDate(DateTime.Now);
-            foreach(HospitalizationReferal hr in referalsOnThisDay)
+            foreach (HospitalizationReferal hr in referalsOnThisDay)
             {
-                patientData.Items.Add(new HospitalizedPatientDTO { name = hr.patient.user.Name1, lastname = hr.patient.user.LastName1,jmbg=hr.patient.user.Jmbg1, description = hr.description,  startDate = hr.startDate, endDate = hr.endDate });
+                patientData.Items.Add(new HospitalizedPatientDTO { name = hr.patient.user.Name1, lastname = hr.patient.user.LastName1, jmbg = hr.patient.user.Jmbg1, description = hr.description, startDate = hr.startDate, endDate = hr.endDate });
             }
         }
 
@@ -48,21 +52,26 @@ namespace ftn_sims_hci_hospital
                 HospitalizedPatientDTO concludedPatient = (HospitalizedPatientDTO)patientData.SelectedItem;
                 concludedPatient.description = tbconclusion.Text;
                 patientData.Items.Clear();
-                foreach (HospitalizationReferal hr in referalsOnThisDay)
+                updateHospitalizedPatients(concludedPatient);
+            }
+
+        }
+
+        private void updateHospitalizedPatients(HospitalizedPatientDTO concludedPatient)
+        {
+            foreach (HospitalizationReferal hr in referalsOnThisDay)
+            {
+                if (hr.patient.user.Jmbg1.Equals(concludedPatient.jmbg))
                 {
-                    if(hr.patient.user.Jmbg1.Equals(concludedPatient.jmbg))
-                    {
-                        hr.description = concludedPatient.description;
-                        patientData.Items.Add(concludedPatient);
-                        hospitalizationReferalRepository.Update(hr);
-                    }
-                    else
-                    {
-                        patientData.Items.Add(new HospitalizedPatientDTO { name = hr.patient.user.Name1, lastname = hr.patient.user.LastName1, jmbg = hr.patient.user.Jmbg1, description = hr.description, startDate = hr.startDate, endDate = hr.endDate });
-                    }
+                    hr.description = concludedPatient.description;
+                    patientData.Items.Add(concludedPatient);
+                    hospitalizationReferalRepository.Update(hr);
+                }
+                else
+                {
+                    patientData.Items.Add(new HospitalizedPatientDTO { name = hr.patient.user.Name1, lastname = hr.patient.user.LastName1, jmbg = hr.patient.user.Jmbg1, description = hr.description, startDate = hr.startDate, endDate = hr.endDate });
                 }
             }
-        
         }
     }
 }

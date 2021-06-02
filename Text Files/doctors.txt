@@ -1,4 +1,4 @@
-0501,Djordje,Stankovic,1A,0,1
+0501,Djordje,Stankovic,1A,0,0
 7601,Stevica,Stevkic,1B,0,0
 6331,Mikica,Mikic,1C,0,1
-1233211233211,Miksa,Miksa,1,1,1
+1233211233211,Miksa,Miksa,1,1,0

@@ -25,14 +25,24 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             currentDoctor = MainWindow.doctorController.GetByID(id);
+            initTextBoxes();
+            initShifts();
+        }
+
+        private void initTextBoxes()
+        {
             tbfirstname.Text = currentDoctor.user.Name1;
             tblastname.Text = currentDoctor.user.LastName1;
             tbgender.Text = currentDoctor.user.Gender1.ToString();
             tbjmbg.Text = currentDoctor.user.Jmbg1;
             tbspecialization.Text = currentDoctor.specialization.ToString();
+        }
+
+        private void initShifts()
+        {
             cbshift.Items.Add(Shift.MORNING);
             cbshift.Items.Add(Shift.AFTERNOON);
-            cbshift.SelectedIndex =Convert.ToInt32(currentDoctor.shift);
+            cbshift.SelectedIndex = Convert.ToInt32(currentDoctor.shift);
         }
 
         private void btnsave_Click(object sender, RoutedEventArgs e)

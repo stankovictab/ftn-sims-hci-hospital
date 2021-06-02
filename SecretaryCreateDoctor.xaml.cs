@@ -19,48 +19,43 @@ namespace ftn_sims_hci_hospital
     /// Interaction logic for SecretaryCreateDoctor.xaml
     /// </summary>
     public partial class SecretaryCreateDoctor : Window
-    { private List<Room> rooms = new List<Room>();
+    { 
+        private List<Room> rooms = new List<Room>();
         public SecretaryCreateDoctor()
         {
             InitializeComponent();
+            initShifts();
+            initSpecializations();
+            initRooms();
+        }
+
+        private void initShifts()
+        {
             cbshift.Items.Add(Shift.MORNING);
             cbshift.Items.Add(Shift.AFTERNOON);
+        }
+
+        private void initSpecializations()
+        {
             cbspecialization.Items.Add(DoctorSpecialization.GeneralPractice);
             cbspecialization.Items.Add(DoctorSpecialization.Specialist);
-            rooms=MainWindow.roomController.GetAll();
-            foreach(Room room in rooms)
+        }
+
+        private void initRooms()
+        {
+            rooms = MainWindow.roomController.GetAll();
+            foreach (Room room in rooms)
             {
                 cbroom.Items.Add(room.RoomNumber1);
             }
         }
 
-
-
         private void btncreate_Click(object sender, RoutedEventArgs e)
         {
             if(tbname.Text!=""&&tblastname.Text!=""&&tbjmbg.Text!=""&& tbusername.Text != "" && tbpassword.Text != "" &&cbshift.SelectedItem!=null&&cbspecialization.SelectedItem!=null&&cbroom.SelectedItem!=null)
             {
-                Room room = MainWindow.roomController.GetById(cbroom.SelectedItem.ToString());
-                User user = new User(tbname.Text, tblastname.Text, tbusername.Text, tbpassword.Text,"", tbjmbg.Text,"",'N',false, Roles.Doctor,false);
-                Doctor newDoctor = new Doctor(user, room, (DoctorSpecialization)cbspecialization.SelectedItem, null, null, null, null);
-                newDoctor.shift = (Shift)cbshift.SelectedItem;
-                List<Doctor> doctors = MainWindow.doctorController.GetAll();
-                bool fleg = false;
-                foreach(Doctor doctor in doctors)
-                {
-                    if(newDoctor.user.Jmbg1.Equals(doctor.user.Jmbg1))
-                    {
-                        MessageBox.Show("An account with the same id(jmbg) already exists!");
-                        fleg = true;
-                        break;
-                    }
-                    if(newDoctor.user.Username1.Equals(doctor.user.Username1))
-                    {
-                        MessageBox.Show("An account with the same username already exists!");
-                        fleg = true;
-                        break;
-                    }
-                }
+                Doctor newDoctor = createDoctor();
+                bool fleg = validateNewDoctor(newDoctor);
                 if (!fleg)
                 {
                     MainWindow.doctorController.Create(newDoctor);
@@ -68,6 +63,38 @@ namespace ftn_sims_hci_hospital
                     this.Close();
                 }
             }
+        }
+
+        private static bool validateNewDoctor(Doctor newDoctor)
+        {
+            List<Doctor> doctors = MainWindow.doctorController.GetAll();
+            bool fleg = false;
+            foreach (Doctor doctor in doctors)
+            {
+                if (newDoctor.user.Jmbg1.Equals(doctor.user.Jmbg1))
+                {
+                    MessageBox.Show("An account with the same id(jmbg) already exists!");
+                    fleg = true;
+                    break;
+                }
+                if (newDoctor.user.Username1.Equals(doctor.user.Username1))
+                {
+                    MessageBox.Show("An account with the same username already exists!");
+                    fleg = true;
+                    break;
+                }
+            }
+
+            return fleg;
+        }
+
+        private Doctor createDoctor()
+        {
+            Room room = MainWindow.roomController.GetById(cbroom.SelectedItem.ToString());
+            User user = new User(tbname.Text, tblastname.Text, tbusername.Text, tbpassword.Text, "", tbjmbg.Text, "", 'N', false, Roles.Doctor, false);
+            Doctor newDoctor = new Doctor(user, room, (DoctorSpecialization)cbspecialization.SelectedItem, null, null, null, null);
+            newDoctor.shift = (Shift)cbshift.SelectedItem;
+            return newDoctor;
         }
     }
 }

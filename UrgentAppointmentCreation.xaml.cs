@@ -106,7 +106,7 @@ namespace ftn_sims_hci_hospital
         {
             ObservableCollection<Appointment> sortedReservedAppointments = new ObservableCollection<Appointment>();
             DateTime newCurrentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1, 0, 0, 0);
-            DateTime newEndTime = new DateTime(newCurrentTime.Year, newCurrentTime.Month, newCurrentTime.Day + 5, 0, 0, 0);
+            DateTime newEndTime = new DateTime(newCurrentTime.Year, newCurrentTime.Month, newCurrentTime.Day + 2, 0, 0, 0);
             foreach (Appointment possibleAppointment in appointmentsForRescheduling)
             {
                 List<Appointment> possibleAppointments = MainWindow.appointmentController.appointmentService.ShowAvailableAppointments(Priority.None, possibleAppointment.doctor.user.Jmbg1, newCurrentTime, newEndTime, AppointmentType.Regular);
@@ -270,7 +270,7 @@ namespace ftn_sims_hci_hospital
         private static List<Appointment> getDoctorsAvailableAppointments(Doctor adequateDoctor)
         {
             DateTime currentTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1, 0, 0, 0);
-            DateTime endTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day + 5, 0, 0, 0);
+            DateTime endTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day + 2, 0, 0, 0);
             List<Appointment> availableAppointments = MainWindow.appointmentController.appointmentService.ShowAvailableAppointments(Priority.None, adequateDoctor.user.Jmbg1, currentTime, endTime, AppointmentType.Regular);
             return availableAppointments;
         }

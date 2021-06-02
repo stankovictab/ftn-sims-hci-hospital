@@ -12,7 +12,12 @@
 		<Model Expanded="Yes" ID="{AE93459F-43C6-4928-8CED-3903A9316E06}" Loaded="No" Name="TestModel" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="SekretarAdmin.oom"/>
 		<Model Expanded="Yes" ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Loaded="No" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Class Diagram DJOTA.oom"/>
 		<Model Expanded="Yes" ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Loaded="No" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Class Diagram DJOTA.oom"/>
-		<Model Expanded="Yes" ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Class Diagram DJOTA.oom"/>
+		<Model Expanded="Yes" ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Loaded="No" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Class Diagram DJOTA.oom"/>
+		<Model Expanded="Yes" ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Loaded="No" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../../../temp/ftn-sims-hci-hospital/diagrams/Class Diagram DJOTA.oom"/>
+		<Model ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Loaded="No" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../../../temp/ftn-sims-hci-hospital/diagrams/Class Diagram.oom"/>
+		<Model ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Loaded="No" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Class Diagram DJOTA.oom"/>
+		<Model Expanded="Yes" ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Loaded="No" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../../../temp/ftn-sims-hci-hospital/diagrams/Class Diagram.oom"/>
+		<Model Expanded="Yes" ID="{E1C895DA-8B08-408B-8B80-C5878B12796C}" Name="Class Diagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../../../temp/ftn-sims-hci-hospital/diagrams/Class Diagram.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

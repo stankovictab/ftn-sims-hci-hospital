@@ -35,17 +35,7 @@ namespace Classes
                 String[] data = row.Split(';');
                 if (data[0].Equals(HrefId))
                 {
-                    String id = data[0];
-                    String patientId = data[1];
-                    Patient patient = patientRepository.GetByID(patientId);
-                    String description = data[2];
-                    String[] startDateParts = data[3].Split(',');
-                    DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    String[] endDateParts = data[4].Split(',');
-                    DateTime endDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    String roomId = data[5];
-                    Room room = roomRepository.GetById(roomId);
-                    hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate,room);
+                    hospitalizationReferral = getHospitalizationReferralReady(data);
                     return hospitalizationReferral;
                 }
             }
@@ -62,22 +52,29 @@ namespace Classes
                 String[] data = row.Split(';');
                 if (data[1].Equals(patientID))
                 {
-                    String id = data[0];
-                    String patientId = data[1];
-                    Patient patient = patientRepository.GetByID(patientId);
-                    String description = data[2];
-                    String[] startDateParts = data[3].Split(',');
-                    DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    String[] endDateParts = data[4].Split(',');
-                    DateTime endDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    String roomId = data[5];
-                    Room room = roomRepository.GetById(roomId);
-                    HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room);
+                    HospitalizationReferal hospitalizationReferral = getHospitalizationReferralReady(data);
                     referrals.Add(hospitalizationReferral);
                 }
             }
             return referrals;
         }
+
+        private HospitalizationReferal getHospitalizationReferralReady(string[] data)
+        {
+            String id = data[0];
+            String patientId = data[1];
+            Patient patient = patientRepository.GetByID(patientId);
+            String description = data[2];
+            String[] startDateParts = data[3].Split(',');
+            DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
+            String[] endDateParts = data[4].Split(',');
+            DateTime endDate = new DateTime(int.Parse(endDateParts[0]), int.Parse(endDateParts[1]), int.Parse(endDateParts[2]), int.Parse(endDateParts[3]), int.Parse(endDateParts[4]), int.Parse(endDateParts[5]));
+            String roomId = data[5];
+            Room room = roomRepository.GetById(roomId);
+            HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room);
+            return hospitalizationReferral;
+        }
+
         public Boolean Delete(String id)
         {
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
@@ -116,16 +113,7 @@ namespace Classes
                 String[] endDateParts = data[4].Split(',');
                 if (endDateParts[0].Equals(requestedEndDate.Year.ToString())&& Convert.ToInt32(endDateParts[1]).ToString().Equals(requestedEndDate.Month.ToString())&&Convert.ToInt32(endDateParts[2]).ToString().Equals(requestedEndDate.Day.ToString()))
                 {
-                    String id = data[0];
-                    String patientId = data[1];
-                    Patient patient = patientRepository.GetByID(patientId);
-                    String description = data[2];
-                    String[] startDateParts = data[3].Split(',');
-                    DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
-                    DateTime endDate = new DateTime(int.Parse(endDateParts[0]), int.Parse(endDateParts[1]), int.Parse(endDateParts[2]), int.Parse(endDateParts[3]), int.Parse(endDateParts[4]), int.Parse(endDateParts[5]));
-                    String roomId = data[5];
-                    Room room = roomRepository.GetById(roomId);
-                    HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room);
+                    HospitalizationReferal hospitalizationReferral = getHospitalizationReferralReady(data);
                     referralsByEndDate.Add(hospitalizationReferral);
                 }
             }

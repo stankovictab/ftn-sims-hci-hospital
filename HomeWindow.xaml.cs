@@ -23,19 +23,21 @@ namespace ftn_sims_hci_hospital
         public HomeWindow()
         {
             InitializeComponent();
+            initMenu();
+            menu.SelectedItem = menu.Items[0];
+            updateDoctorsList();
+        }
+
+        private void initMenu()
+        {
             menu.Items.Add("Home");
             menu.Items.Add("Your Profile");
             menu.Items.Add("Patients");
             menu.Items.Add("Appointments");
             menu.Items.Add("Notifications");
             menu.Items.Add("Exchange Patient Info");
-            menu.SelectedItem = menu.Items[0];
-            List<Doctor> allDoctors = MainWindow.doctorController.GetAll();
-            foreach(Doctor doctor in allDoctors)
-            {
-                doctorData.Items.Add(new Doctor { user=doctor.user,specialization = doctor.specialization });
-            }
         }
+
         private void menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -77,11 +79,7 @@ namespace ftn_sims_hci_hospital
             Window secretaryCreateDoctor = new SecretaryCreateDoctor();
             secretaryCreateDoctor.ShowDialog();
             doctorData.Items.Clear();
-            List<Doctor> allDoctors = MainWindow.doctorController.GetAll();
-            foreach (Doctor doctor in allDoctors)
-            {
-                doctorData.Items.Add(new Doctor { user = doctor.user, specialization = doctor.specialization });
-            }
+            updateDoctorsList();
         }
 
         private void btnviewdoctor_Click(object sender, RoutedEventArgs e)
@@ -90,17 +88,22 @@ namespace ftn_sims_hci_hospital
             {
                 if (doctorData.SelectedItem != null)
                 {
-                    Doctor selectedDoctor= (Doctor)doctorData.SelectedItem;
+                    Doctor selectedDoctor = (Doctor)doctorData.SelectedItem;
                     String id = selectedDoctor.user.Jmbg1;
                     Window doctorView = new SecretaryViewDoctor(id);
                     doctorView.ShowDialog();
                     doctorData.Items.Clear();
-                    List<Doctor> allDoctors = MainWindow.doctorController.GetAll();
-                    foreach (Doctor doctor in allDoctors)
-                    {
-                        doctorData.Items.Add(new Doctor { user = doctor.user, specialization = doctor.specialization });
-                    }
+                    updateDoctorsList();
                 }
+            }
+        }
+
+        private void updateDoctorsList()
+        {
+            List<Doctor> allDoctors = MainWindow.doctorController.GetAll();
+            foreach (Doctor doctor in allDoctors)
+            {
+                doctorData.Items.Add(new Doctor { user = doctor.user, specialization = doctor.specialization });
             }
         }
 
@@ -114,11 +117,7 @@ namespace ftn_sims_hci_hospital
                     MainWindow.doctorController.Delete(id);
                     MessageBox.Show("You have successfuly deleted a doctor!");
                     doctorData.Items.Clear();
-                    List<Doctor> allDoctors = MainWindow.doctorController.GetAll();
-                    foreach (Doctor doctor in allDoctors)
-                    {
-                        doctorData.Items.Add(new Doctor { user = doctor.user, specialization = doctor.specialization });
-                    }
+                    updateDoctorsList();
                 }
             }
         }
