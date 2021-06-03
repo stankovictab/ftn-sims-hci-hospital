@@ -1,0 +1,120 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.Admin.AdminManagerPollResults"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.Admin"
+        mc:Ignorable="d"
+        Title="AdminManagerPollResults" Height="600" Width="1050" Background="White">
+    <Grid Background="White">
+        <Menu HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="1042" Background="#FF56B290">
+            <MenuItem Header="Holiday Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="HolidayRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="DynamicEquipmentRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Orders" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold">
+                <MenuItem Header="Main Panel" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderPanel_Click"/>
+                <MenuItem Header="Creation" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderCreation_Click"/>
+            </MenuItem>
+            <MenuItem Header="Poll Results" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="PollResults_Click"/>
+            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="185 0 0 0" BorderBrush="{x:Null}">
+                <MenuItem Header="View / Edit Profile" Height="34" Background="#FF56B290" Click="ViewProfile_Click" BorderBrush="{x:Null}"/>
+                <MenuItem Header="Log Out" Height="34" Background="#FF56B290" Click="LogOut_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Orientation="Horizontal" Height="256" VerticalAlignment="Bottom" Margin="264,0,425,278">
+            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FF00FF68" Value="6" Margin="5"/> <!-- 6 -->
+            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FF9AF31A" Value="3" Margin="5"/> <!-- 3 -->
+            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFEED804" Value="1" Margin="5"/> <!-- 1 -->
+            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFEA8B2C" Value="2" Margin="5"/> <!-- 2 -->
+            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFE41212" Value="3" Margin="5"/> <!-- 3 -->
+        </StackPanel>
+
+        <ListView x:Name="doctorPollResultsListView" HorizontalAlignment="Left" Height="185" Margin="27,358,0,0" VerticalAlignment="Top" Width="991" FontSize="16">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Doctor" DisplayMemberBinding="{Binding Doctor}"/>
+                    <GridViewColumn Header="Average Score" DisplayMemberBinding="{Binding AverageScore}"/>
+                    <GridViewColumn Header="5 Stars" DisplayMemberBinding="{Binding Fives}"/>
+                    <GridViewColumn Header="4 Stars" DisplayMemberBinding="{Binding Fours}"/>
+                    <GridViewColumn Header="3 Stars" DisplayMemberBinding="{Binding Threes}"/>
+                    <GridViewColumn Header="2 Stars" DisplayMemberBinding="{Binding Twos}"/>
+                    <GridViewColumn Header="1 Star" DisplayMemberBinding="{Binding Ones}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Hospital Average Score:" HorizontalAlignment="Left" Margin="548,296,0,0" VerticalAlignment="Top" FontSize="28" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="5 Stars:" HorizontalAlignment="Left" Margin="882,104,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="4 Stars:" HorizontalAlignment="Left" Margin="882,137,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="3 Stars:" HorizontalAlignment="Left" Margin="882,170,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="2 Stars:" HorizontalAlignment="Left" Margin="882,203,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="1 Star:" HorizontalAlignment="Left" Margin="894,236,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalAverageScore" Content="0.00" HorizontalAlignment="Left" Margin="885,296,0,0" VerticalAlignment="Top" FontSize="28" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalFives" Content="0" HorizontalAlignment="Left" Margin="970,105,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalFours" Content="0" HorizontalAlignment="Left" Margin="970,138,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalThrees" Content="0" HorizontalAlignment="Left" Margin="970,171,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalTwos" Content="0" HorizontalAlignment="Left" Margin="970,204,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalOnes" Content="0" HorizontalAlignment="Left" Margin="970,237,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="1 Star" HorizontalAlignment="Left" Margin="423,298,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-40.749"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="2 Stars" HorizontalAlignment="Left" Margin="373,300,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-40.749"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="3 Stars" HorizontalAlignment="Left" Margin="323,300,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-40.749"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="4 Stars" HorizontalAlignment="Left" Margin="273,300,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-40.749"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="5 Stars" HorizontalAlignment="Left" Margin="223,300,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-40.749"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="0" HorizontalAlignment="Left" Margin="243,262,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="10" HorizontalAlignment="Left" Margin="232,74,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="Votes" HorizontalAlignment="Left" Margin="203,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+    </Grid>
+</Window>

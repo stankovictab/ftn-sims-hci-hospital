@@ -1,0 +1,41 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.Admin.AdminManagerDynamicEquipmentOrderUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.HCI"
+        mc:Ignorable="d"
+        Title="AdminManagerDynamicEquipmentOrderUpdate" Height="600" Width="1050" Background="White">
+    <Grid Background="White">
+        <Menu HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="1042" Background="#FF56B290">
+            <MenuItem Header="Holiday Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="HolidayRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="DynamicEquipmentRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Orders" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold">
+                <MenuItem Header="Main Panel" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderPanel_Click"/>
+                <MenuItem Header="Creation" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderCreation_Click"/>
+            </MenuItem>
+            <MenuItem Header="Poll Results" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="PollResults_Click"/>
+            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="185 0 0 0" BorderBrush="{x:Null}">
+                <MenuItem Header="View / Edit Profile" Height="34" Background="#FF56B290" Click="ViewProfile_Click" BorderBrush="{x:Null}"/>
+                <MenuItem Header="Log Out" Height="34" Background="#FF56B290" Click="LogOut_Click"/>
+            </MenuItem>
+        </Menu>
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="765,102,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnRefresh_Click"/>
+        <Button x:Name="btnFinalizeOrder" Content="Finalize Order" HorizontalAlignment="Left" Margin="765,484,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnFinalizeOrder_Click"/>
+        <Label Content="Amount:" HorizontalAlignment="Left" Margin="762,187,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontSize="18" Foreground="#FF56B290"/>
+        <TextBox x:Name="dynamicEquipmentTextBox" HorizontalAlignment="Left" Height="38" Margin="765,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontFamily="Arial" FontSize="22" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnUpdateAmount" Content="Update Amount" HorizontalAlignment="Left" Margin="765,270,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnUpdateAmount_Click" IsEnabled="False"/>
+        <ListView x:Name="dynamicEquipmentOrderListView" HorizontalAlignment="Left" Height="400" Margin="67,102,0,0" VerticalAlignment="Top" Width="616" SelectionChanged="dynamicEquipmentOrderListView_SelectionChanged" FontSize="14">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
+                    <GridViewColumn Header="Equipment Name" DisplayMemberBinding="{Binding EquipmentName1}"/>
+                    <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding EquipmentAmount1}"/>
+                    <GridViewColumn Header="Request Date" DisplayMemberBinding="{Binding RequestDate1}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="All shown requests are approved." HorizontalAlignment="Center" Margin="67,0,359,4" VerticalAlignment="Bottom" FontSize="26" Background="{x:Null}" Foreground="#FF56B290" FontFamily="Arial" Width="616" Height="58" HorizontalContentAlignment="Center"/>
+        <Label Content="Selected Order" HorizontalAlignment="Center" Margin="63,58,496,460" VerticalAlignment="Center" FontSize="26" Background="{x:Null}" Foreground="#FF56B290" FontFamily="Arial" Width="483" Height="51" FontWeight="Bold"/>
+    </Grid>
+</Window>

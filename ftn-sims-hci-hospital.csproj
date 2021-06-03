@@ -58,6 +58,57 @@
     <Compile Include="AddReferral.xaml.cs">
       <DependentUpon>AddReferral.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminManagerDynamicEquipmentOrderUpdate.xaml.cs">
+      <DependentUpon>AdminManagerDynamicEquipmentOrderUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerDynamicEquipmentOrderCreation.xaml.cs">
+      <DependentUpon>AdminManagerDynamicEquipmentOrderCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerHolidayPastRequestApprovals.xaml.cs">
+      <DependentUpon>AdminManagerHolidayPastRequestApprovals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerDynamicEquipmentPastRequestApprovals.xaml.cs">
+      <DependentUpon>AdminManagerDynamicEquipmentPastRequestApprovals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerPollResults.xaml.cs">
+      <DependentUpon>AdminManagerPollResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerDynamicEquipmentOrderPanel.xaml.cs">
+      <DependentUpon>AdminManagerDynamicEquipmentOrderPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerHolidayRequestApprovals.xaml.cs">
+      <DependentUpon>AdminManagerHolidayRequestApprovals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerDynamicEquipmentRequestApprovals.xaml.cs">
+      <DependentUpon>AdminManagerDynamicEquipmentRequestApprovals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDoctorDynamicEquipmentRequestPanel.xaml.cs">
+      <DependentUpon>AdminDoctorDynamicEquipmentRequestPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDoctorHolidayRequestCreation.xaml.cs">
+      <DependentUpon>AdminDoctorHolidayRequestCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDoctorHolidayRequestUpdate.xaml.cs">
+      <DependentUpon>AdminDoctorHolidayRequestUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDoctorHolidayRequestPanel.xaml.cs">
+      <DependentUpon>AdminDoctorHolidayRequestPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerProfile.xaml.cs">
+      <DependentUpon>AdminManagerProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDoctorProfile.xaml.cs">
+      <DependentUpon>AdminDoctorProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerPanel.xaml.cs">
+      <DependentUpon>AdminManagerPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDoctorPanel.xaml.cs">
+      <DependentUpon>AdminDoctorPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Bar.xaml.cs">
+      <DependentUpon>Bar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllAllergiesPage.xaml.cs">
       <DependentUpon>AllAllergiesPage.xaml</DependentUpon>
     </Compile>
@@ -183,8 +234,8 @@
     <Compile Include="Djordje HCI\AppointmentPanelHCI.xaml.cs">
       <DependentUpon>AppointmentPanelHCI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Djordje HCI\DoctorPanelHCI.xaml.cs">
-      <DependentUpon>DoctorPanelHCI.xaml</DependentUpon>
+    <Compile Include="Admin\AdminPanel.xaml.cs">
+      <DependentUpon>AdminPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Djordje HCI\DynamicEquipmentPanelHCI.xaml.cs">
       <DependentUpon>DynamicEquipmentPanelHCI.xaml</DependentUpon>
@@ -340,6 +391,74 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Admin\AdminManagerDynamicEquipmentOrderUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerDynamicEquipmentOrderCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerHolidayPastRequestApprovals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerDynamicEquipmentPastRequestApprovals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerPollResults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerDynamicEquipmentOrderPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerHolidayRequestApprovals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerDynamicEquipmentRequestApprovals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminDoctorDynamicEquipmentRequestPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminDoctorHolidayRequestCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminDoctorHolidayRequestUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminDoctorHolidayRequestPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminDoctorProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminDoctorPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\Bar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AllAllergiesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -380,7 +499,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Djordje HCI\DoctorPanelHCI.xaml">
+    <Page Include="Admin\AdminPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -728,6 +847,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="usernew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Admin\logoblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Admin\doctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Admin\logogreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Admin\manager.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

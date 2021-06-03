@@ -100,10 +100,10 @@ namespace ftn_sims_hci_hospital
             win1.Show();
         }
 
-        private void btdHCI_Click(object sender, RoutedEventArgs e)
+        private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
-            Window doctorHCIPanel = new HCI.DoctorPanelHCI();
-            doctorHCIPanel.ShowDialog();
+            Window adminPanel = new Admin.AdminPanel();
+            adminPanel.ShowDialog();
         }
     }
 }

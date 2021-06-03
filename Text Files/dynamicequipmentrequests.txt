@@ -1,4 +1,5 @@
-1,flasteri,0,02/10/21 09:00:00 AM,1,False,0501,/
-2,zavoji,0,02/19/21 09:00:00 AM,0,False,7601,/
-3,skalpeli,0,02/15/21 09:00:00 AM,2,False,0501,Vrlo ostro!
-4,igle,0,03/01/21 09:00:00 AM,1,False,7601,/
+1,Flasteri,0,02/10/21 10:00:00 AM,1,False,0501,Odobren
+2,Zavoji,0,02/19/21 11:00:00 AM,0,False,7601,/
+3,Skalpeli,0,02/15/21 9:00:00 AM,2,False,0501,Vrlo ostro!
+4,Igle,0,03/01/21 9:00:00 AM,1,False,7601,Odobren
+5,Makaze,0,06/02/21 8:00:00 AM,0,False,0501,/
