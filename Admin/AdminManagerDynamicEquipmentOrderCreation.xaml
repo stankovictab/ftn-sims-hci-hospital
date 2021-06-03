@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ftn_sims_hci_hospital.HCI"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.Admin"
         mc:Ignorable="d"
         Title="AdminManagerDynamicEquipmentOrderCreation" Height="600" Width="1050" Background="White">
     <Grid Background="White">
@@ -21,7 +21,7 @@
             </MenuItem>
         </Menu>
         <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="765,102,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnRefresh_Click"/>
-        <Button x:Name="btnFinalizeOrder" Content="Finalize Order" HorizontalAlignment="Left" Margin="765,484,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnFinalizeOrder_Click"/>
+        <Button x:Name="btnFinalizeOrder" Content="Finalize Order" HorizontalAlignment="Left" Margin="765,460,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnFinalizeOrder_Click"/>
         <Label Content="Amount:" HorizontalAlignment="Left" Margin="762,187,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontSize="18" Foreground="#FF56B290"/>
         <TextBox x:Name="dynamicEquipmentTextBox" HorizontalAlignment="Left" Height="38" Margin="765,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontFamily="Arial" FontSize="22" VerticalContentAlignment="Center"/>
         <Button x:Name="btnUpdateAmount" Content="Update Amount" HorizontalAlignment="Left" Margin="765,270,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnUpdateAmount_Click" IsEnabled="False"/>
