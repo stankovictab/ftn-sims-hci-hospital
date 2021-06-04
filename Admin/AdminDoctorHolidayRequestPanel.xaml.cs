@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 using Classes;
 
 namespace ftn_sims_hci_hospital.Admin
@@ -26,6 +29,10 @@ namespace ftn_sims_hci_hospital.Admin
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             List<HolidayRequest> list = getHolidayRequestList();
+
+            if (list == null) // Treba za HCI Drag & Drop, kada se sve izbrise da ne pukne jer je lista null
+                return;
+            
             foreach (HolidayRequest req in list)
             {
                 loadIntoListView(req);
@@ -116,6 +123,80 @@ namespace ftn_sims_hci_hospital.Admin
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        // Drag & Drop
+
+        Point startPoint = new Point();
+
+        private void ListView_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        private void ListView_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                // Get the dragged ListViewItem
+                ListView listView = sender as ListView;
+                ListViewItem listViewItem = FindAncestor<ListViewItem>((DependencyObject)e.OriginalSource);
+
+                if (listViewItem == null /* || */) return;
+
+                // Find the data behind the ListViewItem
+                // MessageBox.Show(listViewItem.ToString());
+                string[] components1 = listViewItem.ToString().Split('{');
+                string[] components2 = components1[1].Split('=');
+                string[] components3 = components2[1].Split(',');
+                string id = components3[0];
+                id = id.Trim();
+                HolidayRequest hr = MainWindow.holidayRequestController.GetByID(id);
+                if (hr.Status1 != HolidayRequestStatus.OnHold)
+                    return; // Sme da se brise samo OnHold zahtev
+
+                // Initialize the drag & drop operation
+                DataObject dragData = new DataObject("myFormat", hr);
+                DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
+            }
+        }
+
+        private static T FindAncestor<T>(DependencyObject current) where T : DependencyObject
+        {
+            do
+            {
+                if (current is T)
+                {
+                    return (T)current;
+                }
+                current = VisualTreeHelper.GetParent(current);
+            }
+            while (current != null);
+            return null;
+        }
+
+        private void Trash_DragOver(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent("myFormat") || e.Source == sender)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void Trash_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                HolidayRequest hr = e.Data.GetData("myFormat") as HolidayRequest;
+                string id = hr.RequestID1;
+                MainWindow.holidayRequestController.Delete(id); // Update liste i fajla
+                refreshListView();
+            }
         }
     }
 }

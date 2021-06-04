@@ -15,7 +15,7 @@
                 <MenuItem Header="Log Out" Height="34" Background="#FF509CD3" Click="LogOut_Click"/>
             </MenuItem>
         </Menu>
-        <ListView x:Name="holidayRequestListView" HorizontalAlignment="Left" Height="458" Margin="223,68,0,0" VerticalAlignment="Top" Width="785" SelectionChanged="holidayRequestListView_SelectionChanged" FontSize="16">
+        <ListView x:Name="holidayRequestListView" HorizontalAlignment="Left" Height="458" Margin="223,68,0,0" VerticalAlignment="Top" Width="785" SelectionChanged="holidayRequestListView_SelectionChanged" FontSize="16" PreviewMouseLeftButtonDown="ListView_PreviewMouseLeftButtonDown" MouseMove="ListView_MouseMove">>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Request ID" DisplayMemberBinding="{Binding RequestID1}"/>
@@ -28,9 +28,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Image HorizontalAlignment="Left" Height="123" Margin="47,353,0,0" VerticalAlignment="Top" Width="123" Source="trash.png" AllowDrop="True" DragOver="Trash_DragOver" Drop="Trash_Drop"/>
+        
         <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="37,143,0,0" VerticalAlignment="Top" Width="140" Background="#FF509CD3" BorderBrush="{x:Null}" Foreground="White" Height="45" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnRefresh_Click"/>
         <Button x:Name="btnCreateRequest" Content="Create" HorizontalAlignment="Left" Margin="37,213,0,0" VerticalAlignment="Top" Width="140" Background="#FF509CD3" BorderBrush="{x:Null}" Foreground="White" Height="45" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnCreateRequest_Click"/>
         <Button x:Name="btnUpdateRequest" Content="Update" HorizontalAlignment="Left" Margin="37,283,0,0" VerticalAlignment="Top" Width="140" Background="#FF509CD3" BorderBrush="{x:Null}" Foreground="White" Height="45" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnUpdateRequest_Click" IsEnabled="False"/>
-        <Button x:Name="btnDeleteRequest" Content="Delete" HorizontalAlignment="Left" Margin="37,353,0,0" VerticalAlignment="Top" Width="140" Background="#FF509CD3" BorderBrush="{x:Null}" Foreground="White" Height="45" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnDeleteRequest_Click" IsEnabled="False"/>
+        <Button x:Name="btnDeleteRequest" Content="Delete" HorizontalAlignment="Left" Margin="37,353,0,0" VerticalAlignment="Top" Width="140" Background="#FF509CD3" BorderBrush="{x:Null}" Foreground="White" Height="45" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnDeleteRequest_Click" IsEnabled="False" Visibility="Hidden"/>
     </Grid>
 </Window>

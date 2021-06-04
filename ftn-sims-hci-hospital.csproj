@@ -692,5 +692,8 @@
   <ItemGroup>
     <Resource Include="Admin\manager.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Admin\trash.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
