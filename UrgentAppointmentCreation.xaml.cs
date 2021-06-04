@@ -64,6 +64,7 @@ namespace ftn_sims_hci_hospital
                 }
                 else
                 {
+                    MessageBox.Show("There isn't any doctors available at the moment, but you can choose to reschedule someone else's appointment!");
                     List<Appointment> appointmentsForRescheduling = new List<Appointment>();
                     getReservedAppointmentsInNextHour(neededDoctors, appointmentsForRescheduling);
                     generateSortedAppointments(appointmentsForRescheduling);
@@ -177,12 +178,15 @@ namespace ftn_sims_hci_hospital
             
             foreach (Appointment available in availableAppointments)
             {
-                if (available.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)))
+                if((specializedDoctor.shift==Shift.MORNING && DateTime.Now.Hour+1<14)||(specializedDoctor.shift==Shift.AFTERNOON && DateTime.Now.Hour+1<20))
                 {
-                    Appointment currentApp = createAppointment(specializedDoctor, available);
-                    notifyDoctor(specializedDoctor, currentApp);
-                    isAppointmentMade = true;
-                    break;
+                    if (available.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)))
+                    {
+                        Appointment currentApp = createAppointment(specializedDoctor, available);
+                        notifyDoctor(specializedDoctor, currentApp);
+                        isAppointmentMade = true;
+                        break;
+                    }
                 }
             }
 

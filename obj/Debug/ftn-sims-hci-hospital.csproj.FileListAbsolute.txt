@@ -452,3 +452,4 @@ C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn_sims_hci_hos
 C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.GenerateResource.cache
 C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CoreCompileInputs.cache
 C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csproj.CopyComplete
+C:\Users\Mihajlo\Desktop\master\ftn-sims-hci-hospital\obj\Debug\ftn-sims-hci-hospital.csprojAssemblyReference.cache

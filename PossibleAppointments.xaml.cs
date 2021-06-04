@@ -30,9 +30,27 @@ namespace ftn_sims_hci_hospital
                 patientID = appointment.patient.user.Jmbg1;
                 p = MainWindow.patientController.GetByID(patientID);
                 Doctor d = new Doctor();
-                doctorID= appointment.doctor.user.Jmbg1;
+                doctorID = appointment.doctor.user.Jmbg1;
                 d = MainWindow.doctorController.ds.dr.GetByID(doctorID);
-                possibleAppointments.Items.Add(new Appointment { AppointmentID = appointment.AppointmentID, doctor = d, patient = p, StartTime = appointment.StartTime });
+                if (d.shift == Shift.MORNING)
+                {
+                    if (appointment.StartTime.Hour >= 8 && appointment.StartTime.Hour < 14)
+                    {
+                        
+                        possibleAppointments.Items.Add(new Appointment { AppointmentID = appointment.AppointmentID, doctor = d, patient = p, StartTime = appointment.StartTime });
+                    }
+                    else
+                        continue;
+                }
+                else
+                {
+                    if (appointment.StartTime.Hour >= 14 && appointment.StartTime.Hour < 20)
+                    {
+                        possibleAppointments.Items.Add(new Appointment { AppointmentID = appointment.AppointmentID, doctor = d, patient = p, StartTime = appointment.StartTime });
+                    }
+                    else
+                        continue;
+                }
             }
         }
 
