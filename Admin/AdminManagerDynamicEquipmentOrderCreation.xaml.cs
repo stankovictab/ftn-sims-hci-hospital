@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Classes;
 
 namespace ftn_sims_hci_hospital.Admin
 {
-    public partial class AdminManagerDynamicEquipmentOrderCreation : Window
+    public partial class AdminManagerDynamicEquipmentOrderCreation : Window, INotifyPropertyChanged // HCI
     {
         string selectedDERID;
         string selectedDEREN;
@@ -16,6 +17,7 @@ namespace ftn_sims_hci_hospital.Admin
             InitializeComponent();
             MainWindow.dynamicEquipmentRequestController.GetAll();
             refreshListView();
+            this.DataContext = this; // HCI
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
@@ -32,7 +34,9 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void dynamicEquipmentOrderListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnUpdateAmount.IsEnabled = true;
+            // if (int.TryParse(dynamicEquipmentTextBox.Text, out int result) == true && result > 0 && result < 101) // HCI
+                btnUpdateAmount.IsEnabled = true;
+            
             if (dynamicEquipmentOrderListView.SelectedItem != null)
             {
                 // MessageBox.Show(dynamicEquipmentRequestListView.SelectedItem.ToString());
@@ -48,11 +52,19 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void btnUpdateAmount_Click(object sender, RoutedEventArgs e)
         {
-            selectedDEREA = dynamicEquipmentTextBox.Text;
-            // Ovom request-u je doctor null jer ce se naci u servisu na osnovu id-a request-a
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(selectedDERID, selectedDEREN, selectedDEREA);
-            MainWindow.dynamicEquipmentRequestController.Update(req);
-            refreshListView();
+            // Ovaj if je backup validacija dok ne skapiram kako da onemogucim dugme dok validacija text polja ne prolazi
+            if (int.TryParse(dynamicEquipmentTextBox.Text, out int result) == true && result > 0 && result < 101) // HCI
+            {
+                selectedDEREA = dynamicEquipmentTextBox.Text;
+                // Ovom request-u je doctor null jer ce se naci u servisu na osnovu id-a request-a
+                DynamicEquipmentRequest req = new DynamicEquipmentRequest(selectedDERID, selectedDEREN, selectedDEREA);
+                MainWindow.dynamicEquipmentRequestController.Update(req);
+                refreshListView();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a correct value.");
+            }
         }
 
         private void btnFinalizeOrder_Click(object sender, RoutedEventArgs e)
@@ -123,14 +135,19 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void DynamicEquipmentOrderCreation_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new AdminManagerDynamicEquipmentOrderCreation();
-            this.Close();
-            window.ShowDialog();
+            // Ostaje na istoj stranici
         }
 
         private void PollResults_Click(object sender, RoutedEventArgs e)
         {
             Window window = new AdminManagerPollResults();
+            this.Close();
+            window.ShowDialog();
+        }
+
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new AdminManagerReport();
             this.Close();
             window.ShowDialog();
         }
@@ -145,6 +162,40 @@ namespace ftn_sims_hci_hospital.Admin
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SwitchAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel window = new AdminPanel();
+            this.Close();
+            window.ShowDialog();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private int _amountValue;
+        public int AmountValue
+        {
+            get
+            {
+                return _amountValue;
+            }
+            set
+            {
+                if (value != _amountValue)
+                {
+                    _amountValue = value;
+                    OnPropertyChanged("AmountValue");
+                }
+            }
         }
     }
 }

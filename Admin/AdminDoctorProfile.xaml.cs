@@ -28,14 +28,19 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void ViewProfile_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new AdminDoctorProfile();
-            this.Close();
-            window.ShowDialog();
+            // Ostaje na istoj stranici
         }
 
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SwitchAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel window = new AdminPanel();
+            this.Close();
+            window.ShowDialog();
         }
     }
 }

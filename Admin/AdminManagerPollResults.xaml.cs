@@ -117,7 +117,12 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void PollResults_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new AdminManagerPollResults();
+            // Ostaje na istoj stranici
+        }
+
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new AdminManagerReport();
             this.Close();
             window.ShowDialog();
         }
@@ -132,6 +137,13 @@ namespace ftn_sims_hci_hospital.Admin
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SwitchAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel window = new AdminPanel();
+            this.Close();
+            window.ShowDialog();
         }
     }
 }

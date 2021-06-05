@@ -15,8 +15,10 @@
                 <MenuItem Header="Creation" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderCreation_Click"/>
             </MenuItem>
             <MenuItem Header="Poll Results" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="PollResults_Click"/>
-            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="185 0 0 0" BorderBrush="{x:Null}">
+            <MenuItem Header="Report" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="Report_Click"/>
+            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="114 0 0 0" BorderBrush="{x:Null}">
                 <MenuItem Header="View / Edit Profile" Height="34" Background="#FF56B290" Click="ViewProfile_Click" BorderBrush="{x:Null}"/>
+                <MenuItem Header="Switch Accounts" Height="34" Background="#FF56B290" Click="SwitchAccounts_Click"/>
                 <MenuItem Header="Log Out" Height="34" Background="#FF56B290" Click="LogOut_Click"/>
             </MenuItem>
         </Menu>

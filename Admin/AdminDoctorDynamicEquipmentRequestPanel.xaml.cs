@@ -205,9 +205,7 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void DynamicEquipmentRequests_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new AdminDoctorDynamicEquipmentRequestPanel();
-            this.Close();
-            window.ShowDialog();
+            // Ostaje na istoj stranici
         }
 
         private void ViewProfile_Click(object sender, RoutedEventArgs e)
@@ -220,6 +218,13 @@ namespace ftn_sims_hci_hospital.Admin
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SwitchAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel window = new AdminPanel();
+            this.Close();
+            window.ShowDialog();
         }
     }
 }

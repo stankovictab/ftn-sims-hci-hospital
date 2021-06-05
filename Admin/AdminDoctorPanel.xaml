@@ -13,6 +13,7 @@
             <MenuItem Header="Dynamic Equipment Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="DynamicEquipmentRequests_Click"/>
             <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="544 0 0 0">
                 <MenuItem Header="View / Edit Profile" Height="34" Background="#FF509CD3" Click="ViewProfile_Click"/>
+                <MenuItem Header="Switch Accounts" Height="34" Background="#FF509CD3" Click="SwitchAccounts_Click"/>
                 <MenuItem Header="Log Out" Height="34" Background="#FF509CD3" Click="LogOut_Click"/>
             </MenuItem>
         </Menu>

@@ -70,6 +70,12 @@
     <Compile Include="Admin\AdminManagerDynamicEquipmentPastRequestApprovals.xaml.cs">
       <DependentUpon>AdminManagerDynamicEquipmentPastRequestApprovals.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminManagerReport.xaml.cs">
+      <DependentUpon>AdminManagerReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManagerReportPDF.xaml.cs">
+      <DependentUpon>AdminManagerReportPDF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminManagerPollResults.xaml.cs">
       <DependentUpon>AdminManagerPollResults.xaml</DependentUpon>
     </Compile>
@@ -109,6 +115,7 @@
     <Compile Include="Admin\Bar.xaml.cs">
       <DependentUpon>Bar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Validation.cs" />
     <Compile Include="AllAllergiesPage.xaml.cs">
       <DependentUpon>AllAllergiesPage.xaml</DependentUpon>
     </Compile>
@@ -341,6 +348,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Admin\AdminManagerDynamicEquipmentPastRequestApprovals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Admin\AdminManagerReportPDF.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -694,6 +709,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Admin\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Admin\signature.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

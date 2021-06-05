@@ -19,7 +19,6 @@ namespace ftn_sims_hci_hospital.Admin
                 if (req.Status1 != DynamicEquipmentRequestStatus.OnHold)
                 {
                     string doc = req.doctor.user.Name1 + " " + req.doctor.user.LastName1;
-                    // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
                     dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, DoctorFullName1 = doc, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
                 }
             }
@@ -62,6 +61,13 @@ namespace ftn_sims_hci_hospital.Admin
             window.ShowDialog();
         }
 
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new AdminManagerReport();
+            this.Close();
+            window.ShowDialog();
+        }
+
         private void ViewProfile_Click(object sender, RoutedEventArgs e)
         {
             Window window = new AdminManagerProfile();
@@ -72,6 +78,13 @@ namespace ftn_sims_hci_hospital.Admin
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SwitchAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel window = new AdminPanel();
+            this.Close();
+            window.ShowDialog();
         }
     }
 }

@@ -37,5 +37,12 @@ namespace ftn_sims_hci_hospital.Admin
         {
             this.Close();
         }
+
+        private void SwitchAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel window = new AdminPanel();
+            this.Close();
+            window.ShowDialog();
+        }
     }
 }

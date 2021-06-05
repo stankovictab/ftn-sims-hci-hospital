@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using Classes;
 
 namespace ftn_sims_hci_hospital.Admin
 {
-    public partial class AdminManagerDynamicEquipmentOrderUpdate : Window
+    public partial class AdminManagerDynamicEquipmentOrderUpdate : Window, INotifyPropertyChanged // HCI
     {
 
 
@@ -18,6 +19,7 @@ namespace ftn_sims_hci_hospital.Admin
             InitializeComponent();
             MainWindow.dynamicEquipmentRequestController.GetAll();
             this.selectedDEOID = selectedDEOID;
+            this.DataContext = this; // HCI
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
@@ -34,7 +36,8 @@ namespace ftn_sims_hci_hospital.Admin
         // SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged" dodat u XAML ListView kao atribut
         private void dynamicEquipmentOrderListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnUpdateAmount.IsEnabled = true;
+            // if (int.TryParse(dynamicEquipmentTextBox.Text, out int result) == true && result > 0 && result < 101) // HCI
+                btnUpdateAmount.IsEnabled = true;
             // Posto izbrise SelectedItem, on je null, a ova metoda se automatski poziva, pa ovako izbegavamo exception
             if (dynamicEquipmentOrderListView.SelectedItem != null)
             {
@@ -50,20 +53,28 @@ namespace ftn_sims_hci_hospital.Admin
         }
 
         private void btnUpdateAmount_Click(object sender, RoutedEventArgs e)
-        {/*
-            MainWindow.dynamicEquipmentRequestController.GetAll();
-            string equipmentAmount = dynamicEquipmentTextBox.Text;
-            MainWindow.dynamicEquipmentRequestController.Update(selectedDERID, equipmentName, doctor); // Update-uje se i lista i fajl
-            MessageBox.Show("You have successfully updated a holiday Request!");
-
-            // TODO: Ako ovo nece, samo prekopiraj sve iz btnShowRequests_Click()
-            btnShowRequests.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); // Klik na dugme, odnosno refresh liste
-            */
+        {
+            // Ovaj if je backup validacija dok ne skapiram kako da onemogucim dugme dok validacija text polja ne prolazi
+            if (int.TryParse(dynamicEquipmentTextBox.Text, out int result) == true && result > 0 && result < 101) // HCI
+                {
+                /*
+                TODO
+                MainWindow.dynamicEquipmentRequestController.GetAll();
+                string equipmentAmount = dynamicEquipmentTextBox.Text;
+                MainWindow.dynamicEquipmentRequestController.Update(selectedDERID, equipmentName, doctor); // Update-uje se i lista i fajl
+                MessageBox.Show("You have successfully updated a Dynamic Equipment Request!");
+                refreshListView();
+                */
+            }
+            else
+            {
+                MessageBox.Show("Please enter a correct value.");
+            }
         }
 
         private void btnFinalizeOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            // TODO
         }
 
         // HCI
@@ -103,6 +114,13 @@ namespace ftn_sims_hci_hospital.Admin
             window.ShowDialog();
         }
 
+        private void Report_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = new AdminManagerReport();
+            this.Close();
+            window.ShowDialog();
+        }
+
         private void ViewProfile_Click(object sender, RoutedEventArgs e)
         {
             Window window = new AdminManagerProfile();
@@ -113,6 +131,40 @@ namespace ftn_sims_hci_hospital.Admin
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void SwitchAccounts_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel window = new AdminPanel();
+            this.Close();
+            window.ShowDialog();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private int _amountValue;
+        public int AmountValue
+        {
+            get
+            {
+                return _amountValue;
+            }
+            set
+            {
+                if (value != _amountValue)
+                {
+                    _amountValue = value;
+                    OnPropertyChanged("AmountValue");
+                }
+            }
         }
     }
 }

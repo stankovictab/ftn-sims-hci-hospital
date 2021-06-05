@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital.Admin"
+        xmlns:val="clr-namespace:ftn_sims_hci_hospital.Admin"
         mc:Ignorable="d"
         Title="AdminManagerDynamicEquipmentOrderCreation" Height="600" Width="1050" Background="White">
     <Grid Background="White">
@@ -15,15 +16,46 @@
                 <MenuItem Header="Creation" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderCreation_Click"/>
             </MenuItem>
             <MenuItem Header="Poll Results" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="PollResults_Click"/>
-            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="185 0 0 0" BorderBrush="{x:Null}">
+            <MenuItem Header="Report" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="Report_Click"/>
+            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="114 0 0 0" BorderBrush="{x:Null}">
                 <MenuItem Header="View / Edit Profile" Height="34" Background="#FF56B290" Click="ViewProfile_Click" BorderBrush="{x:Null}"/>
+                <MenuItem Header="Switch Accounts" Height="34" Background="#FF56B290" Click="SwitchAccounts_Click"/>
                 <MenuItem Header="Log Out" Height="34" Background="#FF56B290" Click="LogOut_Click"/>
             </MenuItem>
         </Menu>
         <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="765,102,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnRefresh_Click"/>
         <Button x:Name="btnFinalizeOrder" Content="Finalize Order" HorizontalAlignment="Left" Margin="765,460,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnFinalizeOrder_Click"/>
         <Label Content="Amount:" HorizontalAlignment="Left" Margin="762,187,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontSize="18" Foreground="#FF56B290"/>
-        <TextBox x:Name="dynamicEquipmentTextBox" HorizontalAlignment="Left" Height="38" Margin="765,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontFamily="Arial" FontSize="22" VerticalContentAlignment="Center"/>
+        
+        <!-- <TextBox x:Name="dynamicEquipmentTextBox" HorizontalAlignment="Left" Height="38" Margin="765,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontFamily="Arial" FontSize="22" VerticalContentAlignment="Center"/> -->
+
+        <TextBox x:Name="dynamicEquipmentTextBox" HorizontalAlignment="Left" Height="38" Margin="765,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontFamily="Arial" FontSize="22" VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding Path="AmountValue" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
+                        <val:MinMaxValidationRule ValidationStep="ConvertedProposedValue" Min="1" Max="100"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red" FontFamily="Arial" FontSize="18"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
         <Button x:Name="btnUpdateAmount" Content="Update Amount" HorizontalAlignment="Left" Margin="765,270,0,0" VerticalAlignment="Top" Width="200" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="42" FontSize="22" FontWeight="Bold" FontFamily="Arial" Click="btnUpdateAmount_Click" IsEnabled="False"/>
         <ListView x:Name="dynamicEquipmentOrderListView" HorizontalAlignment="Left" Height="400" Margin="67,102,0,0" VerticalAlignment="Top" Width="616" SelectionChanged="dynamicEquipmentOrderListView_SelectionChanged" FontSize="14">
             <ListView.View>
