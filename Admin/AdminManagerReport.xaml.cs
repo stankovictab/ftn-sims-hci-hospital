@@ -101,7 +101,7 @@ namespace ftn_sims_hci_hospital.Admin
                 List<DynamicEquipmentRequest> passedList = new List<DynamicEquipmentRequest>();
                 foreach (DynamicEquipmentRequest req in list)
                 {
-                    if (req.RequestDate1 > (DateTime)sd && req.RequestDate1 < (DateTime)ed)
+                    if (req.CreationDate1 > (DateTime)sd && req.CreationDate1 < (DateTime)ed)
                     {
                         passedList.Add(req);
                     }

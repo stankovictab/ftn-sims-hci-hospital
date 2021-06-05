@@ -1,26 +1,24 @@
+using ftn_sims_hci_hospital.Classes;
 using System;
 
 namespace Classes
 {
-    public class HolidayRequest
+    public class HolidayRequest : Request
     {
-        private String RequestID;
         private String Description;
         private DateTime StartDate;
         private DateTime EndDate;
-        private DateTime RequestDate;
         private HolidayRequestStatus Status;
         public Doctor doctor;
-        private string Commentary;
 
         // Format u txt fajlu treba da bude isti kao parametri konstruktora, vidi GetAll() metodu
-        public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate, DateTime RequestDate, HolidayRequestStatus Status, Doctor doctor, string commentary)
+        public HolidayRequest(String ID, String Description, DateTime StartDate, DateTime EndDate, DateTime CreationDate, HolidayRequestStatus Status, Doctor doctor, string commentary)
         {
-            this.RequestID = RequestID;
+            this.ID = ID;
             this.Description = Description;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
-            this.RequestDate = RequestDate;
+            this.CreationDate = CreationDate;
             this.Status = Status;
             this.doctor = doctor;
             this.Commentary = commentary;
@@ -29,11 +27,11 @@ namespace Classes
         // Koristi se u HolidayRequestCreation
         public HolidayRequest(String Description, DateTime StartDate, DateTime EndDate, Doctor doctor)
         {
-            this.RequestID = null;
+            this.ID = null;
             this.Description = Description;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
-            this.RequestDate = DateTime.Now;
+            this.CreationDate = DateTime.Now;
             this.Status = HolidayRequestStatus.OnHold;
             this.doctor = doctor;
             this.Commentary = "/";
@@ -42,24 +40,21 @@ namespace Classes
         // Koristi se u HolidayRequestUpdate
         public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate)
         {
-            this.RequestID = RequestID;
+            this.ID = RequestID;
             this.Description = Description;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
-            this.RequestDate = DateTime.Now;
+            this.CreationDate = DateTime.Now;
             this.Status = HolidayRequestStatus.OnHold;
             this.doctor = null;
             this.Commentary = "/";
         }
 
-        public string RequestID1 { get => RequestID; set => RequestID = value; }
         public string Description1 { get => Description; set => Description = value; }
         public DateTime StartDate1 { get => StartDate; set => StartDate = value; }
         public DateTime EndDate1 { get => EndDate; set => EndDate = value; }
-        public DateTime RequestDate1 { get => RequestDate; set => RequestDate = value; }
         public HolidayRequestStatus Status1 { get => Status; set => Status = value; }
-        public string Commentary1 { get => Commentary; set => Commentary = value; }
-
+        
         public Doctor GetDoctor()
         {
             return doctor;

@@ -29,7 +29,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest req in DynamicEquipmentRequestsInFile)
             {
-                if (req.RequestID1.Equals(id))
+                if (req.ID1.Equals(id))
                 {
                     return req;
                 }
@@ -107,12 +107,12 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest nadjeni in DynamicEquipmentRequestsInFile)
             {
-                if (prosledjeni.RequestID1.Equals(nadjeni.RequestID1))
+                if (prosledjeni.ID1.Equals(nadjeni.ID1))
                 // Uslov && nadjeni.Status1 == DynamicEquipmentRequestStatus.OnHold nije potreban jer se ta provera vec radi u WPF-u, bolje je korisnik tamo da vidi da ne moze da update-uje tako nego odavde
                 {
                     nadjeni.EquipmentName1 = prosledjeni.EquipmentName1;
                     nadjeni.EquipmentAmount1 = prosledjeni.EquipmentAmount1;
-                    nadjeni.RequestDate1 = prosledjeni.RequestDate1; // Ovo se ipak menja
+                    nadjeni.CreationDate1 = prosledjeni.CreationDate1; // Ovo se ipak menja
                     // Status i doktor se ne menjaju
                     UpdateFile(); // Update fajla
                     return true;
@@ -135,7 +135,7 @@ namespace Classes
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (DynamicEquipmentRequest item in DynamicEquipmentRequestsInFile)
                 {
-                    tw.WriteLine(item.RequestID1 + "," + item.EquipmentName1 + "," + item.EquipmentAmount1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.Ordered1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
+                    tw.WriteLine(item.ID1 + "," + item.EquipmentName1 + "," + item.EquipmentAmount1 + "," + item.CreationDate1 + "," + (int)item.Status1 + "," + item.Ordered1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok, parsira se isto
                 }
                 tw.Close();
@@ -148,7 +148,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     DynamicEquipmentRequestsInFile.Remove(hr);
                     UpdateFile(); // Update fajla
@@ -163,7 +163,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     hr.Status1 = DynamicEquipmentRequestStatus.Approved;
                     hr.Commentary1 = commentary;
@@ -179,7 +179,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     hr.Status1 = DynamicEquipmentRequestStatus.Denied;
                     hr.Commentary1 = commentary;

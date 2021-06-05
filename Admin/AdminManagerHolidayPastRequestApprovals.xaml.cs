@@ -2,12 +2,13 @@
 using System.Windows;
 using System.Windows.Controls;
 using Classes;
+using ftn_sims_hci_hospital.Classes;
 
 namespace ftn_sims_hci_hospital.Admin
 {
     public partial class AdminManagerHolidayPastRequestApprovals : Window
     {
-        private int alternator = 0;
+        Sort sort = new Sort();
 
         public AdminManagerHolidayPastRequestApprovals()
         {
@@ -28,44 +29,9 @@ namespace ftn_sims_hci_hospital.Admin
         private void btnSortByRequestDate_Click(object sender, RoutedEventArgs e)
         {
             List<HolidayRequest> list = getHolidayRequestListNotOnHold();
-
-            // Bubble sort - ne mora da se pravi posebna metoda za clean code jer se samo ovde koristi
-            if (alternator == 0) // Ascending
-            {
-                for (int i = 0; i < list.Count - 1; i++) // list.Count == list.Length
-                {
-                    for (int j = 0; j < list.Count - i - 1; j++)
-                    {
-                        if (list[j].RequestDate1 > list[j + 1].RequestDate1)
-                        {
-                            // swap temp and arr[i]
-                            HolidayRequest temp = list[j];
-                            list[j] = list[j + 1];
-                            list[j + 1] = temp;
-                        }
-                    }
-                }
-                alternator = 1;
-            }
-            else // Descending
-            {
-                for (int i = 0; i < list.Count - 1; i++) // list.Count == list.Length
-                {
-                    for (int j = 0; j < list.Count - i - 1; j++)
-                    {
-                        if (list[j].RequestDate1 < list[j + 1].RequestDate1)
-                        {
-                            // swap temp and arr[i]
-                            HolidayRequest temp = list[j];
-                            list[j] = list[j + 1];
-                            list[j + 1] = temp;
-                        }
-                    }
-                }
-                alternator = 0;
-            }
-
-            foreach (HolidayRequest req in list)
+            List<Demand> demandList = list.ConvertAll(x => (Demand)x);
+            demandList = sort.sort(demandList);
+            foreach (HolidayRequest req in demandList)
                 loadIntoListView(req);
         }
 
@@ -112,7 +78,7 @@ namespace ftn_sims_hci_hospital.Admin
         private void loadIntoListView(HolidayRequest req)
         {
             string doc = req.doctor.user.Name1 + " " + req.doctor.user.LastName1;
-            holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, DoctorFullName1 = doc, Status1 = req.Status1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+            holidayRequestListView.Items.Add(new { RequestID1 = req.ID1, DoctorFullName1 = doc, Status1 = req.Status1, Description1 = req.Description1, StartDate1 = req.StartDate1, EndDate1 = req.EndDate1, RequestDate1 = req.CreationDate1, Commentary1 = req.Commentary1 });
         }
 
         private List<HolidayRequest> getHolidayRequestListNotOnHold()

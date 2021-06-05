@@ -115,6 +115,7 @@
     <Compile Include="Admin\Bar.xaml.cs">
       <DependentUpon>Bar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Sort.cs" />
     <Compile Include="Admin\Validation.cs" />
     <Compile Include="AllAllergiesPage.xaml.cs">
       <DependentUpon>AllAllergiesPage.xaml</DependentUpon>
@@ -146,6 +147,7 @@
     <Compile Include="Classes\AssignmentController.cs" />
     <Compile Include="Classes\AssignmentRepository.cs" />
     <Compile Include="Classes\AssignmentService.cs" />
+    <Compile Include="Classes\Demand.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\DoctorController.cs" />
     <Compile Include="Classes\DoctorPoll.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="Classes\NotificationController.cs" />
     <Compile Include="Classes\NotificationRepository.cs" />
     <Compile Include="Classes\NotificationService.cs" />
+    <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\Patient.cs" />
     <Compile Include="Classes\PatientAllergy.cs" />
     <Compile Include="Classes\PatientAllergyRepository.cs" />
@@ -211,6 +214,7 @@
     <Compile Include="Classes\ReminderController.cs" />
     <Compile Include="Classes\ReminderRepository.cs" />
     <Compile Include="Classes\ReminderService.cs" />
+    <Compile Include="Classes\Request.cs" />
     <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\Room.cs" />
     <Compile Include="Classes\RoomController.cs" />

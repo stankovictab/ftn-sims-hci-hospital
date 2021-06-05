@@ -29,7 +29,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentOrder req in DynamicEquipmentOrdersInFile)
             {
-                if (req.OrderID1.Equals(id))
+                if (req.ID1.Equals(id))
                 {
                     return req;
                 }
@@ -66,11 +66,11 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentOrder nadjeni in DynamicEquipmentOrdersInFile)
             {
-                if (prosledjeni.OrderID1.Equals(nadjeni.OrderID1) && nadjeni.Status1 == DynamicEquipmentOrderStatus.Sent)
+                if (prosledjeni.ID1.Equals(nadjeni.ID1) && nadjeni.Status1 == DynamicEquipmentOrderStatus.Sent)
                 {
                     nadjeni.EquipmentNames1 = prosledjeni.EquipmentNames1;
                     nadjeni.EquipmentAmounts1 = prosledjeni.EquipmentAmounts1;
-                    nadjeni.OrderDate1 = prosledjeni.OrderDate1; // Ovo se ipak menja
+                    nadjeni.CreationDate1 = prosledjeni.CreationDate1; // Ovo se ipak menja
                     // Status se ne menja
                     UpdateFile(); // Update fajla
                     return true;
@@ -93,7 +93,7 @@ namespace Classes
                 // Za svaki Order pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (DynamicEquipmentOrder item in DynamicEquipmentOrdersInFile)
                 {
-                    tw.WriteLine(item.OrderID1 + "," + item.EquipmentNames1 + "," + item.EquipmentAmounts1 + "," + item.OrderDate1 + "," + (int)item.Status1);
+                    tw.WriteLine(item.ID1 + "," + item.EquipmentNames1 + "," + item.EquipmentAmounts1 + "," + item.CreationDate1 + "," + (int)item.Status1);
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok, parsira se isto
                 }
                 tw.Close();
@@ -106,7 +106,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentOrder hr in DynamicEquipmentOrdersInFile)
             {
-                if (hr.OrderID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     DynamicEquipmentOrdersInFile.Remove(hr);
                     UpdateFile(); // Update fajla
@@ -121,7 +121,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentOrder hr in DynamicEquipmentOrdersInFile)
             {
-                if (hr.OrderID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     hr.Status1 = DynamicEquipmentOrderStatus.Waiting;
                     UpdateFile(); // Update fajla
@@ -136,7 +136,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentOrder hr in DynamicEquipmentOrdersInFile)
             {
-                if (hr.OrderID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     hr.Status1 = DynamicEquipmentOrderStatus.Completed;
                     UpdateFile(); // Update fajla

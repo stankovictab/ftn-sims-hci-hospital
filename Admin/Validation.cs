@@ -54,7 +54,6 @@ namespace ftn_sims_hci_hospital.Admin
 
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-            MessageBox.Show(Min.ToString() + " " + Max.ToString());
             if (value is int)
             {
                 int d = (int)value;

@@ -67,7 +67,7 @@ namespace ftn_sims_hci_hospital.Admin
         private void loadIntoListView(DynamicEquipmentRequest req)
         {
             string doc = req.doctor.user.Name1 + " " + req.doctor.user.LastName1;
-            dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, DoctorFullName1 = doc, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1 });
+            dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.ID1, DoctorFullName1 = doc, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.CreationDate1 });
         }
 
         private List<DynamicEquipmentRequest> getDynamicEquipmentOrderList()

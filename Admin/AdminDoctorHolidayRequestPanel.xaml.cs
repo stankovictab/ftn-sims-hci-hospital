@@ -80,9 +80,9 @@ namespace ftn_sims_hci_hospital.Admin
         {
             string sd = req.StartDate1.Day.ToString() + "/" + req.StartDate1.Month.ToString() + "/" + req.StartDate1.Year.ToString();
             string ed = req.EndDate1.Day.ToString() + "/" + req.EndDate1.Month.ToString() + "/" + req.EndDate1.Year.ToString();
-            string rd = req.RequestDate1.Day.ToString() + "/" + req.RequestDate1.Month.ToString() + "/" + req.RequestDate1.Year.ToString();
+            string rd = req.CreationDate1.Day.ToString() + "/" + req.CreationDate1.Month.ToString() + "/" + req.CreationDate1.Year.ToString();
 
-            holidayRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, Description1 = req.Description1, StartDate1 = sd, EndDate1 = ed, RequestDate1 = rd, Commentary1 = req.Commentary1 });
+            holidayRequestListView.Items.Add(new { RequestID1 = req.ID1, Status1 = req.Status1, Description1 = req.Description1, StartDate1 = sd, EndDate1 = ed, RequestDate1 = rd, Commentary1 = req.Commentary1 });
         }
 
         private List<HolidayRequest> getHolidayRequestList()
@@ -200,9 +200,12 @@ namespace ftn_sims_hci_hospital.Admin
             if (e.Data.GetDataPresent("myFormat"))
             {
                 HolidayRequest hr = e.Data.GetData("myFormat") as HolidayRequest;
-                string id = hr.RequestID1;
-                MainWindow.holidayRequestController.Delete(id); // Update liste i fajla
-                refreshListView();
+                string id = hr.ID1;
+                if (MessageBox.Show("Are you sure you want to delete this request?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    MainWindow.holidayRequestController.Delete(id); // Update liste i fajla
+                    refreshListView();
+                }
             }
         }
     }

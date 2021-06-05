@@ -2,13 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 using Classes;
+using ftn_sims_hci_hospital.Classes;
 
 namespace ftn_sims_hci_hospital.Admin
 {
     public partial class AdminManagerDynamicEquipmentOrderPanel : Window
     {
         private string selectedDEOID;
-        private int alternator = 0;
+        Sort sort = new Sort();
 
         public AdminManagerDynamicEquipmentOrderPanel()
         {
@@ -54,51 +55,19 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.dynamicEquipmentOrderController.Delete(selectedDEOID); // Update liste i fajla
-            refreshListView();
+            if (MessageBox.Show("Are you sure you want to delete this order?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow.dynamicEquipmentOrderController.Delete(selectedDEOID); // Update liste i fajla
+                refreshListView();
+            }
         }
 
         private void btnSortByOrderDate_Click(object sender, RoutedEventArgs e)
         {
             List<DynamicEquipmentOrder> list = getDynamicEquipmentOrderList();
-
-            // Bubble sort - ne mora da se pravi posebna metoda za clean code jer se samo ovde koristi
-            if (alternator == 0) // Ascending
-            {
-                for (int i = 0; i < list.Count - 1; i++) // list.Count == list.Length
-                {
-                    for (int j = 0; j < list.Count - i - 1; j++)
-                    {
-                        if (list[j].OrderDate1 > list[j + 1].OrderDate1)
-                        {
-                            // swap temp and arr[i]
-                            DynamicEquipmentOrder temp = list[j];
-                            list[j] = list[j + 1];
-                            list[j + 1] = temp;
-                        }
-                    }
-                }
-                alternator = 1;
-            }
-            else // Descending
-            {
-                for (int i = 0; i < list.Count - 1; i++) // list.Count == list.Length
-                {
-                    for (int j = 0; j < list.Count - i - 1; j++)
-                    {
-                        if (list[j].OrderDate1 < list[j + 1].OrderDate1)
-                        {
-                            // swap temp and arr[i]
-                            DynamicEquipmentOrder temp = list[j];
-                            list[j] = list[j + 1];
-                            list[j + 1] = temp;
-                        }
-                    }
-                }
-                alternator = 0;
-            }
-
-            foreach (DynamicEquipmentOrder ord in list)
+            List<Demand> demandList = list.ConvertAll(x => (Demand)x);
+            demandList = sort.sort(demandList);
+            foreach (DynamicEquipmentOrder ord in demandList)
                 loadIntoListView(ord);
         }
 
@@ -169,7 +138,7 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void loadIntoListView(DynamicEquipmentOrder ord)
         {
-            dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.OrderID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.OrderDate1 });
+            dynamicEquipmentOrderListView.Items.Add(new { OrderID1 = ord.ID1, Status1 = ord.Status1, EquipmentNames1 = ord.EquipmentNames1, EquipmentAmounts1 = ord.EquipmentAmounts1, OrderDate1 = ord.CreationDate1 });
         }
 
         private List<DynamicEquipmentOrder> getDynamicEquipmentOrderList()

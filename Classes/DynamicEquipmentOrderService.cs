@@ -13,11 +13,11 @@ namespace Classes
             int newID = 0;
             foreach (DynamicEquipmentOrder o in temp)
             {
-                newID = Int32.Parse(o.OrderID1);
+                newID = Int32.Parse(o.ID1);
             }
             newID++;
             String newerID = newID.ToString();
-            ord.OrderID1 = newerID;
+            ord.ID1 = newerID;
             return deor.Create(ord);
         }
 

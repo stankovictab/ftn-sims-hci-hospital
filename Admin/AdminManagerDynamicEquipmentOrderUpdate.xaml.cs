@@ -29,7 +29,7 @@ namespace ftn_sims_hci_hospital.Admin
             foreach (DynamicEquipmentRequest req in list)
             {
                 // Ovde treba da stoji new {...} umesto new Classes.HolidayRequest {...}? Mozda ne?
-                dynamicEquipmentOrderListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentNames1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+                dynamicEquipmentOrderListView.Items.Add(new { RequestID1 = req.ID1, Status1 = req.Status1, EquipmentNames1 = req.EquipmentName1, RequestDate1 = req.CreationDate1, Commentary1 = req.Commentary1 });
             }
         }
 

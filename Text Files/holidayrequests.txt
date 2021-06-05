@@ -1,5 +1,5 @@
-1,Godisnji odmor,01/10/21 6:00:00 AM,01/20/21 8:00:00 AM,01/02/21 8:00:00 AM,1,0501,Odobren
-2,Koriscenje preostalih slobodnih dana,02/05/21 8:00:00 AM,02/15/21 6:00:00 PM,02/02/21 8:00:00 AM,2,7601,Previse puta su iskoriceni
-3,Letovanje,06/12/21 8:00:00 AM,06/29/21 6:00:00 PM,04/08/21 8:00:00 AM,2,0501,Prevelik odmor
-4,Porodiljsko,03/28/21 9:00:00 AM,04/11/21 10:00:00 AM,01/02/21 8:00:00 AM,0,0501,/
-5,Zakazano kod zubara,04/02/21 11:00:00 AM,04/04/21 6:00:00 AM,03/21/21 8:00:00 AM,0,6331,/
+1,Godisnji odmor,01/10/21 06:00:00 AM,01/20/21 08:00:00 AM,01/02/21 08:00:00 AM,1,0501,Odobren
+2,Koriscenje preostalih slobodnih dana,02/05/21 08:00:00 AM,02/15/21 06:00:00 PM,02/02/21 08:00:00 AM,2,7601,Previse puta su iskoriceni
+3,Letovanje,06/12/21 08:00:00 AM,06/29/21 06:00:00 PM,04/08/21 08:00:00 AM,2,0501,Predugo traje
+4,Porodiljsko,03/28/21 09:00:00 AM,04/11/21 10:00:00 AM,01/02/21 08:00:00 AM,0,0501,/
+5,Zakazano kod zubara,04/02/21 11:00:00 AM,04/04/21 06:00:00 AM,03/21/21 08:00:00 AM,0,6331,/

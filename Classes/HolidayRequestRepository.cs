@@ -34,7 +34,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (HolidayRequest req in HolidayRequestsInFile)
             {
-                if (req.RequestID1.Equals(id))
+                if (req.ID1.Equals(id))
                 {
                     return req;
                 }
@@ -127,12 +127,12 @@ namespace Classes
             GetAll(); // Update liste
             foreach (HolidayRequest nadjeni in HolidayRequestsInFile)
             {
-                if (prosledjeni.RequestID1.Equals(nadjeni.RequestID1) && nadjeni.Status1 == HolidayRequestStatus.OnHold)
+                if (prosledjeni.ID1.Equals(nadjeni.ID1) && nadjeni.Status1 == HolidayRequestStatus.OnHold)
                 {
                     nadjeni.Description1 = prosledjeni.Description1;
                     nadjeni.StartDate1 = prosledjeni.StartDate1;
                     nadjeni.EndDate1 = prosledjeni.EndDate1;
-                    nadjeni.RequestDate1 = prosledjeni.RequestDate1; // Ovo se ipak menja
+                    nadjeni.CreationDate1 = prosledjeni.CreationDate1; // Ovo se ipak menja
                     // Status se ne menja
                     nadjeni.doctor = prosledjeni.doctor; // Ovo se tehnicki ne menja
                     UpdateFile(); // Update fajla
@@ -157,7 +157,7 @@ namespace Classes
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (HolidayRequest item in HolidayRequestsInFile)
                 {
-                    tw.WriteLine(item.RequestID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
+                    tw.WriteLine(item.ID1 + "," + item.Description1 + "," + item.StartDate1 + "," + item.EndDate1 + "," + item.CreationDate1 + "," + (int)item.Status1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok, parsira se isto
                 }
                 tw.Close();
@@ -171,7 +171,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     HolidayRequestsInFile.Remove(hr);
                     UpdateFile(); // Update fajla
@@ -186,7 +186,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     hr.Status1 = HolidayRequestStatus.Approved;
                     hr.Commentary1 = commentary;
@@ -202,7 +202,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (HolidayRequest hr in HolidayRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     hr.Status1 = HolidayRequestStatus.Denied;
                     hr.Commentary1 = commentary;

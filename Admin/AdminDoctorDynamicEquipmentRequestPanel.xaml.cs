@@ -2,14 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 using Classes;
+using ftn_sims_hci_hospital.Classes;
 
 namespace ftn_sims_hci_hospital.Admin
 {
     public partial class AdminDoctorDynamicEquipmentRequestPanel : Window
     {
-
         private string selectedDERID;
-        private int alternator = 0;
+        Sort sort = new Sort();
 
         public AdminDoctorDynamicEquipmentRequestPanel()
         {
@@ -46,7 +46,6 @@ namespace ftn_sims_hci_hospital.Admin
         // SelectionChanged="dynamicEquipmentRequestListView_SelectionChanged" dodat u XAML ListView kao atribut
         private void dynamicEquipmentRequestListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnDeleteRequest.IsEnabled = true;
             // Posto izbrise SelectedItem, on je null, a ova metoda se automatski poziva, pa ovako izbegavamo exception
             if (dynamicEquipmentRequestListView.SelectedItem != null)
             {
@@ -59,9 +58,15 @@ namespace ftn_sims_hci_hospital.Admin
                 string[] parts3 = parts[1].Split(' ');
                 string status = parts3[3];
                 if (status == "OnHold")
+                {
                     btnUpdateRequest.IsEnabled = true;
+                    btnDeleteRequest.IsEnabled = true;
+                }
                 else
+                {
                     btnUpdateRequest.IsEnabled = false;
+                    btnDeleteRequest.IsEnabled = false;
+                }
             }
         }
 
@@ -78,51 +83,19 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void btnDeleteRequest_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.dynamicEquipmentRequestController.Delete(selectedDERID); // Update liste i fajla
-            refreshListView();
+            if (MessageBox.Show("Are you sure you want to delete this request?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                MainWindow.dynamicEquipmentRequestController.Delete(selectedDERID); // Update liste i fajla
+                refreshListView();
+            }
         }
 
         private void btnSortByRequestDate_Click(object sender, RoutedEventArgs e)
         {
             List<DynamicEquipmentRequest> list = getDynamicEquipmentRequestList();
-
-            // Bubble sort - ne mora da se pravi posebna metoda za clean code jer se samo ovde koristi
-            if (alternator == 0) // Ascending
-            {
-                for (int i = 0; i < list.Count - 1; i++) // list.Count == list.Length
-                {
-                    for (int j = 0; j < list.Count - i - 1; j++)
-                    {
-                        if (list[j].RequestDate1 > list[j + 1].RequestDate1)
-                        {
-                            // swap temp and arr[i]
-                            DynamicEquipmentRequest temp = list[j];
-                            list[j] = list[j + 1];
-                            list[j + 1] = temp;
-                        }
-                    }
-                }
-                alternator = 1;
-            }
-            else // Descending
-            {
-                for (int i = 0; i < list.Count - 1; i++) // list.Count == list.Length
-                {
-                    for (int j = 0; j < list.Count - i - 1; j++)
-                    {
-                        if (list[j].RequestDate1 < list[j + 1].RequestDate1)
-                        {
-                            // swap temp and arr[i]
-                            DynamicEquipmentRequest temp = list[j];
-                            list[j] = list[j + 1];
-                            list[j + 1] = temp;
-                        }
-                    }
-                }
-                alternator = 0;
-            }
-
-            foreach (DynamicEquipmentRequest req in list)
+            List<Demand> demandList = list.ConvertAll(x => (Demand)x);
+            demandList = sort.sort(demandList);
+            foreach (DynamicEquipmentRequest req in demandList)
                 loadIntoListView(req);
         }
 
@@ -177,7 +150,7 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void loadIntoListView(DynamicEquipmentRequest req)
         {
-            dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.RequestID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.RequestDate1, Commentary1 = req.Commentary1 });
+            dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.ID1, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.CreationDate1, Commentary1 = req.Commentary1 });
         }
 
         private List<DynamicEquipmentRequest> getDynamicEquipmentRequestList()

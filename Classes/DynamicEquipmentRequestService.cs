@@ -14,11 +14,11 @@ namespace Classes
             int newID = 0;
             foreach (DynamicEquipmentRequest r in temp)
             {
-                newID = Int32.Parse(r.RequestID1);
+                newID = Int32.Parse(r.ID1);
             }
             newID++;
             String newerID = newID.ToString();
-            req.RequestID1 = newerID;
+            req.ID1 = newerID;
             return derr.Create(req);
         }
 
@@ -49,7 +49,7 @@ namespace Classes
             Doctor doctor = new Doctor();
             foreach(DynamicEquipmentRequest r in list)
             {
-                if(r.RequestID1 == req.RequestID1)
+                if(r.ID1 == req.ID1)
                 {
                     doctor = r.doctor;
                 }
