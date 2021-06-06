@@ -50,7 +50,7 @@ namespace Classes
                 string equipmentName = components[1];
                 string equipmentAmount = components[2];
                 DateTime requestDate = Convert.ToDateTime(components[3]);
-                DynamicEquipmentRequestStatus status = (DynamicEquipmentRequestStatus)Convert.ToInt32(components[4]);
+                RequestStatus status = (RequestStatus)Convert.ToInt32(components[4]);
                 bool ordered = bool.Parse(components[5]);
 
                 // Loadovanje lekara u memoriju da bi im pristupili
@@ -94,7 +94,7 @@ namespace Classes
             {
                 // Ako nadje Request za prosledjenog lekara, stavi ga u listu, i vrati listu
                 // Ako lekar sa datim JMBG-om ne postoji u doctors.txt, vratice null
-                if (req.Status1.Equals(DynamicEquipmentRequestStatus.OnHold))
+                if (req.Status1.Equals(RequestStatus.OnHold))
                 {
                     requests.Add(req);
                 }
@@ -165,7 +165,7 @@ namespace Classes
             {
                 if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = DynamicEquipmentRequestStatus.Approved;
+                    hr.Status1 = RequestStatus.Approved;
                     hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
@@ -181,7 +181,7 @@ namespace Classes
             {
                 if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = DynamicEquipmentRequestStatus.Denied;
+                    hr.Status1 = RequestStatus.Denied;
                     hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
@@ -194,7 +194,7 @@ namespace Classes
         {
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
-                if (hr.Status1.Equals(DynamicEquipmentRequestStatus.Approved))
+                if (hr.Status1.Equals(RequestStatus.Approved))
                     hr.Ordered1 = true;
             UpdateFile(); // Update fajla
             return true;

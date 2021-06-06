@@ -50,7 +50,7 @@ namespace Classes
                 string equipmentNames = components[1];
                 string equipmentAmounts = components[2];
                 DateTime OrderDate = Convert.ToDateTime(components[3]);
-                DynamicEquipmentOrderStatus status = (DynamicEquipmentOrderStatus)Convert.ToInt32(components[4]);
+                OrderStatus status = (OrderStatus)Convert.ToInt32(components[4]);
 
                 DynamicEquipmentOrder Order = new DynamicEquipmentOrder(id, equipmentNames, equipmentAmounts, OrderDate, status);
                 orders.Add(Order);
@@ -66,7 +66,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentOrder nadjeni in DynamicEquipmentOrdersInFile)
             {
-                if (prosledjeni.ID1.Equals(nadjeni.ID1) && nadjeni.Status1 == DynamicEquipmentOrderStatus.Sent)
+                if (prosledjeni.ID1.Equals(nadjeni.ID1) && nadjeni.Status1 == OrderStatus.Sent)
                 {
                     nadjeni.EquipmentNames1 = prosledjeni.EquipmentNames1;
                     nadjeni.EquipmentAmounts1 = prosledjeni.EquipmentAmounts1;
@@ -123,7 +123,7 @@ namespace Classes
             {
                 if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = DynamicEquipmentOrderStatus.Waiting;
+                    hr.Status1 = OrderStatus.Waiting;
                     UpdateFile(); // Update fajla
                     return true;
                 }
@@ -138,7 +138,7 @@ namespace Classes
             {
                 if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = DynamicEquipmentOrderStatus.Completed;
+                    hr.Status1 = OrderStatus.Completed;
                     UpdateFile(); // Update fajla
                     return true;
                 }

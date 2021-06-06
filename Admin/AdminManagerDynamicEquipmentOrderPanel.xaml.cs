@@ -96,7 +96,7 @@ namespace ftn_sims_hci_hospital.Admin
             dynamicEquipmentOrderListView.Items.Clear();
             foreach (DynamicEquipmentOrder ord in list)
             {
-                if (ord.Status1 == DynamicEquipmentOrderStatus.Sent)
+                if (ord.Status1 == OrderStatus.Sent)
                     loadIntoListView(ord);
             }
         }
@@ -106,7 +106,7 @@ namespace ftn_sims_hci_hospital.Admin
             dynamicEquipmentOrderListView.Items.Clear();
             foreach (DynamicEquipmentOrder ord in list)
             {
-                if (ord.Status1 == DynamicEquipmentOrderStatus.Waiting)
+                if (ord.Status1 == OrderStatus.Waiting)
                     loadIntoListView(ord);
             }
         }
@@ -116,7 +116,7 @@ namespace ftn_sims_hci_hospital.Admin
             dynamicEquipmentOrderListView.Items.Clear();
             foreach (DynamicEquipmentOrder ord in list)
             {
-                if (ord.Status1 == DynamicEquipmentOrderStatus.Completed)
+                if (ord.Status1 == OrderStatus.Completed)
                     loadIntoListView(ord);
             }
         }
@@ -154,13 +154,13 @@ namespace ftn_sims_hci_hospital.Admin
 
         private void activateButtonsByStatus(string status)
         {
-            if (status == DynamicEquipmentOrderStatus.Sent.ToString())
+            if (status == OrderStatus.Sent.ToString())
             {
                 btnUpdate.IsEnabled = true;
                 btnSimulateConfirmation.IsEnabled = true;
                 btnSimulateShipment.IsEnabled = false;
             }
-            else if (status == DynamicEquipmentOrderStatus.Waiting.ToString())
+            else if (status == OrderStatus.Waiting.ToString())
             {
                 btnUpdate.IsEnabled = false;
                 btnSimulateConfirmation.IsEnabled = false;

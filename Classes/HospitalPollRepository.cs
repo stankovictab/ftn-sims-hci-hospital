@@ -1,4 +1,5 @@
 ﻿using Classes;
+using ftn_sims_hci_hospital.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,7 +65,12 @@ namespace ftn_sims_hci_hospital.Classes
 
         public HospitalPoll GetByPatientId(String id)
         {
-            HospitalPoll hp = new HospitalPoll();
+            // HospitalPoll hp = new HospitalPoll();
+
+            /*FactoryProducer fp = new FactoryProducer();
+            PollFactory pf = fp.getPollFactory();
+            HospitalPoll hp = (HospitalPoll) pf.getPoll(PollType.Hospital);*/
+
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (String line in lines)
             {

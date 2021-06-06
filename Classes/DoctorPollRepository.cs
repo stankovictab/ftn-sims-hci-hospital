@@ -64,16 +64,21 @@ namespace ftn_sims_hci_hospital.Classes
 
         public DoctorPoll GetPoll(String patientId, String doctorId)
         {
-            DoctorPoll p = new DoctorPoll();
+            // DoctorPoll dp = new DoctorPoll();
+
+            /*FactoryProducer fp = new FactoryProducer();
+            PollFactory pf = fp.getPollFactory();
+            DoctorPoll dp = (DoctorPoll) pf.getPoll(PollType.Doctor);*/
+
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (String line in lines)
             {
                 String[] data = line.Split(';');
                 if (data[0].Equals(patientId) && data[1].Equals(doctorId))
                 {
-                    p = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
+                    DoctorPoll dp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
                         int.Parse(data[2]), data[3]);
-                    return p;
+                    return dp;
                 }
             }
             return null;

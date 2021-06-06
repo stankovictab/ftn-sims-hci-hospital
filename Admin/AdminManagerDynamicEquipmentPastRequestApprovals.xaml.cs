@@ -16,7 +16,7 @@ namespace ftn_sims_hci_hospital.Admin
             dynamicEquipmentRequestListView.Items.Clear();
             foreach (DynamicEquipmentRequest req in list)
             {
-                if (req.Status1 != DynamicEquipmentRequestStatus.OnHold)
+                if (req.Status1 != RequestStatus.OnHold)
                 {
                     string doc = req.doctor.user.Name1 + " " + req.doctor.user.LastName1;
                     dynamicEquipmentRequestListView.Items.Add(new { RequestID1 = req.ID1, DoctorFullName1 = doc, Status1 = req.Status1, EquipmentName1 = req.EquipmentName1, RequestDate1 = req.CreationDate1, Commentary1 = req.Commentary1 });

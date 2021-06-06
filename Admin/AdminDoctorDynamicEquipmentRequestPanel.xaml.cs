@@ -123,7 +123,7 @@ namespace ftn_sims_hci_hospital.Admin
             List<DynamicEquipmentRequest> list = getDynamicEquipmentRequestList();
             foreach (DynamicEquipmentRequest req in list)
             {
-                if (req.Status1 == DynamicEquipmentRequestStatus.OnHold)
+                if (req.Status1 == RequestStatus.OnHold)
                     loadIntoListView(req);
             }
         }
@@ -132,7 +132,7 @@ namespace ftn_sims_hci_hospital.Admin
             List<DynamicEquipmentRequest> list = getDynamicEquipmentRequestList();
             foreach (DynamicEquipmentRequest req in list)
             {
-                if (req.Status1 == DynamicEquipmentRequestStatus.Approved)
+                if (req.Status1 == RequestStatus.Approved)
                     loadIntoListView(req);
             }
         }
@@ -141,7 +141,7 @@ namespace ftn_sims_hci_hospital.Admin
             List<DynamicEquipmentRequest> list = getDynamicEquipmentRequestList();
             foreach (DynamicEquipmentRequest req in list)
             {
-                if (req.Status1 == DynamicEquipmentRequestStatus.Denied)
+                if (req.Status1 == RequestStatus.Denied)
                     loadIntoListView(req);
             }
         }

@@ -7,16 +7,14 @@ namespace Classes
     {
         private String EquipmentName;
         private String EquipmentAmount;
-        private DynamicEquipmentRequestStatus Status;
         private bool Ordered;
         public Doctor doctor;
 
         public string EquipmentName1 { get => EquipmentName; set => EquipmentName = value; }
         public string EquipmentAmount1 { get => EquipmentAmount; set => EquipmentAmount = value; }
-        public DynamicEquipmentRequestStatus Status1 { get => Status; set => Status = value; }
         public bool Ordered1 { get => Ordered; set => Ordered = value; }
 
-        public DynamicEquipmentRequest(String ID, String EquipmentName, String EquipmentAmount, DateTime CreationDate, DynamicEquipmentRequestStatus Status, bool ordered, Doctor doctor, string commentary)
+        public DynamicEquipmentRequest(String ID, String EquipmentName, String EquipmentAmount, DateTime CreationDate, RequestStatus Status, bool ordered, Doctor doctor, string commentary)
         {
             this.ID = ID;
             this.EquipmentName = EquipmentName;
@@ -35,7 +33,7 @@ namespace Classes
             this.EquipmentName = EquipmentName;
             this.EquipmentAmount = "0";
             this.CreationDate = DateTime.Now;
-            this.Status = DynamicEquipmentRequestStatus.OnHold;
+            this.Status = RequestStatus.OnHold;
             this.Ordered = false;
             this.doctor = Doctor;
             this.Commentary = "/";
@@ -48,7 +46,7 @@ namespace Classes
             this.EquipmentName = EquipmentName;
             this.EquipmentAmount = "0";
             this.CreationDate = DateTime.Now;
-            this.Status = DynamicEquipmentRequestStatus.OnHold;
+            this.Status = RequestStatus.OnHold;
             this.Ordered = false;
             this.doctor = null;
             this.Commentary = "/";
@@ -61,11 +59,13 @@ namespace Classes
             this.EquipmentName = EquipmentName;
             this.EquipmentAmount = EquipmentAmount;
             this.CreationDate = DateTime.Now;
-            this.Status = DynamicEquipmentRequestStatus.OnHold;
+            this.Status = RequestStatus.OnHold;
             this.Ordered = false;
             this.doctor = null;
             this.Commentary = "/";
         }
+
+        public DynamicEquipmentRequest() { }
 
         public Doctor GetDoctor()
         {

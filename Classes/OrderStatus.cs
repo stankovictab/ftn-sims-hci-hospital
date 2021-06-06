@@ -1,6 +1,6 @@
 namespace Classes
 {
-    public enum DynamicEquipmentOrderStatus
+    public enum OrderStatus
     {
         Sent,
         Waiting,

@@ -164,7 +164,7 @@ namespace ftn_sims_hci_hospital.Admin
                 string id = components3[0];
                 id = id.Trim();
                 HolidayRequest hr = MainWindow.holidayRequestController.GetByID(id);
-                if (hr.Status1 != HolidayRequestStatus.OnHold)
+                if (hr.Status1 != RequestStatus.OnHold)
                     return; // Sme da se brise samo OnHold zahtev
 
                 // Initialize the drag & drop operation

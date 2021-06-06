@@ -25,7 +25,7 @@ namespace ftn_sims_hci_hospital.Admin
             List<DynamicEquipmentRequest> list = getDynamicEquipmentRequestList();
             foreach (DynamicEquipmentRequest req in list)
             {
-                if (req.Status1 == DynamicEquipmentRequestStatus.Approved && req.Ordered1 == false)
+                if (req.Status1 == RequestStatus.Approved && req.Ordered1 == false)
                 {
                     loadIntoListView(req);
                 }

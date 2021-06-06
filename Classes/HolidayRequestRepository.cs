@@ -56,7 +56,7 @@ namespace Classes
                 DateTime startDate = Convert.ToDateTime(components[2]);
                 DateTime endDate = Convert.ToDateTime(components[3]);
                 DateTime requestDate = Convert.ToDateTime(components[4]);
-                HolidayRequestStatus status = (HolidayRequestStatus)Convert.ToInt32(components[5]);
+                RequestStatus status = (RequestStatus)Convert.ToInt32(components[5]);
 
                 // Loadovanje lekara u memoriju da bi im pristupili
                 DoctorRepository drrep = new DoctorRepository();
@@ -99,7 +99,7 @@ namespace Classes
             List<HolidayRequest> requests = new List<HolidayRequest>();
             foreach (HolidayRequest req in HolidayRequestsInFile)
             {
-                if (req.Status1 == HolidayRequestStatus.OnHold)
+                if (req.Status1 == RequestStatus.OnHold)
                 {
                     requests.Add(req);
                 }
@@ -113,7 +113,7 @@ namespace Classes
             List<HolidayRequest> requests = new List<HolidayRequest>();
             foreach (HolidayRequest req in HolidayRequestsInFile)
             {
-                if (req.Status1 != HolidayRequestStatus.OnHold)
+                if (req.Status1 != RequestStatus.OnHold)
                 {
                     requests.Add(req);
                 }
@@ -127,7 +127,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (HolidayRequest nadjeni in HolidayRequestsInFile)
             {
-                if (prosledjeni.ID1.Equals(nadjeni.ID1) && nadjeni.Status1 == HolidayRequestStatus.OnHold)
+                if (prosledjeni.ID1.Equals(nadjeni.ID1) && nadjeni.Status1 == RequestStatus.OnHold)
                 {
                     nadjeni.Description1 = prosledjeni.Description1;
                     nadjeni.StartDate1 = prosledjeni.StartDate1;
@@ -188,7 +188,7 @@ namespace Classes
             {
                 if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = HolidayRequestStatus.Approved;
+                    hr.Status1 = RequestStatus.Approved;
                     hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
@@ -204,7 +204,7 @@ namespace Classes
             {
                 if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = HolidayRequestStatus.Denied;
+                    hr.Status1 = RequestStatus.Denied;
                     hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;

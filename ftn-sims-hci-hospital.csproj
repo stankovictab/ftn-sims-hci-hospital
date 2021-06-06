@@ -115,6 +115,7 @@
     <Compile Include="Admin\Bar.xaml.cs">
       <DependentUpon>Bar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Factories.cs" />
     <Compile Include="Admin\Sort.cs" />
     <Compile Include="Admin\Validation.cs" />
     <Compile Include="AllAllergiesPage.xaml.cs">
@@ -161,13 +162,12 @@
     <Compile Include="Classes\DynamicEquipmentOrderController.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderService.cs" />
-    <Compile Include="Classes\DynamicEquipmentOrderStatus.cs" />
+    <Compile Include="Classes\OrderStatus.cs" />
     <Compile Include="Classes\DynamicEquipmentRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentRequest.cs" />
     <Compile Include="Classes\DynamicEquipmentRequestController.cs" />
     <Compile Include="Classes\DynamicEquipmentRequestRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentRequestService.cs" />
-    <Compile Include="Classes\DynamicEquipmentRequestStatus.cs" />
     <Compile Include="Classes\EnschedulementController.cs" />
     <Compile Include="Classes\EnschedulementRepository.cs" />
     <Compile Include="Classes\EnschedulementService.cs" />
@@ -177,7 +177,7 @@
     <Compile Include="Classes\HolidayRequestController.cs" />
     <Compile Include="Classes\HolidayRequestRepository.cs" />
     <Compile Include="Classes\HolidayRequestService.cs" />
-    <Compile Include="Classes\HolidayRequestStatus.cs" />
+    <Compile Include="Classes\RequestStatus.cs" />
     <Compile Include="Classes\HospitalizationReferal.cs" />
     <Compile Include="Classes\HospitalizationReferalRepository.cs" />
     <Compile Include="Classes\HospitalPoll.cs" />

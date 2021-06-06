@@ -8,11 +8,10 @@ namespace Classes
         private String Description;
         private DateTime StartDate;
         private DateTime EndDate;
-        private HolidayRequestStatus Status;
         public Doctor doctor;
 
         // Format u txt fajlu treba da bude isti kao parametri konstruktora, vidi GetAll() metodu
-        public HolidayRequest(String ID, String Description, DateTime StartDate, DateTime EndDate, DateTime CreationDate, HolidayRequestStatus Status, Doctor doctor, string commentary)
+        public HolidayRequest(String ID, String Description, DateTime StartDate, DateTime EndDate, DateTime CreationDate, RequestStatus Status, Doctor doctor, string commentary)
         {
             this.ID = ID;
             this.Description = Description;
@@ -32,7 +31,7 @@ namespace Classes
             this.StartDate = StartDate;
             this.EndDate = EndDate;
             this.CreationDate = DateTime.Now;
-            this.Status = HolidayRequestStatus.OnHold;
+            this.Status = RequestStatus.OnHold;
             this.doctor = doctor;
             this.Commentary = "/";
         }
@@ -45,15 +44,16 @@ namespace Classes
             this.StartDate = StartDate;
             this.EndDate = EndDate;
             this.CreationDate = DateTime.Now;
-            this.Status = HolidayRequestStatus.OnHold;
+            this.Status = RequestStatus.OnHold;
             this.doctor = null;
             this.Commentary = "/";
         }
 
+        public HolidayRequest() { }
+
         public string Description1 { get => Description; set => Description = value; }
         public DateTime StartDate1 { get => StartDate; set => StartDate = value; }
         public DateTime EndDate1 { get => EndDate; set => EndDate = value; }
-        public HolidayRequestStatus Status1 { get => Status; set => Status = value; }
         
         public Doctor GetDoctor()
         {

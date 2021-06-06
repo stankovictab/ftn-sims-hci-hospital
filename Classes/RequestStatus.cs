@@ -1,6 +1,6 @@
 namespace Classes
 {
-    public enum DynamicEquipmentRequestStatus
+    public enum RequestStatus
     {
         OnHold,
         Approved,

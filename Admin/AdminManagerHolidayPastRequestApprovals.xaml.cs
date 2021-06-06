@@ -59,7 +59,7 @@ namespace ftn_sims_hci_hospital.Admin
             List<HolidayRequest> list = getHolidayRequestListNotOnHold();
             foreach (HolidayRequest req in list)
             {
-                if (req.Status1 == HolidayRequestStatus.Approved)
+                if (req.Status1 == RequestStatus.Approved)
                     loadIntoListView(req);
             }
         }
@@ -68,7 +68,7 @@ namespace ftn_sims_hci_hospital.Admin
             List<HolidayRequest> list = getHolidayRequestListNotOnHold();
             foreach (HolidayRequest req in list)
             {
-                if (req.Status1 == HolidayRequestStatus.Denied)
+                if (req.Status1 == RequestStatus.Denied)
                     loadIntoListView(req);
             }
         }
