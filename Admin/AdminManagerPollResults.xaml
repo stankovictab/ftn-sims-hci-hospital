@@ -45,17 +45,17 @@
             </ListView.View>
         </ListView>
         <Label Content="Hospital Average Score:" HorizontalAlignment="Left" Margin="548,296,0,0" VerticalAlignment="Top" FontSize="28" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label Content="5 Stars:" HorizontalAlignment="Left" Margin="882,104,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label Content="4 Stars:" HorizontalAlignment="Left" Margin="882,137,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label Content="3 Stars:" HorizontalAlignment="Left" Margin="882,170,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label Content="2 Stars:" HorizontalAlignment="Left" Margin="882,203,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label Content="1 Star:" HorizontalAlignment="Left" Margin="894,236,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="5 Stars:" HorizontalAlignment="Left" Margin="838,104,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="4 Stars:" HorizontalAlignment="Left" Margin="838,137,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="3 Stars:" HorizontalAlignment="Left" Margin="838,170,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="2 Stars:" HorizontalAlignment="Left" Margin="838,203,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="1 Star:" HorizontalAlignment="Left" Margin="850,236,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
         <Label x:Name="hospitalAverageScore" Content="0.00" HorizontalAlignment="Left" Margin="885,296,0,0" VerticalAlignment="Top" FontSize="28" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label x:Name="hospitalFives" Content="0" HorizontalAlignment="Left" Margin="970,105,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label x:Name="hospitalFours" Content="0" HorizontalAlignment="Left" Margin="970,138,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label x:Name="hospitalThrees" Content="0" HorizontalAlignment="Left" Margin="970,171,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label x:Name="hospitalTwos" Content="0" HorizontalAlignment="Left" Margin="970,204,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label x:Name="hospitalOnes" Content="0" HorizontalAlignment="Left" Margin="970,237,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalFives" Content="0" HorizontalAlignment="Left" Margin="926,105,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalFours" Content="0" HorizontalAlignment="Left" Margin="926,138,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalThrees" Content="0" HorizontalAlignment="Left" Margin="926,171,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalTwos" Content="0" HorizontalAlignment="Left" Margin="926,204,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="hospitalOnes" Content="0" HorizontalAlignment="Left" Margin="926,237,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
         <Label Content="1 Star" HorizontalAlignment="Left" Margin="423,298,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>

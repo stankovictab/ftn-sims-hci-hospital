@@ -77,7 +77,7 @@ namespace ftn_sims_hci_hospital.Classes
                 String[] data = line.Split(';');
                 if (data[0].Equals(id))
                 {
-                    hp = new HospitalPoll(patientRepository.GetByID(id), int.Parse(data[1]), data[2]);
+                    HospitalPoll hp = new HospitalPoll(patientRepository.GetByID(id), int.Parse(data[1]), data[2]);
                     return hp;
                 }
             }
