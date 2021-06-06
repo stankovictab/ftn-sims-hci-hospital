@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using ftn_sims_hci_hospital.Classes;
@@ -11,8 +12,6 @@ namespace ftn_sims_hci_hospital.Admin
         public static HospitalPollRepository hpr = new HospitalPollRepository();
         public static DoctorPollRepository dpr = new DoctorPollRepository();
         Dictionary<string, List<DoctorPoll>> doctorsByPolls = new Dictionary<string, List<DoctorPoll>>(); // doctorID <-> lista njegovih poll-ova
-        string fives = "";
-        
 
         public AdminManagerPollResults()
         {
@@ -26,7 +25,9 @@ namespace ftn_sims_hci_hospital.Admin
         {
             List<Poll> pollList = hospitalPolls.ConvertAll(x => (Poll)x); // Prebacivanje liste podklasa u listu nadklasa
             var results = calculatePollResults(pollList);
-
+            int[] resultsArray = { results.Item2, results.Item3, results.Item4, results.Item5, results.Item6 };
+            int max = resultsArray.Max();
+            
             hospitalAverageScore.Content = results.Item1;
             hospitalFives.Content = results.Item2;
             hospitalFours.Content = results.Item3;
@@ -34,7 +35,18 @@ namespace ftn_sims_hci_hospital.Admin
             hospitalTwos.Content = results.Item5;
             hospitalOnes.Content = results.Item6;
 
-            fives = results.Item2.ToString();
+            fivesBar.Value = (Double)results.Item2;
+            foursBar.Value = (Double)results.Item3;
+            threesBar.Value = (Double)results.Item4;
+            twosBar.Value = (Double)results.Item5;
+            onesBar.Value = (Double)results.Item6;
+
+            MaxValueLabel.Content = max.ToString();
+            fivesBar.MaxValue = max;
+            foursBar.MaxValue = max;
+            threesBar.MaxValue = max;
+            twosBar.MaxValue = max;
+            onesBar.MaxValue = max;
         }
 
         private void fillDoctorPollResults(List<DoctorPoll> doctorPolls)

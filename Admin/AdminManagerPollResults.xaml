@@ -24,11 +24,11 @@
         </Menu>
 
         <StackPanel Orientation="Horizontal" Height="256" VerticalAlignment="Bottom" Margin="264,0,425,278">
-            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FF00FF68" Value="6" Margin="5"/> <!-- 6 -->
-            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FF9AF31A" Value="3" Margin="5"/> <!-- 3 -->
-            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFEED804" Value="1" Margin="5"/> <!-- 1 -->
-            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFEA8B2C" Value="2" Margin="5"/> <!-- 2 -->
-            <local:Bar VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFE41212" Value="3" Margin="5"/> <!-- 3 -->
+            <local:Bar x:Name="fivesBar" VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FF00FF68" Value="0" Margin="5"/>
+            <local:Bar x:Name="foursBar" VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FF9AF31A" Value="0" Margin="5"/>
+            <local:Bar x:Name="threesBar" VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFEED804" Value="0" Margin="5"/>
+            <local:Bar x:Name="twosBar" VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFEA8B2C" Value="0" Margin="5"/>
+            <local:Bar x:Name="onesBar" VerticalAlignment="Bottom" Height="200" Width="35" MaxValue="10" Color="#FFE41212" Value="0" Margin="5"/>
         </StackPanel>
 
         <ListView x:Name="doctorPollResultsListView" HorizontalAlignment="Left" Height="185" Margin="27,358,0,0" VerticalAlignment="Top" Width="991" FontSize="16">
@@ -106,8 +106,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="0" HorizontalAlignment="Left" Margin="243,262,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
-        <Label Content="10" HorizontalAlignment="Left" Margin="232,74,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="0" HorizontalAlignment="Left" Margin="242,262,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label x:Name="MaxValueLabel" Content="0" HorizontalAlignment="Right" Margin="0,77,778,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" HorizontalContentAlignment="Right"/>
         <Label Content="Votes" HorizontalAlignment="Left" Margin="203,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
