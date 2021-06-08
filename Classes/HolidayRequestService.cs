@@ -15,12 +15,12 @@ namespace Classes
             int newid = 0;
             foreach (HolidayRequest r in temp)
             {
-                newid = Int32.Parse(r.RequestID1);
+                newid = Int32.Parse(r.ID1);
             }
             newid++;
             String newidstring = newid.ToString();
 
-            req.RequestID1 = newidstring;
+            req.ID1 = newidstring;
             return hrr.Create(req);
         }
 
@@ -57,7 +57,7 @@ namespace Classes
             Doctor doctor = new Doctor();
             foreach (HolidayRequest r in list)
             {
-                if (r.RequestID1 == req.RequestID1)
+                if (r.ID1 == req.ID1)
                 {
                     doctor = r.doctor;
                 }

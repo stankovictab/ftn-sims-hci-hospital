@@ -1,0 +1,29 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.Admin.AdminManagerPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.Admin"
+        mc:Ignorable="d"
+        Title="AdminManagerPanel" Height="600" Width="1050" Background="White">
+    <Grid Background="White">
+        <Image HorizontalAlignment="Left" Height="126" Margin="455,421,0,0" VerticalAlignment="Top" Source="/ftn-sims-hci-hospital;component/Admin/logogreen.png"/>
+        <Menu HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="1042" Background="#FF56B290">
+            <MenuItem Header="Holiday Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="HolidayRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="DynamicEquipmentRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Orders" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold">
+                <MenuItem Header="Main Panel" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderPanel_Click"/>
+                <MenuItem Header="Creation" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderCreation_Click"/>
+            </MenuItem>
+            <MenuItem Header="Poll Results" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="PollResults_Click"/>
+            <MenuItem Header="Report" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="Report_Click"/>
+            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="114 0 0 0" BorderBrush="{x:Null}">
+                <MenuItem Header="View / Edit Profile" Height="34" Background="#FF56B290" Click="ViewProfile_Click" BorderBrush="{x:Null}"/>
+                <MenuItem Header="Switch Accounts" Height="34" Background="#FF56B290" Click="SwitchAccounts_Click"/>
+                <MenuItem Header="Log Out" Height="34" Background="#FF56B290" Click="LogOut_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="Welcome," HorizontalAlignment="Center" Margin="272,144,382,0" VerticalAlignment="Top" FontSize="40" Background="{x:Null}" Foreground="#FF56B290" FontFamily="Arial" Width="388"/>
+        <Label Content="Mihajlo Mihajlović" HorizontalAlignment="Center" Margin="287,186,182,0" VerticalAlignment="Top" FontSize="55" Background="{x:Null}" Foreground="#FF56B290" FontFamily="Arial" FontWeight="Bold" Width="573"/>
+    </Grid>
+</Window>

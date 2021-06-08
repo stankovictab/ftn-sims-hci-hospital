@@ -1,39 +1,35 @@
 using System;
 using System.Collections.Generic;
+using ftn_sims_hci_hospital.Classes;
 
 namespace Classes
 {
-    public class DynamicEquipmentOrder
+    public class DynamicEquipmentOrder : Order
     {
-        private string OrderID;
         private string EquipmentNames; // List<String>?
         private string EquipmentAmounts; // List<int>?
-        private DateTime OrderDate;
-        private DynamicEquipmentOrderStatus Status;
 
-        public string OrderID1 { get => OrderID; set => OrderID = value; }
         public string EquipmentNames1 { get => EquipmentNames; set => EquipmentNames = value; }
         public string EquipmentAmounts1 { get => EquipmentAmounts; set => EquipmentAmounts = value; }
-        public DateTime OrderDate1 { get => OrderDate; set => OrderDate = value; }
-        public DynamicEquipmentOrderStatus Status1 { get => Status; set => Status = value; }
 
-        public DynamicEquipmentOrder(String OrderID, string equipmentNames, string equipmentAmounts, DateTime OrderDate, DynamicEquipmentOrderStatus Status)
+        // Full
+        public DynamicEquipmentOrder(String ID, string equipmentNames, string equipmentAmounts, DateTime CreationDate, OrderStatus Status)
         {
-            this.OrderID = OrderID;
+            this.ID = ID;
             this.EquipmentNames = equipmentNames;
             this.EquipmentAmounts = equipmentAmounts;
-            this.OrderDate = OrderDate;
+            this.CreationDate = CreationDate;
             this.Status = Status;
         }
 
         // Koristi se u DEOCreation
         public DynamicEquipmentOrder(string equipmentNames, string equipmentAmounts)
         {
-            this.OrderID = null;
+            this.ID = null;
             this.EquipmentNames = equipmentNames;
             this.EquipmentAmounts = equipmentAmounts;
-            this.OrderDate = DateTime.Now;
-            this.Status = DynamicEquipmentOrderStatus.Sent;
+            this.CreationDate = DateTime.Now;
+            this.Status = OrderStatus.Sent;
         }
     }
 }

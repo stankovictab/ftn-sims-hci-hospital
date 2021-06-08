@@ -13,10 +13,9 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btdb" Click="openDoctorB" Content="Doctor B" HorizontalAlignment="Left" Margin="3,259,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Height="20"/>
-        <Button x:Name="btde" Click="btde_Click" Content="Doctor E" HorizontalAlignment="Left" Margin="3,369,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Height="20"/>
+        <Button x:Name="btdb" Click="openDoctorB" Content="Doctor" HorizontalAlignment="Left" Margin="3,259,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Height="20"/>
         <Button x:Name="bts" Click="bts_Click" Content="Secretary" HorizontalAlignment="Left" Margin="3,284,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Height="20"/>
-        <Button x:Name="btm" Content="Manager" HorizontalAlignment="Left" Margin="3,344,0,0" VerticalAlignment="Top" Width="75" Click="btm_Click" Grid.Column="2" Height="20"/>
+        <Button x:Name="btm" Content="Manager" HorizontalAlignment="Left" Margin="3,334,0,0" VerticalAlignment="Top" Width="75" Click="btm_Click" Grid.Column="2" Height="20"/>
         <Button x:Name="btp" Content="Patient" HorizontalAlignment="Left" Margin="3,309,0,0" VerticalAlignment="Top" Width="75" Click="patientClick" Grid.Column="2" Height="20"/>
         <Rectangle Fill="#FF838080" HorizontalAlignment="Left" Height="700" Margin="290,35,0,0" Stroke="Black" VerticalAlignment="Top" Width="600" Grid.Column="2"/>
         <Image Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="136" Margin="529,57,0,0" VerticalAlignment="Top" Width="145" Source="logo.png"/>
@@ -27,8 +26,7 @@
         <PasswordBox x:Name="passwordTextBox" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="521,457,0,0" VerticalAlignment="Top"  Width="160" Height="34" Background="#FFAEAAAA"/>
         <Button x:Name="btnLogin" Grid.ColumnSpan="3" Content="Login" HorizontalAlignment="Left" Margin="581,522,0,0" VerticalAlignment="Top" Width="100" Height="45" Background="#FFABB1B4" BorderBrush="#FF020202" Click="LogIn"/>
         <Label x:Name="errorMessage" Grid.ColumnSpan="3" Content="Username or password not valid" Foreground="#FFD71919" FontSize="16" HorizontalAlignment="Left" Margin="484,303,0,0" VerticalAlignment="Top" Background="{x:Null}" Visibility="Hidden"/>
-        <Button x:Name="btdHCI" Click="btdHCI_Click" Content="Djordje Doctor HCI" HorizontalAlignment="Left" Margin="112,309,0,0" VerticalAlignment="Top" Width="126" Grid.Column="2" Height="20"/>
+        <Button x:Name="btnAdmin" Click="btnAdmin_Click" Content="Admin" HorizontalAlignment="Left" Margin="3,360,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Height="20"/>
         <Button x:Name="managerHCI" Grid.ColumnSpan="3" Content="Manager HCI" HorizontalAlignment="Left" Margin="1109,168,0,0" VerticalAlignment="Top" Width="75" Click="managerHCI_Click"/>
-
     </Grid>
 </Window>

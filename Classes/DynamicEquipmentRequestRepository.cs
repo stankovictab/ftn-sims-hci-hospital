@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital.Admin;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,7 +30,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest req in DynamicEquipmentRequestsInFile)
             {
-                if (req.RequestID1.Equals(id))
+                if (req.ID1.Equals(id))
                 {
                     return req;
                 }
@@ -50,7 +51,7 @@ namespace Classes
                 string equipmentName = components[1];
                 string equipmentAmount = components[2];
                 DateTime requestDate = Convert.ToDateTime(components[3]);
-                DynamicEquipmentRequestStatus status = (DynamicEquipmentRequestStatus)Convert.ToInt32(components[4]);
+                RequestStatus status = (RequestStatus)Convert.ToInt32(components[4]);
                 bool ordered = bool.Parse(components[5]);
 
                 // Loadovanje lekara u memoriju da bi im pristupili
@@ -58,7 +59,10 @@ namespace Classes
                 Doctor doctor = drrep.GetByID(components[6]);
 
                 string commentary = components[7];
-                DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, equipmentAmount, requestDate, status, ordered, doctor, commentary);
+                // DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, equipmentAmount, requestDate, status, ordered, doctor, commentary);
+                RequestFactory rf = new RequestFactory(id, equipmentName, equipmentAmount, requestDate, status, ordered, doctor, commentary);
+                DynamicEquipmentRequest request = (DynamicEquipmentRequest)rf.getConcreteObject(ConstructorType.DynamicEquipmentRequestFull);
+
                 requests.Add(request);
                 text = tr.ReadLine();
             }
@@ -94,7 +98,7 @@ namespace Classes
             {
                 // Ako nadje Request za prosledjenog lekara, stavi ga u listu, i vrati listu
                 // Ako lekar sa datim JMBG-om ne postoji u doctors.txt, vratice null
-                if (req.Status1.Equals(DynamicEquipmentRequestStatus.OnHold))
+                if (req.Status1.Equals(RequestStatus.OnHold))
                 {
                     requests.Add(req);
                 }
@@ -107,12 +111,12 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest nadjeni in DynamicEquipmentRequestsInFile)
             {
-                if (prosledjeni.RequestID1.Equals(nadjeni.RequestID1))
+                if (prosledjeni.ID1.Equals(nadjeni.ID1))
                 // Uslov && nadjeni.Status1 == DynamicEquipmentRequestStatus.OnHold nije potreban jer se ta provera vec radi u WPF-u, bolje je korisnik tamo da vidi da ne moze da update-uje tako nego odavde
                 {
                     nadjeni.EquipmentName1 = prosledjeni.EquipmentName1;
                     nadjeni.EquipmentAmount1 = prosledjeni.EquipmentAmount1;
-                    nadjeni.RequestDate1 = prosledjeni.RequestDate1; // Ovo se ipak menja
+                    nadjeni.CreationDate1 = prosledjeni.CreationDate1; // Ovo se ipak menja
                     // Status i doktor se ne menjaju
                     UpdateFile(); // Update fajla
                     return true;
@@ -135,7 +139,7 @@ namespace Classes
                 // Za svaki Request pise liniju, i to mora da bude u istom formatu kao kada i cita
                 foreach (DynamicEquipmentRequest item in DynamicEquipmentRequestsInFile)
                 {
-                    tw.WriteLine(item.RequestID1 + "," + item.EquipmentName1 + "," + item.EquipmentAmount1 + "," + item.RequestDate1 + "," + (int)item.Status1 + "," + item.Ordered1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
+                    tw.WriteLine(item.ID1 + "," + item.EquipmentName1 + "," + item.EquipmentAmount1 + "," + item.CreationDate1 + "," + (int)item.Status1 + "," + item.Ordered1 + "," + item.doctor.user.Jmbg1 + "," + item.Commentary1);
                     // Datumi se ne ispisuju po onom mom formatu ali izgleda da je i ovako ok, parsira se isto
                 }
                 tw.Close();
@@ -148,7 +152,7 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
                     DynamicEquipmentRequestsInFile.Remove(hr);
                     UpdateFile(); // Update fajla
@@ -163,9 +167,9 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = DynamicEquipmentRequestStatus.Approved;
+                    hr.Status1 = RequestStatus.Approved;
                     hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
@@ -179,9 +183,9 @@ namespace Classes
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
             {
-                if (hr.RequestID1.Equals(id))
+                if (hr.ID1.Equals(id))
                 {
-                    hr.Status1 = DynamicEquipmentRequestStatus.Denied;
+                    hr.Status1 = RequestStatus.Denied;
                     hr.Commentary1 = commentary;
                     UpdateFile(); // Update fajla
                     return true;
@@ -194,7 +198,7 @@ namespace Classes
         {
             GetAll(); // Update liste
             foreach (DynamicEquipmentRequest hr in DynamicEquipmentRequestsInFile)
-                if (hr.Status1.Equals(DynamicEquipmentRequestStatus.Approved))
+                if (hr.Status1.Equals(RequestStatus.Approved))
                     hr.Ordered1 = true;
             UpdateFile(); // Update fajla
             return true;

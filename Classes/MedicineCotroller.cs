@@ -8,6 +8,7 @@ namespace Classes
 {
     class MedicineCotroller
     {
+
         public MedicineService medicineService = new MedicineService();
         public Medicine Create(Medicine newMedicine)
         {
@@ -42,5 +43,6 @@ namespace Classes
             //return medicineService.Decline(medicineForDecline);
             return null;
         }
+
     }
 }

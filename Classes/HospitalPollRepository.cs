@@ -1,4 +1,5 @@
 ﻿using Classes;
+using ftn_sims_hci_hospital.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,7 +57,9 @@ namespace ftn_sims_hci_hospital.Classes
             foreach (String line in lines)
             {
                 String[] data = line.Split(';');
-                HospitalPoll hp = new HospitalPoll(patientRepository.GetByID(data[0]), int.Parse(data[1]), data[2]);
+                // HospitalPoll hp = new HospitalPoll(patientRepository.GetByID(data[0]), int.Parse(data[1]), data[2]);
+                PollFactory pf = new PollFactory(patientRepository.GetByID(data[0]), int.Parse(data[1]), data[2]);
+                HospitalPoll hp = (HospitalPoll)pf.getConcreteObject(ConstructorType.HospitalPoll);
                 hospitalPolls.Add(hp);
             }
             return hospitalPolls;
@@ -64,14 +67,15 @@ namespace ftn_sims_hci_hospital.Classes
 
         public HospitalPoll GetByPatientId(String id)
         {
-            HospitalPoll hp = new HospitalPoll();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (String line in lines)
             {
                 String[] data = line.Split(';');
                 if (data[0].Equals(id))
                 {
-                    hp = new HospitalPoll(patientRepository.GetByID(id), int.Parse(data[1]), data[2]);
+                    // HospitalPoll hp = new HospitalPoll(patientRepository.GetByID(id), int.Parse(data[1]), data[2]);
+                    PollFactory pf = new PollFactory(patientRepository.GetByID(id), int.Parse(data[1]), data[2]);
+                    HospitalPoll hp = (HospitalPoll)pf.getConcreteObject(ConstructorType.HospitalPoll);
                     return hp;
                 }
             }

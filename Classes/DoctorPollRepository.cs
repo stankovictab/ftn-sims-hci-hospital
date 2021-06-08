@@ -1,4 +1,5 @@
 ﻿using Classes;
+using ftn_sims_hci_hospital.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,24 +57,26 @@ namespace ftn_sims_hci_hospital.Classes
             foreach (String line in lines)
             {
                 String[] data = line.Split(';');
-                DoctorPoll hp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
-                polls.Add(hp);
+                // DoctorPoll dp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
+                PollFactory pf = new PollFactory(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
+                DoctorPoll dp = (DoctorPoll)pf.getConcreteObject(ConstructorType.DoctorPoll);
+                polls.Add(dp);
             }
             return polls;
         }
 
         public DoctorPoll GetPoll(String patientId, String doctorId)
         {
-            DoctorPoll p = new DoctorPoll();
             string[] lines = System.IO.File.ReadAllLines(FileLocation);
             foreach (String line in lines)
             {
                 String[] data = line.Split(';');
                 if (data[0].Equals(patientId) && data[1].Equals(doctorId))
                 {
-                    p = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
-                        int.Parse(data[2]), data[3]);
-                    return p;
+                    // DoctorPoll dp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
+                    PollFactory pf = new PollFactory(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
+                    DoctorPoll dp = (DoctorPoll)pf.getConcreteObject(ConstructorType.DoctorPoll);
+                    return dp;
                 }
             }
             return null;
@@ -88,9 +91,10 @@ namespace ftn_sims_hci_hospital.Classes
                 String[] data = line.Split(';');
                 if (data[1].Equals(id))
                 {
-                    DoctorPoll hp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]),
-                        int.Parse(data[2]), data[3]);
-                    polls.Add(hp);
+                    // DoctorPoll dp = new DoctorPoll(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
+                    PollFactory pf = new PollFactory(patientRepository.GetByID(data[0]), doctorRepository.GetByID(data[1]), int.Parse(data[2]), data[3]);
+                    DoctorPoll dp = (DoctorPoll)pf.getConcreteObject(ConstructorType.DoctorPoll);
+                    polls.Add(dp);
                 }
             }
             return polls;

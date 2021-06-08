@@ -1,0 +1,34 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.Admin.AdminManagerReport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.Admin"
+        mc:Ignorable="d"
+        Title="AdminManagerReport" Height="600" Width="1050" Background="White">
+    <Grid Background="White">
+        <Menu HorizontalAlignment="Left" Height="34" VerticalAlignment="Top" Width="1042" Background="#FF56B290">
+            <MenuItem Header="Holiday Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="HolidayRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Requests" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="DynamicEquipmentRequests_Click"/>
+            <MenuItem Header="Dynamic Equipment Orders" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold">
+                <MenuItem Header="Main Panel" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderPanel_Click"/>
+                <MenuItem Header="Creation" Height="34" Background="#FF56B290" Click="DynamicEquipmentOrderCreation_Click"/>
+            </MenuItem>
+            <MenuItem Header="Poll Results" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="PollResults_Click"/>
+            <MenuItem Header="Report" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Click="Report_Click"/>
+            <MenuItem Header="Profile" Height="34" Background="{x:Null}" FontSize="18" Foreground="White" FontWeight="Bold" Margin="114 0 0 0" BorderBrush="{x:Null}">
+                <MenuItem Header="View / Edit Profile" Height="34" Background="#FF56B290" Click="ViewProfile_Click" BorderBrush="{x:Null}"/>
+                <MenuItem Header="Switch Accounts" Height="34" Background="#FF56B290" Click="SwitchAccounts_Click"/>
+                <MenuItem Header="Log Out" Height="34" Background="#FF56B290" Click="LogOut_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="Dynamic Equipment Request Report Generation" HorizontalAlignment="Left" Margin="40,61,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="Start Date:" HorizontalAlignment="Left" Margin="354,173,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <Label Content="End Date:" HorizontalAlignment="Left" Margin="354,247,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Arial" Foreground="#FF56B290" FontWeight="Bold"/>
+        <DatePicker x:Name="startDate" HorizontalAlignment="Left" Margin="498,169,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <DatePicker x:Name="endDate" HorizontalAlignment="Left" Margin="498,243,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Button x:Name="GeneratePDF" Content="Generate PDF" HorizontalAlignment="Left" Margin="423,452,0,0" VerticalAlignment="Top" Width="197" Background="#FF56B290" BorderBrush="{x:Null}" Foreground="White" Height="50" FontSize="24" FontWeight="Bold" FontFamily="Arial" Click="GeneratePDF_Click"/>
+        <Label Content="Report will be issued on this day, by the current user." HorizontalAlignment="Center" Margin="226,355,95,153" VerticalAlignment="Center" FontSize="24" FontFamily="Arial" Foreground="#FF56B290" Width="721" Height="61"/>
+        <CheckBox x:Name="check" Content="Don't Use Start and End Dates" HorizontalAlignment="Left" Margin="354,308,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}" Foreground="#FF56B290" FontWeight="Bold" Checked="check_Checked" Unchecked="check_Unchecked"/>
+    </Grid>
+</Window>
