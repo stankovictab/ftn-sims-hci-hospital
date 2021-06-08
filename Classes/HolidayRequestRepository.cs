@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital.Admin;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -57,14 +58,16 @@ namespace Classes
                 DateTime endDate = Convert.ToDateTime(components[3]);
                 DateTime requestDate = Convert.ToDateTime(components[4]);
                 RequestStatus status = (RequestStatus)Convert.ToInt32(components[5]);
-
                 // Loadovanje lekara u memoriju da bi im pristupili
                 DoctorRepository drrep = new DoctorRepository();
                 // drrep.DoctorsInFile = drrep.GetAll(); ? Da li GetByID ima u sebi GetAll()?
                 Doctor doctor = drrep.GetByID(components[6]);
-
                 string commentary = components[7];
-                HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, requestDate, status, doctor, commentary);
+
+                // HolidayRequest request = new HolidayRequest(id, description, startDate, endDate, requestDate, status, doctor, commentary);
+                RequestFactory rf = new RequestFactory(id, description, startDate, endDate, requestDate, status, doctor, commentary);
+                HolidayRequest request = (HolidayRequest)rf.getConcreteObject(ConstructorType.HolidayRequestFull);
+
                 requests.Add(request);
                 text = tr.ReadLine();
             }

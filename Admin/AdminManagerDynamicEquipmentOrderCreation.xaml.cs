@@ -57,7 +57,10 @@ namespace ftn_sims_hci_hospital.Admin
             {
                 selectedDEREA = dynamicEquipmentTextBox.Text;
                 // Ovom request-u je doctor null jer ce se naci u servisu na osnovu id-a request-a
-                DynamicEquipmentRequest req = new DynamicEquipmentRequest(selectedDERID, selectedDEREN, selectedDEREA);
+                // DynamicEquipmentRequest req = new DynamicEquipmentRequest(selectedDERID, selectedDEREN, selectedDEREA);
+                RequestFactory rf = new RequestFactory(selectedDERID, selectedDEREN, selectedDEREA);
+                DynamicEquipmentRequest req = (DynamicEquipmentRequest)rf.getConcreteObject(ConstructorType.DynamicEquipmentRequestUpdate);
+
                 MainWindow.dynamicEquipmentRequestController.Update(req);
                 refreshListView();
             }
@@ -85,8 +88,11 @@ namespace ftn_sims_hci_hospital.Admin
             equipmentNames = equipmentNames.Remove(equipmentNames.Length - 1, 1);
             equipmentAmounts = equipmentAmounts.Remove(equipmentAmounts.Length - 1, 1);
             MessageBox.Show("Oprema : " + equipmentNames + "\n" + "Kolicina : " + equipmentAmounts);
-            DynamicEquipmentOrder ord = new DynamicEquipmentOrder(equipmentNames, equipmentAmounts);
-            MainWindow.dynamicEquipmentOrderController.Create(ord);
+            // DynamicEquipmentOrder ord = new DynamicEquipmentOrder(equipmentNames, equipmentAmounts);
+            OrderFactory rf = new OrderFactory(equipmentNames, equipmentAmounts);
+            DynamicEquipmentOrder order = (DynamicEquipmentOrder)rf.getConcreteObject(ConstructorType.DynamicEquipmentOrderCreation);
+
+            MainWindow.dynamicEquipmentOrderController.Create(order);
             // Request lista mora da se izbrise kada se finalizuje, mozda jos neki bool, kao ordered?
             MainWindow.dynamicEquipmentRequestController.SetAllApprovedToOrdered();
             refreshListView();

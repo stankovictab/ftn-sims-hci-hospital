@@ -24,7 +24,10 @@ namespace ftn_sims_hci_hospital.Admin
             DateTime endDate = (DateTime)holidayEndDate.SelectedDate;
 
             // Ovom request-u je doctor null jer ce se naci u servisu na osnovu id-a request-a
-            HolidayRequest req = new HolidayRequest(selectedHRID, desc, startDate, endDate);
+            // HolidayRequest req = new HolidayRequest(selectedHRID, desc, startDate, endDate);
+            RequestFactory rf = new RequestFactory(selectedHRID, desc, startDate, endDate);
+            HolidayRequest req = (HolidayRequest)rf.getConcreteObject(ConstructorType.HolidayRequestUpdate);
+
             MainWindow.holidayRequestController.Update(req); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");
             this.Close(); // this.Hide(); ?

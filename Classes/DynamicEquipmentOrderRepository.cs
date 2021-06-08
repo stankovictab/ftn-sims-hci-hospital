@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital.Admin;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,8 +53,11 @@ namespace Classes
                 DateTime OrderDate = Convert.ToDateTime(components[3]);
                 OrderStatus status = (OrderStatus)Convert.ToInt32(components[4]);
 
-                DynamicEquipmentOrder Order = new DynamicEquipmentOrder(id, equipmentNames, equipmentAmounts, OrderDate, status);
-                orders.Add(Order);
+                // DynamicEquipmentOrder Order = new DynamicEquipmentOrder(id, equipmentNames, equipmentAmounts, OrderDate, status);
+                OrderFactory rf = new OrderFactory(id, equipmentNames, equipmentAmounts, OrderDate, status);
+                DynamicEquipmentOrder order = (DynamicEquipmentOrder)rf.getConcreteObject(ConstructorType.DynamicEquipmentOrderFull);
+
+                orders.Add(order);
                 text = tr.ReadLine();
             }
             tr.Close();

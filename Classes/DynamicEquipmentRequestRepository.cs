@@ -1,3 +1,4 @@
+using ftn_sims_hci_hospital.Admin;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -58,7 +59,10 @@ namespace Classes
                 Doctor doctor = drrep.GetByID(components[6]);
 
                 string commentary = components[7];
-                DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, equipmentAmount, requestDate, status, ordered, doctor, commentary);
+                // DynamicEquipmentRequest request = new DynamicEquipmentRequest(id, equipmentName, equipmentAmount, requestDate, status, ordered, doctor, commentary);
+                RequestFactory rf = new RequestFactory(id, equipmentName, equipmentAmount, requestDate, status, ordered, doctor, commentary);
+                DynamicEquipmentRequest request = (DynamicEquipmentRequest)rf.getConcreteObject(ConstructorType.DynamicEquipmentRequestFull);
+
                 requests.Add(request);
                 text = tr.ReadLine();
             }

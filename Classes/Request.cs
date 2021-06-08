@@ -11,8 +11,14 @@ namespace ftn_sims_hci_hospital.Classes
     {
         protected string Commentary;
         protected RequestStatus Status;
+        public Doctor doctor;
 
         public string Commentary1 { get => Commentary; set => Commentary = value; }
         public RequestStatus Status1 { get => Status; set => Status = value; }
+
+        public Doctor GetDoctor()
+        {
+            return doctor;
+        }
     }
 }

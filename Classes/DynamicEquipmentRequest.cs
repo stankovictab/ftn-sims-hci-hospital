@@ -8,22 +8,22 @@ namespace Classes
         private String EquipmentName;
         private String EquipmentAmount;
         private bool Ordered;
-        public Doctor doctor;
 
         public string EquipmentName1 { get => EquipmentName; set => EquipmentName = value; }
         public string EquipmentAmount1 { get => EquipmentAmount; set => EquipmentAmount = value; }
         public bool Ordered1 { get => Ordered; set => Ordered = value; }
 
-        public DynamicEquipmentRequest(String ID, String EquipmentName, String EquipmentAmount, DateTime CreationDate, RequestStatus Status, bool ordered, Doctor doctor, string commentary)
+        // Full
+        public DynamicEquipmentRequest(String ID, String EquipmentName, String EquipmentAmount, DateTime CreationDate, RequestStatus Status, bool Ordered, Doctor doctor, string Commentary)
         {
             this.ID = ID;
             this.EquipmentName = EquipmentName;
             this.EquipmentAmount = EquipmentAmount;
             this.CreationDate = CreationDate;
             this.Status = Status;
-            this.Ordered = ordered; // Ne moze uvek false da bude
+            this.Ordered = Ordered; // Ne moze uvek false da bude
             this.doctor = doctor;
-            this.Commentary = commentary;
+            this.Commentary = Commentary;
         }
 
         // Koristi se u Create-u u DERPanel-u
@@ -39,20 +39,7 @@ namespace Classes
             this.Commentary = "/";
         }
 
-        // Koristi se u Update-u u DERPanel-u
-        public DynamicEquipmentRequest(String ID, String EquipmentName)
-        {
-            this.ID = ID;
-            this.EquipmentName = EquipmentName;
-            this.EquipmentAmount = "0";
-            this.CreationDate = DateTime.Now;
-            this.Status = RequestStatus.OnHold;
-            this.Ordered = false;
-            this.doctor = null;
-            this.Commentary = "/";
-        }
-
-        // Koristi se u Update-u u DEOCreation-u
+        // Koristi se u Update-u u DEOCreation-u i DERPanel-u
         public DynamicEquipmentRequest(String ID, String EquipmentName, String EquipmentAmount)
         {
             this.ID = ID;
@@ -63,13 +50,6 @@ namespace Classes
             this.Ordered = false;
             this.doctor = null;
             this.Commentary = "/";
-        }
-
-        public DynamicEquipmentRequest() { }
-
-        public Doctor GetDoctor()
-        {
-            return doctor;
         }
 
         public void SetDoctor(Doctor newDoctor)

@@ -27,7 +27,11 @@ namespace ftn_sims_hci_hospital.Admin
             Doctor doctor = dc.GetByID("0501");
 
             // ID request-a je null jer ce se naci u servisu
-            HolidayRequest req = new HolidayRequest(desc, startDate, endDate, doctor);
+            // HolidayRequest req = new HolidayRequest(desc, startDate, endDate, doctor);
+            RequestFactory rf = new RequestFactory(desc, startDate, endDate, doctor);
+            HolidayRequest req = (HolidayRequest)rf.getConcreteObject(ConstructorType.HolidayRequestCreation);
+
+
             MainWindow.holidayRequestController.Create(req); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully created a new holiday request!");
             this.Close(); // this.Hide(); ?

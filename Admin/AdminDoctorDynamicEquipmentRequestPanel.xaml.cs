@@ -28,7 +28,10 @@ namespace ftn_sims_hci_hospital.Admin
             Doctor doctor = dc.GetByID("0501");
 
             // ID request-a je null jer ce se naci u servisu
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(equipmentName, doctor);
+            // DynamicEquipmentRequest req = new DynamicEquipmentRequest(equipmentName, doctor);
+            RequestFactory rf = new RequestFactory(equipmentName, doctor);
+            DynamicEquipmentRequest req = (DynamicEquipmentRequest)rf.getConcreteObject(ConstructorType.DynamicEquipmentRequestCreation);
+
             MainWindow.dynamicEquipmentRequestController.Create(req); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully created a new holiday request!");
             refreshListView();
@@ -75,7 +78,10 @@ namespace ftn_sims_hci_hospital.Admin
             MainWindow.dynamicEquipmentRequestController.GetAll();
             string equipmentName = dynamicEquipmentTextBox.Text;
             // Ovom request-u je doctor null jer ce se naci u servisu na osnovu id-a request-a
-            DynamicEquipmentRequest req = new DynamicEquipmentRequest(selectedDERID, equipmentName);
+            // DynamicEquipmentRequest req = new DynamicEquipmentRequest(selectedDERID, equipmentName, "0");
+            RequestFactory rf = new RequestFactory(selectedDERID, equipmentName, "0");
+            DynamicEquipmentRequest req = (DynamicEquipmentRequest)rf.getConcreteObject(ConstructorType.DynamicEquipmentRequestUpdate);
+
             MainWindow.dynamicEquipmentRequestController.Update(req); // Update-uje se i lista i fajl
             MessageBox.Show("You have successfully updated a holiday request!");
             refreshListView();

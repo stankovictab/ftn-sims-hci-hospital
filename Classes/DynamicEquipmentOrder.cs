@@ -12,13 +12,14 @@ namespace Classes
         public string EquipmentNames1 { get => EquipmentNames; set => EquipmentNames = value; }
         public string EquipmentAmounts1 { get => EquipmentAmounts; set => EquipmentAmounts = value; }
 
+        // Full
         public DynamicEquipmentOrder(String ID, string equipmentNames, string equipmentAmounts, DateTime CreationDate, OrderStatus Status)
         {
             this.ID = ID;
             this.EquipmentNames = equipmentNames;
             this.EquipmentAmounts = equipmentAmounts;
             this.CreationDate = CreationDate;
-            this.Status1 = Status;
+            this.Status = Status;
         }
 
         // Koristi se u DEOCreation
@@ -28,9 +29,7 @@ namespace Classes
             this.EquipmentNames = equipmentNames;
             this.EquipmentAmounts = equipmentAmounts;
             this.CreationDate = DateTime.Now;
-            this.Status1 = OrderStatus.Sent;
+            this.Status = OrderStatus.Sent;
         }
-
-        public DynamicEquipmentOrder() { }
     }
 }

@@ -8,9 +8,8 @@ namespace Classes
         private String Description;
         private DateTime StartDate;
         private DateTime EndDate;
-        public Doctor doctor;
 
-        // Format u txt fajlu treba da bude isti kao parametri konstruktora, vidi GetAll() metodu
+        // Full
         public HolidayRequest(String ID, String Description, DateTime StartDate, DateTime EndDate, DateTime CreationDate, RequestStatus Status, Doctor doctor, string commentary)
         {
             this.ID = ID;
@@ -37,9 +36,9 @@ namespace Classes
         }
 
         // Koristi se u HolidayRequestUpdate
-        public HolidayRequest(String RequestID, String Description, DateTime StartDate, DateTime EndDate)
+        public HolidayRequest(String ID, String Description, DateTime StartDate, DateTime EndDate)
         {
-            this.ID = RequestID;
+            this.ID = ID;
             this.Description = Description;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
@@ -49,16 +48,9 @@ namespace Classes
             this.Commentary = "/";
         }
 
-        public HolidayRequest() { }
-
         public string Description1 { get => Description; set => Description = value; }
         public DateTime StartDate1 { get => StartDate; set => StartDate = value; }
         public DateTime EndDate1 { get => EndDate; set => EndDate = value; }
-        
-        public Doctor GetDoctor()
-        {
-            return doctor;
-        }
 
         public void SetDoctor(Doctor newDoctor)
         {

@@ -177,6 +177,7 @@
     <Compile Include="Classes\HolidayRequestController.cs" />
     <Compile Include="Classes\HolidayRequestRepository.cs" />
     <Compile Include="Classes\HolidayRequestService.cs" />
+    <Compile Include="Classes\PollService.cs" />
     <Compile Include="Classes\RequestStatus.cs" />
     <Compile Include="Classes\HospitalizationReferal.cs" />
     <Compile Include="Classes\HospitalizationReferalRepository.cs" />
