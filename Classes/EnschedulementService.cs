@@ -11,13 +11,14 @@ namespace Classes
 {
     public class EnschedulementService
     {
-        public List<StaticEquipment> GetStaticEquipment()
+        public IEnschedulementRepository enschedulementRepository;
+
+        public EnschedulementService(/*IEnschedulementRepository repo*/)
         {
-            // TODO: implement
-            return null;
+            //this.enschedulementRepository = repo;
         }
 
-        public List<StaticEnschedulement> dateCheck(DateTime date)
+        public List<StaticEnschedulement> DateCheck(DateTime date)
         {
             List<StaticEnschedulement> enschedulements = enschedulementRepository.GetAll();
             List<StaticEnschedulement> ret = new List<StaticEnschedulement>();
@@ -39,6 +40,16 @@ namespace Classes
             return true;
         }
 
+        public void UpdateTime(DateTime currentTime)
+        {
+            enschedulementRepository.UpdateTime(currentTime);
+        }
+
+        public Boolean Delete(StaticEnschedulement enschedulement)
+        {
+            return enschedulementRepository.Delete(enschedulement);
+        }
+
         public bool CheckAvailable(StaticEnschedulement newEnsch)
         {
             List<StaticEnschedulement> se = enschedulementRepository.GetAll();
@@ -52,71 +63,14 @@ namespace Classes
             return true;
         }
 
-        public bool Update()
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public bool Delete()
-        {
-            // TODO: implement
-            return false;
-        }
-
         public List<StaticEnschedulement> GetAll()
         {
             return enschedulementRepository.GetAll();
         }
 
-        public EnschedulementRepository enschedulementRepository = new EnschedulementRepository();
-        public System.Collections.ArrayList staticEquipmentRepository;
-
-
-
-        /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetStaticEquipmentRepository()
+        public List<StaticEnschedulement> GetAllFinished()
         {
-            if (staticEquipmentRepository == null)
-                staticEquipmentRepository = new System.Collections.ArrayList();
-            return staticEquipmentRepository;
+            return enschedulementRepository.GetAllFinished();
         }
-
-        /// <pdGenerated>default setter</pdGenerated>
-        public void SetStaticEquipmentRepository(System.Collections.ArrayList newStaticEquipmentRepository)
-        {
-            RemoveAllStaticEquipmentRepository();
-            foreach (StaticEquipmentRepository oStaticEquipmentRepository in newStaticEquipmentRepository)
-                AddStaticEquipmentRepository(oStaticEquipmentRepository);
-        }
-
-        /// <pdGenerated>default Add</pdGenerated>
-        public void AddStaticEquipmentRepository(StaticEquipmentRepository newStaticEquipmentRepository)
-        {
-            if (newStaticEquipmentRepository == null)
-                return;
-            if (this.staticEquipmentRepository == null)
-                this.staticEquipmentRepository = new System.Collections.ArrayList();
-            if (!this.staticEquipmentRepository.Contains(newStaticEquipmentRepository))
-                this.staticEquipmentRepository.Add(newStaticEquipmentRepository);
-        }
-
-        /// <pdGenerated>default Remove</pdGenerated>
-        public void RemoveStaticEquipmentRepository(StaticEquipmentRepository oldStaticEquipmentRepository)
-        {
-            if (oldStaticEquipmentRepository == null)
-                return;
-            if (this.staticEquipmentRepository != null)
-                if (this.staticEquipmentRepository.Contains(oldStaticEquipmentRepository))
-                    this.staticEquipmentRepository.Remove(oldStaticEquipmentRepository);
-        }
-
-        /// <pdGenerated>default removeAll</pdGenerated>
-        public void RemoveAllStaticEquipmentRepository()
-        {
-            if (staticEquipmentRepository != null)
-                staticEquipmentRepository.Clear();
-        }
-
     }
 }

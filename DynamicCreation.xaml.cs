@@ -29,7 +29,7 @@ namespace ftn_sims_hci_hospital
 
         private void dynamicAdd_Click(object sender, RoutedEventArgs e)
         {
-            equipmentController.equipmentService.dynamicEquipmentRepository.DynamicInFile = equipmentController.GetAllDynamic();
+            equipmentController.equipmentService.dynamicEquipmentRepository.dynamicEquipmentRepository.DynamicEquipment = equipmentController.GetAllDynamic();
             DynamicEquipment newDynamic = new DynamicEquipment(Convert.ToInt32(dynamicId.Text), dynamicName.Text, dynamicAmount.Text);
             _ = equipmentController.AddDynamic(newDynamic);
             this.Hide();

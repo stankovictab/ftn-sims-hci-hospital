@@ -54,7 +54,7 @@ namespace ftn_sims_hci_hospital
         private void createEnschedulement_Click(object sender, RoutedEventArgs e)
         {
             //id je hard code-ovan
-            enschedulementController.enschedulementService.enschedulementRepository.EnschedulementsInFile = enschedulementController.GetAll();
+            enschedulementController.enschedulementService.enschedulementRepository.enschedulementRepository.Enschedulements = enschedulementController.GetAll();
             Room fromRoom = new Room();
             fromRoom = roomController.GetById(fromRoomCombo.SelectedItem.ToString());
             Room toRoom = new Room();

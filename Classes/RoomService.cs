@@ -11,7 +11,12 @@ namespace Classes
 {
     public class RoomService
     {
-        public RoomRepository roomRepository = new RoomRepository();
+        public IRoomRepository roomRepository;
+
+        public RoomService(/*IRoomRepository repo*/)
+        {
+            //this.roomRepository = repo;
+        }
 
         public bool Create(Room newRoom)
         {
@@ -33,14 +38,14 @@ namespace Classes
             return roomRepository.Delete(id);
         }
 
-        public bool UpdateAll(List<Room> rif)
+        public bool UpdateFile(List<Room> rif)
         {
-            return roomRepository.UpdateAll(rif);
+            return roomRepository.UpdateFile(rif);
         }
 
-        public Room GetById(String id)
+        public Room GetById(String roomNumber)
         {
-            return roomRepository.GetById(id);
+            return roomRepository.GetByNumber(roomNumber);
         }
 
 

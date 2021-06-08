@@ -26,13 +26,13 @@ namespace ftn_sims_hci_hospital
         {
             InitializeComponent();
             toAssign = equipmentController.GetDynamicById(id);
-            availableTextbox.Text = toAssign.dynamicAmount;
+            availableTextbox.Text = toAssign.Amount;
         }
 
         private void outOfStorage_Click(object sender, RoutedEventArgs e)
         {
             var amount = Convert.ToInt32(amountTextbox.Text);
-            bool success = assignmentController.CreateAssignment(amount, toAssign);
+            bool success = assignmentController.Create(amount, toAssign);
             if (!success)
                 MessageBox.Show("Nedovoljna kolicina u magacinu.");
             this.Close();

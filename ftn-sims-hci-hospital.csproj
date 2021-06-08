@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ASquare.WindowsTaskScheduler, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ASquare.WindowsTaskScheduler.1.6.0.0\lib\Net45\ASquare.WindowsTaskScheduler.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -49,6 +52,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -57,6 +75,9 @@
     </ApplicationDefinition>
     <Compile Include="AddReferral.xaml.cs">
       <DependentUpon>AddReferral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvancedRenovations.xaml.cs">
+      <DependentUpon>AdvancedRenovations.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminManagerDynamicEquipmentOrderUpdate.xaml.cs">
       <DependentUpon>AdminManagerDynamicEquipmentOrderUpdate.xaml</DependentUpon>
@@ -118,6 +139,9 @@
     <Compile Include="Admin\Factories.cs" />
     <Compile Include="Admin\Sort.cs" />
     <Compile Include="Admin\Validation.cs" />
+    <Compile Include="AllAppointments.xaml.cs">
+      <DependentUpon>AllAppointments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllAllergiesPage.xaml.cs">
       <DependentUpon>AllAllergiesPage.xaml</DependentUpon>
     </Compile>
@@ -136,6 +160,16 @@
     <Compile Include="AppointmentsListDoctorB.xaml.cs">
       <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BasicRenovationCreation.xaml.cs">
+      <DependentUpon>BasicRenovationCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BasicRenovations.xaml.cs">
+      <DependentUpon>BasicRenovations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AdvancedMergeRenovationRepository.cs" />
+    <Compile Include="Classes\AdvancedRenovationController.cs" />
+    <Compile Include="Classes\AdvancedRenovationService.cs" />
+    <Compile Include="Classes\AdvancedSplitRenovationRepository.cs" />
     <Compile Include="Classes\AllergiesRepository.cs" />
     <Compile Include="Classes\Allergy.cs" />
     <Compile Include="Classes\Anamnesis.cs" />
@@ -149,6 +183,10 @@
     <Compile Include="Classes\AssignmentRepository.cs" />
     <Compile Include="Classes\AssignmentService.cs" />
     <Compile Include="Classes\Demand.cs" />
+    <Compile Include="Classes\BasicRenovation.cs" />
+    <Compile Include="Classes\BasicRenovationController.cs" />
+    <Compile Include="Classes\BasicRenovationRepository.cs" />
+    <Compile Include="Classes\BasicRenovationService.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\DoctorController.cs" />
     <Compile Include="Classes\DoctorPoll.cs" />
@@ -181,15 +219,27 @@
     <Compile Include="Classes\RequestStatus.cs" />
     <Compile Include="Classes\HospitalizationReferal.cs" />
     <Compile Include="Classes\HospitalizationReferalRepository.cs" />
+    <Compile Include="Classes\HospitalizedPatientDTO.cs" />
     <Compile Include="Classes\HospitalPoll.cs" />
     <Compile Include="Classes\HospitalPollRepository.cs" />
+    <Compile Include="Classes\IAdvancedMergeRenovationRepository.cs" />
+    <Compile Include="Classes\IAdvancedSplitRenovationRepository.cs" />
+    <Compile Include="Classes\IAssignmentRepository.cs" />
+    <Compile Include="Classes\IBasicRenovationRepository.cs" />
+    <Compile Include="Classes\IDynamicEquipmentRepository.cs" />
+    <Compile Include="Classes\IEnschedulementRepository.cs" />
+    <Compile Include="Classes\IMedicineRepository.cs" />
+    <Compile Include="Classes\IRoomRepository.cs" />
+    <Compile Include="Classes\IStaticEquipmentRepository.cs" />
     <Compile Include="Classes\Manager.cs" />
     <Compile Include="Classes\MedicalRecord.cs" />
     <Compile Include="Classes\Medicine.cs" />
+    <Compile Include="Classes\MedicineController.cs" />
     <Compile Include="Classes\MedicineCotroller.cs" />
     <Compile Include="Classes\MedicineRepository.cs" />
     <Compile Include="Classes\MedicineService.cs" />
     <Compile Include="Classes\MedicineStatus.cs" />
+    <Compile Include="Classes\MergeRenovation.cs" />
     <Compile Include="Classes\Notification.cs" />
     <Compile Include="Classes\NotificationBoard.cs" />
     <Compile Include="Classes\NotificationController.cs" />
@@ -224,6 +274,8 @@
     <Compile Include="Classes\RoomStatus.cs" />
     <Compile Include="Classes\RoomType.cs" />
     <Compile Include="Classes\Secretary.cs" />
+    <Compile Include="Classes\SplitRenovation.cs" />
+    <Compile Include="Classes\Shift.cs" />
     <Compile Include="Classes\StaticEnschedulement.cs" />
     <Compile Include="Classes\StaticEquipment.cs" />
     <Compile Include="Classes\StaticEquipmentRepository.cs" />
@@ -258,6 +310,33 @@
     <Compile Include="DynamicUse.xaml.cs">
       <DependentUpon>DynamicUse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Igor HCI\Inventory.xaml.cs">
+      <DependentUpon>Inventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\InventoryAddDynamic.xaml.cs">
+      <DependentUpon>InventoryAddDynamic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\InventoryAddStatic.xaml.cs">
+      <DependentUpon>InventoryAddStatic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\Manager.xaml.cs">
+      <DependentUpon>Manager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\Orders.xaml.cs">
+      <DependentUpon>Orders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\Rooms.xaml.cs">
+      <DependentUpon>Rooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\RoomsCreation.xaml.cs">
+      <DependentUpon>RoomsCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\RoomsEdit.xaml.cs">
+      <DependentUpon>RoomsEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Igor HCI\Schedule.xaml.cs">
+      <DependentUpon>Schedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -267,14 +346,29 @@
     <Compile Include="MedicalRecords.xaml.cs">
       <DependentUpon>MedicalRecords.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedicineWindow.xaml.cs">
+      <DependentUpon>MedicineWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MedicineList.xaml.cs">
       <DependentUpon>MedicineList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineCreation.xaml.cs">
+      <DependentUpon>MedicineCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotificationBoard.xaml.cs">
       <DependentUpon>NotificationBoard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedicineResubmit.xaml.cs">
+      <DependentUpon>MedicineResubmit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NotificationCreation.xaml.cs">
       <DependentUpon>NotificationCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineUpdate.xaml.cs">
+      <DependentUpon>MedicineUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MergeRenovationCreation.xaml.cs">
+      <DependentUpon>MergeRenovationCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="NotificationsPage.xaml.cs">
       <DependentUpon>NotificationsPage.xaml</DependentUpon>
@@ -294,6 +388,11 @@
     <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Rooms.xaml.cs">
       <DependentUpon>Rooms.xaml</DependentUpon>
     </Compile>
@@ -303,14 +402,26 @@
     <Compile Include="SecretaryAppointments.xaml.cs">
       <DependentUpon>SecretaryAppointments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SecretaryCreateDoctor.xaml.cs">
+      <DependentUpon>SecretaryCreateDoctor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SecretaryPatients.xaml.cs">
       <DependentUpon>SecretaryPatients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretaryReleaseList.xaml.cs">
+      <DependentUpon>SecretaryReleaseList.xaml</DependentUpon>
     </Compile>
     <Compile Include="SecretaryUpdateAppointment.xaml.cs">
       <DependentUpon>SecretaryUpdateAppointment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SecretaryViewDoctor.xaml.cs">
+      <DependentUpon>SecretaryViewDoctor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Static.xaml.cs">
       <DependentUpon>Static.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SplitRenovationCreation.xaml.cs">
+      <DependentUpon>SplitRenovationCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="StaticCreation.xaml.cs">
       <DependentUpon>StaticCreation.xaml</DependentUpon>
@@ -327,6 +438,9 @@
     <Compile Include="Treatments.xaml.cs">
       <DependentUpon>Treatments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Storage.xaml.cs">
+      <DependentUpon>Storage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateAppointmentPatient.xaml.cs">
       <DependentUpon>UpdateAppointmentPatient.xaml</DependentUpon>
     </Compile>
@@ -337,6 +451,42 @@
       <DependentUpon>UrgentAppointmentCreation.xaml</DependentUpon>
     </Compile>
     <Page Include="AddReferral.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AllAllergiesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvancedRenovations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllAnamnesisPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BasicRenovationCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllAppointmentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BasicRenovations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllHospitalizationReferralsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllPerscriptionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateAppointmentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -416,30 +566,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AllAllergiesPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AllAnamnesisPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AllAppointmentsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AllHospitalizationReferralsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AllPerscriptionsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CreateAppointmentPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="createAppointmentSpecialist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -453,6 +579,42 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Admin\AdminPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\Inventory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\InventoryAddDynamic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\InventoryAddStatic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\Manager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\Orders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\Rooms.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\RoomsCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\RoomsEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Igor HCI\Schedule.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -488,6 +650,10 @@
     <Compile Include="PatientView.xaml.cs">
       <DependentUpon>PatientView.xaml</DependentUpon>
     </Compile>
+    <Page Include="AllAppointments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppointmentsListDoctorB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -539,6 +705,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MedicineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MedicineCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MedicineResubmit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MedicineUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MedicalRecords.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -554,6 +736,10 @@
     <Page Include="NotificationCreation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MergeRenovationCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NotificationsPage.xaml">
       <SubType>Designer</SubType>
@@ -614,11 +800,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SecretaryCreateDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SecretaryPatients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SecretaryReleaseList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SecretaryUpdateAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplitRenovationCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretaryViewDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -642,6 +844,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Storage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Treatments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -651,8 +857,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateNotification.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UrgentAppointmentCreation.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -680,6 +886,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

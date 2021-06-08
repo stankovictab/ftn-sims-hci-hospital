@@ -14,19 +14,13 @@ namespace Classes
     public class StaticEquipmentRepository
     {
         private String FileLocation = "../../Text Files/staticequipment.txt";
-        public List<StaticEquipment> StaticInFile = new List<StaticEquipment>();
-        
+        public List<StaticEquipment> StaticEquipment = new List<StaticEquipment>();
 
-        public List<StaticEquipment> GetStaticByLocation()
-        {
-            // TODO: implement
-            return null;
-        }
 
         public StaticEquipment GetByName(string name)
-        {
-            StaticInFile = GetAll();
-            foreach (StaticEquipment s in StaticInFile)
+        { 
+            StaticEquipment = GetAll();
+            foreach (StaticEquipment s in StaticEquipment)
             {
                 if (s.statName.Equals(name))
                 {
@@ -38,9 +32,9 @@ namespace Classes
 
         public List<StaticEquipment> GetByLocation(Room location)
         {
-            StaticInFile = GetAll();
+            StaticEquipment = GetAll();
             List<StaticEquipment> equipmentInRoom = new List<StaticEquipment>();
-            foreach (StaticEquipment s in StaticInFile)
+            foreach (StaticEquipment s in StaticEquipment)
             {
                 if (s.statLocation.Equals(location.RoomNumber1))
                 {
@@ -51,11 +45,11 @@ namespace Classes
         }
 
         public Boolean Create(StaticEquipment newStatic)
-        {
-            StaticInFile.Add(newStatic);
+        { 
+            StaticEquipment.Add(newStatic);
             TextWriter tw = new StreamWriter(FileLocation);
 
-            foreach (var item in StaticInFile)
+            foreach (var item in StaticEquipment)
             {
                 tw.WriteLine(string.Format("{0},{1},{2}", item.statId.ToString(), item.statName, item.statLocation));
             }
@@ -65,14 +59,14 @@ namespace Classes
         }
 
         public bool Delete(int toDelete)
-        {
-            StaticInFile = GetAll();
-            foreach (StaticEquipment s in StaticInFile)
+        { 
+            StaticEquipment = GetAll();
+            foreach (StaticEquipment s in StaticEquipment)
             {
                 if (s.statId.Equals(toDelete))
                 {
-                    
-                    StaticInFile.Remove(s);
+
+                    StaticEquipment.Remove(s);
                     return true;
                 }
             }
@@ -80,9 +74,9 @@ namespace Classes
         }
 
         public StaticEquipment GetById(int id)
-        {
-            StaticInFile = GetAll();
-            foreach (StaticEquipment s in StaticInFile)
+        { 
+            StaticEquipment = GetAll();
+            foreach (StaticEquipment s in StaticEquipment)
             {
                 if (s.statId.Equals(id))
                 {
@@ -93,7 +87,7 @@ namespace Classes
         }
 
         public List<StaticEquipment> GetAll()
-        {
+        { 
             List<StaticEquipment> se = new List<StaticEquipment>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
@@ -112,9 +106,9 @@ namespace Classes
         }
 
         public Boolean Update(StaticEquipment updateStatic)
-        {
+        { 
             
-            foreach (StaticEquipment s in StaticInFile)
+            foreach (StaticEquipment s in StaticEquipment)
             {
                 if (updateStatic.statId.Equals(s.statId))
                 {
@@ -127,7 +121,7 @@ namespace Classes
         }
 
         public Boolean UpdateAll(List<StaticEquipment> sif)
-        {
+        { 
             TextWriter tw = new StreamWriter(FileLocation);
             if (sif == null)
             {
@@ -142,6 +136,18 @@ namespace Classes
                 }
                 tw.Close();
                 return true;
+            }
+        }
+
+        public void DeleteByLocation(string location)
+        { 
+            foreach(StaticEquipment staticEquipment in StaticEquipment)
+            {
+                if (staticEquipment.statLocation.Equals(location))
+                {
+                    StaticEquipment.Remove(staticEquipment);
+                    UpdateAll(StaticEquipment);
+                }
             }
         }
 

@@ -21,7 +21,7 @@ namespace ftn_sims_hci_hospital
     public partial class Diagnosis : Window
     {
 
-        MedicineCotroller medicineCotroller;
+        MedicineController medicineController = new MedicineController();
         public List<Medicine> medicines { get; set; }
         Patient patient;
         PrescriptionService perscriptionService;
@@ -29,7 +29,7 @@ namespace ftn_sims_hci_hospital
         {
             perscriptionService = new PrescriptionService();
             this.patient = patient;
-            medicineCotroller = new MedicineCotroller();
+            medicineController = new MedicineController();
             fillMedicines();
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace ftn_sims_hci_hospital
         {
             String medicineString = medicinesComboBox.SelectedItem.ToString();
             String[] components = medicineString.Split('-');
-            Medicine medicine = medicineCotroller.GetByID(components[0]);
+            Medicine medicine = medicineController.GetByID(components[0]);
             
             Perscription prescription = new Perscription(null, medicine, int.Parse(txtA.Text), txtD.Text);
             if(!perscriptionService.Create(prescription, patient.user.Jmbg1))
@@ -49,7 +49,7 @@ namespace ftn_sims_hci_hospital
 
         private void fillMedicines()
         {
-            medicines = medicineCotroller.GetAll();
+            medicines = medicineController.GetAll();
             this.DataContext = this;
         }
 

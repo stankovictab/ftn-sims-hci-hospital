@@ -11,37 +11,36 @@ namespace Classes
 {
     public class EnschedulementController
     {
-        public List<StaticEquipment> GetStaticEquipment()
-        {
-            // TODO: implement
-            return null;
-        }
 
         public bool CreateEnschedulement(StaticEnschedulement newEnschedulement)
         {
             return enschedulementService.CreateEnschedulement(newEnschedulement);
         }
 
-        public bool Update()
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public bool Delete()
-        {
-            // TODO: implement
-            return false;
-        }
 
         public List<StaticEnschedulement> GetAll()
         {
             return enschedulementService.GetAll();
         }
 
-        public List<StaticEnschedulement> dateCheck(DateTime date)
+        public List<StaticEnschedulement> GetAllFinished()
         {
-            return enschedulementService.dateCheck(date);
+            return enschedulementService.GetAllFinished();
+        }
+
+        public List<StaticEnschedulement> DateCheck(DateTime date)
+        {
+            return enschedulementService.DateCheck(date);
+        }
+
+        public Boolean Delete(StaticEnschedulement enschedulement)
+        {
+            return enschedulementService.Delete(enschedulement);
+        }
+
+        public void UpdateTime(DateTime currentTime)
+        {
+            enschedulementService.UpdateTime(currentTime);
         }
 
         public EnschedulementService enschedulementService = new EnschedulementService();

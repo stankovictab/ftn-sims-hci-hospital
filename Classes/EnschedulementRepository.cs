@@ -13,69 +13,101 @@ namespace Classes
     public class EnschedulementRepository
     {
         private String FileLocation = "../../Text Files/enschedulements.txt";
-        public List<StaticEnschedulement> EnschedulementsInFile = new List<StaticEnschedulement>();
+        private String FileLocationFinished = "../../Text Files/finishedenschedulements.txt";
+        private String FileLocationTasks = "../../Text Files/enschedulementtasks.txt";
+        public List<StaticEnschedulement> Enschedulements = new List<StaticEnschedulement>();
+        public List<StaticEnschedulement> FinishedEnschedulements = new List<StaticEnschedulement>();
         public RoomRepository roomRepository = new RoomRepository();
         public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
 
-        public Boolean Create(StaticEnschedulement newEnschedulement)
+        public void WriteToFile(List<StaticEnschedulement> enschedulements, String FileLocation)
         {
-            EnschedulementsInFile = GetAll();
-            EnschedulementsInFile.Add(newEnschedulement);
             TextWriter tw = new StreamWriter(FileLocation);
 
-            foreach (var item in EnschedulementsInFile)
+            foreach (var item in enschedulements)
             {
                 tw.WriteLine(string.Format("{0},{1},{2},{3}", item.Time.ToString(), item.FromRoom.RoomNumber, item.ToRoom.RoomNumber, item.MovedEquipment.statName));
             }
             tw.Close();
+        }
+
+        public void UpdateTime(DateTime currentTime)
+        { 
+            Enschedulements = GetAll();
+            List<StaticEnschedulement> enschedulementIterator = GetAll();
+            FinishedEnschedulements = GetAllFinished();
+            foreach(StaticEnschedulement enschedulement in Enschedulements)
+            {
+                if(DateTime.Compare(currentTime, enschedulement.Time) >= 0)
+                {
+                    Enschedulements.Remove(enschedulement);
+                    WriteToFile(Enschedulements, FileLocation);
+
+                    FinishedEnschedulements.Add(enschedulement);
+                    WriteToFile(FinishedEnschedulements, FileLocationFinished);
+                }
+                enschedulementIterator = Enschedulements;
+            }
+        }
+
+
+        public Boolean Create(StaticEnschedulement newEnschedulement)
+        {
+            Enschedulements = GetAll();
+            Enschedulements.Add(newEnschedulement);
+
+            WriteToFile(Enschedulements, FileLocation);
 
             return true;
         }
 
-        public StaticEnschedulement GetById(int id)
+        public List<StaticEnschedulement> PullFromFile(String FileLocation)
         {
-            // TODO: implement
-            return null;
+            List<StaticEnschedulement> staticEnschedulements = new List<StaticEnschedulement>();
+            TextReader tr = new StreamReader(FileLocation);
+            string text = tr.ReadLine();
+            while (text != null && text != "\n" && text != "")
+            {
+                string[] components = text.Split(',');
+                DateTime time = Convert.ToDateTime(components[0]);
+                Room fromRoom = roomRepository.GetByNumber(components[1]);
+                Room toRoom = roomRepository.GetByNumber(components[2]);
+                StaticEquipment equipment = staticEquipmentRepository.GetByName(components[3]);
+                StaticEnschedulement newEnschedulement = new StaticEnschedulement(time, fromRoom, toRoom, equipment, 1);
+                staticEnschedulements.Add(newEnschedulement);
+                text = tr.ReadLine();
+            }
+            tr.Close();
+            return staticEnschedulements;
         }
 
         public List<StaticEnschedulement> GetAll()
         {
-            //hard code-ovan id na 1
-            List<StaticEnschedulement> se = new List<StaticEnschedulement>();
-            TextReader tr = new StreamReader(FileLocation);
-            string text = tr.ReadLine();
-            while (text != null && text != "\n")
+            List<StaticEnschedulement> staticEnschedulements = new List<StaticEnschedulement>();
+            staticEnschedulements = PullFromFile(FileLocation);
+            return staticEnschedulements;
+        }
+
+        public List<StaticEnschedulement> GetAllFinished()
+        { 
+            List<StaticEnschedulement> finishedEnschedulements = new List<StaticEnschedulement>();
+            finishedEnschedulements = PullFromFile(FileLocationFinished);
+            return finishedEnschedulements;
+        }
+
+        public Boolean Delete(StaticEnschedulement enschedulement)
+        { 
+            Enschedulements = GetAll();
+            foreach (StaticEnschedulement se in Enschedulements)
             {
-                string[] components = text.Split(',');
-                DateTime time = Convert.ToDateTime(components[0]);
-                Room fromRoom = roomRepository.GetById(components[1]);
-                Room toRoom = roomRepository.GetById(components[2]);
-                StaticEquipment equipment = staticEquipmentRepository.GetByName(components[3]);
-                StaticEnschedulement newEnschedulement = new StaticEnschedulement(time, fromRoom, toRoom, equipment, 1);
-                se.Add(newEnschedulement);
-                text = tr.ReadLine();
+                if (se.IdEnsch.Equals(enschedulement.IdEnsch))
+                {
+                    Enschedulements.Remove(se);
+                    WriteToFile(Enschedulements, FileLocation);
+                    return true;
+                }
             }
-            tr.Close();
-            return se;
-        }
-
-        public Boolean Update(StaticEnschedulement updateEnsch)
-        {
-            // TODO: implement
             return false;
         }
-
-        public Boolean UpdateAll(List<StaticEnschedulement> eif)
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public Boolean Delete(int id)
-        {
-            // TODO: implement
-            return false;
-        }
-
     }
 }

@@ -13,11 +13,11 @@ namespace ftn_sims_hci_hospital
     {
         public Room toUpdate = new Room();
         public static RoomRepository storage = new RoomRepository();
-        public RoomUpdate(String id)
+        public RoomUpdate(String roomNumber)
         {
             InitializeComponent();
-            storage.AccessRoomsInFile = storage.GetAll();
-            toUpdate = storage.GetById(id);
+            storage.AccessRooms = storage.GetAll();
+            toUpdate = storage.GetByNumber(roomNumber);
             numberTextbox.Text = toUpdate.RoomNumber;
             floorTextbox.Text = toUpdate.FloorNumber.ToString();
             descriptionTextbox.Text = toUpdate.Description;
@@ -65,7 +65,7 @@ namespace ftn_sims_hci_hospital
 
             Room room = new Room(number, floor, description, newType, newStatus);
             storage.Update(room);
-            storage.UpdateAll(storage.AccessRoomsInFile);
+            storage.UpdateFile(storage.AccessRooms);
             this.Close();
         }
 

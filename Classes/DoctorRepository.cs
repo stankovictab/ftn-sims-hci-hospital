@@ -8,8 +8,13 @@ namespace Classes
     {
         private String FileLocation = "../../Text Files/doctors.txt";
         private List<Doctor> DoctorsInFile = new List<Doctor>();
+        private HolidayRequestRepository hrr=new HolidayRequestRepository();
+        private DynamicEquipmentRequestRepository derr=new DynamicEquipmentRequestRepository();
+        private NotificationRepository nr = new NotificationRepository();
+        private AppointmentRepository ar = new AppointmentRepository();
 
         // public List<Doctor> DoctorsInFile1 { get => DoctorsInFile; set => DoctorsInFile = value; }
+        //radili i djota i ziksa
 
         public Boolean Create(Doctor d)
         {
@@ -52,10 +57,7 @@ namespace Classes
                 string doctorLastName = components[2];
                 string doctorRoom = components[3];
                 DoctorSpecialization specialization = (DoctorSpecialization)Convert.ToInt32(components[4]);
-                string appointmentArray = components[5];
-                string holidayRequestArray = components[6];
-                string dynamicEquipmentRequestArray = components[7];
-                string notificationArray = components[8];
+                Shift shift = (Shift)Convert.ToInt32(components[5]);
 
                 // TODO: Ovo sa ovim konstruktorima nije bas dobro, tu treba da budu neki geteri, ali za sada je ok, valjda
                 User user = new User(doctorName, doctorLastName, "", "", "", id, "", 'N', false, Roles.Doctor);
@@ -63,9 +65,11 @@ namespace Classes
 
 
                 // TODO: Rest
+                
 
 
-                Doctor doc = new Doctor(user, room, specialization, null, null, null, null);
+                Doctor doc = new Doctor(user, room, specialization, null,null,null,null);
+                doc.shift = shift;
                 doctors.Add(doc);
                 text = tr.ReadLine();
             }
@@ -95,6 +99,7 @@ namespace Classes
                     nadjeni.room = prosledjeni.room;
                     nadjeni.appointments = prosledjeni.appointments;
                     nadjeni.holidayRequests = prosledjeni.holidayRequests;
+                    nadjeni.shift = prosledjeni.shift;
                     UpdateFile(); // Update fajla
                     return true;
                 }
@@ -114,11 +119,9 @@ namespace Classes
             else
             {
                 foreach (Doctor item in DoctorsInFile)
-                {
-                    tw.WriteLine(item.user.Jmbg1 + "," + item.user.Name1 + "," + item.user.LastName1 + "," + item.room.RoomNumber1 + "," + null + "," + null);
-                    // Ostalo je item.appointments i item.holidayRequests da se formatira u istom obliku. kako? ne znam.
-                    // Verovatno da se prekine ovaj upis, pa neki for da prolazi kroz te dve liste i da ispisuje elemente u isti red, sa uglastim zagradama, i zarezom izmedju
-                    // Nece da radi dobro preko WriteLine(String.Format("{0}..."), ...);
+                {  
+                    tw.WriteLine(item.user.Jmbg1 + "," + item.user.Name1 + "," + item.user.LastName1 + "," + item.room.RoomNumber1 + "," + Convert.ToInt32(item.specialization)+","+ Convert.ToInt32(item.shift));
+
                 }
                 tw.Close();
                 return true;

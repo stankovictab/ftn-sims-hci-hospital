@@ -39,7 +39,6 @@ namespace ftn_sims_hci_hospital
             String id;
             DateTime oldDate;
             Appointment appointment = (Appointment)lvUsers.SelectedItem;
-            id = appointment.AppointmentID;
             oldDate = appointment.StartTime;
             var dani = (oldDate - DateTime.Now).Days;
 
@@ -50,7 +49,7 @@ namespace ftn_sims_hci_hospital
             }
             else
             {
-                UpdateAppointmentPatient uap = new UpdateAppointmentPatient(id, oldDate);
+                UpdateAppointmentPatient uap = new UpdateAppointmentPatient(appointment);
                 uap.Show();
             }
 

@@ -13,37 +13,37 @@ namespace Classes
     public class AssignmentRepository
     {
         private String FileLocation = "../../Text Files/assignments.txt";
-        public List<DynamicAssignment> AssignmentsInFile = new List<DynamicAssignment>();
+        public List<DynamicAssignment> Assignments = new List<DynamicAssignment>();
         public DynamicEquipmentRepository dynamicEquipmentRepository = new DynamicEquipmentRepository();
 
-        public Boolean Create(DynamicAssignment newAssignment)
+
+        public void WriteToFile(List<DynamicAssignment> assignmentsInFile)
         {
-            AssignmentsInFile = GetAll();
-            AssignmentsInFile.Add(newAssignment);
             TextWriter tw = new StreamWriter(FileLocation);
 
-            foreach (var item in AssignmentsInFile)
+            foreach (var item in assignmentsInFile)
             {
-                tw.WriteLine(string.Format("{0},{1},{2}",item.IdAssign, item.EquipmentAssigned.dynamicName , item.AmountAssigned));
+                tw.WriteLine(string.Format("{0},{1},{2}", item.IdAssign, item.EquipmentAssigned.Name, item.AmountAssigned));
             }
             tw.Close();
+        }
+        public Boolean Create(DynamicAssignment newAssignment)
+        {
+            Assignments = GetAll();
+
+            Assignments.Add(newAssignment);
+
+            WriteToFile(Assignments);
 
             return true;
         }
 
-        public DynamicAssignment GetById(int id)
-        {
-            // TODO: implement
-            return null;
-        }
-
-        
-
-        public List<DynamicAssignment> GetAll()
-        {
-            List<DynamicAssignment> da = new List<DynamicAssignment>();
+        public List<DynamicAssignment> PullFromFile()
+        { 
+            List<DynamicAssignment> dynamicAssignments= new List<DynamicAssignment>();
             TextReader tr = new StreamReader(FileLocation);
             string text = tr.ReadLine();
+
             while (text != null && text != "\n")
             {
                 string[] components = text.Split(',');
@@ -52,28 +52,34 @@ namespace Classes
                 int assignmentAmount = Convert.ToInt32(components[2]);
                 DynamicEquipment assignedEquipment = dynamicEquipmentRepository.GetByName(equipmentName);
                 DynamicAssignment newAssignment = new DynamicAssignment(assignmentAmount, assignedEquipment, assignmentId);
-                da.Add(newAssignment);
+                dynamicAssignments.Add(newAssignment);
                 text = tr.ReadLine();
             }
             tr.Close();
-            return da;
+            return dynamicAssignments;
         }
 
-        public Boolean Update(DynamicAssignment updateAssign)
+        public List<DynamicAssignment> GetAll()
         {
-            // TODO: implement
-            return false;
+            List<DynamicAssignment> dynamicAssignments = new List<DynamicAssignment>();
+
+            dynamicAssignments = PullFromFile();
+            
+            return dynamicAssignments;
         }
 
-        public Boolean UpdateAll(List<DynamicAssignment> aif)
+        public Boolean Delete(DynamicAssignment assignment)
         {
-            // TODO: implement
-            return false;
-        }
-
-        public Boolean Delete(int id)
-        {
-            // TODO: implement
+            Assignments = GetAll();
+            foreach (DynamicAssignment da in Assignments)
+            {
+                if (da.IdAssign.Equals(assignment.IdAssign))
+                {
+                    Assignments.Remove(da);
+                    WriteToFile(Assignments);
+                    return true;
+                }
+            }
             return false;
         }
 

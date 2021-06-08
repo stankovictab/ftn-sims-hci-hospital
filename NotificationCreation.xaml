@@ -11,6 +11,6 @@
         <TextBox x:Name="tbtitle" HorizontalAlignment="Left" Height="38" Margin="80,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
         <Label x:Name="lbbody" Content="Body:" HorizontalAlignment="Left" Height="31" Margin="80,161,0,0" VerticalAlignment="Top" Width="139"/>
         <TextBox x:Name="tbbody" HorizontalAlignment="Left" Height="38" Margin="80,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
-        <Button x:Name="btncreatenotification" Content="Create Notification" HorizontalAlignment="Left" Height="43" Margin="171,276,0,0" VerticalAlignment="Top" Width="121" Click="btncreatenotification_Click" RenderTransformOrigin="0.499,-0.864"/>
+        <Button x:Name="btncreatenotification" Content="Create Notification" HorizontalAlignment="Left" Height="43" Margin="171,276,0,0" VerticalAlignment="Top" Width="121" Click="btncreatenotification_Click" RenderTransformOrigin="0.499,-0.864" Foreground="Black" Background="White" BorderBrush="Black"/>
     </Grid>
 </Window>

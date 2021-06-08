@@ -46,7 +46,7 @@ namespace Classes
                     DateTime endDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
                     String roomId = data[5];
                     int bedId = int.Parse(data[6]);
-                    Room room = roomRepository.GetById(roomId);
+                    Room room = roomRepository.GetByNumber(roomId);
                     hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room, bedId);
                     return hospitalizationReferral;
                 }
@@ -75,7 +75,7 @@ namespace Classes
                     String roomId = data[5];
                     StaticEquipment bed = new StaticEquipment();
                     int bedId = int.Parse(data[6]);
-                    Room room = roomRepository.GetById(roomId);
+                    Room room = roomRepository.GetByNumber(roomId);
                     HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room, bedId);
                     referrals.Add(hospitalizationReferral);
                 }
@@ -128,7 +128,7 @@ namespace Classes
                     DateTime startDate = new DateTime(int.Parse(startDateParts[0]), int.Parse(startDateParts[1]), int.Parse(startDateParts[2]), int.Parse(startDateParts[3]), int.Parse(startDateParts[4]), int.Parse(startDateParts[5]));
                     DateTime endDate = new DateTime(int.Parse(endDateParts[0]), int.Parse(endDateParts[1]), int.Parse(endDateParts[2]), int.Parse(endDateParts[3]), int.Parse(endDateParts[4]), int.Parse(endDateParts[5]));
                     String roomId = data[5];
-                    Room room = roomRepository.GetById(roomId);
+                    Room room = roomRepository.GetByNumber(roomId);
                     HospitalizationReferal hospitalizationReferral = new HospitalizationReferal(id, patient, description, startDate, endDate, room);
                     referralsByEndDate.Add(hospitalizationReferral);
                 }
