@@ -8,16 +8,16 @@ namespace Classes
 {
     public class AppointmentService
     {
-        public AppointmentRepository appointmentRepository;
+        public IAppointmentRepository appointmentRepository;
         public DoctorRepository doctorRepository;
         public PatientRepository patientRepository;
         public RoomRepository roomRepository;
         public TrollingLogService trollingLogService;
         public TrollingLogRepository trollingLogRepository;
 
-        public AppointmentService()
+        public AppointmentService(IAppointmentRepository iar)
         {
-            appointmentRepository = new AppointmentRepository();
+            appointmentRepository = iar;
             doctorRepository = new DoctorRepository();
             patientRepository = new PatientRepository();
             roomRepository = new RoomRepository();

@@ -21,7 +21,7 @@ namespace ftn_sims_hci_hospital
         public PatientCreation()
         {
             InitializeComponent();
-            MainWindow.patientController.patientService.patientRepository.PatientsInFile1 = MainWindow.patientController.GetAll();
+            MainWindow.patientController.patientService.patientRepository.PatientsInFile = MainWindow.patientController.GetAll();
         }
 
         private void btnregister_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,6 @@ namespace ftn_sims_hci_hospital
             User user = new User(name, lastname, email, password, email, jmbg, "", 'N', false, Roles.Patient);
             Patient patient = new Patient(user, null, null,null);
             MainWindow.patientController.Create(patient);
-            MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
             MessageBox.Show("You have successfully created a new account!");
             this.Close();
         }

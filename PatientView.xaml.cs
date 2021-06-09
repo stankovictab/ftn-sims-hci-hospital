@@ -21,16 +21,24 @@ namespace ftn_sims_hci_hospital
         public PatientView(String id)
         {
             InitializeComponent();
-            currentPatient = MainWindow.patientController.GetByID(id);
-            tbfirstname.Text = currentPatient.user.Name1;
-            tblastname.Text = currentPatient.user.LastName1;
-            tbjmbg.Text = currentPatient.user.Jmbg1;
-            tbphonenumber.Text = "0600233479";
-            tbbloodtype.Text = "A+";
-            tbgender.Text = currentPatient.user.Gender1.ToString();
-            tballergies.Text = "";
+            InitTextBoxes(id);
+            InitPatientsAllergies();
+            InitAllergiesComboBox();
+        }
+
+        private void InitAllergiesComboBox()
+        {
+            MainWindow.patientController.patientService.allergiesRepository.AllergiesInFile = MainWindow.patientController.patientService.allergiesRepository.GetAll();
+            foreach (Allergy a in MainWindow.patientController.patientService.allergiesRepository.AllergiesInFile)
+            {
+                cballergy.Items.Add(a.Name1);
+            }
+        }
+
+        private void InitPatientsAllergies()
+        {
             List<PatientAllergy> patientAllergies = new List<PatientAllergy>();
-            patientAllergies = MainWindow.patientController.patientService.PatientallergyRepository.GetAllByPatientID(currentPatient.user.Jmbg1);
+            patientAllergies = MainWindow.patientController.patientService.patientallergyRepository.GetAllByPatientID(currentPatient.user.Jmbg1);
             List<Allergy> allergies = new List<Allergy>();
             allergies = MainWindow.patientController.patientService.allergiesRepository.GetAll();
             foreach (PatientAllergy patientAllergy in patientAllergies)
@@ -50,13 +58,19 @@ namespace ftn_sims_hci_hospital
                 else
                     tballergies.Text += allergy.Name1;
             }
-            MainWindow.patientController.patientService.allergiesRepository.AllergiesInFile1 = MainWindow.patientController.patientService.allergiesRepository.GetAll();
-            foreach(Allergy a in MainWindow.patientController.patientService.allergiesRepository.AllergiesInFile1)
-            {
-                cballergy.Items.Add(a.Name1);
-            }
         }
 
+        private void InitTextBoxes(string id)
+        {
+            currentPatient = MainWindow.patientController.GetByID(id);
+            tbfirstname.Text = currentPatient.user.Name1;
+            tblastname.Text = currentPatient.user.LastName1;
+            tbjmbg.Text = currentPatient.user.Jmbg1;
+            tbphonenumber.Text = "0600233479";
+            tbbloodtype.Text = "A+";
+            tbgender.Text = currentPatient.user.Gender1.ToString();
+            tballergies.Text = "";
+        }
 
         private void btnaddallergy_Click(object sender, RoutedEventArgs e)
         {
@@ -66,30 +80,35 @@ namespace ftn_sims_hci_hospital
             }
             else
             {
-                string name = cballergy.SelectedItem.ToString();
-                foreach(Allergy a in MainWindow.patientController.patientService.allergiesRepository.AllergiesInFile1)
-                {
-                    if(a.Name1.Equals(name))
-                    {
-                        bool flag = false;
-                        foreach(Allergy all in currentPatient.medicalRecord.allergies)
-                        {
-                            if(a.Id1==all.Id1)
-                            {
-                                flag = true;
-                                break;
-                            }
+                AddAllergy();
+            }
+        }
 
-                        }
-                        if (!flag)
+        private void AddAllergy()
+        {
+            string name = cballergy.SelectedItem.ToString();
+            foreach (Allergy a in MainWindow.patientController.patientService.allergiesRepository.AllergiesInFile)
+            {
+                if (a.Name1.Equals(name))
+                {
+                    bool flag = false;
+                    foreach (Allergy all in currentPatient.medicalRecord.allergies)
+                    {
+                        if (a.Id1 == all.Id1)
                         {
-                            currentPatient.medicalRecord.allergies.Add(a);
-                            if (tballergies.Text != "")
-                                tballergies.Text += "," + a.Name1;
-                            else
-                                tballergies.Text += a.Name1;
+                            flag = true;
+                            break;
                         }
-                    }  
+
+                    }
+                    if (!flag)
+                    {
+                        currentPatient.medicalRecord.allergies.Add(a);
+                        if (tballergies.Text != "")
+                            tballergies.Text += "," + a.Name1;
+                        else
+                            tballergies.Text += a.Name1;
+                    }
                 }
             }
         }
@@ -101,11 +120,10 @@ namespace ftn_sims_hci_hospital
             User user = new User(name, lastname, currentPatient.user.Username1, currentPatient.user.Password1, currentPatient.user.Email1, currentPatient.user.Jmbg1, currentPatient.user.Address1, currentPatient.user.Gender1, currentPatient.user.Active1, currentPatient.user.Role1);
             Patient patient = new Patient(user, null, null, null);
             MainWindow.patientController.Update(patient);
-            MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
             foreach(Allergy a in currentPatient.medicalRecord.allergies)
             {
                 PatientAllergy pa = new PatientAllergy(currentPatient.user.Jmbg1, a);
-                MainWindow.patientController.patientService.PatientallergyRepository.Create(pa);
+                MainWindow.patientController.patientService.patientallergyRepository.Create(pa);
             }
             
 

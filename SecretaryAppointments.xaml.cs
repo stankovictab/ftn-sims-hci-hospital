@@ -23,7 +23,7 @@ namespace ftn_sims_hci_hospital
         public SecretaryAppointments()
         {
             InitializeComponent();
-            MainWindow.patientController.patientService.patientRepository.PatientsInFile1 = MainWindow.patientController.GetAll();
+            MainWindow.patientController.patientService.patientRepository.PatientsInFile = MainWindow.patientController.GetAll();
             menu.Items.Add("Home");
             menu.Items.Add("Your Profile");
             menu.Items.Add("Patients");

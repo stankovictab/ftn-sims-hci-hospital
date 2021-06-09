@@ -4,11 +4,11 @@ using System.IO;
 
 namespace Classes
 {
-    class PatientAllergyRepository
+    public class PatientAllergyRepository : IPatientAllergyRepository
     {
         private String FileLocation;
         private AllergiesRepository allergiesRepository;
-        private List<PatientAllergy> PatientAllergiesInFile = new List<PatientAllergy>();
+        public List<PatientAllergy> PatientAllergiesInFile { get; set; }
 
         public PatientAllergyRepository()
         {

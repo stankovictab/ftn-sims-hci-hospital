@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 namespace Classes
 {
-    public class PerscriptionRepository
+    public class PerscriptionRepository : IPerscriptionRepository
     {
         private String FileLocation;
         private MedicineRepository medicineRepository;
-        private List<Perscription> PerscriptionsInFile;
 
         public PerscriptionRepository()
         {

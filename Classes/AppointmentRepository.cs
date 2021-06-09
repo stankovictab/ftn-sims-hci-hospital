@@ -4,12 +4,11 @@ using System.Collections.Generic;
 
 namespace Classes
 {
-    public class AppointmentRepository
+    public class AppointmentRepository :IAppointmentRepository
     {
         private String FileLocation;
-        private List<Appointment> AppointmentsInFile;
 
-        public List<Appointment> AppointmentsInFile1 { get => AppointmentsInFile; set => AppointmentsInFile = value; }
+        public List<Appointment> AppointmentsInFile { get; set; }
 
         public AppointmentRepository()
         {

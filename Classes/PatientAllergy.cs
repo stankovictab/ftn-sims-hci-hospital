@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    class PatientAllergy
+    public class PatientAllergy
     {
         public String patientID { get; set; }
         public Allergy allergy { get; set; }

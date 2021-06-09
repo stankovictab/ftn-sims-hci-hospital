@@ -5,7 +5,12 @@ namespace Classes
 {
     public class PatientController
     {
-        public PatientService patientService = new PatientService();
+        private static PatientRepository patientRepo = new PatientRepository();
+        private static AllergiesRepository allergyRepo = new AllergiesRepository();
+        private static PerscriptionRepository perscriptionRepo = new PerscriptionRepository();
+        private static AnamnesisRepository anamnesisRepo = new AnamnesisRepository();
+        private static PatientAllergyRepository patientAllergyRepo = new PatientAllergyRepository();
+        public PatientService patientService = new PatientService(patientRepo,allergyRepo, anamnesisRepo, perscriptionRepo, patientAllergyRepo);
 
         public Boolean Create(Patient p)
         {

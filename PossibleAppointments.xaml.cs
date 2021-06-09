@@ -67,15 +67,9 @@ namespace ftn_sims_hci_hospital
                 app.Room = new Room();
                 app.Room.RoomNumber = "123";
                 MainWindow.appointmentController.appointmentService.appointmentRepository.Create(app);
-                Doctor d= MainWindow.doctorController.ds.dr.GetByID(doctorID);
-                Patient p = MainWindow.patientController.GetByID(patientID);
-                d.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByDoctorID(doctorID);
-                p.notifications = MainWindow.notificationController.notificationService.notificationRepository.GetByPatientID(patientID);
-                String id = (MainWindow.notificationController.notificationService.notificationRepository.GetAll().Count() + 1).ToString();
-                Notification notification = new Notification(id, "Alert","You have a new appointment on  " + app.StartTime.ToString(),DateTime.Now, false, patientID, doctorID);
-                d.notifications.Add(notification);
-                p.notifications.Add(notification);
-                MainWindow.notificationController.notificationService.notificationRepository.Create(notification);
+                SecretaryNotifyStrategy secretaryNotifyStrategy=new SecretaryNotifyStrategy();
+                GlobalNotifier globalNotifier = new GlobalNotifier(secretaryNotifyStrategy);
+                globalNotifier.Notify(app);
                 MessageBox.Show("You have successfuly created an appointment and all relevant parties have been notified!");
                 this.Close();
             }

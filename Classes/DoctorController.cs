@@ -5,7 +5,8 @@ namespace Classes
 {
     public class DoctorController
     {
-        public DoctorService ds = new DoctorService();
+        private static DoctorRepository dr = new DoctorRepository();
+        public DoctorService ds = new DoctorService(dr);
 
         public Boolean Create(Doctor d)
         {

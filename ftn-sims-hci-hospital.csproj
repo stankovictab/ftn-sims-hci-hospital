@@ -200,6 +200,15 @@
     <Compile Include="Classes\DynamicEquipmentOrderController.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderService.cs" />
+    <Compile Include="Classes\GlobalNotifier.cs" />
+    <Compile Include="Classes\IAllergiesRepository.cs" />
+    <Compile Include="Classes\IAnamnesisRepository.cs" />
+    <Compile Include="Classes\IAppointmentRepository.cs" />
+    <Compile Include="Classes\IDoctorRepository.cs" />
+    <Compile Include="Classes\INotifyStrategy.cs" />
+    <Compile Include="Classes\IPatientAllergyRepository.cs" />
+    <Compile Include="Classes\IPatientRepository.cs" />
+    <Compile Include="Classes\IPerscriptionRepository.cs" />
     <Compile Include="Classes\OrderStatus.cs" />
     <Compile Include="Classes\DynamicEquipmentRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentRequest.cs" />
@@ -274,6 +283,7 @@
     <Compile Include="Classes\RoomStatus.cs" />
     <Compile Include="Classes\RoomType.cs" />
     <Compile Include="Classes\Secretary.cs" />
+    <Compile Include="Classes\SecretaryNotifyStrategy.cs" />
     <Compile Include="Classes\SplitRenovation.cs" />
     <Compile Include="Classes\Shift.cs" />
     <Compile Include="Classes\StaticEnschedulement.cs" />

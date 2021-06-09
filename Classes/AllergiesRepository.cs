@@ -4,12 +4,11 @@ using System.IO;
 
 namespace Classes
 {
-    public class AllergiesRepository
+    public class AllergiesRepository : IAllergiesRepository
     {
         private String FileLocation;
-        private List<Allergy> AllergiesInFile;
 
-        public List<Allergy> AllergiesInFile1 { get => AllergiesInFile; set => AllergiesInFile = value; }
+        public List<Allergy> AllergiesInFile { get; set; }
         public AllergiesRepository()
         {
             FileLocation = "../../Text Files/allergies.txt";

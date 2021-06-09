@@ -5,20 +5,20 @@ namespace Classes
 {
     public class PatientService
     {
-        public PatientRepository patientRepository = new PatientRepository();
-        public AnamnesisRepository anamnesisRepository= new AnamnesisRepository();
-        public PerscriptionRepository perscriptionRepository = new PerscriptionRepository();
-        public AllergiesRepository allergiesRepository = new AllergiesRepository();
-        private PatientAllergyRepository patientallergyRepository = new PatientAllergyRepository();
+        public IPatientRepository patientRepository;
+        public IAnamnesisRepository anamnesisRepository;
+        public IPerscriptionRepository perscriptionRepository;
+        public IAllergiesRepository allergiesRepository;
+        public IPatientAllergyRepository patientallergyRepository;
 
-        internal PatientAllergyRepository PatientallergyRepository { get => patientallergyRepository; set => patientallergyRepository = value; }
 
-        public PatientService()
+        public PatientService(IPatientRepository ipar,IAllergiesRepository iar, IAnamnesisRepository ian, IPerscriptionRepository ipr, IPatientAllergyRepository ipa)
         {
-            patientRepository = new PatientRepository();
-            anamnesisRepository = new AnamnesisRepository();
-            perscriptionRepository = new PerscriptionRepository();
-            allergiesRepository = new AllergiesRepository();
+            patientRepository = ipar;
+            anamnesisRepository = ian;
+            perscriptionRepository = ipr;
+            allergiesRepository = iar;
+            patientallergyRepository=ipa;
         }
 
         public Boolean Create(Patient p)
@@ -83,7 +83,7 @@ namespace Classes
             foreach(Patient patient in patients)
             {
                 List<PatientAllergy> patientAllergies = new List<PatientAllergy>();
-                patientAllergies = PatientallergyRepository.GetAllByPatientID(patient.user.Jmbg1);
+                patientAllergies = patientallergyRepository.GetAllByPatientID(patient.user.Jmbg1);
                 List<Allergy> allergies = new List<Allergy>();
                 allergies = allergiesRepository.GetAll();
                 foreach(PatientAllergy patientAllergy in patientAllergies)

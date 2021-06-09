@@ -42,9 +42,9 @@ namespace ftn_sims_hci_hospital
 
         private void btnlistallpatients_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.patientController.patientService.patientRepository.PatientsInFile1 = MainWindow.patientController.GetAll();
+            MainWindow.patientController.patientService.patientRepository.PatientsInFile = MainWindow.patientController.GetAll();
             patientData.Items.Clear();
-            foreach (Patient p in MainWindow.patientController.patientService.patientRepository.PatientsInFile1)
+            foreach (Patient p in MainWindow.patientController.patientService.patientRepository.PatientsInFile)
             {
                 patientData.Items.Add(new User { Name1 = p.user.Name1, LastName1 = p.user.LastName1, Jmbg1 = p.user.Jmbg1, Username1 = p.user.Username1, Password1 = p.user.Password1 });
             }

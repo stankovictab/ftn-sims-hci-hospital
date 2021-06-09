@@ -38,7 +38,6 @@ namespace ftn_sims_hci_hospital
             }
             else 
             { 
-                MainWindow.patientController.UpdateAll(MainWindow.patientController.patientService.patientRepository.PatientsInFile1);
                 MessageBox.Show("You have successfully created a new account!");
             }
             this.Close();

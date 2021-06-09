@@ -4,10 +4,10 @@ using System.IO;
 
 namespace Classes
 {
-    public class DoctorRepository
+    public class DoctorRepository : IDoctorRepository
     {
         private String FileLocation = "../../Text Files/doctors.txt";
-        private List<Doctor> DoctorsInFile = new List<Doctor>();
+        public List<Doctor> DoctorsInFile { get; set; }
         private HolidayRequestRepository hrr=new HolidayRequestRepository();
         private DynamicEquipmentRequestRepository derr=new DynamicEquipmentRequestRepository();
         private NotificationRepository nr = new NotificationRepository();

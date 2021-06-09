@@ -6,12 +6,10 @@ namespace Classes
 {
     public class AppointmentController
     {
-        public AppointmentService appointmentService = new AppointmentService();
+        private static AppointmentRepository iar = new AppointmentRepository();
+        public AppointmentService appointmentService = new AppointmentService(iar);
 
-        public AppointmentController()
-        {
-            appointmentService = new AppointmentService();
-        }
+  
 
         public List<Appointment> ShowAvailableAppointments(Priority priority, String doctorId, DateTime startTime, DateTime endTime, AppointmentType type)
         {

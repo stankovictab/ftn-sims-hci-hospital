@@ -4,13 +4,12 @@ using System.IO;
 
 namespace Classes
 {
-    public class PatientRepository
+    public class PatientRepository : IPatientRepository
     {
         private String FileLocation;
-        private List<Patient> PatientsInFile = new List<Patient>();
         
 
-		public List<Patient> PatientsInFile1 { get => PatientsInFile; set => PatientsInFile = value; }
+		public List<Patient> PatientsInFile { get; set; }
 
 		public PatientRepository()
         {
@@ -19,6 +18,7 @@ namespace Classes
 
         public Boolean Create(Patient p)
         {
+            PatientsInFile = GetAll();
             if (PatientsInFile.Contains(p))
             {
                 return false;

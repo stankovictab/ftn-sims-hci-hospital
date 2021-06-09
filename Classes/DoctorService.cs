@@ -5,12 +5,16 @@ namespace Classes
 {
     public class DoctorService
     {
-        public DoctorRepository dr = new DoctorRepository();
+        public IDoctorRepository dr;
         private HolidayRequestRepository hrr = new HolidayRequestRepository();
         private DynamicEquipmentRequestRepository derr = new DynamicEquipmentRequestRepository();
         private NotificationRepository nr = new NotificationRepository();
         private AppointmentRepository ar = new AppointmentRepository();
 
+        public DoctorService(IDoctorRepository idr)
+        {
+            this.dr = idr;
+        }
         public Boolean Create(Doctor d)
         {
             return dr.Create(d);

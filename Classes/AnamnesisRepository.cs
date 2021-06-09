@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace Classes
 {
-    public class AnamnesisRepository
+    public class AnamnesisRepository : IAnamnesisRepository
     {
         private String FileLocation;
-        private List<Anamnesis> AnamnesesInFile;
 
         public AnamnesisRepository()
         {

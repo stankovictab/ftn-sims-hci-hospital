@@ -18,7 +18,7 @@ namespace ftn_sims_hci_hospital
 
         public static User user;
 
-        public static int guestCounter = 0;
+        public static int guestCounter = patientController.GetAll().Count;
         public MainWindow()
         {
             InitializeComponent();
