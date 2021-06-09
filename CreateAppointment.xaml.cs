@@ -2,14 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Windows;
-
+using Models;
 namespace ftn_sims_hci_hospital
 {
     public partial class CreateAppointment : Window
     {
         private AppointmentController appointmentController;
-        public CreateAppointment()
+        Patient patient;
+        public CreateAppointment(Patient patient)
         {
+            this.patient = patient;
             appointmentController = new AppointmentController();
             InitializeComponent();
         }

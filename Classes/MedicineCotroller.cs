@@ -32,16 +32,14 @@ namespace Classes
            return null;
         }
 
-        public Medicine Approve(Medicine medicineForApprove)
+        public Boolean Approve(Medicine medicineForApprove)
         {
-            //return medicineService.Approve(medicineForApprove);
-            return null;
+            return medicineService.Approve(medicineForApprove);
         }
 
-        public Medicine Decline(Medicine medicineForDecline)
+        public Boolean Decline(Medicine medicineForDecline)
         {
-            //return medicineService.Decline(medicineForDecline);
-            return null;
+            return medicineService.Decline(medicineForDecline);
         }
 
     }

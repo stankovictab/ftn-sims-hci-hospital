@@ -1,0 +1,22 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.Views.Treatments"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.Views"
+        mc:Ignorable="d"
+        Title="Treatments" Height="450" Width="800">
+    <Grid Background="LightCyan">
+        <ListView ItemsSource="{Binding Hos}" Name="Table" Canvas.Left="8" Canvas.Top="8" Margin="10,10,10,61" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="start" Width="300" DisplayMemberBinding="{Binding startDate}" />
+                    <GridViewColumn Header="end" Width="300" DisplayMemberBinding="{Binding endDate}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,21" TextWrapping="Wrap" Text="days:" VerticalAlignment="Bottom" RenderTransformOrigin="0.593,2.281"/>
+        <TextBox Name="txtDays" Text="{Binding DaysText}" HorizontalAlignment="Left" Height="23" Margin="42,363,0,20" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="71" />
+        <Button Content="extend" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,15,15" Click="extend" />
+    </Grid>
+</Window>

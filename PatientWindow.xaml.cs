@@ -34,8 +34,8 @@ namespace ftn_sims_hci_hospital
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            CreateAppointment c = new CreateAppointment();
-            c.Show();
+           // CreateAppointment c = new CreateAppointment();
+            //c.Show();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

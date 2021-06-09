@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Models;
 namespace Classes
 {
     public class Doctor
@@ -197,6 +198,11 @@ namespace Classes
                     // oldAppointment.SetDoctor((Doctor)null);
                     tmpAppointments.Clear();
             }
+        }
+
+        public override string ToString()
+        {
+            return user.Name1 + " " + user.LastName1;
         }
     }
 }

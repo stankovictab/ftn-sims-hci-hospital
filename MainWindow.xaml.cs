@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Classes;
+using Views;
 
 namespace ftn_sims_hci_hospital
 {
@@ -59,7 +60,8 @@ namespace ftn_sims_hci_hospital
         {
             user.Jmbg1 = "0501";
             user.Role1 = Roles.Doctor;
-            user.Name1 = "Dakaz";
+            user.Name1 = "Darko";
+            user.LastName1 = "Tomic";
 
             DoctorB doctorB = new DoctorB();
             doctorB.Show();

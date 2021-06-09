@@ -13,7 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Views;
+using Models;
 namespace ftn_sims_hci_hospital
 {
     public partial class AppointmentsListDoctorB : Window

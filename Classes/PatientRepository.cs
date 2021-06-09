@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+using Models;
 namespace Classes
 {
     public class PatientRepository

@@ -6,8 +6,9 @@ namespace Classes
     public class PerscriptionRepository
     {
         private String FileLocation;
-        private MedicineRepository medicineRepository;
-        private List<Perscription> PerscriptionsInFile;
+        private MedicineRepository medicineRepository = new MedicineRepository();
+        private List<Perscription> PerscriptionsInFil;
+        private MedicineCotroller medicineController = new MedicineCotroller();
 
         public PerscriptionRepository()
         {

@@ -1,4 +1,5 @@
 using System;
+using Models;
 namespace Classes
 {
     public class Secretary

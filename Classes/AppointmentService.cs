@@ -1,7 +1,7 @@
 using ftn_sims_hci_hospital;
 using System;
 using System.Collections.Generic;
-
+using Models;
 
 namespace Classes
 {

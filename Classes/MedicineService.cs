@@ -70,5 +70,17 @@ namespace Classes
         {
             return medicineRepository.GetById(medicineId);
         }
+
+        public Boolean Approve(Medicine medicineForApprove)
+        {
+            medicineForApprove.Status = MedicineStatus.Verified;
+            return medicineRepository.UpdateOnHold(medicineForApprove);
+        }
+
+        public Boolean Decline(Medicine medicineForDecline)
+        {
+            return medicineRepository.DeleteOnHold(medicineForDecline.Name);
+        }
+
     }
 }
