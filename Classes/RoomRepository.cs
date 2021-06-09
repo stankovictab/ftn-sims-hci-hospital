@@ -10,11 +10,13 @@ using System.IO;
 
 namespace Classes
 {
-   public class RoomRepository
+   public class RoomRepository : IRoomRepository
    {
         private String FileLocation = "../../Text Files/rooms.txt";
-        public List<Room> Rooms = new List<Room>();
+        public List<Room> Rooms { get; set; } = new List<Room>();
         public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
+
+        
 
         public static RoomType ParseRoomType(string input)
         {
@@ -132,6 +134,7 @@ namespace Classes
                     newRoom.Description = oldRoom.Description;
                     newRoom.Type = oldRoom.Type;
                     newRoom.Status = oldRoom.Status;
+                    UpdateFile(Rooms);
                     return true;
                 }
             }
@@ -160,6 +163,7 @@ namespace Classes
                 {
                     Rooms.Remove(room);
                     staticEquipmentRepository.DeleteByLocation(room.RoomNumber);
+                    UpdateFile(Rooms);
                     return true;
                 }
             }

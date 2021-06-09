@@ -4,22 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
         mc:Ignorable="d"
-        Title="MedicineResubmit" Height="450" Width="800">
+        Title="MedicineResubmit" Height="450" Width="564.437">
     <Grid>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="76,86,0,0" VerticalAlignment="Top"/>
-        <Label Content="Description:" HorizontalAlignment="Left" Margin="76,123,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ingredients:" HorizontalAlignment="Left" Margin="77,164,0,0" VerticalAlignment="Top"/>
-        <Label Content="Alternatives:" HorizontalAlignment="Left" Margin="77,205,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="medicineName" HorizontalAlignment="Left" Height="23" Margin="252,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="medicineDescription" HorizontalAlignment="Left" Height="23" Margin="252,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="medicineIngredients" HorizontalAlignment="Left" Height="23" Margin="252,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="medicineAlternatives" HorizontalAlignment="Left" Height="23" Margin="252,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="medicineResubmit" Content="Resubmit" HorizontalAlignment="Left" Margin="354,298,0,0" VerticalAlignment="Top" Width="75" Click="medicineResubmit_Click"/>
+        <Label Content="{x:Static p:Resources.nameColumn}" HorizontalAlignment="Left" Margin="21,89,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.descriptionColumn}" HorizontalAlignment="Left" Margin="21,126,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.ingredientsColumn}" HorizontalAlignment="Left" Margin="22,167,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.alternativesColumn}" HorizontalAlignment="Left" Margin="22,208,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="medicineName" HorizontalAlignment="Left" Height="23" Margin="129,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="medicineDescription" HorizontalAlignment="Left" Height="23" Margin="129,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="medicineIngredients" HorizontalAlignment="Left" Height="23" Margin="129,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="medicineAlternatives" HorizontalAlignment="Left" Height="23" Margin="129,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="medicineResubmit" Content="{x:Static p:Resources.resubmitButton}" HorizontalAlignment="Left" Margin="219,295,0,0" VerticalAlignment="Top" Width="75" Click="medicineResubmit_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="-166,208,0,0" VerticalAlignment="Top" Width="3"/>
-        <Label Content="Id:" HorizontalAlignment="Left" Margin="77,55,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="medicineId" HorizontalAlignment="Left" Height="23" Margin="252,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <Label Content="Reason For Denial:" HorizontalAlignment="Left" Margin="478,55,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="medicineDenialReason" HorizontalAlignment="Left" Height="120" Margin="478,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="22,58,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="medicineId" HorizontalAlignment="Left" Height="23" Margin="129,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <Label Content="{x:Static p:Resources.reasonForDenial}" HorizontalAlignment="Left" Margin="269,58,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="medicineDenialReason" HorizontalAlignment="Left" Height="120" Margin="269,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267"/>
     </Grid>
 </Window>

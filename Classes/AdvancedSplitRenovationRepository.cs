@@ -10,14 +10,16 @@ using System.IO;
 
 namespace Classes
 {
-    public class AdvancedSplitRenovationRepository
+    public class AdvancedSplitRenovationRepository : IAdvancedSplitRenovationRepository
     {
         private string FileLocationSplit = "../../Text Files/splitrenovations.txt";
         private string FileLocationSplitFinished = "../../Text Files/finishedsplitrenovations.txt";
-        public List<SplitRenovation> SplitRenovations = new List<SplitRenovation>();
-        public List<SplitRenovation> FinishedSplitRenovations = new List<SplitRenovation>();
+        public List<SplitRenovation> SplitRenovations { get; set; } = new List<SplitRenovation>();
+        public List<SplitRenovation> FinishedSplitRenovations { get; set; } = new List<SplitRenovation>();
         RoomRepository roomRepository = new RoomRepository();
         StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
+
+
 
         public List<SplitRenovation> PullFromFile(String FileLocation)
         {

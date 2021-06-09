@@ -39,6 +39,7 @@ namespace ftn_sims_hci_hospital
             {
                 roomDataList.Items.Add(new { RoomNumber = r.RoomNumber, FloorNumber = r.FloorNumber, Description = r.Description, Type = r.Type, Status = r.Status });
             }
+
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)

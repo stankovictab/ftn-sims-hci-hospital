@@ -23,7 +23,7 @@ namespace ftn_sims_hci_hospital
         public StaticUpdate(String id)
         {
             InitializeComponent();
-            equipmentController.equipmentService.staticEquipmentRepository.staticEquipmentRepository.StaticEquipment = equipmentController.GetAllStatic();
+            equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment = equipmentController.GetAllStatic();
             toUpdate = equipmentController.GetStaticById(id);
             staticId.Text = toUpdate.statId.ToString();
             staticName.Text = toUpdate.statName;
@@ -36,7 +36,7 @@ namespace ftn_sims_hci_hospital
 
             StaticEquipment staticc = new StaticEquipment(id, name, toUpdate.statLocation);
             _ = equipmentController.UpdateStatic(staticc);
-            equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.staticEquipmentRepository.StaticEquipment);
+            equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment);
             this.Close();
         }
     }

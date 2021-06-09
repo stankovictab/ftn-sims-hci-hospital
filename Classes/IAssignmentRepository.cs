@@ -6,44 +6,27 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public class IAssignmentRepository
+    public interface IAssignmentRepository
     {
-        public AssignmentRepository assignmentRepository;
-        public IAssignmentRepository(AssignmentRepository repo)
-        {
-            this.assignmentRepository = repo;
-        }
 
-        public List<DynamicAssignment> AccessAssignments { get => assignmentRepository.Assignments; set => assignmentRepository.Assignments = value; }
-        public List<DynamicAssignment> GetAssignments()
-        {
-            return assignmentRepository.Assignments;
-        }
 
-        public void WriteToFile(List<DynamicAssignment> assignmentsInFile)
-        {
-            this.assignmentRepository.WriteToFile(assignmentsInFile);
-        }
+        List<DynamicAssignment> Assignments { get; set; }
 
-        public Boolean Create(DynamicAssignment newAssignment)
-        {
-            return this.assignmentRepository.Create(newAssignment);
-        }
 
-        public List<DynamicAssignment> PullFromFile()
-        {
-            return this.assignmentRepository.PullFromFile();
-        }
+        void WriteToFile(List<DynamicAssignment> assignmentsInFile);
 
-        public List<DynamicAssignment> GetAll()
-        {
-            return this.assignmentRepository.GetAll();
-        }
 
-        public Boolean Delete(DynamicAssignment assignment)
-        {
-            return this.assignmentRepository.Delete(assignment);
-        }
+        Boolean Create(DynamicAssignment newAssignment);
+
+
+        List<DynamicAssignment> PullFromFile();
+
+
+        List<DynamicAssignment> GetAll();
+
+
+        Boolean Delete(DynamicAssignment assignment);
+
 
     }
 }

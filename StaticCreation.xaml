@@ -4,16 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
         mc:Ignorable="d"
-        Title="StaticCreation" Height="450" Width="800">
+        Title="StaticCreation" Height="450" Width="270">
     <Grid>
-        <Label Content="Equipment ID:" HorizontalAlignment="Left" Margin="154,103,0,0" VerticalAlignment="Top"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="154,162,0,0" VerticalAlignment="Top"/>
-        <Label Content="Put in Room:" HorizontalAlignment="Left" Margin="154,217,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="staticId" HorizontalAlignment="Left" Margin="317,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="staticName" HorizontalAlignment="Left" Margin="317,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="staticLocation" HorizontalAlignment="Left" Margin="317,219,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="staticAdd" Content="Add" HorizontalAlignment="Left" Margin="176,315,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="staticAdd_Click"/>
+        <Label Content="{x:Static p:Resources.idColumn}" HorizontalAlignment="Left" Margin="14,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.nameColumn}" HorizontalAlignment="Left" Margin="14,128,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.putInRoom}" HorizontalAlignment="Left" Margin="14,183,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="staticId" HorizontalAlignment="Left" Margin="114,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="staticName" HorizontalAlignment="Left" Margin="114,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="staticLocation" HorizontalAlignment="Left" Margin="114,183,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="staticAdd" Content="{x:Static p:Resources.addButton}" HorizontalAlignment="Left" Margin="87,260,0,0" VerticalAlignment="Top" Height="21" Width="88" Click="staticAdd_Click"/>
 
     </Grid>
 </Window>

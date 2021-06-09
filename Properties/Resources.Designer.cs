@@ -22,7 +22,7 @@ namespace ftn_sims_hci_hospital.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ftn_sims_hci_hospital.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ftn_sims_hci_hospital.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,750 @@ namespace ftn_sims_hci_hospital.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string addButton {
+            get {
+                return ResourceManager.GetString("addButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced.
+        /// </summary>
+        public static string advancedRenovationsButton {
+            get {
+                return ResourceManager.GetString("advancedRenovationsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alternatives.
+        /// </summary>
+        public static string alternativesColumn {
+            get {
+                return ResourceManager.GetString("alternativesColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        public static string amountColumn {
+            get {
+                return ResourceManager.GetString("amountColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount To Use.
+        /// </summary>
+        public static string amountToUse {
+            get {
+                return ResourceManager.GetString("amountToUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available Amount.
+        /// </summary>
+        public static string availableAmount {
+            get {
+                return ResourceManager.GetString("availableAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to White.
+        /// </summary>
+        public static string backgroundColor {
+            get {
+                return ResourceManager.GetString("backgroundColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simple.
+        /// </summary>
+        public static string basicRenovationsButton {
+            get {
+                return ResourceManager.GetString("basicRenovationsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose Rooms to Merge.
+        /// </summary>
+        public static string chooseRoomsToMerge {
+            get {
+                return ResourceManager.GetString("chooseRoomsToMerge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose Room To Split.
+        /// </summary>
+        public static string chooseRoomsToSplit {
+            get {
+                return ResourceManager.GetString("chooseRoomsToSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string createButton {
+            get {
+                return ResourceManager.GetString("createButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Schedule:.
+        /// </summary>
+        public static string currentScheduleLabel {
+            get {
+                return ResourceManager.GetString("currentScheduleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string deleteButton {
+            get {
+                return ResourceManager.GetString("deleteButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string descriptionColumn {
+            get {
+                return ResourceManager.GetString("descriptionColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Desired Time.
+        /// </summary>
+        public static string desiredTimeLabel {
+            get {
+                return ResourceManager.GetString("desiredTimeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        public static string durationColumn {
+            get {
+                return ResourceManager.GetString("durationColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dynamic Equipment.
+        /// </summary>
+        public static string dynamicEquipmentButton {
+            get {
+                return ResourceManager.GetString("dynamicEquipmentButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string emailLabel {
+            get {
+                return ResourceManager.GetString("emailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Time.
+        /// </summary>
+        public static string endTimeColumn {
+            get {
+                return ResourceManager.GetString("endTimeColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enschedule Merge.
+        /// </summary>
+        public static string enscheduleMerge {
+            get {
+                return ResourceManager.GetString("enscheduleMerge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enschedule Split.
+        /// </summary>
+        public static string enscheduleSplit {
+            get {
+                return ResourceManager.GetString("enscheduleSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equipment.
+        /// </summary>
+        public static string equipmentColumn {
+            get {
+                return ResourceManager.GetString("equipmentColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estimated Duration.
+        /// </summary>
+        public static string estimatedDurationLabel {
+            get {
+                return ResourceManager.GetString("estimatedDurationLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FilterBy.
+        /// </summary>
+        public static string filterByLabel {
+            get {
+                return ResourceManager.GetString("filterByLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Floor Number.
+        /// </summary>
+        public static string floorNumberColumn {
+            get {
+                return ResourceManager.GetString("floorNumberColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From Room.
+        /// </summary>
+        public static string fromRoomColumn {
+            get {
+                return ResourceManager.GetString("fromRoomColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate Report.
+        /// </summary>
+        public static string generateReport {
+            get {
+                return ResourceManager.GetString("generateReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Id.
+        /// </summary>
+        public static string idColumn {
+            get {
+                return ResourceManager.GetString("idColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingredients.
+        /// </summary>
+        public static string ingredientsColumn {
+            get {
+                return ResourceManager.GetString("ingredientsColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inventory.
+        /// </summary>
+        public static string inventoryButton {
+            get {
+                return ResourceManager.GetString("inventoryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a Language.
+        /// </summary>
+        public static string languageLabel {
+            get {
+                return ResourceManager.GetString("languageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string locationColumn {
+            get {
+                return ResourceManager.GetString("locationColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string locationLabel {
+            get {
+                return ResourceManager.GetString("locationLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zdravo Corporation.
+        /// </summary>
+        public static string managerNewLabel {
+            get {
+                return ResourceManager.GetString("managerNewLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inventory.
+        /// </summary>
+        public static string medicineInventoryButton {
+            get {
+                return ResourceManager.GetString("medicineInventoryButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicine ⚕.
+        /// </summary>
+        public static string medicineMenuItem {
+            get {
+                return ResourceManager.GetString("medicineMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report.
+        /// </summary>
+        public static string medicineReportButton {
+            get {
+                return ResourceManager.GetString("medicineReportButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicine Storage:.
+        /// </summary>
+        public static string medicineStorageLabel {
+            get {
+                return ResourceManager.GetString("medicineStorageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string nameColumn {
+            get {
+                return ResourceManager.GetString("nameColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string nameLabel {
+            get {
+                return ResourceManager.GetString("nameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Merge Renovation.
+        /// </summary>
+        public static string newMergeRenovationButton {
+            get {
+                return ResourceManager.GetString("newMergeRenovationButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Room.
+        /// </summary>
+        public static string newRoom {
+            get {
+                return ResourceManager.GetString("newRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Room 1.
+        /// </summary>
+        public static string newRoom1 {
+            get {
+                return ResourceManager.GetString("newRoom1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Room 2.
+        /// </summary>
+        public static string newRoom2 {
+            get {
+                return ResourceManager.GetString("newRoom2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Room(s).
+        /// </summary>
+        public static string newRoomsColumn {
+            get {
+                return ResourceManager.GetString("newRoomsColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Split Renovation.
+        /// </summary>
+        public static string newSplitRenovationButton {
+            get {
+                return ResourceManager.GetString("newSplitRenovationButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old Room.
+        /// </summary>
+        public static string oldRoom {
+            get {
+                return ResourceManager.GetString("oldRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string passwordLabel {
+            get {
+                return ResourceManager.GetString("passwordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Past Schedule:.
+        /// </summary>
+        public static string pastScheduleLabel {
+            get {
+                return ResourceManager.GetString("pastScheduleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number.
+        /// </summary>
+        public static string phoneLabel {
+            get {
+                return ResourceManager.GetString("phoneLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        public static string profilButton {
+            get {
+                return ResourceManager.GetString("profilButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 👤 Cveta Cvetic.
+        /// </summary>
+        public static string profileMenuItem {
+            get {
+                return ResourceManager.GetString("profileMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Put In Room.
+        /// </summary>
+        public static string putInRoom {
+            get {
+                return ResourceManager.GetString("putInRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reason For Denial.
+        /// </summary>
+        public static string reasonForDenial {
+            get {
+                return ResourceManager.GetString("reasonForDenial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renovation Details.
+        /// </summary>
+        public static string renovationDetails {
+            get {
+                return ResourceManager.GetString("renovationDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renovations 🛠.
+        /// </summary>
+        public static string renovationsMenuItem {
+            get {
+                return ResourceManager.GetString("renovationsMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resubmit.
+        /// </summary>
+        public static string resubmitButton {
+            get {
+                return ResourceManager.GetString("resubmitButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room.
+        /// </summary>
+        public static string roomColumn {
+            get {
+                return ResourceManager.GetString("roomColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room Description.
+        /// </summary>
+        public static string roomDescription {
+            get {
+                return ResourceManager.GetString("roomDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room Floor.
+        /// </summary>
+        public static string roomFloor {
+            get {
+                return ResourceManager.GetString("roomFloor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room Number.
+        /// </summary>
+        public static string roomNumber {
+            get {
+                return ResourceManager.GetString("roomNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rooms 🛏.
+        /// </summary>
+        public static string roomsButton {
+            get {
+                return ResourceManager.GetString("roomsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rooms List:.
+        /// </summary>
+        public static string roomsListLabel {
+            get {
+                return ResourceManager.GetString("roomsListLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room Status.
+        /// </summary>
+        public static string roomStatus {
+            get {
+                return ResourceManager.GetString("roomStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room Type.
+        /// </summary>
+        public static string roomType {
+            get {
+                return ResourceManager.GetString("roomType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moving Schedule.
+        /// </summary>
+        public static string scheduleButton {
+            get {
+                return ResourceManager.GetString("scheduleButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search By Name.
+        /// </summary>
+        public static string searchByName {
+            get {
+                return ResourceManager.GetString("searchByName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Room To Split.
+        /// </summary>
+        public static string selectARoomToSplit {
+            get {
+                return ResourceManager.GetString("selectARoomToSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign Out.
+        /// </summary>
+        public static string signoutButton {
+            get {
+                return ResourceManager.GetString("signoutButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Time.
+        /// </summary>
+        public static string startTimeColumn {
+            get {
+                return ResourceManager.GetString("startTimeColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Static Equipment.
+        /// </summary>
+        public static string staticEquipmentButton {
+            get {
+                return ResourceManager.GetString("staticEquipmentButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string statusColumn {
+            get {
+                return ResourceManager.GetString("statusColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Storage 🗄.
+        /// </summary>
+        public static string storageMenuItem {
+            get {
+                return ResourceManager.GetString("storageMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Surname.
+        /// </summary>
+        public static string surnameLabel {
+            get {
+                return ResourceManager.GetString("surnameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take Out of Storage.
+        /// </summary>
+        public static string takeOutOfStorage {
+            get {
+                return ResourceManager.GetString("takeOutOfStorage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        public static string timeColumn {
+            get {
+                return ResourceManager.GetString("timeColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To Room.
+        /// </summary>
+        public static string toRoomColumn {
+            get {
+                return ResourceManager.GetString("toRoomColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string typeColumn {
+            get {
+                return ResourceManager.GetString("typeColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string typeLabel {
+            get {
+                return ResourceManager.GetString("typeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unavailable Room(s).
+        /// </summary>
+        public static string unavailableRoomsColumn {
+            get {
+                return ResourceManager.GetString("unavailableRoomsColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string updateButton {
+            get {
+                return ResourceManager.GetString("updateButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View.
+        /// </summary>
+        public static string viewButton {
+            get {
+                return ResourceManager.GetString("viewButton", resourceCulture);
             }
         }
     }

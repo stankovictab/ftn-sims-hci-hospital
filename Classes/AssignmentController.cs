@@ -11,7 +11,9 @@ namespace Classes
 {
     public class AssignmentController
     {
-        AssignmentService assignmentService = new AssignmentService();
+        public static AssignmentRepository repo1 = new AssignmentRepository();
+        public static DynamicEquipmentRepository repo2 = new DynamicEquipmentRepository();
+        AssignmentService assignmentService = new AssignmentService(repo1, repo2);
 
         public bool Create(int amount, DynamicEquipment equipment)
         {

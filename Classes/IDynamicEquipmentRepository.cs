@@ -5,50 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Classes
-{ 
-    public class IDynamicEquipmentRepository
+{
+    public interface IDynamicEquipmentRepository
     {
-        public DynamicEquipmentRepository dynamicEquipmentRepository;
-        public IDynamicEquipmentRepository(DynamicEquipmentRepository repo)
-        {
-            this.dynamicEquipmentRepository = repo;
-        }
 
-        public List<DynamicEquipment> AccessDynamicEquipment { get => dynamicEquipmentRepository.DynamicEquipment; set => dynamicEquipmentRepository.DynamicEquipment = value; }
 
-        public Boolean Create(DynamicEquipment newDynamic)
-        {
-            return this.dynamicEquipmentRepository.Create(newDynamic);
-        }
+        List<DynamicEquipment> DynamicEquipment { get; set; }
+        Boolean Create(DynamicEquipment newDynamic);
 
-        public DynamicEquipment GetById(int id)
-        {
-            return this.dynamicEquipmentRepository.GetById(id);
-        }
 
-        public DynamicEquipment GetByName(string name)
-        {
-            return this.dynamicEquipmentRepository.GetByName(name);
-        }
+        DynamicEquipment GetById(int id);
 
-        public List<DynamicEquipment> GetAll()
-        {
-            return this.dynamicEquipmentRepository.GetAll();
-        }
 
-        public Boolean Update(DynamicEquipment updateDynamic)
-        {
-            return this.dynamicEquipmentRepository.Update(updateDynamic);
-        }
+        DynamicEquipment GetByName(string name);
 
-        public Boolean UpdateFile(List<DynamicEquipment> dynamicInFile)
-        {
-            return this.dynamicEquipmentRepository.UpdateFile(dynamicInFile);
-        }
 
-        public Boolean Delete(int toDelete)
-        {
-            return this.dynamicEquipmentRepository.Delete(toDelete);
-        }
+        List<DynamicEquipment> GetAll();
+
+
+        Boolean Update(DynamicEquipment updateDynamic);
+
+
+        Boolean UpdateFile(List<DynamicEquipment> dynamicInFile);
+
+
+        Boolean Delete(int toDelete);
+
     }
 }

@@ -7,7 +7,32 @@
         mc:Ignorable="d"
         Title="Storage" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="storageDataList" HorizontalAlignment="Left" Height="210" Margin="140,78,0,0" VerticalAlignment="Top" Width="485">
+        <Menu HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="800" FontFamily="Sitka Text" Background="#FFFF7171">
+
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+
+            <MenuItem Header="Storage" Background="Transparent" FontFamily="Times New Roman" FontSize="18">
+                <MenuItem x:Name="inventoryButton" Header="Inventory"/>
+                <MenuItem x:Name="scheduleButton" Header="Moving Schedule" Margin="0,0,-37,0"/>
+            </MenuItem>
+            <MenuItem x:Name="roomsButton" Header="Rooms" Background="Transparent" FontFamily="Times New Roman" FontSize="18"/>
+            <MenuItem Header="Medicine" Background="Transparent" FontFamily="Times New Roman" FontSize="18">
+                <MenuItem x:Name="medicineInventoryButton" Header="Skladište" />
+                <MenuItem x:Name="registerMedicineButton" Header="Registracija" Margin="0,0,-37,0" />
+                <MenuItem x:Name="medicineReportButton" Header="Izveštaj" />
+            </MenuItem>
+            <MenuItem Header="Cveta Cvetić" HorizontalAlignment="Right" Background="Transparent" FontFamily="Times New Roman" FontSize="18" Width="119">
+                <MenuItem x:Name="profilButton" Header="Profil" />
+                <MenuItem x:Name="signoutButton" Header="Odjava" Margin="0,0,-37,0" />
+            </MenuItem>
+
+        </Menu>
+
+        <ListView x:Name="storageDataList" HorizontalAlignment="Left" Height="210" Margin="140,108,0,0" VerticalAlignment="Top" Width="485">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Equipment ID" DisplayMemberBinding="{Binding equipmentId}"/>
@@ -17,8 +42,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox  Width="109"  VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="nameSearchTextBox" Margin="140,56,0,0"/>
-        <TextBlock IsHitTestVisible="False" Text="Search By Name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,57,0,0" Foreground="DarkGray">
+        <TextBox  Width="109"  VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="nameSearchTextBox" Margin="140,76,0,0"/>
+        <TextBlock IsHitTestVisible="False" Text="Search By Name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,77,0,0" Foreground="DarkGray">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -30,13 +55,13 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Button x:Name="nameSearchButton" Content="Search" HorizontalAlignment="Left" Margin="254,57,0,0" VerticalAlignment="Top" Width="75" Height="17" Click="nameSearchButton_Click"/>
-        <Label Content="Filter By:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="455,7,0,0"/>
-        <Label Content="Location" HorizontalAlignment="Left" Margin="455,30,0,0" VerticalAlignment="Top"/>
-        <Label Content="Type" HorizontalAlignment="Left" Margin="475,53,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="locationCombo" HorizontalAlignment="Left" Margin="527,37,0,0" VerticalAlignment="Top" Width="83" Height="15" SelectionChanged="locationCombo_SelectionChanged"/>
-        <ComboBox x:Name="typeCombo" HorizontalAlignment="Left" Margin="527,59,0,0" VerticalAlignment="Top" Width="83" Height="15" SelectionChanged="typeCombo_SelectionChanged"/>
-        <Button x:Name="loadStorageButton" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="24,144,0,0" Click="loadStorageButton_Click"/>
+        <Button x:Name="nameSearchButton" Content="Search" HorizontalAlignment="Left" Margin="254,77,0,0" VerticalAlignment="Top" Width="75" Height="17" Click="nameSearchButton_Click"/>
+        <Label Content="Filter By:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="455,27,0,0"/>
+        <Label Content="Location" HorizontalAlignment="Left" Margin="455,54,0,0" VerticalAlignment="Top"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="475,78,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="locationCombo" HorizontalAlignment="Left" Margin="527,57,0,0" VerticalAlignment="Top" Width="83" Height="19" SelectionChanged="locationCombo_SelectionChanged"/>
+        <ComboBox x:Name="typeCombo" HorizontalAlignment="Left" Margin="527,83,0,0" VerticalAlignment="Top" Width="83" Height="20" SelectionChanged="typeCombo_SelectionChanged"/>
+        <Button x:Name="loadStorageButton" Content="Load" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="254,323,0,0" Click="loadStorageButton_Click"/>
 
     </Grid>
 </Window>

@@ -14,10 +14,10 @@ namespace Classes
         public IDynamicEquipmentRepository dynamicEquipmentRepository;
         public IAssignmentRepository assignmentRepository;
 
-        public AssignmentService(/*IAssignmentRepository iRepo, IDynamicEquipmentRepository dynRepo*/)
+        public AssignmentService(IAssignmentRepository iRepo, IDynamicEquipmentRepository dynRepo)
         {
-            /*this.assignmentRepository = iRepo;
-            this.dynamicEquipmentRepository = dynRepo;*/
+            this.assignmentRepository = iRepo;
+            this.dynamicEquipmentRepository = dynRepo;
         }
 
         public bool Create(int amount, DynamicEquipment equipment)
@@ -27,7 +27,7 @@ namespace Classes
 
             equipment.Amount = (Convert.ToInt32(equipment.Amount) - amount).ToString();
             dynamicEquipmentRepository.Update(equipment);
-            dynamicEquipmentRepository.UpdateFile(dynamicEquipmentRepository.AccessDynamicEquipment);
+            dynamicEquipmentRepository.UpdateFile(dynamicEquipmentRepository.DynamicEquipment);
 
             DynamicAssignment newAssignment = new DynamicAssignment(amount, equipment, 1);
             assignmentRepository.Create(newAssignment);

@@ -1,9 +1,12 @@
+using ftn_sims_hci_hospital.Classes;
 using System;
 
 namespace Classes
 {
-    public class Room
+    public class Room : IHandler
     {
+        RoomController roomController = new RoomController();
+
         public Doctor doctor = null;
         public String RoomNumber;
         public int FloorNumber;
@@ -71,6 +74,21 @@ namespace Classes
         public override string ToString()
         {
             return string.Format("{0}-{1}", RoomNumber, FloorNumber);
+        }
+
+        public void Add()
+        {
+            roomController.Create(this);
+        }
+
+        public void Delete()
+        {
+            roomController.Delete(this.RoomNumber);
+        }
+
+        public void Update()
+        {
+            roomController.Update(this);
         }
     }
 }

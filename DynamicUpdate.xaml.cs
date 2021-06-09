@@ -24,7 +24,7 @@ namespace ftn_sims_hci_hospital
         public DynamicUpdate(String id)
         {
             InitializeComponent();
-            equipmentController.equipmentService.dynamicEquipmentRepository.dynamicEquipmentRepository.DynamicEquipment = equipmentController.GetAllDynamic();
+            equipmentController.equipmentService.dynamicEquipmentRepository.DynamicEquipment = equipmentController.GetAllDynamic();
             toUpdate = equipmentController.GetDynamicById(id);
             dynamicId.Text = toUpdate.Id.ToString();
             dynamicName.Text = toUpdate.Name;
@@ -39,7 +39,7 @@ namespace ftn_sims_hci_hospital
 
             DynamicEquipment dynamic = new DynamicEquipment(id, name, amount);
             _ = equipmentController.UpdateDynamic(dynamic);
-            equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.dynamicEquipmentRepository.DynamicEquipment);
+            equipmentController.UpdateAllDynamic(equipmentController.equipmentService.dynamicEquipmentRepository.DynamicEquipment);
             this.Close();
         }
     }

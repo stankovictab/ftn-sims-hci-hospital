@@ -10,12 +10,11 @@ using System.IO;
 
 namespace Classes
 {
-    public class AssignmentRepository
+    public class AssignmentRepository : IAssignmentRepository
     {
         private String FileLocation = "../../Text Files/assignments.txt";
-        public List<DynamicAssignment> Assignments = new List<DynamicAssignment>();
+        public List<DynamicAssignment> Assignments { get; set; } = new List<DynamicAssignment>();
         public DynamicEquipmentRepository dynamicEquipmentRepository = new DynamicEquipmentRepository();
-
 
         public void WriteToFile(List<DynamicAssignment> assignmentsInFile)
         {

@@ -4,23 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
         mc:Ignorable="d"
-        Title="Static" Height="450" Width="800">
-    <Grid>
-        <ListView x:Name="staticDataList" Margin="231,34,35,34">
+        Title="Static" Height="450" Width="292.752">
+    <Grid Margin="0,0,2,0">
+        <ListView x:Name="staticDataList" Margin="24,30,24,50">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Equipment ID" DisplayMemberBinding="{Binding statId}"/>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding statName}"/>
-                    <GridViewColumn Header="Current Location" DisplayMemberBinding="{Binding statLocation}"/>
+                    <GridViewColumn Width="25" Header="ID" DisplayMemberBinding="{Binding statId}"/>
+                    <GridViewColumn Width="75" Header="Name" DisplayMemberBinding="{Binding statName}"/>
+                    <GridViewColumn Width="100" Header="Current Location" DisplayMemberBinding="{Binding statLocation}"/>
                 </GridView>
             </ListView.View>
             <Button Content="Button"/>
         </ListView>
-        <Button x:Name="addStat" Content="Add" HorizontalAlignment="Left" Margin="42,53,0,0" VerticalAlignment="Top" Width="108" Click="addStat_Click"/>
-        <Button x:Name="updateStat" Content="Update" HorizontalAlignment="Left" Margin="42,139,0,0" VerticalAlignment="Top" Width="108" Click="updateStat_Click"/>
-        <Button x:Name="viewStat" Content="View" Click="viewStat_Click" HorizontalAlignment="Left" Margin="42,96,0,0" VerticalAlignment="Top" Width="108"/>
-        <Button x:Name="deleteStat" Content="Delete" HorizontalAlignment="Left" Margin="42,183,0,0" VerticalAlignment="Top" Width="108" Click="deleteStat_Click"/>
+        <Button x:Name="addStat" Content="Add" HorizontalAlignment="Left" Margin="24,381,0,0" VerticalAlignment="Top" Width="55" Click="addStat_Click"/>
+        <Button x:Name="updateStat" Content="Update" HorizontalAlignment="Left" Margin="144,381,0,0" VerticalAlignment="Top" Width="55" Click="updateStat_Click"/>
+        <Button x:Name="viewStat" Content="View" Click="viewStat_Click" HorizontalAlignment="Left" Margin="84,381,0,0" VerticalAlignment="Top" Width="55"/>
+        <Button x:Name="deleteStat" Content="Delete" HorizontalAlignment="Left" Margin="204,381,0,0" VerticalAlignment="Top" Width="55" Click="deleteStat_Click"/>
+        <Label Content="Static Equipment Storage:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="68,4,0,0"/>
 
     </Grid>
 </Window>

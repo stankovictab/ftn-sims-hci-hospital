@@ -10,14 +10,15 @@ using System.IO;
 
 namespace Classes
 {
-    public class AdvancedMergeRenovationRepository
+    public class AdvancedMergeRenovationRepository : IAdvancedMergeRenovationRepository
     {
         private string FileLocationMerge = "../../Text Files/mergerenovations.txt";
         private string FileLocationMergeFinished = "../../Text Files/finishedmergerenovations.txt";
-        public List<MergeRenovation> MergeRenovations = new List<MergeRenovation>();
-        public List<MergeRenovation> FinishedMergeRenovations = new List<MergeRenovation>();
+        public List<MergeRenovation> MergeRenovations { get; set; } = new List<MergeRenovation>();
+        public List<MergeRenovation> FinishedMergeRenovations { get; set; } = new List<MergeRenovation>();
         RoomRepository roomRepository = new RoomRepository();
         StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
+
 
         public List<MergeRenovation> PullFromFile(String FileLocation)
         { 

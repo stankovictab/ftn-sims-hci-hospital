@@ -6,44 +6,25 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public class IBasicRenovationRepository
+    public interface IBasicRenovationRepository
     {
-        BasicRenovationRepository basicRenovationRepository;
-        public IBasicRenovationRepository(BasicRenovationRepository repo)
-        {
-            this.basicRenovationRepository = repo;
-        }
+        List<BasicRenovation> BasicRenovations { get; set; }
+        List<BasicRenovation> FinishedBasicRenovations { get; set; }
+        void UpdateTime(DateTime currentTime);
 
-        public List<BasicRenovation> AccessBasicRenovations { get => basicRenovationRepository.BasicRenovations; set => basicRenovationRepository.BasicRenovations = value; }
 
-        public void UpdateTime(DateTime currentTime)
-        {
-            this.basicRenovationRepository.UpdateTime(currentTime);
-        }
+        Boolean Create(BasicRenovation newBasicRenovation);
 
-        public Boolean Create(BasicRenovation newBasicRenovation)
-        {
-            return this.basicRenovationRepository.Create(newBasicRenovation);
-        }
 
-        public List<BasicRenovation> GetAll()
-        {
-            return this.basicRenovationRepository.GetAll();
-        }
+        List<BasicRenovation> GetAll();
 
-        public List<BasicRenovation> GetAllFinished()
-        {
-            return this.basicRenovationRepository.GetAllFinished();
-        }
 
-        public Boolean UpdateFile(List<BasicRenovation> renovations)
-        {
-            return this.basicRenovationRepository.UpdateFile(renovations);
-        }
+        List<BasicRenovation> GetAllFinished();
 
-        public Boolean Delete(int id)
-        {
-            return this.basicRenovationRepository.Delete(id);
-        }
+
+        Boolean UpdateFile(List<BasicRenovation> renovations);
+
+        Boolean Delete(int id);
+
     }
 }

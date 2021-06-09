@@ -15,10 +15,10 @@ namespace Classes
         public IStaticEquipmentRepository staticEquipmentRepository;
         public IDynamicEquipmentRepository dynamicEquipmentRepository;
 
-        public EquipmentService(/*IStaticEquipmentRepository statRepo, IDynamicEquipmentRepository dynRepo*/)
+        public EquipmentService(IStaticEquipmentRepository statRepo, IDynamicEquipmentRepository dynRepo)
         {
-            /*this.staticEquipmentRepository = statRepo;
-            this.dynamicEquipmentRepository = dynRepo;*/
+            this.staticEquipmentRepository = statRepo;
+            this.dynamicEquipmentRepository = dynRepo;
         }
 
         public bool AddStatic(StaticEquipment newStatic)

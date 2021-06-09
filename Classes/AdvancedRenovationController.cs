@@ -11,7 +11,9 @@ namespace Classes
 {
     public class AdvancedRenovationController
     {
-        public AdvancedRenovationService advancedRenovationService = new AdvancedRenovationService();
+        public static AdvancedSplitRenovationRepository repo1 = new AdvancedSplitRenovationRepository();
+        public static AdvancedMergeRenovationRepository repo2 = new AdvancedMergeRenovationRepository();
+        public AdvancedRenovationService advancedRenovationService = new AdvancedRenovationService(repo1, repo2);
 
         public List<MergeRenovation> GetAllMerge()
         {

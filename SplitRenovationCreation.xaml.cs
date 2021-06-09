@@ -66,7 +66,7 @@ namespace ftn_sims_hci_hospital
             newRoom2.Status = RoomStatus.Reordering;
             roomController.Create(newRoom2);
 
-            advancedRenovationController.advancedRenovationService.advancedSplitRenovationRepository.AccessSplitRenovations = advancedRenovationController.GetAllSplit();
+            advancedRenovationController.advancedRenovationService.advancedSplitRenovationRepository.SplitRenovations = advancedRenovationController.GetAllSplit();
             SplitRenovation newSplitRenovation = new SplitRenovation(Convert.ToInt32(splitRenovationId.Text), Convert.ToDateTime(splitRenovationStartTime.Text), Convert.ToDateTime(splitRenovationEndTime.Text), roomController.GetById(toSplitRoomCombo.SelectedItem.ToString()), newRoom1, newRoom2);
             bool success = advancedRenovationController.CreateSplit(newSplitRenovation);
 

@@ -4,15 +4,67 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
+        xmlns:val="clr-namespace:ftn_sims_hci_hospital"
         mc:Ignorable="d"
-        Title="DynamicCreation" Height="450" Width="800">
+        Title="DynamicCreation" Height="450" Width="270">
     <Grid>
-        <Label Content="Equipment ID:" HorizontalAlignment="Left" Margin="154,103,0,0" VerticalAlignment="Top"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="154,162,0,0" VerticalAlignment="Top"/>
-        <Label Content="Amount:" HorizontalAlignment="Left" Margin="154,217,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="dynamicId" HorizontalAlignment="Left" Margin="317,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="dynamicName" HorizontalAlignment="Left" Margin="317,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="dynamicAdd" Content="Add" HorizontalAlignment="Left" Margin="176,315,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="dynamicAdd_Click"/>
-        <TextBox x:Name="dynamicAmount" HorizontalAlignment="Left" Margin="317,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{x:Static p:Resources.idColumn}" HorizontalAlignment="Left" Margin="19,98,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.nameColumn}" HorizontalAlignment="Left" Margin="19,157,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.amountColumn}" HorizontalAlignment="Left" Margin="19,212,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dynamicId" HorizontalAlignment="Left" Margin="115,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+            <TextBox.Text>
+                <Binding Path="Id" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <TextBox x:Name="dynamicName" HorizontalAlignment="Left" Margin="115,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="dynamicAdd" Content="{x:Static p:Resources.addButton}" HorizontalAlignment="Left" Margin="91,277,0,0" VerticalAlignment="Top" Height="20" Width="86" Click="dynamicAdd_Click"/>
+        <TextBox x:Name="dynamicAmount" HorizontalAlignment="Left" Margin="115,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+            <TextBox.Text>
+                <Binding Path="Amount" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:StringToIntegerValidationRule ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                        <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
     </Grid>
 </Window>

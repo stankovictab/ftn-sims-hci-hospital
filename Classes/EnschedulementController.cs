@@ -11,6 +11,8 @@ namespace Classes
 {
     public class EnschedulementController
     {
+        public static EnschedulementRepository repo = new EnschedulementRepository();
+        public EnschedulementService enschedulementService = new EnschedulementService(repo);
 
         public bool CreateEnschedulement(StaticEnschedulement newEnschedulement)
         {
@@ -43,7 +45,7 @@ namespace Classes
             enschedulementService.UpdateTime(currentTime);
         }
 
-        public EnschedulementService enschedulementService = new EnschedulementService();
+        
 
     }
 }

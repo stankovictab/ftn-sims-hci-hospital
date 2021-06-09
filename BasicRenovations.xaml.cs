@@ -56,7 +56,7 @@ namespace ftn_sims_hci_hospital
                 string[] parts2 = parts[0].Split(' ');
                 int toDelete = Convert.ToInt32(parts2[3]);
                 _ = basicRenovationController.Delete(toDelete);
-                basicRenovationController.UpdateFile(basicRenovationController.basicRenovationService.basicRenovationRepository.AccessBasicRenovations);
+                basicRenovationController.UpdateFile(basicRenovationController.basicRenovationService.basicRenovationRepository.BasicRenovations);
                 viewBasicRenovations.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
 
             }

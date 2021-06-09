@@ -12,9 +12,9 @@ namespace Classes
     public class BasicRenovationService
     {
         public IBasicRenovationRepository basicRenovationRepository;
-        public BasicRenovationService(/*IBasicRenovationRepository repo*/)
+        public BasicRenovationService(IBasicRenovationRepository repo)
         {
-            //this.basicRenovationRepository = repo;
+            this.basicRenovationRepository = repo;    
         }
 
         public List<BasicRenovation> GetAll()

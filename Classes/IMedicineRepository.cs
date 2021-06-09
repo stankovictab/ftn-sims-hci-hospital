@@ -6,65 +6,42 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public class IMedicineRepository
+    public interface IMedicineRepository
     {
-        public MedicineRepository medicineRepository;
-        public IMedicineRepository(MedicineRepository repo)
-        {
-            this.medicineRepository = repo;
-        }
-
-        public List<Medicine> AccessOnHoldMedicine { get => medicineRepository.OnHoldMedicine; set => medicineRepository.OnHoldMedicine = value; }
-        public List<Medicine> AccessUnverifiedMedicine { get => medicineRepository.UnverifiedMedicine; set => medicineRepository.UnverifiedMedicine = value; }
 
 
-        public Boolean CreateOnHold(Medicine newMedicine)
-        {
-            return this.medicineRepository.CreateOnHold(newMedicine);
-        }
+        List<Medicine> OnHoldMedicine { get; set; }
 
-        public Medicine GetOnHoldByName(string name)
-        {
-            return this.medicineRepository.GetOnHoldByName(name);
-        }
+        List<Medicine> UnverifiedMedicine { get; set; }
 
-        public List<Medicine> GetAllOnHold()
-        {
-            return this.medicineRepository.GetAllOnHold();
-        }
 
-        public Boolean UpdateOnHold(Medicine updateMedicine)
-        {
-            return this.medicineRepository.UpdateOnHold(updateMedicine);
-        }
+        Boolean CreateOnHold(Medicine newMedicine);
 
-        public Boolean UpdateAllOnHold(List<Medicine> mif)
-        {
-            return this.medicineRepository.UpdateAllOnHold(mif);
-        }
-        public Boolean DeleteOnHold(string name)
-        {
-            return this.medicineRepository.DeleteOnHold(name);
-        }
 
-        public List<Medicine> GetAllUnverified()
-        {
-            return this.medicineRepository.GetAllUnverified();
-        }
+        Medicine GetOnHoldByName(string name);
 
-        public Medicine GetUnverifiedByName(string name)
-        {
-            return this.medicineRepository.GetUnverifiedByName(name);
-        }
 
-        public Boolean DeleteUnverified(string id)
-        {
-            return this.medicineRepository.DeleteUnverified(id);
-        }
+        List<Medicine> GetAllOnHold();
 
-        public Boolean UpdateAllUnverified(List<Medicine> mif)
-        {
-            return this.medicineRepository.UpdateAllUnverified(mif);
-        }
+
+        Boolean UpdateOnHold(Medicine updateMedicine);
+
+
+        Boolean UpdateAllOnHold(List<Medicine> mif);
+
+        Boolean DeleteOnHold(string name);
+
+
+        List<Medicine> GetAllUnverified();
+
+
+        Medicine GetUnverifiedByName(string name);
+
+
+        Boolean DeleteUnverified(string id);
+
+
+        Boolean UpdateAllUnverified(List<Medicine> mif);
+        
     }
 }

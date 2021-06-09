@@ -5,32 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="ftn_sims_hci_hospital.MergeRenovationCreation"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
         mc:Ignorable="d"
         Title="MergeRenovationCreation" Height="450" Width="800">
     <Grid>
-        <Label Content="Choose Rooms To Merge:" HorizontalAlignment="Left" Margin="20,156,0,0" VerticalAlignment="Top"/>
-        <Label Content="ID:" HorizontalAlignment="Left" Margin="141,122,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.chooseRoomsToMerge}" HorizontalAlignment="Left" Margin="20,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.idColumn}" HorizontalAlignment="Left" Margin="141,122,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="mergeRenovationId" HorizontalAlignment="Left" Height="23" Margin="170,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="toMergeRoomCombo1" HorizontalAlignment="Left" Margin="170,160,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="toMergeRoomCombo1_SelectionChanged"/>
         <ComboBox x:Name="toMergeRoomCombo2" HorizontalAlignment="Left" Margin="304,160,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Start Time:" HorizontalAlignment="Left" Margin="98,196,0,0" VerticalAlignment="Top"/>
-        <Label Content="End Time:" HorizontalAlignment="Left" Margin="102,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.startTimeColumn}" HorizontalAlignment="Left" Margin="98,196,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.endTimeColumn}" HorizontalAlignment="Left" Margin="102,230,0,0" VerticalAlignment="Top"/>
 
         <xctk:DateTimePicker x:Name="mergeRenovationStartTime" HorizontalAlignment="Left" Margin="170,202,0,0" VerticalAlignment="Top" Width="120"/>
         <xctk:DateTimePicker x:Name="mergeRenovationEndTime" HorizontalAlignment="Left" Margin="170,236,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="enscheduleMerge" Content="Enschedule Merge" HorizontalAlignment="Left" Margin="341,338,0,0" VerticalAlignment="Top" Width="123" Click="enscheduleMerge_Click"/>
-        <Label Content="New Room Details:" HorizontalAlignment="Left" Margin="546,55,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="enscheduleMerge" Content="{x:Static p:Resources.enscheduleMerge}" HorizontalAlignment="Left" Margin="341,359,0,0" VerticalAlignment="Top" Width="123" Click="enscheduleMerge_Click"/>
+        <Label Content="New Room Details:" HorizontalAlignment="Left" Margin="564,55,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="roomNumber" HorizontalAlignment="Left" Height="23" Margin="582,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Room Number:" HorizontalAlignment="Left" Margin="473,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
-        <TextBox x:Name="roomFloor" HorizontalAlignment="Left" Height="23" Margin="582,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Room Floor:" HorizontalAlignment="Left" Margin="473,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
-        <TextBox x:Name="roomDescription" HorizontalAlignment="Left" Height="92" Margin="473,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
-        <Label Content="Room Description:" HorizontalAlignment="Left" Margin="473,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
-        <Label x:Name="___No_Name_" Content="Room Type:" HorizontalAlignment="Left" Margin="711,74,0,0" VerticalAlignment="Top" Height="28" Width="70"/>
-        <RadioButton x:Name="operating" Content="Operating" HorizontalAlignment="Left" Margin="707,102,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="checkup" Content="Checkup" HorizontalAlignment="Left" Margin="707,121,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="therapy" Content="Therapy" HorizontalAlignment="Left" Margin="707,141,0,0" VerticalAlignment="Top"/>
-        <Label Content="Renovation Details:" HorizontalAlignment="Left" Margin="179,55,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="roomNumber" HorizontalAlignment="Left" Height="23" Margin="600,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{x:Static p:Resources.roomNumber}" HorizontalAlignment="Left" Margin="491,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
+        <TextBox x:Name="roomFloor" HorizontalAlignment="Left" Height="23" Margin="600,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{x:Static p:Resources.roomFloor}" HorizontalAlignment="Left" Margin="491,126,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
+        <TextBox x:Name="roomDescription" HorizontalAlignment="Left" Height="92" Margin="491,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229"/>
+        <Label Content="{x:Static p:Resources.roomDescription}" HorizontalAlignment="Left" Margin="491,201,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.8,0.076"/>
+        <Label x:Name="___No_Name_" Content="Room Type:" HorizontalAlignment="Left" Margin="490,168,0,0" VerticalAlignment="Top" Height="28" Width="70"/>
+        <Label Content="{x:Static p:Resources.renovationDetails}" HorizontalAlignment="Left" Margin="179,55,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="roomTypeCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="600,168,0,0"/>
     </Grid>
 </Window>

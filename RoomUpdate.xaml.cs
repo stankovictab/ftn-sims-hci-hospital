@@ -1,8 +1,8 @@
 ﻿using Classes;
+using ftn_sims_hci_hospital.Classes;
 using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace ftn_sims_hci_hospital
 {
@@ -22,21 +22,26 @@ namespace ftn_sims_hci_hospital
             floorTextbox.Text = toUpdate.FloorNumber.ToString();
             descriptionTextbox.Text = toUpdate.Description;
 
-            if (toUpdate.Type == RoomType.Operating)
-                operatingRadio.IsChecked = true;
-            else if (toUpdate.Type == RoomType.Therapy)
-                therapyRadio.IsChecked = true;
-            else if (toUpdate.Type == RoomType.Checkup)
-                checkupRadio.IsChecked = true;
+            List<RoomType> types = new List<RoomType>();
+            types.Add(RoomType.Checkup);
+            types.Add(RoomType.Operating);
+            types.Add(RoomType.Therapy);
 
-            //if (toUpdate.Status == RoomStatus.Free)
-            //    freeRadio.IsChecked = true;
-            //else if (toUpdate.Status == RoomStatus.Busy)
-            //    busyRadio.IsChecked = true;
-            //else if (toUpdate.Status == RoomStatus.Renovating)
-            //    renovatingRadio.IsChecked = true;
-            //else if (toUpdate.Status == RoomStatus.Reordering)
-            //    reorderingRadio.IsChecked = true;
+            foreach (RoomType type in types)
+            {
+                roomTypeCombo.Items.Add(type);
+            }
+
+            List<RoomStatus> statuses = new List<RoomStatus>();
+            statuses.Add(RoomStatus.Busy);
+            statuses.Add(RoomStatus.Free);
+            statuses.Add(RoomStatus.Renovating);
+            statuses.Add(RoomStatus.Reordering);
+
+            foreach (RoomStatus status in statuses)
+            {
+                roomStatusCombo.Items.Add(status);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,31 +52,31 @@ namespace ftn_sims_hci_hospital
             RoomType newType = new RoomType();
             RoomStatus newStatus = new RoomStatus();
 
-            if ((bool)operatingRadio.IsChecked)
+            if (roomTypeCombo.SelectedItem.ToString() == "Operating")
                 newType = RoomType.Operating;
-            else if ((bool)checkupRadio.IsChecked)
+            else if (roomTypeCombo.SelectedItem.ToString() == "Checkup")
                 newType = RoomType.Checkup;
-            else if ((bool)therapyRadio.IsChecked)
+            else if (roomTypeCombo.SelectedItem.ToString() == "Therapy")
                 newType = RoomType.Therapy;
 
-            //if ((bool)freeRadio.IsChecked)
-            //    newStatus = RoomStatus.Free;
-            //else if ((bool)busyRadio.IsChecked)
-            //    newStatus = RoomStatus.Busy;
-            //else if ((bool)renovatingRadio.IsChecked)
-            //    newStatus = RoomStatus.Renovating;
-            //else if ((bool)reorderingRadio.IsChecked)
-            //    newStatus = RoomStatus.Reordering;
+            if (roomStatusCombo.SelectedItem.ToString() == "Free")
+                newStatus = RoomStatus.Free;
+            else if (roomStatusCombo.SelectedItem.ToString() == "Busy")
+                newStatus = RoomStatus.Busy;
+            else if (roomStatusCombo.SelectedItem.ToString() == "Renovating")
+                newStatus = RoomStatus.Renovating;
+            else if (roomStatusCombo.SelectedItem.ToString() == "Reordering")
+                newStatus = RoomStatus.Reordering;
 
             Room room = new Room(number, floor, description, newType, newStatus);
+
+            UpdateRoomCommand updateCommand = new UpdateRoomCommand(room);
+            Invoker invoked = new Invoker(updateCommand);
+            invoked.Invoke();
+
             storage.Update(room);
             storage.UpdateFile(storage.AccessRooms);
             this.Close();
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -1,0 +1,72 @@
+﻿<Page x:Class="ftn_sims_hci_hospital.StoragePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+      xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StoragePage">
+
+    <Grid Background="White">
+        <Menu HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="800" FontFamily="Consolas" Background="#FFFF7171">
+
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+
+            <MenuItem x:Name="storageMenuItem" Header="{x:Static p:Resources.storageMenuItem}" Background="Transparent" FontFamily="Arial" FontSize="18">
+                <MenuItem x:Name="inventoryButton" Header="{x:Static p:Resources.inventoryButton}" Click="inventoryButton_Click" />
+                <MenuItem x:Name="scheduleButton" Header="{x:Static p:Resources.scheduleButton}" Margin="0,0,-37,0" Click="scheduleButton_Click" />
+            </MenuItem>
+            <MenuItem x:Name="medicineMenuItem" Header="{x:Static p:Resources.medicineMenuItem}" Background="Transparent" FontFamily="Arial" FontSize="18" Click="medicineMenuItem_Click" />
+            <MenuItem x:Name="roomsButton" Header="{x:Static p:Resources.roomsButton}" Background="Transparent" FontFamily="Arial" FontSize="18" Click="roomsButton_Click"/>
+            <MenuItem x:Name="renovationsMenuItem" Header="{x:Static p:Resources.renovationsMenuItem}" Background="Transparent" FontFamily="Arial" FontSize="18">
+                <MenuItem x:Name="basicRenovationsButton" Header="{x:Static p:Resources.basicRenovationsButton}" Click="basicRenovationsButton_Click"/>
+                <MenuItem x:Name="advancedRenovationsButton" Header="{x:Static p:Resources.advancedRenovationsButton}" Margin="0,0,-37,0" Click="advancedRenovationsButton_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="profileMenuItem" Header="{x:Static p:Resources.profileMenuItem}" HorizontalAlignment="Right" Background="Transparent" FontFamily="Arial" FontSize="18" Width="160">
+                <MenuItem x:Name="profilButton" Header="{x:Static p:Resources.profilButton}" Click="profilButton_Click" />
+                <MenuItem x:Name="signoutButton" Header="{x:Static p:Resources.signoutButton}" Margin="0,0,-37,0" Click="signoutButton_Click" />
+            </MenuItem>
+
+        </Menu>
+
+        <ListView x:Name="storageDataList" HorizontalAlignment="Left" Height="210" Margin="155,112,0,0" VerticalAlignment="Top" Width="485" Background="#FFAAAAAA">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static p:Resources.idColumn}" DisplayMemberBinding="{Binding equipmentId}"/>
+                    <GridViewColumn Width="60" Header="{x:Static p:Resources.nameColumn}" DisplayMemberBinding="{Binding equipmentName}"/>
+                    <GridViewColumn Width="100" Header="{x:Static p:Resources.locationColumn}" DisplayMemberBinding="{Binding equipmentLocation}"/>
+                    <GridViewColumn Width="100" Header="{x:Static p:Resources.typeColumn}" DisplayMemberBinding="{Binding equipmentType}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox  Width="109"  VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="nameSearchTextBox" Margin="155,87,0,0" Height="21"/>
+        <TextBlock IsHitTestVisible="False" Text="{x:Static p:Resources.searchByName}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="158,89,0,0" Foreground="DarkGray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=nameSearchTextBox}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <Button x:Name="nameSearchButton" Content="Search" HorizontalAlignment="Left" Margin="269,87,0,0" VerticalAlignment="Top" Width="75" Height="21" Click="nameSearchButton_Click"/>
+        <Label Content="{x:Static p:Resources.filterByLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="496,33,0,0"/>
+        <Label Content="{x:Static p:Resources.locationLabel}" HorizontalAlignment="Left" Margin="496,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.typeLabel}" HorizontalAlignment="Left" Margin="516,85,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="locationCombo" HorizontalAlignment="Left" Margin="557,62,0,0" VerticalAlignment="Top" Width="83" Height="22" SelectionChanged="locationCombo_SelectionChanged"/>
+        <ComboBox x:Name="typeCombo" HorizontalAlignment="Left" Margin="557,89,0,0" VerticalAlignment="Top" Width="83" Height="20" SelectionChanged="typeCombo_SelectionChanged"/>
+        <Button x:Name="loadStorageButton" Content="{x:Static p:Resources.viewButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="299,329,0,0" Click="loadStorageButton_Click"/>
+        <Button x:Name="_static" Content="{x:Static p:Resources.staticEquipmentButton}" HorizontalAlignment="Left" Margin="155,329,0,0" VerticalAlignment="Top" Click="_static_Click" Width="127"/>
+        <Button x:Name="dynamic" Content="{x:Static p:Resources.dynamicEquipmentButton}" HorizontalAlignment="Left" Margin="155,356,0,0" VerticalAlignment="Top" Click="dynamic_Click" Width="127"/>
+
+    </Grid>
+</Page>

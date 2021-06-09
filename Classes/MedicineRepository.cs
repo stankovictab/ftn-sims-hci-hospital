@@ -4,13 +4,13 @@ using System.IO;
 
 namespace Classes
 {
-    public class MedicineRepository
+    public class MedicineRepository : IMedicineRepository
     {
-        private String FileLocationOnHold = "../../Text Files/onholdmedicine.txt";
-        private String FileLocationUnverified = "../../Text Files/unverifiedmedicine.txt";
+        private String FileLocationOnHold = "C:/Users/Igor/Desktop/ftn-sims-hci-hospital-master/ftn-sims-hci-hospital-master/Text Files/onholdmedicine.txt";
+        private String FileLocationUnverified = "C:/Users/Igor/Desktop/ftn-sims-hci-hospital-master/ftn-sims-hci-hospital-master/Text Files/unverifiedmedicine.txt";
         private String FIleLocationMedicine = "../../Text Files/medicine.txt";
-        public List<Medicine> UnverifiedMedicine = new List<Medicine>();
-        public List<Medicine> OnHoldMedicine = new List<Medicine>();
+        public List<Medicine> UnverifiedMedicine { get; set; } = new List<Medicine>();
+        public List<Medicine> OnHoldMedicine { get; set; } = new List<Medicine>();
 
 
         public static MedicineStatus ParseStatus(string input)
@@ -118,6 +118,7 @@ namespace Classes
                 if (medicine.Name.Equals(name))
                 {
                     OnHoldMedicine.Remove(medicine);
+                    UpdateAllOnHold(OnHoldMedicine);
                     return true;
                 }
             }
@@ -154,6 +155,8 @@ namespace Classes
             {
                 if (medicine.Name.Equals(name))
                 {
+                    UnverifiedMedicine.Remove(medicine);
+                    UpdateAllUnverified(UnverifiedMedicine);
                     return medicine;
                 }
             }

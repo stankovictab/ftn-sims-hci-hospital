@@ -13,9 +13,9 @@ namespace Classes
     {
         public IRoomRepository roomRepository;
 
-        public RoomService(/*IRoomRepository repo*/)
+        public RoomService(IRoomRepository repo)
         {
-            //this.roomRepository = repo;
+            roomRepository = repo;
         }
 
         public bool Create(Room newRoom)

@@ -6,44 +6,24 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public class IEnschedulementRepository
+    public interface IEnschedulementRepository
     {
-        public EnschedulementRepository enschedulementRepository;
-        public IEnschedulementRepository(EnschedulementRepository repo)
-        {
-            this.enschedulementRepository = repo;
-        }
 
-        public List<StaticEnschedulement> AccessEnschedulements { get => enschedulementRepository.Enschedulements; set => enschedulementRepository.Enschedulements = value; }
+        List<StaticEnschedulement> Enschedulements { get; set; }
+        List<StaticEnschedulement> FinishedEnschedulements { get; set; }
+        void UpdateTime(DateTime currentTime);
 
 
-        public List<StaticEnschedulement> GetEnschedulements()
-        {
-            return enschedulementRepository.Enschedulements;
-        }
-        public void UpdateTime(DateTime currentTime)
-        {
-            this.enschedulementRepository.UpdateTime(currentTime);
-        }
+        Boolean Create(StaticEnschedulement newEnschedulement);
 
-        public Boolean Create(StaticEnschedulement newEnschedulement)
-        {
-            return this.enschedulementRepository.Create(newEnschedulement);
-        }
 
-        public List<StaticEnschedulement> GetAll()
-        {
-            return this.enschedulementRepository.GetAll();
-        }
+        List<StaticEnschedulement> GetAll();
 
-        public List<StaticEnschedulement> GetAllFinished()
-        {
-            return this.enschedulementRepository.GetAllFinished();
-        }
 
-        public Boolean Delete(StaticEnschedulement enschedulement)
-        {
-            return this.enschedulementRepository.Delete(enschedulement);
-        }
+        List<StaticEnschedulement> GetAllFinished();
+
+
+        Boolean Delete(StaticEnschedulement enschedulement);
+
     }
 }

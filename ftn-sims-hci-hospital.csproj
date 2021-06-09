@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,8 +53,34 @@
     <Reference Include="ASquare.WindowsTaskScheduler, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ASquare.WindowsTaskScheduler.1.6.0.0\lib\Net45\ASquare.WindowsTaskScheduler.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNetCore.Http.Features.5.0.7\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.5.0.1\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.5.0.1\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,6 +93,12 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFLocalizeExtension, Version=3.8.0.0, Culture=neutral, PublicKeyToken=c726e0262981a1eb, processorArchitecture=MSIL">
+      <HintPath>packages\WPFLocalizeExtension.3.8.0\lib\net452\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c726e0262981a1eb, processorArchitecture=MSIL">
+      <HintPath>packages\XAMLMarkupExtensions.2.0.0\lib\net472\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
@@ -78,6 +125,9 @@
     </Compile>
     <Compile Include="AdvancedRenovations.xaml.cs">
       <DependentUpon>AdvancedRenovations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdvancedRenovationsPage.xaml.cs">
+      <DependentUpon>AdvancedRenovationsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminManagerDynamicEquipmentOrderUpdate.xaml.cs">
       <DependentUpon>AdminManagerDynamicEquipmentOrderUpdate.xaml</DependentUpon>
@@ -166,6 +216,11 @@
     <Compile Include="BasicRenovations.xaml.cs">
       <DependentUpon>BasicRenovations.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BasicRenovationsPage.xaml.cs">
+      <DependentUpon>BasicRenovationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BindableBase.cs" />
+    <Compile Include="Classes\AddRoomCommand.cs" />
     <Compile Include="Classes\AdvancedMergeRenovationRepository.cs" />
     <Compile Include="Classes\AdvancedRenovationController.cs" />
     <Compile Include="Classes\AdvancedRenovationService.cs" />
@@ -187,6 +242,8 @@
     <Compile Include="Classes\BasicRenovationController.cs" />
     <Compile Include="Classes\BasicRenovationRepository.cs" />
     <Compile Include="Classes\BasicRenovationService.cs" />
+    <Compile Include="Classes\Command.cs" />
+    <Compile Include="Classes\DeleteRoomCommand.cs" />
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\DoctorController.cs" />
     <Compile Include="Classes\DoctorPoll.cs" />
@@ -237,6 +294,7 @@
     <Compile Include="Classes\IBasicRenovationRepository.cs" />
     <Compile Include="Classes\IDynamicEquipmentRepository.cs" />
     <Compile Include="Classes\IEnschedulementRepository.cs" />
+    <Compile Include="Classes\IHandler.cs" />
     <Compile Include="Classes\IMedicineRepository.cs" />
     <Compile Include="Classes\IRoomRepository.cs" />
     <Compile Include="Classes\IStaticEquipmentRepository.cs" />
@@ -292,6 +350,7 @@
     <Compile Include="Classes\TrollingLog.cs" />
     <Compile Include="Classes\TrollingLogRepository.cs" />
     <Compile Include="Classes\TrollingLogService.cs" />
+    <Compile Include="Classes\UpdateRoomCommand.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="CreateAppointmentPage.xaml.cs">
       <DependentUpon>CreateAppointmentPage.xaml</DependentUpon>
@@ -320,33 +379,15 @@
     <Compile Include="DynamicUse.xaml.cs">
       <DependentUpon>DynamicUse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Igor HCI\Inventory.xaml.cs">
-      <DependentUpon>Inventory.xaml</DependentUpon>
+    <Compile Include="Invoker.cs" />
+    <Compile Include="ManagerNew.xaml.cs">
+      <DependentUpon>ManagerNew.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Igor HCI\InventoryAddDynamic.xaml.cs">
-      <DependentUpon>InventoryAddDynamic.xaml</DependentUpon>
+    <Compile Include="ManagerNewViewModel.cs" />
+    <Compile Include="MedicineWindowPage.xaml.cs">
+      <DependentUpon>MedicineWindowPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Igor HCI\InventoryAddStatic.xaml.cs">
-      <DependentUpon>InventoryAddStatic.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Igor HCI\Manager.xaml.cs">
-      <DependentUpon>Manager.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Igor HCI\Orders.xaml.cs">
-      <DependentUpon>Orders.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Igor HCI\Rooms.xaml.cs">
-      <DependentUpon>Rooms.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Igor HCI\RoomsCreation.xaml.cs">
-      <DependentUpon>RoomsCreation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Igor HCI\RoomsEdit.xaml.cs">
-      <DependentUpon>RoomsEdit.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Igor HCI\Schedule.xaml.cs">
-      <DependentUpon>Schedule.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="MyICommand.cs" />
     <Compile Include="HomeWindow.xaml.cs">
       <DependentUpon>HomeWindow.xaml</DependentUpon>
     </Compile>
@@ -395,16 +436,35 @@
     <Compile Include="PossibleAppointments.xaml.cs">
       <DependentUpon>PossibleAppointments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.sr-LATN.Designer.cs">
+      <DependentUpon>Resources.sr-LATN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\strings.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.en-US.resx</DependentUpon>
+    </Compile>
     <Compile Include="Rooms.xaml.cs">
       <DependentUpon>Rooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RoomsPage.xaml.cs">
+      <DependentUpon>RoomsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SecretaryAppointmentCreation.xaml.cs">
       <DependentUpon>SecretaryAppointmentCreation.xaml</DependentUpon>
@@ -427,6 +487,9 @@
     <Compile Include="SecretaryViewDoctor.xaml.cs">
       <DependentUpon>SecretaryViewDoctor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SplitInventoryIntoRooms.xaml.cs">
+      <DependentUpon>SplitInventoryIntoRooms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Static.xaml.cs">
       <DependentUpon>Static.xaml</DependentUpon>
     </Compile>
@@ -442,8 +505,14 @@
     <Compile Include="StaticSchedule.xaml.cs">
       <DependentUpon>StaticSchedule.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StaticSchedulePage.xaml.cs">
+      <DependentUpon>StaticSchedulePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StaticUpdate.xaml.cs">
       <DependentUpon>StaticUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StoragePage.xaml.cs">
+      <DependentUpon>StoragePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Treatments.xaml.cs">
       <DependentUpon>Treatments.xaml</DependentUpon>
@@ -460,9 +529,26 @@
     <Compile Include="UrgentAppointmentCreation.xaml.cs">
       <DependentUpon>UrgentAppointmentCreation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validation.cs" />
+    <Compile Include="ViewModel\AddMedicineViewModel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MedicineViewModel.cs" />
+    <Compile Include="View\AddMedicineView.xaml.cs">
+      <DependentUpon>AddMedicineView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MedicineView.xaml.cs">
+      <DependentUpon>MedicineView.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddReferral.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdvancedRenovationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AllAllergiesPage.xaml">
       <SubType>Designer</SubType>
@@ -492,6 +578,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BasicRenovationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AllPerscriptionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -500,7 +590,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Dynamic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="createAppointmentSpecialist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateReminder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DynamicCreation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnosis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Admin\AdminManagerDynamicEquipmentOrderUpdate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicUse.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -511,6 +629,10 @@
     <Page Include="Admin\AdminManagerHolidayPastRequestApprovals.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GuestCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Admin\AdminManagerDynamicEquipmentPastRequestApprovals.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -576,75 +698,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="createAppointmentSpecialist.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CreateReminder.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Diagnosis.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Admin\AdminPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Igor HCI\Inventory.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="ManagerNew.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Igor HCI\InventoryAddDynamic.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Igor HCI\InventoryAddStatic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Igor HCI\Manager.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Igor HCI\Orders.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Igor HCI\Rooms.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Igor HCI\RoomsCreation.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Igor HCI\RoomsEdit.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Igor HCI\Schedule.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dynamic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DynamicCreation.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DynamicUpdate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DynamicUse.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GuestCreation.xaml">
+    <Page Include="MedicineWindowPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -783,12 +845,20 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientWindow.xaml">
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomCreation.xaml">
       <SubType>Designer</SubType>
@@ -797,6 +867,10 @@
     <Page Include="Rooms.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RoomsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomUpdate.xaml">
       <SubType>Designer</SubType>
@@ -826,6 +900,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SplitInventoryIntoRooms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SplitRenovationCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -850,11 +928,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="StaticSchedulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StaticUpdate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Storage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StoragePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -873,6 +959,18 @@
     <Page Include="UrgentAppointmentCreation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AddMedicineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MedicineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -916,6 +1014,23 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="usernew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.sr-LATN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.sr-LATN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\strings.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\strings.sr-LATN-CS.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logopink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="placeholder-profile-female.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Admin\logoblue.png" />

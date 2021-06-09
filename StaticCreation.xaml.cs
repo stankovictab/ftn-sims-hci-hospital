@@ -33,10 +33,11 @@ namespace ftn_sims_hci_hospital
 
         private void staticAdd_Click(object sender, RoutedEventArgs e)
         {
-            equipmentController.equipmentService.staticEquipmentRepository.staticEquipmentRepository.StaticEquipment = equipmentController.GetAllStatic();
+            equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment = equipmentController.GetAllStatic();
             StaticEquipment newStatic = new StaticEquipment(Convert.ToInt32(staticId.Text), staticName.Text, staticLocation.SelectedItem.ToString());
             _ = equipmentController.AddStatic(newStatic);
             this.Hide();
+            MessageBox.Show("Success. Press View to Refresh.");
         }
     }
 }

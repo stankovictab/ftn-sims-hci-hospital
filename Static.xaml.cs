@@ -67,7 +67,7 @@ namespace ftn_sims_hci_hospital
                     string[] parts2 = parts[0].Split(' ');
                     String toDelete = parts2[3];
                     _ = equipmentController.DeleteStatic(toDelete);
-                    equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.staticEquipmentRepository.StaticEquipment);
+                    equipmentController.UpdateAllStatic(equipmentController.equipmentService.staticEquipmentRepository.StaticEquipment);
                     viewStat.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 }
             }

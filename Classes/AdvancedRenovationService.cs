@@ -14,10 +14,10 @@ namespace Classes
         public IAdvancedMergeRenovationRepository advancedMergeRenovationRepository;
         public IAdvancedSplitRenovationRepository advancedSplitRenovationRepository;
 
-        public AdvancedRenovationService(/*IAdvancedSplitRenovationRepository splitRepo, IAdvancedMergeRenovationRepository mergeRepo*/)
+        public AdvancedRenovationService(IAdvancedSplitRenovationRepository splitRepo, IAdvancedMergeRenovationRepository mergeRepo)
         {
-            /*this.advancedSplitRenovationRepository = splitRepo;
-            this.advancedMergeRenovationRepository = mergeRepo;*/
+            this.advancedSplitRenovationRepository = splitRepo;
+            this.advancedMergeRenovationRepository = mergeRepo;
         }
 
         public List<MergeRenovation> GetAllMerge()

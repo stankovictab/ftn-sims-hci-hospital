@@ -125,7 +125,7 @@ namespace ftn_sims_hci_hospital
                 List<Appointment> doctorsAppointments = MainWindow.appointmentController.GetAllByDoctorId(specializedDoctor.user.Jmbg1);
                 foreach (Appointment doctorsAppointment in doctorsAppointments)
                 {
-                    if (doctorsAppointment.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0))&&!(doctorsAppointment.isUrgent))
+                    if (doctorsAppointment.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)) && !(doctorsAppointment.isUrgent))
                     {
                         appointmentsForRescheduling.Add(doctorsAppointment);
                         IsAdded = true;
@@ -133,7 +133,7 @@ namespace ftn_sims_hci_hospital
                     }
                 }
             }
-            if(!IsAdded)
+            if (!IsAdded)
             {
                 MessageBox.Show("All doctors already have an urgent appointment in the next hour!");
             }
@@ -175,10 +175,10 @@ namespace ftn_sims_hci_hospital
 
         private bool createAppointments(bool isAppointmentMade, Doctor specializedDoctor, List<Appointment> availableAppointments)
         {
-            
+
             foreach (Appointment available in availableAppointments)
             {
-                if((specializedDoctor.shift==Shift.MORNING && DateTime.Now.Hour+1<14)||(specializedDoctor.shift==Shift.AFTERNOON && DateTime.Now.Hour+1<20))
+                if ((specializedDoctor.shift == Shift.MORNING && DateTime.Now.Hour + 1 < 14) || (specializedDoctor.shift == Shift.AFTERNOON && DateTime.Now.Hour + 1 < 20))
                 {
                     if (available.StartTime.Equals(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour + 1, 0, 0)))
                     {
@@ -220,7 +220,7 @@ namespace ftn_sims_hci_hospital
 
         private void makeappointmentbtn_Click(object sender, RoutedEventArgs e)
         {
-            if(reservedAppointments.SelectedItem==null)
+            if (reservedAppointments.SelectedItem == null)
             {
                 MessageBox.Show("You must select an appointment in order to reschedule it!");
             }

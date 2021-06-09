@@ -11,7 +11,8 @@ namespace Classes
 {
     public class BasicRenovationController
     {
-        public BasicRenovationService basicRenovationService = new BasicRenovationService();
+        public static BasicRenovationRepository repo = new BasicRenovationRepository();
+        public BasicRenovationService basicRenovationService = new BasicRenovationService(repo);
 
         public List<BasicRenovation> GetAll()
         {

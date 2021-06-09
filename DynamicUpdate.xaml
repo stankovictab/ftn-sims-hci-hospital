@@ -4,15 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
         mc:Ignorable="d"
-        Title="DynamicUpdate" Height="450" Width="800">
+        Title="DynamicUpdate" Height="450" Width="270">
     <Grid>
-        <Label Content="Equipment ID:" HorizontalAlignment="Left" Margin="154,103,0,0" VerticalAlignment="Top"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="154,146,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="dynamicId" HorizontalAlignment="Left" Margin="317,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="dynamicName" HorizontalAlignment="Left" Margin="317,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="dynamicUpdate" Content="Update" HorizontalAlignment="Left" Margin="291,243,0,0" VerticalAlignment="Top" Height="47" Width="72" Click="dynamicUpdate_Click"/>
-        <Label Content="Current Amount:&#xD;&#xA;" HorizontalAlignment="Left" Margin="154,192,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="dynamicAmount" HorizontalAlignment="Left" Margin="317,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="{x:Static p:Resources.idColumn}" HorizontalAlignment="Left" Margin="27,97,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.nameColumn}" HorizontalAlignment="Left" Margin="27,140,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dynamicId" HorizontalAlignment="Left" Margin="104,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="dynamicName" HorizontalAlignment="Left" Margin="104,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="dynamicUpdate" Content="{x:Static p:Resources.updateButton}" HorizontalAlignment="Left" Margin="91,249,0,0" VerticalAlignment="Top" Height="22" Width="81" Click="dynamicUpdate_Click"/>
+        <Label Content="{x:Static p:Resources.amountColumn}" HorizontalAlignment="Left" Margin="27,186,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="dynamicAmount" HorizontalAlignment="Left" Margin="104,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

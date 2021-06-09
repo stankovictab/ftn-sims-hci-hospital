@@ -1,0 +1,50 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.SplitInventoryIntoRooms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
+        mc:Ignorable="d"
+        Title="SplitInventoryIntoRooms" Height="450" Width="458.62">
+    <Grid>
+        <ListView x:Name="storageDataList1" ItemsSource="{Binding OldRoomEquipment}" HorizontalAlignment="Left" Height="191" Margin="20,100,0,0" VerticalAlignment="Top" Width="193" PreviewMouseLeftButtonDown="storageDataList1_PreviewMouseLeftButtonDown" MouseMove="storageDataList1_MouseMove">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static p:Resources.idColumn}" DisplayMemberBinding="{Binding equipmentId}"/>
+                    <GridViewColumn Header="{x:Static p:Resources.nameColumn}" DisplayMemberBinding="{Binding equipmentName}"/>
+                    <GridViewColumn Header="{x:Static p:Resources.typeColumn}" DisplayMemberBinding="{Binding equipmentType}"/>
+                </GridView>
+            </ListView.View>
+            <Label Content="Label" Height="100" Width="100"/>
+        </ListView>
+
+
+
+        <Label Content="{x:Static p:Resources.oldRoom}" HorizontalAlignment="Left" Margin="81,74,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="newRoomStorage1" HorizontalAlignment="Left" ItemsSource="{Binding NewRoom1Equipment}" Height="137" Margin="257,44,0,0" VerticalAlignment="Top" Width="173" AllowDrop="True" DragOver="newRoomStorage1_DragOver" Drop="newRoomStorage1_Drop">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static p:Resources.idColumn}" DisplayMemberBinding="{Binding equipmentId}"/>
+                    <GridViewColumn Header="{x:Static p:Resources.nameColumn}" DisplayMemberBinding="{Binding equipmentName}"/>
+                    <GridViewColumn Header="{x:Static p:Resources.typeColumn}" DisplayMemberBinding="{Binding equipmentType}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="newRoomStorage2" HorizontalAlignment="Left" ItemsSource="{Binding NewRoom2Equipment}" Height="134" Margin="257,222,0,0" VerticalAlignment="Top" Width="173" AllowDrop="True" DragOver="newRoomStorage2_DragOver" Drop="newRoomStorage2_Drop">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static p:Resources.idColumn}" DisplayMemberBinding="{Binding equipmentId}"/>
+                    <GridViewColumn Header="{x:Static p:Resources.nameColumn}" DisplayMemberBinding="{Binding equipmentName}"/>
+                    <GridViewColumn Header="{x:Static p:Resources.typeColumn}" DisplayMemberBinding="{Binding equipmentType}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="{x:Static p:Resources.newRoom}" HorizontalAlignment="Left" Margin="285,197,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.newRoom}" HorizontalAlignment="Left" Margin="285,18,0,0" VerticalAlignment="Top"/>
+        <Button Content="{x:Static p:Resources.createButton}" HorizontalAlignment="Left" Margin="195,376,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click"/>
+        <Label x:Name="newRoomLabel1" Content="Label" HorizontalAlignment="Left" Margin="352,18,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="newRoomLabel2" Content="Label" HorizontalAlignment="Left" Margin="352,197,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

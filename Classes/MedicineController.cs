@@ -11,7 +11,8 @@ namespace Classes
 {
     public class MedicineController
     {
-        public MedicineService medicineService = new MedicineService();
+        public static MedicineRepository repo = new MedicineRepository();
+        public MedicineService medicineService = new MedicineService(repo);
 
         public bool UpdateAllOnHold(List<Medicine> mif)
         {

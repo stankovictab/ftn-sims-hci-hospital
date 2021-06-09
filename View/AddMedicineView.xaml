@@ -1,0 +1,22 @@
+﻿<Window x:Class="ftn_sims_hci_hospital.View.AddMedicineView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftn_sims_hci_hospital.ViewModel"
+        mc:Ignorable="d"
+        Title="AddMedicineView" Height="450" Width="800">
+    <Grid>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="188,86,0,0" VerticalAlignment="Top"/>
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="188,123,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ingredients:" HorizontalAlignment="Left" Margin="189,164,0,0" VerticalAlignment="Top"/>
+        <Label Content="Alternatives:" HorizontalAlignment="Left" Margin="189,205,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="medicineName" Text="{Binding Path=Med.Name}" HorizontalAlignment="Left" Height="23" Margin="364,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="medicineDescription" Text="{Binding Path=Med.Description}" HorizontalAlignment="Left" Height="23" Margin="364,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="medicineIngredients" Text="{Binding Path=Med.Ingredients}" HorizontalAlignment="Left" Height="23" Margin="364,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="medicineAlternatives" Text="{Binding Path=Med.Alternatives}" HorizontalAlignment="Left" Height="23" Margin="364,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="medicineAdd" Command="{Binding Path=addMedicineCommand}" Content="Add" HorizontalAlignment="Left" Margin="364,278,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="medicineId" Text="{Binding Path=Med.Id}" HorizontalAlignment="Left" Height="23" Margin="364,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="189,54,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

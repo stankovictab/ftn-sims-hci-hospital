@@ -9,11 +9,17 @@ namespace Classes
 {
     public class MedicineService
     {
-        public MedicineRepository medicineRepository = new MedicineRepository();
+        public IMedicineRepository medicineRepository;
+
+        public MedicineService(IMedicineRepository repo)
+        {
+            medicineRepository = repo;            
+        }
 
         public List<Medicine> GetAll()
         {
-            return medicineRepository.GetAllMedicine();
+            return null;
+            //return medicineRepository.GetAllMedicine();
         }
 
         public bool UpdateAllOnHold(List<Medicine> mif)
@@ -68,7 +74,8 @@ namespace Classes
 
         public Medicine GetByID(String medicineId)
         {
-            return medicineRepository.GetById(medicineId);
+            return null;
+            //return medicineRepository.GetById(medicineId);
         }
     }
 }

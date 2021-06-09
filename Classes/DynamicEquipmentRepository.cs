@@ -11,10 +11,10 @@ using System.Windows;
 
 namespace Classes
 {
-    public class DynamicEquipmentRepository
+    public class DynamicEquipmentRepository : IDynamicEquipmentRepository
     {
         private String FileLocation = "../../Text Files/dynamicequipment.txt";
-        public List<DynamicEquipment> DynamicEquipment = new List<DynamicEquipment>();
+        public List<DynamicEquipment> DynamicEquipment { get; set; } = new List<DynamicEquipment>();
 
         public void WriteToFile(List<DynamicEquipment> dynamicInFile)
         {

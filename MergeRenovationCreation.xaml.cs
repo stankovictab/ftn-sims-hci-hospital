@@ -30,6 +30,15 @@ namespace ftn_sims_hci_hospital
             {
                 toMergeRoomCombo1.Items.Add(r.RoomNumber);
             }
+            List<RoomType> types = new List<RoomType>();
+            types.Add(RoomType.Checkup);
+            types.Add(RoomType.Operating);
+            types.Add(RoomType.Therapy);
+
+            foreach (RoomType type in types)
+            {
+                roomTypeCombo.Items.Add(type);
+            }
         }
 
         private void toMergeRoomCombo1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,18 +55,18 @@ namespace ftn_sims_hci_hospital
         private void enscheduleMerge_Click(object sender, RoutedEventArgs e)
         {
             RoomType newType = new RoomType();
-            if ((bool)operating.IsChecked)
+            if (roomTypeCombo.SelectedItem.ToString() == "Operating")
                 newType = RoomType.Operating;
-            else if ((bool)checkup.IsChecked)
+            else if (roomTypeCombo.SelectedItem.ToString() == "Checkup")
                 newType = RoomType.Checkup;
-            else if ((bool)therapy.IsChecked)
+            else if (roomTypeCombo.SelectedItem.ToString() == "Therapy")
                 newType = RoomType.Therapy;
 
             Room newRoom = new Room(roomNumber.Text, Convert.ToInt32(roomFloor.Text), roomDescription.Text, newType);
             newRoom.Status = RoomStatus.Reordering;
             roomController.Create(newRoom);
 
-            advancedRenovationController.advancedRenovationService.advancedMergeRenovationRepository.advancedMergeRenovationRepository.MergeRenovations = advancedRenovationController.GetAllMerge();
+            advancedRenovationController.advancedRenovationService.advancedMergeRenovationRepository.MergeRenovations = advancedRenovationController.GetAllMerge();
             MergeRenovation newMergeRenovation = new MergeRenovation(Convert.ToInt32(mergeRenovationId.Text), Convert.ToDateTime(mergeRenovationStartTime.Text), Convert.ToDateTime(mergeRenovationEndTime.Text), roomController.GetById(toMergeRoomCombo1.SelectedItem.ToString()), roomController.GetById(toMergeRoomCombo2.SelectedItem.ToString()), newRoom);
             bool success = advancedRenovationController.CreateMerge(newMergeRenovation);
 
@@ -65,6 +74,7 @@ namespace ftn_sims_hci_hospital
                 MessageBox.Show("Room is already busy at that time");
 
             this.Hide();
+            MessageBox.Show("Success. Press View to Refresh.");
         }
     }
 }

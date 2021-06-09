@@ -10,13 +10,13 @@ using System.IO;
 
 namespace Classes
 {
-    public class BasicRenovationRepository
+    public class BasicRenovationRepository : IBasicRenovationRepository
     {
         private String FileLocation = "../../Text Files/basicrenovations.txt";
         private String FileLocationTasks = "../../Text Files/basicrenovationtasks.txt";
         private String FileLocationFinished = "../../Text Files/finishedbasicrenovations.txt";
-        public List<BasicRenovation> BasicRenovations = new List<BasicRenovation>();
-        public List<BasicRenovation> FinishedBasicRenovations = new List<BasicRenovation>();
+        public List<BasicRenovation> BasicRenovations { get; set; } = new List<BasicRenovation>();
+        public List<BasicRenovation> FinishedBasicRenovations { get; set; } = new List<BasicRenovation>();
         public RoomRepository roomRepository = new RoomRepository();
 
         public void WriteToFile(List<BasicRenovation> basicRenovations, String FileLocation)

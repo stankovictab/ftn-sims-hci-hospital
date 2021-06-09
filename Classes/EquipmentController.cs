@@ -12,7 +12,9 @@ namespace Classes
 {
     public class EquipmentController
     {
-        public EquipmentService equipmentService = new EquipmentService();
+        public static StaticEquipmentRepository repo1 = new StaticEquipmentRepository();
+        public static DynamicEquipmentRepository repo2 = new DynamicEquipmentRepository();
+        public EquipmentService equipmentService = new EquipmentService(repo1, repo2);
 
         public bool AddStatic(StaticEquipment newStatic)
         {

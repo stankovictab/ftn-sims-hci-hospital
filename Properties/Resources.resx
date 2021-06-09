@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,255 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addButton" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="advancedRenovationsButton" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="alternativesColumn" xml:space="preserve">
+    <value>Alternatives</value>
+  </data>
+  <data name="amountColumn" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="amountToUse" xml:space="preserve">
+    <value>Amount To Use</value>
+  </data>
+  <data name="availableAmount" xml:space="preserve">
+    <value>Available Amount</value>
+  </data>
+  <data name="backgroundColor" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="basicRenovationsButton" xml:space="preserve">
+    <value>Simple</value>
+  </data>
+  <data name="chooseRoomsToMerge" xml:space="preserve">
+    <value>Choose Rooms to Merge</value>
+  </data>
+  <data name="chooseRoomsToSplit" xml:space="preserve">
+    <value>Choose Room To Split</value>
+  </data>
+  <data name="createButton" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="currentScheduleLabel" xml:space="preserve">
+    <value>Current Schedule:</value>
+  </data>
+  <data name="deleteButton" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="descriptionColumn" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="desiredTimeLabel" xml:space="preserve">
+    <value>Desired Time</value>
+  </data>
+  <data name="durationColumn" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="dynamicEquipmentButton" xml:space="preserve">
+    <value>Dynamic Equipment</value>
+  </data>
+  <data name="emailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="endTimeColumn" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="enscheduleMerge" xml:space="preserve">
+    <value>Enschedule Merge</value>
+  </data>
+  <data name="enscheduleSplit" xml:space="preserve">
+    <value>Enschedule Split</value>
+  </data>
+  <data name="equipmentColumn" xml:space="preserve">
+    <value>Equipment</value>
+  </data>
+  <data name="estimatedDurationLabel" xml:space="preserve">
+    <value>Estimated Duration</value>
+  </data>
+  <data name="filterByLabel" xml:space="preserve">
+    <value>FilterBy</value>
+  </data>
+  <data name="floorNumberColumn" xml:space="preserve">
+    <value>Floor Number</value>
+  </data>
+  <data name="fromRoomColumn" xml:space="preserve">
+    <value>From Room</value>
+  </data>
+  <data name="generateReport" xml:space="preserve">
+    <value>Generate Report</value>
+  </data>
+  <data name="idColumn" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="ingredientsColumn" xml:space="preserve">
+    <value>Ingredients</value>
+  </data>
+  <data name="inventoryButton" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="languageLabel" xml:space="preserve">
+    <value>Choose a Language</value>
+  </data>
+  <data name="locationColumn" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="locationLabel" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="managerNewLabel" xml:space="preserve">
+    <value>Zdravo Corporation</value>
+  </data>
+  <data name="medicineInventoryButton" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="medicineMenuItem" xml:space="preserve">
+    <value>Medicine ⚕</value>
+  </data>
+  <data name="medicineReportButton" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="medicineStorageLabel" xml:space="preserve">
+    <value>Medicine Storage:</value>
+  </data>
+  <data name="nameColumn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="nameLabel" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="newMergeRenovationButton" xml:space="preserve">
+    <value>New Merge Renovation</value>
+  </data>
+  <data name="newRoom" xml:space="preserve">
+    <value>New Room</value>
+  </data>
+  <data name="newRoom1" xml:space="preserve">
+    <value>New Room 1</value>
+  </data>
+  <data name="newRoom2" xml:space="preserve">
+    <value>New Room 2</value>
+  </data>
+  <data name="newRoomsColumn" xml:space="preserve">
+    <value>New Room(s)</value>
+  </data>
+  <data name="newSplitRenovationButton" xml:space="preserve">
+    <value>New Split Renovation</value>
+  </data>
+  <data name="oldRoom" xml:space="preserve">
+    <value>Old Room</value>
+  </data>
+  <data name="passwordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="pastScheduleLabel" xml:space="preserve">
+    <value>Past Schedule:</value>
+  </data>
+  <data name="phoneLabel" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="profilButton" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="profileMenuItem" xml:space="preserve">
+    <value>👤 Cveta Cvetic</value>
+  </data>
+  <data name="putInRoom" xml:space="preserve">
+    <value>Put In Room</value>
+  </data>
+  <data name="reasonForDenial" xml:space="preserve">
+    <value>Reason For Denial</value>
+  </data>
+  <data name="renovationDetails" xml:space="preserve">
+    <value>Renovation Details</value>
+  </data>
+  <data name="renovationsMenuItem" xml:space="preserve">
+    <value>Renovations 🛠</value>
+  </data>
+  <data name="resubmitButton" xml:space="preserve">
+    <value>Resubmit</value>
+  </data>
+  <data name="roomColumn" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="roomDescription" xml:space="preserve">
+    <value>Room Description</value>
+  </data>
+  <data name="roomFloor" xml:space="preserve">
+    <value>Room Floor</value>
+  </data>
+  <data name="roomNumber" xml:space="preserve">
+    <value>Room Number</value>
+  </data>
+  <data name="roomsButton" xml:space="preserve">
+    <value>Rooms 🛏</value>
+  </data>
+  <data name="roomsListLabel" xml:space="preserve">
+    <value>Rooms List:</value>
+  </data>
+  <data name="roomStatus" xml:space="preserve">
+    <value>Room Status</value>
+  </data>
+  <data name="roomType" xml:space="preserve">
+    <value>Room Type</value>
+  </data>
+  <data name="scheduleButton" xml:space="preserve">
+    <value>Moving Schedule</value>
+  </data>
+  <data name="searchByName" xml:space="preserve">
+    <value>Search By Name</value>
+  </data>
+  <data name="selectARoomToSplit" xml:space="preserve">
+    <value>Select a Room To Split</value>
+  </data>
+  <data name="signoutButton" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="startTimeColumn" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="staticEquipmentButton" xml:space="preserve">
+    <value>Static Equipment</value>
+  </data>
+  <data name="statusColumn" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="storageMenuItem" xml:space="preserve">
+    <value>Storage 🗄</value>
+  </data>
+  <data name="surnameLabel" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="takeOutOfStorage" xml:space="preserve">
+    <value>Take Out of Storage</value>
+  </data>
+  <data name="timeColumn" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="toRoomColumn" xml:space="preserve">
+    <value>To Room</value>
+  </data>
+  <data name="typeColumn" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="typeLabel" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="unavailableRoomsColumn" xml:space="preserve">
+    <value>Unavailable Room(s)</value>
+  </data>
+  <data name="updateButton" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="viewButton" xml:space="preserve">
+    <value>View</value>
+  </data>
 </root>

@@ -1,0 +1,54 @@
+﻿<Page x:Class="ftn_sims_hci_hospital.BasicRenovationsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+      xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BasicRenovationsPage">
+
+    <Grid x:Name="basicRenovationsGrid"  Background="White">
+        <Menu HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="800" FontFamily="Consolas" Background="#FFFF7171">
+
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+
+            <MenuItem x:Name="storageMenuItem" Header="{x:Static p:Resources.storageMenuItem}" Background="Transparent" FontFamily="Arial" FontSize="18">
+                <MenuItem x:Name="inventoryButton" Header="{x:Static p:Resources.inventoryButton}" Click="inventoryButton_Click" />
+                <MenuItem x:Name="scheduleButton" Header="{x:Static p:Resources.scheduleButton}" Margin="0,0,-37,0" Click="scheduleButton_Click" />
+            </MenuItem>
+            <MenuItem x:Name="medicineMenuItem" Header="{x:Static p:Resources.medicineMenuItem}" Background="Transparent" FontFamily="Arial" FontSize="18" Click="medicineMenuItem_Click" />
+            <MenuItem x:Name="roomsButton" Header="{x:Static p:Resources.roomsButton}" Background="Transparent" FontFamily="Arial" FontSize="18" Click="roomsButton_Click"/>
+            <MenuItem x:Name="renovationsMenuItem" Header="{x:Static p:Resources.renovationsMenuItem}" Background="Transparent" FontFamily="Arial" FontSize="18">
+                <MenuItem x:Name="basicRenovationsButton" Header="{x:Static p:Resources.basicRenovationsButton}" Click="basicRenovationsButton_Click"/>
+                <MenuItem x:Name="advancedRenovationsButton" Header="{x:Static p:Resources.advancedRenovationsButton}" Margin="0,0,-37,0" Click="advancedRenovationsButton_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="profileMenuItem" Header="{x:Static p:Resources.profileMenuItem}" HorizontalAlignment="Right" Background="Transparent" FontFamily="Arial" FontSize="18" Width="160">
+                <MenuItem x:Name="profilButton" Header="{x:Static p:Resources.profilButton}" Click="profilButton_Click" />
+                <MenuItem x:Name="signoutButton" Header="{x:Static p:Resources.signoutButton}" Margin="0,0,-37,0" Click="signoutButton_Click" />
+            </MenuItem>
+
+        </Menu>
+
+        <ListView x:Name="basicRenovationDataList" HorizontalAlignment="Left" Height="210" Margin="155,112,0,0" VerticalAlignment="Top" Width="485" Background="#FFAAAAAA">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{x:Static p:Resources.idColumn}" DisplayMemberBinding="{Binding renovationId}"/>
+                    <GridViewColumn Width ="100" Header="{x:Static p:Resources.roomColumn}" DisplayMemberBinding="{Binding renovationRoom}"/>
+                    <GridViewColumn Width ="100" Header="{x:Static p:Resources.timeColumn}" DisplayMemberBinding="{Binding renovationTime}"/>
+                    <GridViewColumn Width ="100" Header="{x:Static p:Resources.durationColumn}" DisplayMemberBinding="{Binding renovationDuration}"/>
+                    <GridViewColumn Width ="150" Header="{x:Static p:Resources.descriptionColumn}" DisplayMemberBinding="{Binding renovationDescription}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Basic Renovations Schedule:" HorizontalAlignment="Left" Margin="317,79,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addBasicRenovation" Content="{x:Static p:Resources.createButton}" HorizontalAlignment="Left" Margin="155,329,0,0" VerticalAlignment="Top" Width="75" Click="addBasicRenovation_Click"/>
+            <Button x:Name="deleteBasicRenovation" Content="{x:Static p:Resources.deleteButton}" HorizontalAlignment="Left" Margin="329,329,0,0" VerticalAlignment="Top" Width="75" Click="deleteBasicRenovation_Click"/>
+            <Button x:Name="viewBasicRenovations" Content="{x:Static p:Resources.viewButton}" HorizontalAlignment="Left" Margin="242,329,0,0" VerticalAlignment="Top" Width="75" Click="viewBasicRenovations_Click"/>
+    </Grid>
+</Page>

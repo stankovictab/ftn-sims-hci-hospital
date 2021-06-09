@@ -6,55 +6,33 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public class IAdvancedSplitRenovationRepository
+    public interface IAdvancedSplitRenovationRepository
     {
-        AdvancedSplitRenovationRepository advancedSplitRenovationRepository;
 
-        public IAdvancedSplitRenovationRepository(AdvancedSplitRenovationRepository repo)
-        {
-            this.advancedSplitRenovationRepository = repo;
-        }
+        List<SplitRenovation> SplitRenovations { get; set; }
+        List<SplitRenovation> FinishedSplitRenovations { get; set; }
+        List<SplitRenovation> PullFromFile(String FileLocation);
 
-        public List<SplitRenovation> AccessSplitRenovations { get => advancedSplitRenovationRepository.SplitRenovations; set => advancedSplitRenovationRepository.SplitRenovations = value; }
 
-        public List<SplitRenovation> PullFromFile(String FileLocation)
-        {
-            return this.advancedSplitRenovationRepository.PullFromFile(FileLocation);
-        }
+        void WriteToFile(List<SplitRenovation> splitRenovations, String FileLocation);
 
-        public void WriteToFile(List<SplitRenovation> splitRenovations, String FileLocation)
-        {
-            this.advancedSplitRenovationRepository.WriteToFile(splitRenovations, FileLocation);
-        }
 
-        public List<SplitRenovation> GetAllSplit()
-        {
-            return this.advancedSplitRenovationRepository.GetAllSplit();
-        }
+        List<SplitRenovation> GetAllSplit();
 
-        public List<SplitRenovation> GetAllSplitFinished()
-        {
-            return this.advancedSplitRenovationRepository.GetAllSplitFinished();
-        }
 
-        public Boolean Create(SplitRenovation newSplitRenovation)
-        {
-            return this.advancedSplitRenovationRepository.Create(newSplitRenovation);
-        }
+        List<SplitRenovation> GetAllSplitFinished();
 
-        public Boolean Delete(int id)
-        {
-            return this.advancedSplitRenovationRepository.Delete(id);
-        }
 
-        public Boolean UpdateFile(List<SplitRenovation> splitRenovations)
-        {
-            return this.advancedSplitRenovationRepository.UpdateFile(splitRenovations);
-        }
+        Boolean Create(SplitRenovation newSplitRenovation);
 
-        public void UpdateTime(DateTime currentTime)
-        {
-            this.advancedSplitRenovationRepository.UpdateTime(currentTime);
-        }
+
+        Boolean Delete(int id);
+
+
+        Boolean UpdateFile(List<SplitRenovation> splitRenovations);
+
+
+        void UpdateTime(DateTime currentTime);
+        
     }
 }

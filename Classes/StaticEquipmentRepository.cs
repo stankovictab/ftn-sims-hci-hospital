@@ -11,10 +11,10 @@ using System.Windows;
 
 namespace Classes
 {
-    public class StaticEquipmentRepository
+    public class StaticEquipmentRepository : IStaticEquipmentRepository
     {
         private String FileLocation = "../../Text Files/staticequipment.txt";
-        public List<StaticEquipment> StaticEquipment = new List<StaticEquipment>();
+        public List<StaticEquipment> StaticEquipment { get; set; } = new List<StaticEquipment>();
 
 
         public StaticEquipment GetByName(string name)
@@ -67,6 +67,7 @@ namespace Classes
                 {
 
                     StaticEquipment.Remove(s);
+                    UpdateAll(StaticEquipment);
                     return true;
                 }
             }

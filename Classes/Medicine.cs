@@ -8,16 +8,18 @@ namespace Classes
 {
     public class Medicine
     {
-            public string Id;
-            public string Name;
-            public string Description;
-            public string Ingredients;
-            public string Alternatives;
-            public string DenialReason;
-            public List<Allergy> Allergies;
-            public MedicineStatus Status;
+            public string Id { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public string Ingredients { get; set; }
+            public string Alternatives { get; set; }
+            public string DenialReason { get; set; }
+            public List<Allergy> Allergies { get; set; }
+            public MedicineStatus Status { get; set; }
 
-            public Medicine()
+
+
+    public Medicine()
             {
             }
 

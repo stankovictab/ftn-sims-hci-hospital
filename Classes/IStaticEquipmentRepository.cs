@@ -6,55 +6,34 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    public class IStaticEquipmentRepository
+    public interface IStaticEquipmentRepository
     {
-        public StaticEquipmentRepository staticEquipmentRepository;
 
-        public IStaticEquipmentRepository(StaticEquipmentRepository repo)
-        {
-            this.staticEquipmentRepository = repo;
-        }
 
-        public List<StaticEquipment> AccessStaticEquipment { get => staticEquipmentRepository.StaticEquipment; set => staticEquipmentRepository.StaticEquipment = value; }
 
-        public StaticEquipment GetByName(string name)
-        {
-            return this.staticEquipmentRepository.GetByName(name);
-        }
+        List<StaticEquipment> StaticEquipment { get; set; }
 
-        public Boolean Create(StaticEquipment newStatic)
-        {
-            return this.staticEquipmentRepository.Create(newStatic);
-        }
+        StaticEquipment GetByName(string name);
 
-        public bool Delete(int toDelete)
-        {
-            return this.staticEquipmentRepository.Delete(toDelete);
-        }
 
-        public StaticEquipment GetById(int id)
-        {
-            return this.staticEquipmentRepository.GetById(id);
-        }
+        Boolean Create(StaticEquipment newStatic);
 
-        public List<StaticEquipment> GetAll()
-        {
-            return this.staticEquipmentRepository.GetAll();
-        }
 
-        public Boolean Update(StaticEquipment updateStatic)
-        {
-            return this.staticEquipmentRepository.Update(updateStatic);
-        }
+        bool Delete(int toDelete);
 
-        public Boolean UpdateAll(List<StaticEquipment> sif)
-        {
-            return this.staticEquipmentRepository.UpdateAll(sif);
-        }
 
-        public void DeleteByLocation(string location)
-        {
-            this.staticEquipmentRepository.DeleteByLocation(location);
-        }
+        StaticEquipment GetById(int id);
+
+
+        List<StaticEquipment> GetAll();
+
+
+        Boolean Update(StaticEquipment updateStatic);
+
+        Boolean UpdateAll(List<StaticEquipment> sif);
+
+
+        void DeleteByLocation(string location);
+        
     }
 }

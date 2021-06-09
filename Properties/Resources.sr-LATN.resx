@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="addButton" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="advancedRenovationsButton" xml:space="preserve">
+    <value>Napredne</value>
+  </data>
+  <data name="advancedRenovationsButton1" xml:space="preserve">
+    <value>Napredne</value>
+  </data>
+  <data name="alternativesColumn" xml:space="preserve">
+    <value>Alternative</value>
+  </data>
+  <data name="amountColumn" xml:space="preserve">
+    <value>Količina</value>
+  </data>
+  <data name="amountToUse" xml:space="preserve">
+    <value>Količina za Uzimanje</value>
+  </data>
+  <data name="availableAmount" xml:space="preserve">
+    <value>Raspoloživa Količi na</value>
+  </data>
+  <data name="backgroundColor" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="backgroundColor1" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="basicRenovationsButton" xml:space="preserve">
+    <value>Jednostavne</value>
+  </data>
+  <data name="basicRenovationsButton1" xml:space="preserve">
+    <value>Jednostavne</value>
+  </data>
+  <data name="chooseRoomsToMerge" xml:space="preserve">
+    <value>Izaberi Sobe za Spajanje</value>
+  </data>
+  <data name="chooseRoomsToSplit" xml:space="preserve">
+    <value>Izaberi Sobu za Deljenje</value>
+  </data>
+  <data name="createButton" xml:space="preserve">
+    <value>Napravi</value>
+  </data>
+  <data name="currentScheduleLabel" xml:space="preserve">
+    <value>Trenutni Raspored</value>
+  </data>
+  <data name="deleteButton" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="descriptionColumn" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="desiredTimeLabel" xml:space="preserve">
+    <value>Željeno Vreme</value>
+  </data>
+  <data name="durationColumn" xml:space="preserve">
+    <value>Trajanje</value>
+  </data>
+  <data name="dynamicEquipmentButton" xml:space="preserve">
+    <value>Dinamička Oprema</value>
+  </data>
+  <data name="emailLabel" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="endTimeColumn" xml:space="preserve">
+    <value>Vreme Kraja</value>
+  </data>
+  <data name="enscheduleMerge" xml:space="preserve">
+    <value>Zakaži Spajanje</value>
+  </data>
+  <data name="enscheduleSplit" xml:space="preserve">
+    <value>Zakaži Deljenje</value>
+  </data>
+  <data name="equipmentColumn" xml:space="preserve">
+    <value>Opremna</value>
+  </data>
+  <data name="estimatedDurationLabel" xml:space="preserve">
+    <value>Procenjeno Trajanje</value>
+  </data>
+  <data name="filterByLabel" xml:space="preserve">
+    <value>Filtriraj Po</value>
+  </data>
+  <data name="floorNumberColumn" xml:space="preserve">
+    <value>Broj Sprata</value>
+  </data>
+  <data name="fromRoomColumn" xml:space="preserve">
+    <value>Iz Sobe</value>
+  </data>
+  <data name="generateReport" xml:space="preserve">
+    <value>Generiši Izveštaj</value>
+  </data>
+  <data name="idColumn" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="ingredientsColumn" xml:space="preserve">
+    <value>Sastojci</value>
+  </data>
+  <data name="inventoryButton" xml:space="preserve">
+    <value>Inventar</value>
+  </data>
+  <data name="inventoryButton1" xml:space="preserve">
+    <value>Inventar</value>
+  </data>
+  <data name="languageLabel" xml:space="preserve">
+    <value>Izaberite Jezik</value>
+  </data>
+  <data name="locationColumn" xml:space="preserve">
+    <value>Lokacija</value>
+  </data>
+  <data name="locationLabel" xml:space="preserve">
+    <value>Lokacija</value>
+  </data>
+  <data name="managerNewLabel" xml:space="preserve">
+    <value>Zdravo Korporacija</value>
+  </data>
+  <data name="medicineInventoryButton" xml:space="preserve">
+    <value>Inventar</value>
+  </data>
+  <data name="medicineInventoryButton1" xml:space="preserve">
+    <value>Inventar</value>
+  </data>
+  <data name="medicineMenuItem" xml:space="preserve">
+    <value>Lekovi</value>
+  </data>
+  <data name="medicineMenuItem1" xml:space="preserve">
+    <value>Lekovi</value>
+  </data>
+  <data name="medicineReportButton" xml:space="preserve">
+    <value>Izveštaj</value>
+  </data>
+  <data name="medicineReportButton1" xml:space="preserve">
+    <value>Izveštaj</value>
+  </data>
+  <data name="medicineStorageLabel" xml:space="preserve">
+    <value>Skladište Lekova</value>
+  </data>
+  <data name="nameColumn" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="nameLabel" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="newMergeRenovationButton" xml:space="preserve">
+    <value>Novo Spajanje</value>
+  </data>
+  <data name="newRoom" xml:space="preserve">
+    <value>Nova Soba</value>
+  </data>
+  <data name="newRoom1" xml:space="preserve">
+    <value>Nova Soba 1</value>
+  </data>
+  <data name="newRoom2" xml:space="preserve">
+    <value>Nova Soba 2</value>
+  </data>
+  <data name="newRoomsColumn" xml:space="preserve">
+    <value>Nova(e) Sobe</value>
+  </data>
+  <data name="newSplitRenovationButton" xml:space="preserve">
+    <value>Novo Razdvajanje</value>
+  </data>
+  <data name="oldRoom" xml:space="preserve">
+    <value>Stara Soba</value>
+  </data>
+  <data name="passwordLabel" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="pastScheduleLabel" xml:space="preserve">
+    <value>Prethodni Raspored</value>
+  </data>
+  <data name="phoneLabel" xml:space="preserve">
+    <value>Broj Telefona</value>
+  </data>
+  <data name="profilButton" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="profilButton1" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="profileMenuItem" xml:space="preserve">
+    <value>Cveta Cvetić</value>
+  </data>
+  <data name="profileMenuItem1" xml:space="preserve">
+    <value>Cveta Cvetić</value>
+  </data>
+  <data name="putInRoom" xml:space="preserve">
+    <value>Stavi u Sobu</value>
+  </data>
+  <data name="reasonForDenial" xml:space="preserve">
+    <value>Razlog za Odbijanje</value>
+  </data>
+  <data name="renovationDetails" xml:space="preserve">
+    <value>Opis Renovacije</value>
+  </data>
+  <data name="renovationsMenuItem" xml:space="preserve">
+    <value>Renovacije</value>
+  </data>
+  <data name="renovationsMenuItem1" xml:space="preserve">
+    <value>Renovacije</value>
+  </data>
+  <data name="resubmitButton" xml:space="preserve">
+    <value>Ažuriraj</value>
+  </data>
+  <data name="roomColumn" xml:space="preserve">
+    <value>Soba</value>
+  </data>
+  <data name="roomDescription" xml:space="preserve">
+    <value>Opis Sobe</value>
+  </data>
+  <data name="roomFloor" xml:space="preserve">
+    <value>Broj Sprata</value>
+  </data>
+  <data name="roomNumber" xml:space="preserve">
+    <value>Broj Sobe</value>
+  </data>
+  <data name="roomsButton" xml:space="preserve">
+    <value>Sobe</value>
+  </data>
+  <data name="roomsButton1" xml:space="preserve">
+    <value>Sobe</value>
+  </data>
+  <data name="roomsListLabel" xml:space="preserve">
+    <value>Lista Soba</value>
+  </data>
+  <data name="roomStatus" xml:space="preserve">
+    <value>Status Sobe</value>
+  </data>
+  <data name="roomType" xml:space="preserve">
+    <value>Tip Sobe</value>
+  </data>
+  <data name="scheduleButton" xml:space="preserve">
+    <value>Preraspoređivanje</value>
+  </data>
+  <data name="scheduleButton1" xml:space="preserve">
+    <value>Preraspoređivanja</value>
+  </data>
+  <data name="searchByName" xml:space="preserve">
+    <value>Traži po Imenu</value>
+  </data>
+  <data name="selectARoomToSplit" xml:space="preserve">
+    <value>Izaberi Sobu za Deljenje</value>
+  </data>
+  <data name="signoutButton" xml:space="preserve">
+    <value>Odjava</value>
+  </data>
+  <data name="signoutButton1" xml:space="preserve">
+    <value>Odjava</value>
+  </data>
+  <data name="startTimeColumn" xml:space="preserve">
+    <value>Vreme Početka</value>
+  </data>
+  <data name="staticEquipmentButton" xml:space="preserve">
+    <value>Statička Oprema</value>
+  </data>
+  <data name="statusColumn" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="storageMenuItem" xml:space="preserve">
+    <value>Skladište</value>
+  </data>
+  <data name="storageMenuItem1" xml:space="preserve">
+    <value>Skladište</value>
+  </data>
+  <data name="surnameLabel" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="takeOutOfStorage" xml:space="preserve">
+    <value>Izvadi iz Skladišta</value>
+  </data>
+  <data name="timeColumn" xml:space="preserve">
+    <value>Vreme</value>
+  </data>
+  <data name="toRoomColumn" xml:space="preserve">
+    <value>U Sobu</value>
+  </data>
+  <data name="typeColumn" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="typeLabel" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="unavailableRoomsColumn" xml:space="preserve">
+    <value>Nedostupna(e) Sobe</value>
+  </data>
+  <data name="updateButton" xml:space="preserve">
+    <value>Ažuriraj</value>
+  </data>
+  <data name="viewButton" xml:space="preserve">
+    <value>Učitaj</value>
+  </data>
+</root>

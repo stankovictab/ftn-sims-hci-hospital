@@ -4,24 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ftn_sims_hci_hospital"
+        xmlns:p = "clr-namespace:ftn_sims_hci_hospital.Properties"
         mc:Ignorable="d"
-        Title="RoomUpdate" Height="450" Width="800">
+        Title="RoomUpdate" Height="450" Width="270">
     <Grid>
-        <TextBox x:Name="numberTextbox" HorizontalAlignment="Left" Height="23" Margin="110,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="floorTextbox" HorizontalAlignment="Left" Height="23" Margin="110,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="descriptionTextbox" HorizontalAlignment="Left" Height="133" Margin="110,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209"/>
-        <Label Content="Room Number:" HorizontalAlignment="Left" Margin="110,54,0,0" VerticalAlignment="Top"/>
-        <Label Content="Room Floor:" HorizontalAlignment="Left" Margin="110,130,0,0" VerticalAlignment="Top"/>
-        <Label Content="Room Description:" HorizontalAlignment="Left" Margin="110,212,0,0" VerticalAlignment="Top"/>
-        <Label Content="Room Type:" HorizontalAlignment="Left" Margin="369,56,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
-        <RadioButton x:Name="operatingRadio" Content="Operating" HorizontalAlignment="Left" Margin="369,95,0,0" VerticalAlignment="Top" Height="25" Width="117"/>
-        <RadioButton x:Name="checkupRadio" Content="Checkup" HorizontalAlignment="Left" Margin="369,128,0,0" VerticalAlignment="Top" Height="25" Width="106"/>
-        <RadioButton x:Name="therapyRadio" Content="Therapy" HorizontalAlignment="Left" Margin="369,161,0,0" VerticalAlignment="Top" Height="25" Width="99"/>
-        <Button Content="Update" HorizontalAlignment="Left" Margin="369,257,0,0" VerticalAlignment="Top" Width="90" Height="39" Click="Button_Click"/>
-        <Label Content="Room Status:" HorizontalAlignment="Left" Margin="542,54,0,0" VerticalAlignment="Top" Height="24" Width="117"/>
-        <RadioButton x:Name="freeRadio" Content="Free" HorizontalAlignment="Left" Margin="542,93,0,0" VerticalAlignment="Top" Height="25" Width="117"/>
-        <RadioButton x:Name="busyRadio" Content="Busy" HorizontalAlignment="Left" Margin="542,126,0,0" VerticalAlignment="Top" Height="25" Width="106"/>
-        <RadioButton x:Name="renovatingRadio" Content="Renovating" HorizontalAlignment="Left" Margin="542,159,0,0" VerticalAlignment="Top" Height="25" Width="99"/>
-        <RadioButton x:Name="reorderingRadio" Content="Reordering" HorizontalAlignment="Left" Margin="542,189,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="numberTextbox" HorizontalAlignment="Left" Height="23" Margin="62,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="floorTextbox" HorizontalAlignment="Left" Height="23" Margin="62,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="descriptionTextbox" HorizontalAlignment="Left" Height="82" Margin="24,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209"/>
+        <Label Content="{x:Static p:Resources.roomNumber}" HorizontalAlignment="Left" Margin="76,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.roomFloor}" HorizontalAlignment="Left" Margin="84,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.roomDescription}" HorizontalAlignment="Left" Margin="75,244,0,0" VerticalAlignment="Top"/>
+        <Label Content="{x:Static p:Resources.roomType}" HorizontalAlignment="Left" Margin="84,133,0,0" VerticalAlignment="Top" Height="24" Width="73"/>
+        <Button Content="{x:Static p:Resources.updateButton}" HorizontalAlignment="Left" Margin="92,373,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
+        <Label Content="{x:Static p:Resources.roomStatus}" HorizontalAlignment="Left" Margin="84,188,0,0" VerticalAlignment="Top" Height="24" Width="85"/>
+        <ComboBox x:Name="roomTypeCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="62,161,0,0"/>
+        <ComboBox x:Name="roomStatusCombo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="62,217,0,0"/>
     </Grid>
 </Window>

@@ -51,15 +51,11 @@ namespace ftn_sims_hci_hospital
 
         private void btm_Click(object sender, RoutedEventArgs e)
         {
-            Window Manager = new Manager();
-            Manager.ShowDialog();
+            Window ManagerNew = new ManagerNew();
+            ManagerNew.ShowDialog();
         }
 
-        private void managerHCI_Click(object sender, RoutedEventArgs e)
-        {
-            HCI.Manager managerHCI = new HCI.Manager();
-            managerHCI.ShowDialog();
-        }
+        
 
         private void LogIn(object sender, RoutedEventArgs e)
         {

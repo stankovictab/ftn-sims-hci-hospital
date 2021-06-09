@@ -11,7 +11,8 @@ namespace Classes
 {
     public class RoomController
     {
-        public RoomService roomService = new RoomService();
+        public static RoomRepository repo = new RoomRepository();
+        public RoomService roomService = new RoomService(repo);
         public bool Create(Room newRoom)
         {
             return roomService.Create(newRoom);

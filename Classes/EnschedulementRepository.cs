@@ -10,13 +10,13 @@ using System.IO;
 
 namespace Classes
 {
-    public class EnschedulementRepository
+    public class EnschedulementRepository : IEnschedulementRepository
     {
         private String FileLocation = "../../Text Files/enschedulements.txt";
         private String FileLocationFinished = "../../Text Files/finishedenschedulements.txt";
         private String FileLocationTasks = "../../Text Files/enschedulementtasks.txt";
-        public List<StaticEnschedulement> Enschedulements = new List<StaticEnschedulement>();
-        public List<StaticEnschedulement> FinishedEnschedulements = new List<StaticEnschedulement>();
+        public List<StaticEnschedulement> Enschedulements { get; set; } = new List<StaticEnschedulement>();
+        public List<StaticEnschedulement> FinishedEnschedulements { get; set; } = new List<StaticEnschedulement>();
         public RoomRepository roomRepository = new RoomRepository();
         public StaticEquipmentRepository staticEquipmentRepository = new StaticEquipmentRepository();
 
