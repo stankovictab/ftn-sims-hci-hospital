@@ -178,6 +178,20 @@ namespace ftn_sims_hci_hospital
             }
         }
 
+        private void showAnamnesis(object sender, RoutedEventArgs e)
+        {
+            Patient patient = (Patient)lvUsers.SelectedItem;
+            AnamnesisWindow anamnesisWindow = new AnamnesisWindow(patient);
+            anamnesisWindow.Show();
+        }
+
+        private void showPrescriptions(object sender, RoutedEventArgs e)
+        {
+            Patient patient = (Patient)lvUsers.SelectedItem;
+            Prescriptions prescriptions = new Prescriptions(patient);
+            prescriptions.Show();
+        }
+
         private void InitializeMenu()
         {
             menu.Items.Add("medical records (r)");

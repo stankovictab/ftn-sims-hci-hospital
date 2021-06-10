@@ -27,7 +27,7 @@
                                 <Label HorizontalContentAlignment="Center" Content="Hi!" FontSize="100" VerticalAlignment="Center" HorizontalAlignment="Center" Canvas.Left="415" Canvas.Top="274" />
                             </Canvas>
 
-                            <Canvas Name="canvasMedicalRecords" Visibility="Hidden">
+                            <Canvas Name="canvasMedicalRecords" Visibility="Hidden" >
                                 <ListView Name="lvUsers" Canvas.Left="8" Canvas.Top="8" Width="935" >
                                     <ListView.View>
                                         <GridView>
@@ -39,9 +39,11 @@
                                 </ListView>
                                 <Button Content="diagnosis" HorizontalAlignment="Right" Background="LightGray" Canvas.Right="240" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695" RenderTransformOrigin="0.573,0.545"/>
                                 <Button Content="inspect (i)" HorizontalAlignment="Right" Canvas.Right="323" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695"/>
-                                <Button Content="persciption" HorizontalAlignment="Right" Canvas.Right="408" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695" Click="openDiagnosis"/>
-                                <Button Content="refferal" HorizontalAlignment="Right" Canvas.Right="493" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695" Click="openAddRefferal" />
-                                <Button Content="show treatments" HorizontalAlignment="Right" Canvas.Right="578" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="94" Canvas.Top="695" Click="openHospitalTreatments" Canvas.Left="514"/>
+                                <Button Content="prescriptions" HorizontalAlignment="Right" Click="showPrescriptions" Canvas.Right="323" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695"/>
+                                <Button Content="create persciption" HorizontalAlignment="Right" Canvas.Right="408" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="100" Canvas.Top="695" Click="openDiagnosis" Canvas.Left="376"/>
+                                <Button Content="refferal" HorizontalAlignment="Right" Canvas.Right="493" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="75" Canvas.Top="695" Click="openAddRefferal" Canvas.Left="703" />
+                                <Button Content="show treatments" HorizontalAlignment="Right" Canvas.Right="578" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="94" Canvas.Top="695" Click="openHospitalTreatments" Canvas.Left="597"/>
+                                <Button Content="anamnesis" HorizontalAlignment="Right" Canvas.Right="578" Background="LightGray" VerticalAlignment="Bottom" Height="22" Width="94" Canvas.Top="695" Click="showAnamnesis" Canvas.Left="490"/>
                             </Canvas>
 
                             <Canvas Name="canvasSchedule" Visibility="Hidden">

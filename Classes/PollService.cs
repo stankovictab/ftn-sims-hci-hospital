@@ -8,6 +8,8 @@ namespace Classes
     {
         public HospitalPollRepository hpr = new HospitalPollRepository();
         public DoctorPollRepository dpr = new DoctorPollRepository();
+        public HospitalPollService hps = new HospitalPollService();
+        public DoctorPollService dps = new DoctorPollService();
 
         // Nema potrebe za template klasom ako mu se prosledjuje List<Poll>, zbog ovoga je i napravljena nadklasa
         public Tuple<double, int, int, int, int, int> calculatePollResults(List<Poll> polls)
@@ -36,7 +38,7 @@ namespace Classes
 
         // HospitalPollRepository Links
 
-        public Boolean HospitalPollCreate(String patientId, int mark, String comment)
+        /*public Boolean HospitalPollCreate(String patientId, int mark, String comment)
         {
             return hpr.Create(patientId, mark, comment);
         }
@@ -49,7 +51,7 @@ namespace Classes
         public Boolean HospitalPollDelete(String patientId)
         {
             return hpr.Delete(patientId);
-        }
+        }*/
 
         public List<HospitalPoll> HospitalPollGetAll()
         {
@@ -63,12 +65,12 @@ namespace Classes
 
         public float HospitalPollGenerateAverageMark()
         {
-            return hpr.GenerateAverageMark();
+            return hps.GenerateAverageMark();
         }
 
         // DoctorPollRepository Links
 
-        public Boolean DoctorPollCreate(String patientId, String doctorId, int mark, String comment)
+        /*public Boolean DoctorPollCreate(String patientId, String doctorId, int mark, String comment)
         {
             return dpr.Create(patientId, doctorId, mark, comment);
         }
@@ -81,7 +83,7 @@ namespace Classes
         public Boolean DoctorPollDelete(String patientId, String doctorId)
         {
             return dpr.Delete(patientId, doctorId);
-        }
+        }*/
 
         public List<DoctorPoll> DoctorPollGetAll()
         {
@@ -100,7 +102,7 @@ namespace Classes
 
         public float DoctorPollGenerateDoctorAverageMark(String id)
         {
-            return dpr.GenerateDoctorAverageMark(id);
+            return dps.GenerateDoctorAverageMark(id);
         }
     }
 }

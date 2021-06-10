@@ -53,6 +53,12 @@
     <Reference Include="ASquare.WindowsTaskScheduler, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ASquare.WindowsTaskScheduler.1.6.0.0\lib\Net45\ASquare.WindowsTaskScheduler.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNetCore.Http.Features.5.0.7\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
     </Reference>
@@ -62,6 +68,9 @@
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.5.0.0\lib\net461\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.IO.Pipelines, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -74,6 +83,9 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.Metadata.5.0.0\lib\net461\System.Reflection.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -207,6 +219,9 @@
     <Compile Include="AllPerscriptionsPage.xaml.cs">
       <DependentUpon>AllPerscriptionsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AnamnesisWindow.xaml.cs">
+      <DependentUpon>AnamnesisWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppointmentsListDoctorB.xaml.cs">
       <DependentUpon>AppointmentsListDoctorB.xaml</DependentUpon>
     </Compile>
@@ -247,7 +262,9 @@
     <Compile Include="Classes\Doctor.cs" />
     <Compile Include="Classes\DoctorController.cs" />
     <Compile Include="Classes\DoctorPoll.cs" />
+    <Compile Include="Classes\DoctorPollController.cs" />
     <Compile Include="Classes\DoctorPollRepository.cs" />
+    <Compile Include="Classes\DoctorPollService.cs" />
     <Compile Include="Classes\DoctorRepository.cs" />
     <Compile Include="Classes\DoctorService.cs" />
     <Compile Include="Classes\DoctorSpecialization.cs" />
@@ -258,6 +275,8 @@
     <Compile Include="Classes\DynamicEquipmentOrderRepository.cs" />
     <Compile Include="Classes\DynamicEquipmentOrderService.cs" />
     <Compile Include="Classes\GlobalNotifier.cs" />
+    <Compile Include="Classes\HospitalPollController.cs" />
+    <Compile Include="Classes\HospitalPollService.cs" />
     <Compile Include="Classes\IAllergiesRepository.cs" />
     <Compile Include="Classes\IAnamnesisRepository.cs" />
     <Compile Include="Classes\IAppointmentRepository.cs" />
@@ -350,6 +369,7 @@
     <Compile Include="Classes\TrollingLog.cs" />
     <Compile Include="Classes\TrollingLogRepository.cs" />
     <Compile Include="Classes\TrollingLogService.cs" />
+    <Compile Include="Classes\UpdateItemTemplate.cs" />
     <Compile Include="Classes\UpdateRoomCommand.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="CreateAppointmentPage.xaml.cs">
@@ -427,6 +447,9 @@
     <Compile Include="PatientProfilePage.xaml.cs">
       <DependentUpon>PatientProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pdfGenerate\ExportReport.cs" />
+    <Compile Include="pdfGenerate\IFileGenerator.cs" />
+    <Compile Include="pdfGenerate\iTextSharpPDFAdapter.cs" />
     <Compile Include="PersonalData.xaml.cs">
       <DependentUpon>PersonalData.xaml</DependentUpon>
     </Compile>
@@ -435,6 +458,9 @@
     </Compile>
     <Compile Include="PossibleAppointments.xaml.cs">
       <DependentUpon>PossibleAppointments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prescriptions.xaml.cs">
+      <DependentUpon>Prescriptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
@@ -559,6 +585,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AllAnamnesisPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AnamnesisWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -845,6 +875,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Prescriptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -995,6 +1029,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="pdfGenerate\Izvestaj.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

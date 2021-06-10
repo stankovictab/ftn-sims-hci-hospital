@@ -12,6 +12,8 @@ namespace ftn_sims_hci_hospital
         private AppointmentRepository appointmentRepository;
         private DoctorPollRepository pollRepository;
         private HospitalPollRepository hospitalPollRepository;
+        private HospitalPollController hospitalPollController;
+        private DoctorPollController doctorPollController;
         public PollPage()
         {
             InitializeComponent();
@@ -21,6 +23,8 @@ namespace ftn_sims_hci_hospital
             ShowHospitalResults();
             List<Doctor> doctors = appointmentRepository.GetAllPatientsDoctors(MainWindow.user.Jmbg1);
             doctorsCombo.ItemsSource = doctors;
+            hospitalPollController = new HospitalPollController();
+            doctorPollController = new DoctorPollController();
         }
 
         private void ShowDoctorsResults(object sender, SelectionChangedEventArgs e)
@@ -46,7 +50,7 @@ namespace ftn_sims_hci_hospital
                 }
                 currentDoctorComment.Content = "Vas trenutni komentar: " + p.comment;
             }
-            averageDoctorMark.Content = "Prosecna ocena: " + pollRepository.GenerateDoctorAverageMark(doc.user.Jmbg1);
+            averageDoctorMark.Content = "Prosecna ocena: " + doctorPollController.GenerateDoctorAverageMark(doc.user.Jmbg1);
 
         }
 
@@ -55,14 +59,21 @@ namespace ftn_sims_hci_hospital
             ComboBoxItem typeItem = (ComboBoxItem)markCombo.SelectedItem;
             int mark = int.Parse(typeItem.Content.ToString());
             Doctor doc = (Doctor)doctorsCombo.SelectedItem;
-            DoctorPoll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
-            if (p is null)
+            Patient p = new Patient();
+            p.user.Jmbg1 = MainWindow.user.Jmbg1;
+            Doctor d = new Doctor();
+            d.user.Jmbg1 = doc.user.Jmbg1;
+
+            DoctorPoll dp = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
+            if (dp is null)
             {
-                pollRepository.Create(MainWindow.user.Jmbg1, doc.user.Jmbg1, mark, "");
+                pollRepository.doctorPoll = new DoctorPoll(p, d, mark, "");
+                pollRepository.Create();
             }
             else
             {
-                pollRepository.Update(MainWindow.user.Jmbg1, doc.user.Jmbg1, mark, p.comment);
+                pollRepository.doctorPoll = new DoctorPoll(p, d, mark, dp.comment);
+                pollRepository.UpdateSteps();
             }
         }
 
@@ -70,14 +81,21 @@ namespace ftn_sims_hci_hospital
         {
             String comment = (String)doctorCommentTextBox.Text;
             Doctor doc = (Doctor)doctorsCombo.SelectedItem;
-            DoctorPoll p = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
-            if (p is null)
+            Patient p = new Patient();
+            p.user.Jmbg1 = MainWindow.user.Jmbg1;
+            Doctor d = new Doctor();
+            d.user.Jmbg1 = doc.user.Jmbg1;
+
+            DoctorPoll dp = pollRepository.GetPoll(MainWindow.user.Jmbg1, doc.user.Jmbg1);
+            if (dp is null)
             {
-                pollRepository.Create(MainWindow.user.Jmbg1, doc.user.Jmbg1, 0, comment);
+                pollRepository.doctorPoll = new DoctorPoll(p, d, 0, comment);
+                pollRepository.Create();
             }
             else
             {
-                pollRepository.Update(MainWindow.user.Jmbg1, doc.user.Jmbg1, p.mark, comment);
+                pollRepository.doctorPoll = new DoctorPoll(p, d, dp.mark, comment);
+                pollRepository.UpdateSteps();
             }
         }
 
@@ -114,7 +132,7 @@ namespace ftn_sims_hci_hospital
                 }
                 currentHospitalComment.Content = "Vas trenutni komentar: " + hospitalPoll.comment;
             }
-            float average = hospitalPollRepository.GenerateAverageMark();
+            float average = hospitalPollController.GenerateAverageMark();
             averageHospitalMark.Content = "Prosecna ocena bolnice: " + average;
 
         }
@@ -123,13 +141,18 @@ namespace ftn_sims_hci_hospital
             ComboBoxItem typeItem = (ComboBoxItem)hospitalMarkCombo.SelectedItem;
             int mark = int.Parse(typeItem.Content.ToString());
             HospitalPoll hospitalPoll = hospitalPollRepository.GetByPatientId(MainWindow.user.Jmbg1);
+            Patient p = new Patient();
+            p.user.Jmbg1 = MainWindow.user.Jmbg1;
+
             if (hospitalPoll is null)
             {
-                hospitalPollRepository.Create(MainWindow.user.Jmbg1, mark, "");
+                hospitalPollRepository.hospitalPoll = new HospitalPoll(p, mark, "");
+                hospitalPollRepository.Create();
             }
             else
             {
-                hospitalPollRepository.Update(MainWindow.user.Jmbg1, mark, hospitalPoll.comment);
+                hospitalPollRepository.hospitalPoll = new HospitalPoll(p, mark, hospitalPoll.comment);
+                hospitalPollRepository.UpdateSteps();
             }
         }
 
@@ -137,13 +160,18 @@ namespace ftn_sims_hci_hospital
         {
             String comment = (String)hospitalCommentTextBox.Text;
             HospitalPoll hospitalPoll = hospitalPollRepository.GetByPatientId(MainWindow.user.Jmbg1);
+            Patient p = new Patient();
+            p.user.Jmbg1 = MainWindow.user.Jmbg1;
+
             if (hospitalPoll is null)
             {
-                hospitalPollRepository.Create(MainWindow.user.Jmbg1, 0, comment);
+                hospitalPollRepository.hospitalPoll = new HospitalPoll(p, 0, comment);
+                hospitalPollRepository.Create();
             }
             else
             {
-                hospitalPollRepository.Update(MainWindow.user.Jmbg1, hospitalPoll.mark, comment);
+                hospitalPollRepository.hospitalPoll = new HospitalPoll(p, hospitalPoll.mark, comment);
+                hospitalPollRepository.UpdateSteps();
             }
         }
     }

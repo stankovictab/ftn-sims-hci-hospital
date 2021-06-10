@@ -6,9 +6,10 @@ using System.Linq;
 
 namespace ftn_sims_hci_hospital.Classes
 {
-    public class DoctorPollRepository
+    public class DoctorPollRepository : UpdateItemTemplate
     {
         private String FileLocation;
+        public DoctorPoll doctorPoll { get; set; }
         private PatientRepository patientRepository;
         private DoctorRepository doctorRepository;
         public DoctorPollRepository()
@@ -18,21 +19,14 @@ namespace ftn_sims_hci_hospital.Classes
             doctorRepository = new DoctorRepository();
         }
 
-        public Boolean Create(String patientId, String doctorId, int mark, String comment)
+        public override Boolean Create()
         {
-            string newLine = patientId + ";" + doctorId + ";" + mark.ToString() + ";" + comment + "\n";
+            string newLine = doctorPoll.patient.user.Jmbg1 + ";" + doctorPoll.doctor.user.Jmbg1 + ";" + doctorPoll.mark.ToString() + ";" + doctorPoll.comment + "\n";
             System.IO.File.AppendAllText(FileLocation, newLine);
             return true;
         }
 
-        public Boolean Update(String patientId, String doctorId, int mark, String comment)
-        {
-            Delete(patientId, doctorId);
-            Create(patientId, doctorId, mark, comment);
-            return true;
-        }
-
-        public Boolean Delete(String patientId, String doctorId)
+        public override Boolean Delete()
         {
             String[] rows = System.IO.File.ReadAllLines(FileLocation);
             List<DoctorPoll> polls = new List<DoctorPoll>();
@@ -40,7 +34,7 @@ namespace ftn_sims_hci_hospital.Classes
             foreach (String row in rows)
             {
                 String[] data = row.Split(';');
-                if (!data[0].Equals(patientId) || !data[1].Equals(doctorId))
+                if (!data[0].Equals(doctorPoll.patient.user.Jmbg1) || !data[1].Equals(doctorPoll.doctor.user.Jmbg1))
                 {
                     String r = String.Join(";", data);
                     novi.Add(r);
@@ -100,17 +94,5 @@ namespace ftn_sims_hci_hospital.Classes
             return polls;
         }
 
-        public float GenerateDoctorAverageMark(String id)
-        {
-            float sum = 0;
-            float average = 0;
-            List<DoctorPoll> polls = GetAllByDoctorId(id);
-            foreach (DoctorPoll p in polls)
-            {
-                sum += p.mark;
-            }
-            average = sum / polls.Count();
-            return average;
-        }
     }
 }

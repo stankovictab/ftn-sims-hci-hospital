@@ -1,3 +1,2 @@
-3;0809999800061;Kasalj jak;2022,2,25,10,30,00
-1;1243999081010;Kasalj;2023,02,25,10,30,00
-2;1243999081010;Bol u vratu1;2022,02,25,10,30,00
+1;1243999081010;Pacijent se na zali na bolove sa kao i prethodnog puta, bol u bokovima je prestao ali se pojavio bol u vratu pracen jakim kasljem i otezanim disanjem. Pacijent se zali kako mu je vid oslabio i zeli da dobije hitan uput kod ocnog lekara. Pacijent se ne zali na kijanje od proslog puta tvrdeci da ga je Zlatiborski vazduh oporavio od toga.;2023,02,25,10,30,00
+3;0809999800061;Kasalj jak pracen jakim kijanjem. Pacijent se zali na jak bol u kolenu i nemogucnost kretanja duze vreme, uz otezano disanje prilikom radjenja zadataka iz matematike. Pacijent se jos zali da prilikom ustajanja oseca veliki bol u desnom boku, dok ga levi bok samo povremeno zaboli prilikom tezih fizickih aktivnosti kao sto su trcanje, naprezanje mozga i preterano treniranje.;2022,02,25,10,30,00
