@@ -35,6 +35,6 @@
         </Canvas>
         <Button Name="btnU" Content="update" Click="update" HorizontalAlignment="Right" Margin="0,0,93,15" VerticalAlignment="Bottom" Width="75"/>
         <Button Name="btnD" Content="delete" Click="delete" HorizontalAlignment="Right" Margin="0,0,173,15" VerticalAlignment="Bottom" Width="75"/>
-        <Button x:Name="print" Content="print" Click="printPres" HorizontalAlignment="Right" Margin="0,0,253,15" VerticalAlignment="Bottom" Width="75"/>
+        <Button x:Name="print" Content="print" Click="printPresription" HorizontalAlignment="Right" Margin="0,0,253,15" VerticalAlignment="Bottom" Width="75"/>
     </Grid>
 </Window>

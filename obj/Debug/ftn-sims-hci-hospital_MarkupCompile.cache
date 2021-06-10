@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Brt\Desktop\ftn-sims-hci-hospital\obj\Debug\
+C:\Users\Brt\Desktop\HCI odbrana\obj\Debug\
 ftn_sims_hci_hospital
 none
 false
 DEBUG;TRACE
-C:\Users\Brt\Desktop\ftn-sims-hci-hospital\App.xaml
+C:\Users\Brt\Desktop\HCI odbrana\App.xaml
 521146983114
-42110694002
-1381172974804
-1361545381791
+4-786657482
+140-15852523
+136748491838
 AddReferral.xaml;AddPrescription.xaml;Views\AnamnesisWindow.xaml;Diagnosis.xaml;DoctorBNew.xaml;DoctorPanel.xaml;Dynamic.xaml;DynamicCreation.xaml;DynamicEquipmentRequestApproval.xaml;DynamicEquipmentRequestPanel.xaml;DynamicUpdate.xaml;DynamicUse.xaml;GuestCreation.xaml;HolidayRequestApproval.xaml;HolidayRequestCreation.xaml;HolidayRequestPanel.xaml;HolidayRequestUpdate.xaml;AllAppointments.xaml;CreateAppointment.xaml;AppointmentsListDoctorB.xaml;Views\CreateAppointmentDoctorB.xaml;DeleteAppointmentDoctorB.xaml;Views\CreateAppPage.xaml;Views\DoctorB.xaml;HomeWindow.xaml;MainWindow.xaml;Manager.xaml;MedicalRecords.xaml;MedicineList.xaml;NotificationsPage.xaml;PatientCreation.xaml;PatientManagement.xaml;PatientView.xaml;PossibleAppointments.xaml;Views\Prescriptions.xaml;ProfileWindow.xaml;PatientWindow.xaml;RoomCreation.xaml;Rooms.xaml;RoomUpdate.xaml;SecretaryAppointmentCreation.xaml;SecretaryAppointments.xaml;SecretaryPatients.xaml;SecretaryUpdateAppointment.xaml;Static.xaml;StaticCreation.xaml;StaticMove.xaml;StaticSchedule.xaml;StaticUpdate.xaml;Views\Treatments.xaml;UpdateAppointmentPatient.xaml;Views\RoomEquipment.xaml;
 
 False

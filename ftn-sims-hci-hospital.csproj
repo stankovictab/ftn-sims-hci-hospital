@@ -117,7 +117,9 @@
       <DependentUpon>AllAppointments.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
-    <Compile Include="pdfGenerate\PrintPdf.cs" />
+    <Compile Include="pdfGenerate\ExportReport.cs" />
+    <Compile Include="pdfGenerate\IFileGenerator.cs" />
+    <Compile Include="pdfGenerate\iTextSharpPDFAdapter.cs" />
     <Compile Include="ViewModels\AnamnesisWindowViewModel.cs" />
     <Compile Include="ViewModels\AppointmentViewModel.cs" />
     <Compile Include="ViewModels\RoomEquipmentViewModel.cs" />

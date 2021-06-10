@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows;
 using Classes;
 using ftn_sims_hci_hospital;
+using ftn_sims_hci_hospital.pdfGenerate;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Font = iTextSharp.text.Font;
@@ -82,82 +83,17 @@ namespace Views
             CanvasPersUpdate.Visibility = Visibility.Visible;
         }
 
-        private void printPres(object sender, RoutedEventArgs e)
+        private void printPresription(object sender, RoutedEventArgs e)
         {
+            ExportReport exportReport = new ExportReport();
+            exportReport.addPatient(patient.user);
             Perscription prescription = (Perscription)prescriptions.SelectedItem;
-
-            Document doc = new Document();
-            PdfWriter.GetInstance(doc, new FileStream("../../pdfGenerate/Recept.pdf", FileMode.Create));
-            doc.Open();
-
-            Font bold = new Font(FontFactory.GetFont(FontFactory.TIMES_BOLD, 11, Font.BOLD));
-            Font small = FontFactory.GetFont("georgia", 7f);
-            Font normal = FontFactory.GetFont("georgia", 11f);
-            Font dateFont = FontFactory.GetFont("georgia", 9f);
-            Paragraph e1 = new Paragraph("Bolica Zdravlje", small);
-            Paragraph e2 = new Paragraph("Novi Sad Pavla Papa 24", small);
-            iTextSharp.text.Paragraph e3 = new Paragraph("492-231", small);
-
-
-            Paragraph p0 = new Paragraph("\n");
-            Paragraph p00 = new Paragraph("\n");
-            Paragraph p1 = new Paragraph("Ime: " + patient.user.Name1, bold);
-            Paragraph p2 = new Paragraph("Prezime: " + patient.user.LastName1, bold);
-            Paragraph p3 = new Paragraph("JMBG: " + patient.user.Jmbg1, bold);
-
-            Paragraph p4 = new Paragraph("\n\n");
-            Paragraph p5 = new Paragraph("Naziv leka: ", bold);
-            Paragraph p6 = new Paragraph(prescription.Medicine.Name, normal);
-            Paragraph p61 = new Paragraph("Kolicina :", bold);
-            Paragraph p62 = new Paragraph(prescription.Amount.ToString(), normal);
-            Paragraph p63 = new Paragraph("Opis za uzimanje leka: ", bold);
-            Paragraph p64 = new Paragraph(prescription.Description, normal);
-            Paragraph p65 = new Paragraph("Alternativni lekovi: ", bold);
-            Paragraph p66 = new Paragraph(prescription.Medicine.Alternatives, normal);
-
-
-            Paragraph p000 = new Paragraph("\n\n");
-
-            Paragraph p7 = new Paragraph("Recept je  napisao doktor " + MainWindow.user.Name1 + " " + MainWindow.user.LastName1 + ".", normal);
-
-            Paragraph p9 = new Paragraph("\n\n\n\n\n");
-
-
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance("../../Images/logoSmall.jpg");
-            logo.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
-            doc.Add(logo);
-            iTextSharp.text.Image text = iTextSharp.text.Image.GetInstance("../../Images/textSmall.png");
-            text.Alignment = iTextSharp.text.Image.ALIGN_CENTER;
-            doc.Add(text);
-
-            doc.Add(p0);
-            doc.Add(p00);
-            doc.Add(p1);
-            doc.Add(p2);
-            doc.Add(p3);
-            doc.Add(p4);
-            doc.Add(p5);
-            doc.Add(p6);
-            doc.Add(p61);
-            doc.Add(p62);
-            doc.Add(p63);
-            doc.Add(p64);
-            doc.Add(p65);
-            doc.Add(p66);
-            doc.Add(p000);
-            doc.Add(p7);
-            //doc.Add(p8);
-            doc.Add(p9);
-
-            iTextSharp.text.Image sig = iTextSharp.text.Image.GetInstance("../../Images/sigSmall.png");
-            sig.Alignment = iTextSharp.text.Image.ALIGN_RIGHT;
-            doc.Add(sig);
-
-
-            doc.Add(e1);
-            doc.Add(e2);
-            doc.Add(e3);
-            doc.Close();
+            exportReport.addPrescription(prescription);
+            exportReport.addDoctor(MainWindow.user);
+            if (exportReport.generate())
+            {
+                MessageBox.Show("Report successfully generated");
+            }
         }
 
         private void fillMedicines()
